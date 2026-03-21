@@ -13,7 +13,6 @@ public class FallingState : IState
 
     public void Enter()
     {
-        Debug.Log("Falling");
         _status.IsFalling = true;
     }
 

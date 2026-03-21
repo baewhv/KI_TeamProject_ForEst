@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private PlayerStatus _status;
 
     public Rigidbody2D _rigidbody { get; private set; }
+    private BoxCollider2D _collider; 
 
     private StateMachine _jumpState;
     public JumpStandbyState JumpStandby { get; private set; }
@@ -18,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _status = status;
         _rigidbody = GetComponent<Rigidbody2D>();
+        _collider = GetComponent<BoxCollider2D>();
         _jumpState = new StateMachine();
 
         JumpStandby = new JumpStandbyState(_status, this);
@@ -36,12 +38,9 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         //좌우 입력
-        _status.JumpVelocity += Physics2D.gravity.y * Time.deltaTime;
-        _rigidbody.AddForceY(_status.JumpVelocity * Time.fixedDeltaTime);
         _rigidbody.linearVelocityX = _status.InputAxis.x * _status.MoveSpeed * Time.fixedDeltaTime;
         //중력
-        Debug.Log($"_rigidbody.totalForce : {_rigidbody.totalForce}\n_rigidbody.totalTorque : {_rigidbody.totalTorque}");
-        
+        _rigidbody.AddForceY(Physics2D.gravity.y * Time.fixedDeltaTime);
     }
 
     public void ChangeJumpState(IState state)
@@ -51,8 +50,8 @@ public class PlayerMovement : MonoBehaviour
 
     public bool IsGround()
     {
-        BoxCollider2D collider = GetComponent<BoxCollider2D>();
-        Vector2 ray = _rigidbody.position - new Vector2(0, collider.size.y * 0.5f);
+        //if (_rigidbody.linearVelocityY < 0.01f) return false;
+        Vector2 ray = _rigidbody.position - new Vector2(0, _collider.size.y * 0.5f);
         ContactFilter2D filter = new ContactFilter2D
         {
             useLayerMask = true,
@@ -61,7 +60,6 @@ public class PlayerMovement : MonoBehaviour
         List<RaycastHit2D> hits = new List<RaycastHit2D>();
         if (Physics2D.Raycast(ray, Vector2.down, filter, hits, 0.1f) > 0)
             return true;
-
         return false;
     }
 

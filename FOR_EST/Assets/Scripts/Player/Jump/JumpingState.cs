@@ -14,13 +14,12 @@ public class JumpingState : IState
     public void Enter()
     {
         _status.IsJumping = true;
-        _movement._rigidbody.
-        _status.JumpVelocity = Mathf.Sqrt(_status.JumpPower * -2.0f * Physics2D.gravity.y);
+        _movement._rigidbody.AddForceY(_status.JumpPower, ForceMode2D.Impulse);
     }
 
     public void Update()
     {
-        if(_status.JumpVelocity < 0)
+        if(_movement._rigidbody.linearVelocityY < 0)
             _movement.ChangeJumpState(_movement.Falling);
     }
 

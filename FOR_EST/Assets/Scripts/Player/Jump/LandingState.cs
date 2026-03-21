@@ -18,7 +18,6 @@ public class LandingState : IState
     
     public void Enter()
     {
-        Debug.Log("Landing");
         _movement.ChangeJumpState(_movement.JumpStandby);
         _status.IsJumping = false;
     }

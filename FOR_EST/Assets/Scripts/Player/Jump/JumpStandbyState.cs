@@ -13,10 +13,8 @@ public class JumpStandbyState : IState
     
     public void Enter()
     {
-        Debug.Log("Jump Standby");
         _status.IsJumping = false;
         _status.IsFalling = false;
-        _status.JumpVelocity = Physics2D.gravity.y;
     }
 
     public void Update()

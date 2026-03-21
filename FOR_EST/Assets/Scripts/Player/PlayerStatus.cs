@@ -12,20 +12,9 @@ public class PlayerStatus
     public float MoveSpeed;
     public float PushSpeed;
     public float JumpPower;
+    public float GravityScale;
 
     public bool IsJumping { get; set; }
     public bool IsFalling { get; set; }
-
-    private float _jumpVelocity;
-    public float JumpVelocity
-    {
-        get => _jumpVelocity;
-        set
-        {
-            if (_jumpVelocity < Physics2D.gravity.y)
-                _jumpVelocity = Physics2D.gravity.y;
-            else _jumpVelocity = value;
-        }
-    }
     public Vector2 BeforePosition { get; set; }
 }
