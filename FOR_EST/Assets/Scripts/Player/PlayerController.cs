@@ -5,10 +5,11 @@ using UnityEngine.InputSystem;
 /// <summary>
 /// 플레이어 조작 부분
 /// </summary>
-public class PlayerController : MonoBehaviour, IReversable
+public class PlayerController : MonoBehaviour
 {
     [SerializeField] private PlayerStatus _status = new PlayerStatus();   
     private PlayerMovement _movement;
+    private PlayerReverse _reverse;
     
     private UserInput _input;
     private GameObject _grabObject;
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour, IReversable
         _input = new UserInput();
         _movement = GetComponent<PlayerMovement>(); 
         _movement.Init(_status);
+        _reverse = GetComponent<PlayerReverse>();
     }
 
     private void OnEnable()
@@ -26,7 +28,7 @@ public class PlayerController : MonoBehaviour, IReversable
         _input.Player.Move.performed += OnMove;
         _input.Player.Move.canceled += OffMove;
         _input.Player.Jump.performed += OnJump;
-        _input.Player.Reverse.performed += _ => { };
+        _input.Player.Reverse.performed += OnReverse;
         _input.Player.ShowReverse.performed += _ => { };
         _input.Player.Restart.performed += _ => { };
     }
@@ -52,8 +54,8 @@ public class PlayerController : MonoBehaviour, IReversable
         _movement.ChangeJumpState(_movement.Jumping);
     }
 
-    public void Reverse()
+    private void OnReverse(InputAction.CallbackContext ctx)
     {
-
+        _reverse.Reverse();
     }
 }
