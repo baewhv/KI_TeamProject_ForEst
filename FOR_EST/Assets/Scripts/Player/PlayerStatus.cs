@@ -8,7 +8,7 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerStatus
 {
-    public Vector2 InputAxis;
+    public ObserveValue<Vector2> InputAxis;
     public float MoveSpeed;
     public float PushSpeed;
     public float JumpPower;
@@ -16,5 +16,9 @@ public class PlayerStatus
 
     public bool IsJumping { get; set; }
     public bool IsFalling { get; set; }
+    public bool IsGrab { get; set; }
+    public IPullable GrabbedObject { get; set; }
+    public bool IsRight { get; set; }
+    
     public Vector2 BeforePosition { get; set; }
 }

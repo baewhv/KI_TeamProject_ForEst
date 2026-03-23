@@ -7,12 +7,17 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private PlayerStatus _status = new PlayerStatus();   
+    [SerializeField] private PlayerStatus _status = new PlayerStatus();
+    [SerializeField] private Transform _grabPoint;
     private PlayerMovement _movement;
     private PlayerReverse _reverse;
     
     private UserInput _input;
     private GameObject _grabObject;
+    
+    
+    
+    
 
     private void Awake()
     {
@@ -20,6 +25,7 @@ public class PlayerController : MonoBehaviour
         _movement = GetComponent<PlayerMovement>(); 
         _movement.Init(_status);
         _reverse = GetComponent<PlayerReverse>();
+        _status.InputAxis.AddListener(SetDirection);
     }
 
     private void OnEnable()
@@ -31,21 +37,27 @@ public class PlayerController : MonoBehaviour
         _input.Player.Reverse.performed += OnReverse;
         _input.Player.ShowReverse.performed += _ => { };
         _input.Player.Restart.performed += _ => { };
+        _input.Player.Grab.performed += OnInteract;
     }
 
     private void OnDisable()
     {
+        _input.Player.Move.performed -= OnMove;
+        _input.Player.Move.canceled -= OffMove;
+        _input.Player.Jump.performed -= OnJump;
+        _input.Player.Reverse.performed -= OnReverse;
+        _input.Player.Grab.performed -= OnInteract;
         _input.asset.Disable();
     }
 
     private void OnMove(InputAction.CallbackContext ctx)
     {
-        _status.InputAxis = ctx.ReadValue<Vector2>();
+        _status.InputAxis.Value = ctx.ReadValue<Vector2>();
     }
 
     private void OffMove(InputAction.CallbackContext ctx)
     {
-        _status.InputAxis = Vector2.zero;
+        _status.InputAxis.Value = Vector2.zero;
     }
 
     private void OnJump(InputAction.CallbackContext ctx)
@@ -57,5 +69,53 @@ public class PlayerController : MonoBehaviour
     private void OnReverse(InputAction.CallbackContext ctx)
     {
         _reverse.Reverse();
+    }
+
+    private void OnInteract(InputAction.CallbackContext ctx)
+    {
+        TryInteractObject();
+    }
+
+    private void SetDirection(Vector2 dir)
+    {
+        if (_status.IsGrab) return;
+        if (dir.x > 0)
+        {
+            _status.IsRight = true;
+            if (_grabPoint.localPosition.x < 0)
+                _grabPoint.localPosition = new Vector2(_grabPoint.localPosition.x * -1, _grabPoint.localPosition.y);
+        }
+        else if (dir.x < 0)
+        {
+            _status.IsRight = false;
+            if (_grabPoint.localPosition.x > 0)
+                _grabPoint.localPosition = new Vector2(_grabPoint.localPosition.x * -1, _grabPoint.localPosition.y);
+        }
+    }
+
+    private void TryInteractObject()
+    {
+        if (_status.IsGrab) //대화 시 잡기 상태를 해제해야 대화 가능
+        {
+            _status.GrabbedObject.OnStopP();
+            OffGrab();
+            return;
+        }
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * (_status.IsRight ? 1 : -1), 0.5f, 1<<12);
+        if (hit.collider.CompareTag("Obstacle"))
+        {
+            
+            _status.GrabbedObject = hit.collider.GetComponent<IPullable>();
+            _status.GrabbedObject.OnPull(_grabPoint);
+            _status.IsGrab = true;
+        }
+
+    }
+
+    public void OffGrab()
+    {
+        _status.GrabbedObject = null;
+        _status.IsGrab = false;
     }
 }

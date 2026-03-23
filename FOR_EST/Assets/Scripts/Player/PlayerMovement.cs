@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         //좌우 입력
-        _rigidbody.linearVelocityX = _status.InputAxis.x * _status.MoveSpeed * Time.fixedDeltaTime;
+        _rigidbody.linearVelocityX = _status.InputAxis.Value.x * _status.MoveSpeed * Time.fixedDeltaTime;
         //중력
         _rigidbody.AddForceY(Physics2D.gravity.y * Time.fixedDeltaTime);
     }
