@@ -107,7 +107,7 @@ namespace Obstacle
                 float followTarget = _playerHand.position.x + _pivot.x;
                 _rb.MovePosition(new Vector2(followTarget, _rb.position.y));
 
-                if (transform.position.y < _spawnPos.y)     _rb.gravityScale = _fallingGravity;
+                if (transform.position.y < _spawnPos.y + 0.5f)     _rb.gravityScale = _fallingGravity;
                 else                                        _rb.gravityScale = _originalGravity;
             }
         }
@@ -133,8 +133,8 @@ namespace Obstacle
         {
             if (_playerHand != null)
             {
-                var player = _playerHand.GetComponentInParent<PlayerController>();
-               /// if (player != null) player.isGrabbing = false;
+                var player = _playerHand.GetComponent<TestHand>();
+                if (player != null) player.isGrabbing = false;
             }
 
             _isPulling = false;
@@ -155,6 +155,7 @@ namespace Obstacle
 
         private IEnumerator RespawnRoutine()
         {
+            _rb.gravityScale = 0;
             _renderer.enabled = false;
             _collider[0].enabled = false;
             _collider[1].enabled = false;
@@ -163,6 +164,7 @@ namespace Obstacle
 
             transform.position = _spawnPos;
 
+            _rb.gravityScale = _originalGravity;
             _renderer.enabled = true;
             _collider[0].enabled = true;
             _collider[1].enabled = true;
