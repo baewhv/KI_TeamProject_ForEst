@@ -133,8 +133,8 @@ namespace Obstacle
         {
             if (_playerHand != null)
             {
-                var player = _playerHand.GetComponent<TestHand>();
-                if (player != null) player.isGrabbing = false;
+                var player = _playerHand.GetComponent<PlayerController>();
+                if (player != null) player.OffGrab();
             }
 
             _isPulling = false;
