@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform _grabPoint;
     private PlayerMovement _movement;
     private PlayerReverse _reverse;
+    private ReverseView _reverseView;
     
     private UserInput _input;
     private GameObject _grabObject;
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
         _movement = GetComponent<PlayerMovement>(); 
         _movement.Init(_status);
         _reverse = GetComponent<PlayerReverse>();
+        _reverseView = GetComponentInChildren<ReverseView>();
         _status.InputAxis.AddListener(SetDirection);
     }
 
@@ -35,7 +37,7 @@ public class PlayerController : MonoBehaviour
         _input.Player.Move.canceled += OffMove;
         _input.Player.Jump.performed += OnJump;
         _input.Player.Reverse.performed += OnReverse;
-        _input.Player.ShowReverse.performed += _ => { };
+        _input.Player.ShowReverse.performed += OnShowReverse;
         _input.Player.Restart.performed += _ => { };
         _input.Player.Grab.performed += OnInteract;
     }
@@ -46,6 +48,7 @@ public class PlayerController : MonoBehaviour
         _input.Player.Move.canceled -= OffMove;
         _input.Player.Jump.performed -= OnJump;
         _input.Player.Reverse.performed -= OnReverse;
+        _input.Player.ShowReverse.performed -= OnShowReverse;
         _input.Player.Grab.performed -= OnInteract;
         _input.asset.Disable();
     }
@@ -66,6 +69,7 @@ public class PlayerController : MonoBehaviour
         _movement.ChangeJumpState(_movement.Jumping);
     }
 
+    // 플레이어 반전 기능 Z키
     private void OnReverse(InputAction.CallbackContext ctx)
     {
         _reverse.Reverse();
@@ -74,6 +78,12 @@ public class PlayerController : MonoBehaviour
     private void OnInteract(InputAction.CallbackContext ctx)
     {
         TryInteractObject();
+    }
+
+    // 카메라 시점 전환 X키
+    private void OnShowReverse(InputAction.CallbackContext ctx)
+    {
+        _reverseView.ChangeReverseView();
     }
 
     private void SetDirection(Vector2 dir)
