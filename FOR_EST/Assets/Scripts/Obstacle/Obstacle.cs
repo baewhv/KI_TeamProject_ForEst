@@ -34,19 +34,15 @@ namespace Obstacle
         
         [Header("반전 될 오브젝트")]
         [SerializeField] private ReverseObject _reverseObject;
-
-        [Header("장애물이 솟아오르기 위한 위치")] 
-        [SerializeField] private float _riseH;
         
         [Header("장애물이 솟아오르기까지 걸리는 시간")] 
         [SerializeField] private float _riseT;
         
         private SpriteRenderer _renderer;
         private Collider2D _collider;
-        private Collider2D _playerCollider;
         private float _originalGravity;
         private float _fallingGravity = 7f;
-        private bool _isRunning = false;
+        private bool _isRespawning = false;
 
         private void Awake()
         {
@@ -101,27 +97,12 @@ namespace Obstacle
         {
             base.OnPull(playerHand);
             _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-            //
-            // _playerCollider = playerHand.GetComponentInParent<Collider2D>();
-            // if (_playerCollider != null)
-            // {
-            //     Physics2D.IgnoreCollision(_collider, _playerCollider, true);
-            //     Debug.Log("물리충돌 무시");
-            // }
-            
         }
 
         public override void OnStopP()
         {
             if (_playerHand != null)
             {
-                // if (_playerCollider != null)
-                // {
-                //     Physics2D.IgnoreCollision(_collider, _playerCollider, false);
-                //     _playerCollider = null;
-                //     Debug.Log("물리충돌 재실행");
-                // }
-                
                 var player = _playerHand.GetComponentInParent<PlayerController>();
                 if (player != null) player.OffGrab();
             }
@@ -143,18 +124,24 @@ namespace Obstacle
         // 장애물이 사라지는 조건 (맵 밖으로 밀려남)에 위치에 장애물이 걸리게 되면 해당 메서드를 실행하면 됨
         public override void Respawn()
         {
-            if (_isRunning) return;
+            if (_isRespawning) return;
+            OnStopP();
             StartCoroutine(RespawnRoutine());
         }
 
         private IEnumerator RespawnRoutine()
         {
-            _isRunning = true;
+            _isRespawning = true;
             _rb.simulated = false;
             _renderer.enabled = false;
             _collider.enabled = false;
             
-            transform.position = _spawnPos + Vector2.down * _riseH;
+            Vector2 originalScale = transform.localScale;
+            // transform.localScale = new Vector2(originalScale.x, originalScale.y);
+            
+            float startH = _renderer.bounds.extents.y + 0.2f;
+            Vector2 bottomPos = _spawnPos + Vector2.down * startH;
+            transform.position = bottomPos;
 
             yield return YieldContainer.WaitForSeconds(_respawnTime);
             
@@ -163,24 +150,25 @@ namespace Obstacle
             _renderer.enabled = true;
             _collider.enabled = true;
 
-            float duration = _riseT;
             float elapseTime = 0f;
-            Vector2 startPos = transform.position;
 
-            while (elapseTime < duration)
+            while (elapseTime < _riseT)
             {
                 elapseTime += Time.deltaTime;
-                float time = elapseTime / duration;
+                float time = elapseTime / _riseT;
                 
-                _rb.MovePosition(Vector2.Lerp(startPos, _spawnPos, time));
+                transform.localScale = new Vector2(originalScale.x, Mathf.Lerp(0f, originalScale.y,time));
+                
+                float currentHalfHeight = (_renderer.bounds.size.y) / 2f;
+                transform.position = bottomPos + Vector2.up * currentHalfHeight;
                 
                 yield return null;
             }
 
-            transform.position = _spawnPos;
+            transform.localScale = originalScale;
             _rb.bodyType = RigidbodyType2D.Dynamic;
             _rb.gravityScale = _originalGravity;
-            _isRunning = false;
+            _isRespawning = false;
         }
 
 
