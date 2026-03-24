@@ -17,13 +17,13 @@ TagManager:
   - 
   - 
   - 
-  - Obstacle
-  - 
+  - Ground
+  - Border
   - 
   - Obstacle
   - Wall
   - 
-  - 
+  - Map
   - 
   - 
   - 
