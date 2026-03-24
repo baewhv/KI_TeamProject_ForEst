@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 /// <summary>
@@ -24,16 +25,25 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         
         Init();
     }
-
-    private void Update()
-    {
-        CheckClear();
-    }
-
+    
     private void Init()
     {
         _happyMask = LayerMask.GetMask("HappyFruit");
         _sadMask = LayerMask.GetMask("SadFruit");
+    }
+
+    // SceneManagement 스크립트에서 Scene 전환 시
+    // 클리어 조건을 1프레임 이후에 체크하도록 구현하기 위해 코루틴 사용
+    // 즉시 체크하면 Awake 단계에서 오브젝트가 생성되지 않은 상태에서 검사하는 경우가 발생
+    public void OnSceneLoadedCheck()
+    {
+        StartCoroutine(DelayCheck());
+    }
+
+    private IEnumerator DelayCheck()
+    {
+        yield return null;
+        
         CheckFruitCount();
     }
 
@@ -57,7 +67,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     private void CheckClear()
     {
         if (HappyFruitCount != 0 || SadFruitCount != 0) return;
-        
+
         IsClear = true;
     }
 
