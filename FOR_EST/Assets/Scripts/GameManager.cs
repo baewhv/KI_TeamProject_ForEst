@@ -1,8 +1,15 @@
 using System;
 using UnityEngine;
 
+/// <summary>
+/// 게임의 전반적인 클리어 조건
+/// 열매가 전부 목적 포인트에 도달하여 충족되는지 체크
+/// 필드에 존재하는 열매 개수가 0이 되면 클리어 조건 활성화
+/// </summary>
+/// 
 public class GameManager : SingletonMonoBehaviour<GameManager>
 {
+    
     public int HappyFruitCount { private get; set; }
     public int SadFruitCount { private get; set; }
 
