@@ -1,26 +1,69 @@
+using System.Collections;
 using UnityEngine;
 
 // IPullable 상속
 public class HappyFruit : MonoBehaviour, IPullable
 {
-    // 첫 위치 저장 변수
-    private Vector2 _startPosition;
-    private Rigidbody2D _fruitRigidbody;
+    [SerializeField] private Vector2 _spawnPos;
+    [SerializeField] private float _respawnTime = 1f;
+    private Rigidbody2D _rb;
+    private SpriteRenderer _renderer;
+    private Collider2D _collider;
+    private Transform _playerHand;
+    private bool _isPulling = false;
 
     private void Awake()
     {
-        _fruitRigidbody = GetComponent<Rigidbody2D>();
-        _startPosition = transform.position;
+        Init();
+    }
+
+    private void FixedUpdate()
+    {
+        if (_isPulling && _playerHand!= null)
+        {
+            _rb.MovePosition(new Vector2(_playerHand.position.x, _rb.position.y));
+        }
+    }
+
+    public void Init()
+    {
+        _spawnPos = gameObject.transform.position;
+        _rb = GetComponent<Rigidbody2D>();
+        _renderer = GetComponent<SpriteRenderer>();
+        _collider = GetComponent<Collider2D>();
+        _rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
+    }
+
+    // 플레이어가 잡았을 때
+    public void OnPull(Transform playerHand)
+    {
+        _isPulling =true;
+        _playerHand = playerHand;
+        _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+    }
+
+    // 플레이어가 놓았을 때
+    public void OnStopP()
+    {
+        if(_playerHand!= null)
+        {
+            var player = _playerHand.GetComponentInParent<PlayerController>();
+            if(player != null) player.OffGrab();
+        }
+
+        _isPulling = false;
+        _playerHand = null;
+        _rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
     }
 
     // 무언가와 트리거 했을 때 실행되는 함수
     // target : 부딪힌 상대방을 target이라는 변수명 사용
     private void OnTriggerEnter2D(Collider2D target)
     {
-        if(target.CompareTag("Boundary"))
+        if (target.CompareTag("Boundary"))
         {
             // 부딪힌 대상이 Boundary라면 리셋
-            BackToStartPoint();
+            Respawn();
         }
 
         else if (target.CompareTag("Seed"))
@@ -30,25 +73,26 @@ public class HappyFruit : MonoBehaviour, IPullable
         }
     }
 
-    // 플레이어가 잡았을 때
-    public void OnPull(Transform playerHand)
-    {
-        _fruitRigidbody.simulated = false;
-        transform.SetParent(playerHand);
-        transform.localPosition = Vector2.zero;
-    }
-
-    // 플레이어가 놓았을 때
-    public void OnStopP()
-    {
-        _fruitRigidbody.simulated = true;
-        transform.SetParent(null);
-    }
-
     // 열매 리셋하는 함수
-    public void BackToStartPoint()
+    public void Respawn()
     {
-        transform.position = _startPosition;
-        _fruitRigidbody.linearVelocity = Vector2.zero;
+        StartCoroutine(RespawnRoutine());
+    }
+
+    private IEnumerator RespawnRoutine()
+    {
+        _rb.simulated = false;
+        _renderer.enabled = false;
+        _collider.enabled = false;
+
+        yield return new WaitForSeconds(_respawnTime);
+
+        transform.position = _spawnPos;
+        _rb.linearVelocity = Vector2.zero;
+
+        _rb.simulated = true;
+        _renderer.enabled = true;
+        _collider.enabled = true;
+        _rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
     }
 }

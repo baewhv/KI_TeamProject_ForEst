@@ -1,16 +1,58 @@
+using System.Collections;
 using UnityEngine;
 
 // IPullable 상속
 public class SadFruit : MonoBehaviour, IPullable
 {
-    // 첫 위치 저장 변수
-    private Vector2 _startPosition;
-    private Rigidbody2D _fruitRigidbody;
+    [SerializeField] private Vector2 _spawnPos;
+    [SerializeField] private float _respawnTime = 1f;
+
+    private Rigidbody2D _rb;
+    private SpriteRenderer _renderer;
+    private Collider2D _collider;
+    private Transform _playerHand;
+    private bool _isPulling = false;
 
     private void Awake()
     {
-        _fruitRigidbody = GetComponent<Rigidbody2D>();
-        _startPosition = transform.position;
+        Init();
+    }
+
+    private void FixedUpdate()
+    {
+        if (_isPulling && _playerHand != null)
+        {
+            _rb.MovePosition(new Vector2(_playerHand.position.x, _rb.position.y));
+        }
+    }
+
+    public void Init()
+    {
+        _spawnPos = gameObject.transform.position;
+        _rb = GetComponent<Rigidbody2D>();
+        _renderer = GetComponent<SpriteRenderer>();
+        _collider = GetComponent<Collider2D>();
+        _rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
+    }
+
+    public void OnPull(Transform playerHand)
+    {
+        _isPulling = true;
+        _playerHand = playerHand;
+        _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+    }
+
+    public void OnStopP()
+    {
+        if(_playerHand != null)
+        {
+            var player = _playerHand.GetComponent<PlayerController>();
+            if(player != null) player.OffGrab();
+        }
+
+        _isPulling = false;
+        _playerHand = null;
+        _rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
     }
 
     // 무언가와 트리거 했을 때 실행되는 함수
@@ -26,31 +68,30 @@ public class SadFruit : MonoBehaviour, IPullable
         else if(target.CompareTag("Seed"))
         {
             // 부딪힌 대상이 Seed라면 리셋(실패)
-            BackToStartPoint();
+            Respawn();
         }
             
     }
 
-    // 플레이어가 잡았을 때
-    public void OnPull(Transform playerHand)
+    public void Respawn()
     {
-        _fruitRigidbody.simulated = false;
-        transform.SetParent(playerHand);
-        transform.localPosition = Vector2.zero;
+        StartCoroutine(RespawnRoutine());
     }
 
-    // 플레이어가 놓았을 때
-    public void OnStopP()
+    private IEnumerator RespawnRoutine()
     {
-        _fruitRigidbody.simulated = true;
-        transform.SetParent(null);
-    }
+        _rb.simulated = false;
+        _renderer.enabled = false;
+        _collider.enabled = false;
 
-    // 열매 리셋하는 함수
-    public void BackToStartPoint()
-    {
-        transform.position = _startPosition;
-        // 속도를 0으로 만들어 자리에 멈추게 함
-        _fruitRigidbody.linearVelocity = Vector2.zero;
+        yield return new WaitForSeconds(_respawnTime);
+
+        transform.position = _spawnPos;
+        _rb.linearVelocity = Vector2.zero;
+
+        _rb.simulated = true;
+        _renderer.enabled = true;
+        _collider.enabled = true;
+        _rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
     }
 }
