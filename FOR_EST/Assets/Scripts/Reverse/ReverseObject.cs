@@ -5,6 +5,7 @@ public class ReverseObject : MonoBehaviour
     [SerializeField] private Transform _player;
     
     public bool canReverse;
+    
     private void Awake()
     {
         canReverse = true;
