@@ -9,7 +9,7 @@ public class UIButton : MonoBehaviour
     
     public void NewGame()
     {
-        SceneManagement.Instance.LoadScene();
+        SceneManagement.Instance.LoadScene("SampleScene");
     }
 
     public void LoadGame()
