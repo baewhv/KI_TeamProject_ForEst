@@ -5,62 +5,23 @@ using UnityEngine.InputSystem;
 
 namespace Obstacle
 {
-    public class Obstacle : MonoBehaviour, IPullable, IReversable
+    /// <summary>
+    /// 리스폰시 솟아오르는 부분에 대한 문제점
+    ///         1. 상단에 있는 물체 (플레이어)가 장애물이 솟아오를때 위에
+    ///            올라타 있는 상태라면 튀어오른다
+    ///         2. 장애물이 솟아 오를때 장애물에 크기가 플렛폼 보다 크다면
+    ///            아래쪽에 장애물이 뚫려보인다
+    ///         3. 장애물이 리스폰 되는 도중 리스폰 키 입력 시 솟아오리지
+    ///            않고 즉시 리스폰 되어 버리는 현상 발생
+    ///         4.
+    ///
+    ///         3.1. bool 변수 추가로 재생성 도중 리스폰키 추가 입력 방지
+    ///
+    /// 슬라임의 크기에 따른 대응? 추가 필요
+    /// </summary>
+    // 추가적으로 추상클래스에 대해 열매의 추가 기능에 따라 개편 필요
+    public class Obstacle : BaseInteractionObject, IReversable
     {
-        /// <summary>
-        /// 하위 오브젝트로 종속 시
-        ///     문제점 1. 키네마틱을 통한 물리연산 무시 시 플레이어는 따라오지만 플레이어의 하위에 발판이 있고
-        ///              장애물의 하위에 발판이 없을 시 아래로 떨어지게 만드려면?
-        ///           2. 다이나믹을 통한 이동시 물리연산에 의해 플레이어의 하위 오브젝트로는 들어가지만
-        ///              실질적으로 장애물은 따로 노는 현상
-        ///     해결방안
-        ///           1. 그럼 종속 시키지 말고 따라만 다니게 해보자?
-        /// </summary>
-        /// <summary>
-        /// 플레이어 쪽에서 관리하는게 좋아보임
-        /// 플레이어쪽 트리거감지에서 내부 감지된 콜라이더중 IPullable감지 성공 시 제어권 획득 방향
-        /// </summary>
-        /// 예시코드)
-        /*
-        [Header("플레이어의 손")]
-        [SerializeField] public Transform playerHand;
-        private IPullable _pullTarget;
-        public bool isGrabbing = false;
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            var pullable = other.GetComponent<IPullable>();
-            if (pullable != null)
-            {
-                _pullTarget = pullable;
-            }
-        }
-
-        private void OnTriggerExit2D(Collider2D other)
-        {
-            if (_pullTarget != null && !isGrabbing)
-            {
-                _pullTarget = null;
-            }
-        }
-    
-        private void Update()
-        {
-            if (Keyboard.current.cKey.wasPressedThisFrame)
-            {
-                 if (_pullTarget != null)
-                {
-                    isGrabbing = !isGrabbing;
-
-                    if (isGrabbing)     _pullTarget.OnPull(playerHand);
-                    else                _pullTarget.OnStopP();
-                }
-            }
-        }
-        */
-
-        [Header("맵상의 장애물 오브젝트의 스폰 위치")] 
-        [SerializeField] private Vector2 _spawnPos;
-
         [Header("오브젝트 재생성 대기시간 설정")] 
         [SerializeField] private float _respawnTime;
 
@@ -71,13 +32,16 @@ namespace Obstacle
         [SerializeField] private Vector2 _pivot;
         
         [Header("반전 될 오브젝트")]
-        [SerializeField]private ReverseObject _reverseObject;
+        [SerializeField] private ReverseObject _reverseObject;
 
-        private Rigidbody2D _rb;
+        [Header("장애물이 솟아오르기 위한 위치")] 
+        [SerializeField] private float _riseH;
+        
+        [Header("장애물이 솟아오르기까지 걸리는 시간")] 
+        [SerializeField] private float _riseT;
+        
         private SpriteRenderer _renderer;
         private Collider2D[] _collider;
-        private Transform _playerHand;
-        private bool _isPulling = false;
         private float _originalGravity;
         private float _fallingGravity = 7f;
 
@@ -122,21 +86,19 @@ namespace Obstacle
 
         public void Init()
         {
-            _spawnPos = gameObject.transform.position;
-            _rb = GetComponent<Rigidbody2D>();
+            base.Init();
             _renderer = GetComponent<SpriteRenderer>();
             _collider = GetComponents<Collider2D>();
             _originalGravity = _rb.gravityScale;
         }
 
-        public void OnPull(Transform playerHand)
+        public override void OnPull(Transform playerHand)
         {
-            _isPulling = true;
-            _playerHand = playerHand;
+            base.OnPull(playerHand);
             _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
 
-        public void OnStopP()
+        public override void OnStopP()
         {
             if (_playerHand != null)
             {
@@ -144,8 +106,7 @@ namespace Obstacle
                 if (player != null) player.OffGrab();
             }
 
-            _isPulling = false;
-            _playerHand = null;
+            base.OnStopP();
             _rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
         }
 
@@ -160,7 +121,7 @@ namespace Obstacle
         }
 
         // 장애물이 사라지는 조건 (맵 밖으로 밀려남)에 위치에 장애물이 걸리게 되면 해당 메서드를 실행하면 됨
-        public void Respawn()
+        public override void Respawn()
         {
             StartCoroutine(RespawnRoutine());
         }
@@ -171,11 +132,11 @@ namespace Obstacle
             _renderer.enabled = false;
             _collider[0].enabled = false;
             _collider[1].enabled = false;
-
+            
             yield return YieldContainer.WaitForSeconds(_respawnTime);
-
-            transform.position = _spawnPos;
-
+            
+            base.Respawn();
+            
             _rb.simulated = true;
             _renderer.enabled = true;
             _collider[0].enabled = true;

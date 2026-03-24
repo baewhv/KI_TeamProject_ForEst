@@ -9284,7 +9284,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 39814424102cd0c4ea6fd2cc1f07fe70, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -9336,7 +9336,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 39814424102cd0c4ea6fd2cc1f07fe70, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -9405,11 +9405,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15bf65d52f785ca4190cedb5dec7a534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Obstacle
-  _spawnPos: {x: 0, y: 0}
-  _respawnTime: 2
+  _respawnTime: 1
   _linkDist: 1
   _pivot: {x: 0.5, y: 0}
-  _reverseObject: {fileID: 0}
+  _reverseObject: {fileID: 1147104875}
+  _riseH: 2
+  _riseT: 0.5
 --- !u!61 &499609451 stripped
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 7220309826518803911, guid: 34dcc3ad31c73ba469b3c789d3919f77, type: 3}
@@ -13201,11 +13202,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15bf65d52f785ca4190cedb5dec7a534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Obstacle
-  _spawnPos: {x: 0, y: 0}
   _respawnTime: 2
   _linkDist: 1
   _pivot: {x: 0.5, y: 0}
   _reverseObject: {fileID: 0}
+  _riseH: 0
+  _riseT: 0
 --- !u!212 &1109885613
 SpriteRenderer:
   serializedVersion: 2
@@ -19909,11 +19911,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15bf65d52f785ca4190cedb5dec7a534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Obstacle
-  _spawnPos: {x: 0, y: 0}
   _respawnTime: 2
   _linkDist: 1
   _pivot: {x: 0.5, y: 0}
   _reverseObject: {fileID: 0}
+  _riseH: 0
+  _riseT: 0
 --- !u!212 &2137348825
 SpriteRenderer:
   serializedVersion: 2
