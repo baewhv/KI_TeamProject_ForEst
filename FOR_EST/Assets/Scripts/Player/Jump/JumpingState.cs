@@ -14,7 +14,13 @@ public class JumpingState : IState
     public void Enter()
     {
         _status.IsJumping = true;
-        _movement._rigidbody.AddForceY(_status.JumpPower, ForceMode2D.Impulse);
+        
+        //중가속도 운동
+        float calcGravity = Mathf.Abs(Physics2D.gravity.y * _movement._rigidbody.gravityScale) ;
+        float jumpImpulse = Mathf.Sqrt(2 * calcGravity * _status.JumpPower);
+        Debug.Log((jumpImpulse));
+        _movement._rigidbody.linearVelocityY = 0;
+        _movement._rigidbody.AddForceY(_movement._rigidbody.gravityScale < 0 ? -jumpImpulse : jumpImpulse, ForceMode2D.Impulse);
     }
 
     public void Update()

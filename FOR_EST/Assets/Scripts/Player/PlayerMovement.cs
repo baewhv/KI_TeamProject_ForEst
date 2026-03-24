@@ -5,9 +5,12 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private PlayerStatus _status;
+    private PlayerController _controller;
 
     public Rigidbody2D _rigidbody { get; private set; }
     private BoxCollider2D _collider; 
+    
+    private ContactFilter2D GroundFilter;
 
     private StateMachine _jumpState;
     public JumpStandbyState JumpStandby { get; private set; }
@@ -20,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
         _status = status;
         _rigidbody = GetComponent<Rigidbody2D>();
         _collider = GetComponent<BoxCollider2D>();
+        _controller = GetComponent<PlayerController>();
         _jumpState = new StateMachine();
 
         JumpStandby = new JumpStandbyState(_status, this);
@@ -39,8 +43,6 @@ public class PlayerMovement : MonoBehaviour
     {
         //좌우 입력
         _rigidbody.linearVelocityX = _status.InputAxis.Value.x * _status.MoveSpeed * Time.fixedDeltaTime;
-        //중력
-        _rigidbody.AddForceY(Physics2D.gravity.y * Time.fixedDeltaTime);
     }
 
     public void ChangeJumpState(IState state)
@@ -52,13 +54,8 @@ public class PlayerMovement : MonoBehaviour
     {
         //if (_rigidbody.linearVelocityY < 0.01f) return false;
         Vector2 ray = _rigidbody.position - new Vector2(0, _collider.size.y * 0.5f);
-        ContactFilter2D filter = new ContactFilter2D
-        {
-            useLayerMask = true,
-            layerMask = 1 << 9
-        };
         List<RaycastHit2D> hits = new List<RaycastHit2D>();
-        if (Physics2D.Raycast(ray, Vector2.down, filter, hits, 0.1f) > 0)
+        if (Physics2D.Raycast(ray, _controller._isReverse ? Vector2.up : Vector2.down, GroundFilter, hits, 0.1f) > 0)
             return true;
         return false;
     }

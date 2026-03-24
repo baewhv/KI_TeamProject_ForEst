@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+
 /// <summary>
 /// 옵저버 패턴 제네릭 클래스.
 /// </summary>
@@ -7,7 +8,7 @@ using UnityEngine.Events;
 [System.Serializable]
 public class ObserveValue<T> where T : struct
 {
-    private T _data = default;
+    [SerializeField] private T _data = default;
 
     public T Value
     {
