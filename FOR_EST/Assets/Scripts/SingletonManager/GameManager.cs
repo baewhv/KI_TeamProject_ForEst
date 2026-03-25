@@ -10,14 +10,15 @@ using UnityEngine;
 /// 
 public class GameManager : SingletonMonoBehaviour<GameManager>
 {
+    private GameObject _player;
+    private PlayerStartPoint _startPoint;
     
-    public int HappyFruitCount { private get; set; }
-    public int SadFruitCount { private get; set; }
-
-    private LayerMask _happyMask;
-    private LayerMask _sadMask;
-
+    public int FruitCount { private get; set; }
     public bool IsClear { get; private set; }
+    
+    private LayerMask _fruitMask;
+    private LayerMask _playerMask;
+
 
     protected override void Awake()
     {
@@ -28,8 +29,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     
     private void Init()
     {
-        _happyMask = LayerMask.GetMask("HappyFruit");
-        _sadMask = LayerMask.GetMask("SadFruit");
+        _fruitMask = LayerMask.GetMask("Fruit");
     }
 
     // SceneManagement 스크립트에서 Scene 전환 시
@@ -45,28 +45,31 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         yield return null;
         
         CheckFruitCount();
+        PlayerOnPoint();
     }
 
     private void CheckFruitCount()
     {
-        Collider2D[] hitHappy = Physics2D.OverlapBoxAll(transform.position, new Vector2(90, 57), 0f, _happyMask);
+        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, new Vector2(90, 57), 0f, _fruitMask);
 
-        foreach (Collider2D hit in hitHappy)
+        foreach (Collider2D hit in hits)
         {
-            HappyFruitCount++;
+            FruitCount++;
         }
+    }
+
+    private void PlayerOnPoint()
+    {
+        _startPoint = FindAnyObjectByType<PlayerStartPoint>();
+        _player = GameObject.FindGameObjectWithTag("Player");
         
-        Collider2D[] hitSad = Physics2D.OverlapBoxAll(transform.position, new Vector2(90, 57), 0f, _sadMask);
-
-        foreach (Collider2D hit in hitSad)
-        {
-            SadFruitCount++;
-        }
+        if (_startPoint == null || _player == null) return;
+        _startPoint.SpawnPoint(_player);
     }
 
     private void CheckClear()
     {
-        if (HappyFruitCount != 0 || SadFruitCount != 0) return;
+        if (FruitCount != 0) return;
 
         IsClear = true;
     }
