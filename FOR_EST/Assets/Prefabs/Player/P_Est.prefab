@@ -286,6 +286,9 @@ MonoBehaviour:
     JumpPower: 5
     GravityScale: 3
   _grabPoint: {fileID: 7449944866376114759}
+  grabLayer:
+    serializedVersion: 2
+    m_Bits: 1052672
   _reverseObjectPrefab: {fileID: 4958028719943443453, guid: 0e4e8b2db316005429f171e44580a339, type: 3}
 --- !u!114 &5414808557473862683
 MonoBehaviour:
@@ -448,5 +451,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ReverseView
   _player: {fileID: 1063567267200672208}
-  _reverseObject: {fileID: 0}
   _reverseIcon: {fileID: 6352802407340002352, guid: 593b44f424b7f1a42971007725a074fb, type: 3}
