@@ -13,7 +13,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     private GameObject _player;
     private PlayerStartPoint _startPoint;
     
-    public int FruitCount { private get; set; }
+    public int FruitCount { get; set; }
     public bool IsClear { get; private set; }
     
     private LayerMask _fruitMask;

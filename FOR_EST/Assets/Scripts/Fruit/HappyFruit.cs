@@ -80,6 +80,7 @@ public class HappyFruit : MonoBehaviour, IPullable
         {
             // 부딪힌 대상이 Seed라면 열매를 화면에서 사라지게 함
             gameObject.SetActive(false);
+            GameManager.Instance.FruitCount--;
         }
     }
 
