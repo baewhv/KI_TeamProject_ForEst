@@ -8,6 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SJW_Fruit.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: b989e92287cf0f24abf92c3811a736a7
+  - enabled: 1
+    path: Assets/Scenes/TitleScene_SHY.unity
+    guid: ac1096d38ef2485498adb61c7371edaa
+  - enabled: 1
+    path: Assets/Scenes/SettingScene.unity
+    guid: a4e68d62bed791d428c9bec708826bc8
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 693fbe6bf9862c048966842769e69c73, type: 3}
   m_UseUCBPForAssetBundles: 0

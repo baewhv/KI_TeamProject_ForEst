@@ -28,7 +28,7 @@ public abstract class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBe
         }
     }
 
-    private void Awake()
+    protected virtual void Awake()
     {
         if (_instance && _instance != this)
         {

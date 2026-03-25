@@ -73,7 +73,6 @@ public class PlayerController : MonoBehaviour
     private void OnReverse(InputAction.CallbackContext ctx)
     {
         _reverse.Reverse();
-        
         if (_status.GrabbedObject != null)
         {
             IReversable rv = _status.GrabbedObject as IReversable;
@@ -119,7 +118,7 @@ public class PlayerController : MonoBehaviour
         }
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * (_status.IsRight ? 1 : -1), 0.5f, 1<<12);
-        if (hit.collider.CompareTag("Obstacle"))
+        if (hit.collider && hit.collider.CompareTag("Obstacle"))
         {
             
             _status.GrabbedObject = hit.collider.GetComponent<IPullable>();

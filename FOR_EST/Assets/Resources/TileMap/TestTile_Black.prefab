@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6681157866014351456}
   - component: {fileID: 7667539395802326541}
   - component: {fileID: 6472911185597553047}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TestTile_Black
   m_TagString: Untagged
   m_Icon: {fileID: 0}
