@@ -863,9 +863,9 @@ GameObject:
   - component: {fileID: 1951703106}
   - component: {fileID: 1951703105}
   - component: {fileID: 1951703109}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: HappyFruit
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -880,7 +880,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 39814424102cd0c4ea6fd2cc1f07fe70, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -932,7 +932,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: -1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 39814424102cd0c4ea6fd2cc1f07fe70, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -941,8 +941,8 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
+  m_CollisionDetection: 1
+  m_Constraints: 5
 --- !u!212 &1951703107
 SpriteRenderer:
   serializedVersion: 2
@@ -1029,6 +1029,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b67cf07d920be4a9821519c6743c86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HappyFruit
+  _spawnPos: {x: 0, y: 0}
+  _respawnTime: 1
 --- !u!1 &2065090270
 GameObject:
   m_ObjectHideFlags: 0
@@ -1042,9 +1044,9 @@ GameObject:
   - component: {fileID: 2065090272}
   - component: {fileID: 2065090271}
   - component: {fileID: 2065090275}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SadFruit
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1059,7 +1061,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 39814424102cd0c4ea6fd2cc1f07fe70, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1111,7 +1113,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 39814424102cd0c4ea6fd2cc1f07fe70, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1120,8 +1122,8 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
+  m_CollisionDetection: 1
+  m_Constraints: 5
 --- !u!212 &2065090273
 SpriteRenderer:
   serializedVersion: 2
@@ -1208,6 +1210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85b8c3d0ecce4e54c8d8b5963ad30a2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SadFruit
+  _spawnPos: {x: 0, y: 0}
+  _respawnTime: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

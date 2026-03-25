@@ -19,9 +19,16 @@ public class HappyFruit : MonoBehaviour, IPullable
 
     private void FixedUpdate()
     {
-        if (_isPulling && _playerHand!= null)
+        if (_isPulling && _playerHand != null)
         {
-            _rb.MovePosition(new Vector2(_playerHand.position.x, _rb.position.y));
+            var playerMovement = _playerHand.GetComponentInParent<PlayerMovement>();
+
+            if (playerMovement != null)
+            {
+                float playerVX = playerMovement._rigidbody.linearVelocityX;
+
+                _rb.linearVelocity = new Vector2(playerVX, _rb.linearVelocity.y);
+            }
         }
     }
 
