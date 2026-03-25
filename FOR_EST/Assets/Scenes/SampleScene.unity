@@ -8444,7 +8444,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 39814424102cd0c4ea6fd2cc1f07fe70, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -8496,7 +8496,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 39814424102cd0c4ea6fd2cc1f07fe70, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -12176,7 +12176,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15bf65d52f785ca4190cedb5dec7a534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Obstacle
-  _spawnPos: {x: 0, y: 0}
   _respawnTime: 2
   _linkDist: 1
   _pivot: {x: 0.5, y: 0}
@@ -19371,7 +19370,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15bf65d52f785ca4190cedb5dec7a534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Obstacle
-  _spawnPos: {x: 0, y: 0}
   _respawnTime: 2
   _linkDist: 1
   _pivot: {x: 0.5, y: 0}
