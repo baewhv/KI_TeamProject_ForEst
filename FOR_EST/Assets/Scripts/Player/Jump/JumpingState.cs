@@ -13,6 +13,8 @@ public class JumpingState : IState
     
     public void Enter()
     {
+        
+        _movement.JumpState.Value = EJumpState.Jumping;
         _status.IsJumping = true;
         
         //중가속도 운동

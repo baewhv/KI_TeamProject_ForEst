@@ -279,10 +279,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   _status:
+    InputAxis:
+      _data: {x: 0, y: 0}
     MoveSpeed: 200
     PushSpeed: 0
-    JumpPower: 10
-    GravityScale: 1
+    JumpPower: 8
+    GravityScale: 3
   _grabPoint: {fileID: 7449944866376114759}
 --- !u!114 &5414808557473862683
 MonoBehaviour:
@@ -296,6 +298,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e20d227fa37f65478f319889119cdff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  GroundFilter:
+    useTriggers: 0
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 1095168
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  <JumpState>k__BackingField:
+    _data: 0
 --- !u!114 &1645699919769351576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,6 +337,7 @@ GameObject:
   - component: {fileID: 5734870369385015099}
   - component: {fileID: 2158991886809717691}
   - component: {fileID: 6594653769707650141}
+  - component: {fileID: 1984321043116697267}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -415,3 +434,18 @@ MonoBehaviour:
     Time: 0
     Smoothing: 0
     IgnoreY: 0
+--- !u!114 &1984321043116697267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8282660855143027911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2bde2e218e840644a13767169d1f80b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReverseView
+  _player: {fileID: 1063567267200672208}
+  _reverseObject: {fileID: 0}
+  _reverseIcon: {fileID: 0}
