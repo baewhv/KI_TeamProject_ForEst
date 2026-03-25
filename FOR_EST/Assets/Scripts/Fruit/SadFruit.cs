@@ -64,20 +64,22 @@ public class SadFruit : MonoBehaviour, IPullable
 
     // 무언가와 트리거 했을 때 실행되는 함수
     // target : 부딪힌 상대방을 target이라는 변수명 사용
-    private void OnTriggerEnter2D(Collider2D target)
+    private void OnCollisionEnter2D(Collision2D target)
     {
-        if(target.CompareTag("Boundary"))
+        if (target.gameObject.CompareTag("Boundary"))
         {
-            // 부딪힌 대상이 Boundary라면 열매를 화면에서 사라지게 함(성공)
+            // 부딪힌 대상이 Boundary라면 열매를 화면에서 사라지게 함
             gameObject.SetActive(false);
         }
 
-        else if(target.CompareTag("Seed"))
+    }
+    private void OnTriggerEnter2D(Collider2D target)
+    {
+        if (target.gameObject.CompareTag("Seed"))
         {
-            // 부딪힌 대상이 Seed라면 리셋(실패)
+            // 부딪힌 대상이 Seed라면 리셋
             Respawn();
         }
-            
     }
 
     public void Respawn()
