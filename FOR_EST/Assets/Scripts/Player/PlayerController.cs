@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     private GameObject _grabObject;
     public bool _isReverse { get; set; }
     
+    [SerializeField] private GameObject _reverseObjectPrefab;
+    private ReverseObject _reverseObjectScript;
+    
     private void Awake()
     {
         _input = new UserInput();
@@ -27,6 +30,8 @@ public class PlayerController : MonoBehaviour
         _status.InputAxis.AddListener(SetDirection);
         _movement._rigidbody.gravityScale = _status.GravityScale;
         _isReverse = false;
+        if (_reverseObjectPrefab != null) _reverseObjectPrefab = Instantiate(_reverseObjectPrefab);
+        _reverseObjectScript = _reverseObjectPrefab.GetComponent<ReverseObject>();
     }
 
     private void OnEnable()
@@ -72,7 +77,7 @@ public class PlayerController : MonoBehaviour
     // 플레이어 반전 기능 Z키
     private void OnReverse(InputAction.CallbackContext ctx)
     {
-        if (_status.IsJumping || _status.IsFalling) return;
+        if (_status.IsJumping || _status.IsFalling || !_reverseObjectScript.canReverse) return;
         _isReverse = !_isReverse; 
         _reverse.Reverse();
         if (_status.GrabbedObject != null)

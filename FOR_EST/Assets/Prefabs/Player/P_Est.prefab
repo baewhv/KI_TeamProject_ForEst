@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 1645699919769351576}
   m_Layer: 0
   m_Name: P_Est
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -283,9 +283,10 @@ MonoBehaviour:
       _data: {x: 0, y: 0}
     MoveSpeed: 200
     PushSpeed: 0
-    JumpPower: 8
+    JumpPower: 5
     GravityScale: 3
   _grabPoint: {fileID: 7449944866376114759}
+  _reverseObjectPrefab: {fileID: 4958028719943443453, guid: 0e4e8b2db316005429f171e44580a339, type: 3}
 --- !u!114 &5414808557473862683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,4 +449,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ReverseView
   _player: {fileID: 1063567267200672208}
   _reverseObject: {fileID: 0}
-  _reverseIcon: {fileID: 0}
+  _reverseIcon: {fileID: 6352802407340002352, guid: 593b44f424b7f1a42971007725a074fb, type: 3}

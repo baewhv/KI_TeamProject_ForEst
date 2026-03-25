@@ -4,11 +4,9 @@ using UnityEngine;
 public class ReverseView : MonoBehaviour
 {
     [SerializeField] private Transform _player;
-    [SerializeField] private Transform _reverseObject;
     [SerializeField] private GameObject _reverseIcon;
 
-    private GameObject _createdIcon;
-    
+    private GameObject _reverseObject;
     private CinemachineCamera _camera;
 
     public bool IsPlayerView { get; private set; }
@@ -22,14 +20,15 @@ public class ReverseView : MonoBehaviour
     
     public void ChangeReverseView()
     {
-        if (_reverseIcon == null) return;
+        if (_reverseObject == null) _reverseObject = GameObject.FindGameObjectWithTag("Reverse");
+        if (_reverseIcon == null || _reverseObject == null) return;
         
         if (IsPlayerView)
         {
-            _camera.Follow = _reverseObject;
-            _camera.LookAt = _reverseObject;
+            _camera.Follow = _reverseObject.transform;
+            _camera.LookAt = _reverseObject.transform;
             
-            _reverseIcon.transform.position = _reverseObject.position;
+            _reverseIcon.transform.position = _reverseObject.transform.position;
             _reverseIcon.SetActive(true);
         }
         else
