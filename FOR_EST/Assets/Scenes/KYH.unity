@@ -166,7 +166,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ReverseChildrenObject
   _player: {fileID: 1238641239}
-  canReverse: 0
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 32768
+  <canReverse>k__BackingField: 0
 --- !u!61 &28082471
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1592,10 +1595,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   _status:
+    InputAxis:
+      _data: {x: 0, y: 0}
     MoveSpeed: 100
     PushSpeed: 0
     JumpPower: 3
-    GravityScale: 0
+    GravityScale: 1
   _grabPoint: {fileID: 0}
 --- !u!1 &1294813860
 GameObject:
@@ -2089,6 +2094,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ReverseView
   _player: {fileID: 1238641239}
   _reverseObject: {fileID: 28082469}
+  _reverseIcon: {fileID: 0}
 --- !u!114 &1930447966
 MonoBehaviour:
   m_ObjectHideFlags: 0

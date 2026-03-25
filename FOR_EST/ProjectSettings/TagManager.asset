@@ -7,6 +7,7 @@ TagManager:
   - Boundary
   - Seed
   - Obstacle
+  - Reverse
   layers:
   - Default
   - TransparentFX

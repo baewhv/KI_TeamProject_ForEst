@@ -4,11 +4,17 @@ public class ReverseObject : MonoBehaviour
 {
     [SerializeField] private Transform _player;
     
-    public bool canReverse;
+    private PlayerController _playerController;
+    
+    [SerializeField] private LayerMask _layerMask;
+    
+    [field:SerializeField] public bool canReverse { get; private set; }
     
     private void Awake()
     {
         canReverse = true;
+        if (_player == null) _player = GameObject.FindGameObjectWithTag("Player").transform;
+        _playerController = _player.GetComponent<PlayerController>();
     }
 
     private void Update()
@@ -19,7 +25,7 @@ public class ReverseObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Map"))
+        if ((_layerMask & (1 << other.gameObject.layer)) != 0)
         {
             canReverse = false;
         }
@@ -27,7 +33,7 @@ public class ReverseObject : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.layer != LayerMask.NameToLayer("Map")) return;
+        if ((_layerMask & (1 << other.gameObject.layer)) == 0) return;
         
         canReverse = true;
     }
