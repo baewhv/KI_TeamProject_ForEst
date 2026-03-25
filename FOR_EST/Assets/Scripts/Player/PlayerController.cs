@@ -80,6 +80,7 @@ public class PlayerController : MonoBehaviour
         if (_status.IsJumping || _status.IsFalling || !_reverseObjectScript.canReverse) return;
         _isReverse = !_isReverse; 
         _reverse.Reverse();
+        if (!_reverseView.IsPlayerView) _reverseView.ChangeReverseView();
         if (_status.GrabbedObject != null)
         {
             IReversable rv = _status.GrabbedObject as IReversable;
@@ -97,6 +98,7 @@ public class PlayerController : MonoBehaviour
     private void OnShowReverse(InputAction.CallbackContext ctx)
     {
         if (_status.IsJumping || _status.IsFalling) return;
+        if (_status.InputAxis.Value != Vector2.zero) _status.InputAxis.Value = Vector2.zero;
         _reverseView.ChangeReverseView();
     }
 
@@ -134,7 +136,6 @@ public class PlayerController : MonoBehaviour
             _status.GrabbedObject.OnPull(_grabPoint);
             _status.IsGrab = true;
         }
-
     }
 
     public void OffGrab()
