@@ -5,25 +5,26 @@ public class ReverseView : MonoBehaviour
 {
     [SerializeField] private Transform _player;
     [SerializeField] private Transform _reverseObject;
-    
     [SerializeField] private GameObject _reverseIcon;
+
+    private GameObject _createdIcon;
     
     private CinemachineCamera _camera;
 
-    private bool _isPlayerView;
+    public bool IsPlayerView { get; private set; }
 
     private void Awake()
     {
-        _isPlayerView = true;
+        IsPlayerView = true;
         _camera = GetComponent<CinemachineCamera>();
-        if (_reverseObject != null) _reverseIcon.SetActive(false);
+        if (_reverseIcon != null) CreateReverseIcon();
     }
     
     public void ChangeReverseView()
     {
         if (_reverseIcon == null) return;
         
-        if (_isPlayerView)
+        if (IsPlayerView)
         {
             _camera.Follow = _reverseObject;
             _camera.LookAt = _reverseObject;
@@ -38,6 +39,12 @@ public class ReverseView : MonoBehaviour
             _reverseIcon.SetActive(false);
         }
         
-        _isPlayerView = !_isPlayerView;
+        IsPlayerView = !IsPlayerView;
+    }
+    
+    private void CreateReverseIcon()
+    {
+        _reverseIcon = Instantiate(_reverseIcon);
+        _reverseIcon.SetActive(false);
     }
 }

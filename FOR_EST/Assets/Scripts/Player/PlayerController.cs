@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnMove(InputAction.CallbackContext ctx)
     {
+        if (!_reverseView.IsPlayerView) return;
         _status.InputAxis.Value = ctx.ReadValue<Vector2>();
     }
 
@@ -64,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnJump(InputAction.CallbackContext ctx)
     {
-        if (_status.IsJumping || _status.IsFalling) return;
+        if (_status.IsJumping || _status.IsFalling || !_reverseView.IsPlayerView) return;
         _movement.ChangeJumpState(_movement.Jumping);
     }
 
