@@ -13,6 +13,7 @@ public class JumpStandbyState : IState
     
     public void Enter()
     {
+        _movement.JumpState.Value = EJumpState.Standby;
         _status.IsJumping = false;
         _status.IsFalling = false;
     }

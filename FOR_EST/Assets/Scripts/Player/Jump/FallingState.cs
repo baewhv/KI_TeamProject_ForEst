@@ -13,6 +13,7 @@ public class FallingState : IState
 
     public void Enter()
     {
+        _movement.JumpState.Value = EJumpState.Falling;
         _status.IsFalling = true;
     }
 

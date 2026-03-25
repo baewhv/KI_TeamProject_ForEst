@@ -18,8 +18,8 @@ public class LandingState : IState
     
     public void Enter()
     {
+        _movement.JumpState.Value = EJumpState.Landing;
         _movement.ChangeJumpState(_movement.JumpStandby);
-        _status.IsJumping = false;
     }
 
     public void Update()
