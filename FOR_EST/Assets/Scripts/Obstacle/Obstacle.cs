@@ -56,6 +56,7 @@ namespace Obstacle
         private Collider2D _collider; 
         private float _originalGravity;
         private bool _isRespawning = false;
+        private bool _isReversing = false;
 
         private void Awake()
         {
@@ -66,6 +67,8 @@ namespace Obstacle
         {
             if (_isPulling && _playerHand != null)
             {
+                if (_isReversing) return;
+                
                 Vector2 grabPoint = _collider.ClosestPoint(_playerHand.position);
                 float dist = Vector2.Distance(grabPoint, _playerHand.position);
 
@@ -88,12 +91,13 @@ namespace Obstacle
                 float followTarget = _playerHand.position.x + ((halfW + _pivot.x) * direction);
                 
                 _rb.MovePosition(new Vector2(followTarget, _rb.position.y));
+                
+                if (!_isReversing && !IsGrounded()) OnStopP();
             }
-            if (!IsGrounded()) OnStopP();
         }
 
 
-        public void Init()
+        private void Init()
         {
             base.Init();
             _renderer = GetComponent<SpriteRenderer>();
@@ -124,11 +128,15 @@ namespace Obstacle
         public void Reverse()
         {
             if (!_reverseObject.canReverse || !_isPulling) return; //당겨지고 있지 않으면 리버스가 안되도록 함
+
+            _isReversing = true;
             
             transform.position *= new Vector2(1f, -1f);
             transform.localScale *= new Vector2(1f, -1f);
 
             _rb.gravityScale *= -1f;
+           
+            StartCoroutine(ReverseDorpObjIgnoreRoutine());
         }
 
         public void ReverseState()
@@ -195,6 +203,12 @@ namespace Obstacle
             _isRespawning = false;
         }
 
+        private IEnumerator ReverseDorpObjIgnoreRoutine()
+        {
+            yield return YieldContainer.WaitForSeconds(1f);
+            _isReversing = false;
+        }
+
         private bool IsGrounded()
         {
             float direction = Mathf.Sign(_rb.gravityScale);
@@ -206,14 +220,12 @@ namespace Obstacle
             RaycastHit2D hit =
                                 Physics2D.BoxCast
                                  (
-                                     // _collider.bounds.center, 
-                                     //       _collider.bounds.size,
-                                              origin,
-                                              checkBoxSize,
-                                         0f,
-                                      Vector2.down * Mathf.Sign(_rb.gravityScale),
-                                              _groundDistance,
-                                           _groundLayer
+                                     origin,
+                                     checkBoxSize,
+                                     0f,
+                                     Vector2.down * Mathf.Sign(_rb.gravityScale),
+                                     _groundDistance, 
+                                     _groundLayer
                                  );
             
             return hit.collider != null;
