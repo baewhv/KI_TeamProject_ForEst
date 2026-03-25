@@ -9,14 +9,16 @@ namespace Obstacle
     /// 리스폰시 솟아오르는 부분에 대한 문제점
     ///         1. 상단에 있는 물체 (플레이어)가 장애물이 솟아오를때 위에
     ///            올라타 있는 상태라면 튀어오른다
+    ///         1-1. 올라오는 속도를 조절해서 해결
     ///         2. 장애물이 솟아 오를때 장애물에 크기가 플렛폼 보다 크다면
     ///            아래쪽에 장애물이 뚫려보인다
+    ///         2-1. 장애물의 y포즈가 점점 커지는 느낌으로 변경
     ///         3. 장애물이 리스폰 되는 도중 리스폰 키 입력 시 솟아오리지
     ///            않고 즉시 리스폰 되어 버리는 현상 발생
+    ///         3-1. bool 변수 추가로 재생성 도중 리스폰키 추가 입력 방지
     ///         4. 반전영역에서의 장에물 오브젝트 생성 및 리스폰시
     ///            반전 영역에 맞게 재설정 필요
-    ///
-    ///         3.1. bool 변수 추가로 재생성 도중 리스폰키 추가 입력 방지
+    ///         4-1. 반전영역에 생성될 불 변수 추가로 반전세계에 기본 스폰 관리 및 reverse/ respawn코드 수정
     ///
     /// 슬라임의 크기에 따른 대응? 추가 필요
     /// </summary>
@@ -40,6 +42,15 @@ namespace Obstacle
         
         [Header("장애물이 솟아오르기까지 걸리는 시간")] 
         [SerializeField] private float _riseT;
+
+        [Header("바닥 레이어 체크")] 
+        [SerializeField] private LayerMask _groundLayer;
+        
+        [Header("바닥으로 감지될 거리")]
+        [SerializeField] private float _groundDistance;
+        
+        [Header("바닥을 감지 할 박스의 x축 크기")]
+        [SerializeField] private float _groundSizeX = 0.9f;
         
         private SpriteRenderer _renderer;
         private Collider2D _collider; 
@@ -78,6 +89,7 @@ namespace Obstacle
                 
                 _rb.MovePosition(new Vector2(followTarget, _rb.position.y));
             }
+            if (!IsGrounded()) OnStopP();
         }
 
 
@@ -183,9 +195,47 @@ namespace Obstacle
             _isRespawning = false;
         }
 
+        private bool IsGrounded()
+        {
+            float direction = Mathf.Sign(_rb.gravityScale);
+            float checkY = (direction > 0) ? _collider.bounds.min.y : _collider.bounds.max.y;
+            
+            Vector2 origin = new Vector2(_collider.bounds.center.x, checkY);
+            Vector2 checkBoxSize = new Vector2(_collider.bounds.size.x * _groundSizeX, 0.1f);
+            
+            RaycastHit2D hit =
+                                Physics2D.BoxCast
+                                 (
+                                     // _collider.bounds.center, 
+                                     //       _collider.bounds.size,
+                                              origin,
+                                              checkBoxSize,
+                                         0f,
+                                      Vector2.down * Mathf.Sign(_rb.gravityScale),
+                                              _groundDistance,
+                                           _groundLayer
+                                 );
+            
+            return hit.collider != null;
+        }
 
         private void OnDrawGizmos()
         {
+            if(_collider == null) return;
+            
+            float direction = Mathf.Sign(_rb.gravityScale);
+            float checkY = (direction > 0) ? _collider.bounds.min.y : _collider.bounds.max.y;
+            
+            Vector2 origin = new Vector2(_collider.bounds.center.x, checkY);
+            Vector2 checkBoxSize = new Vector2(_collider.bounds.size.x * _groundSizeX, 0.2f);
+            
+            Vector2 endPos = origin + (Vector2.down * direction * _groundDistance);
+            
+            Gizmos.color = IsGrounded() ? Color.green : Color.red;
+            Gizmos.DrawWireCube(endPos, checkBoxSize);
+            Gizmos.DrawLine(origin, endPos);
+            
+            /*
             if (_playerHand != null)
             {
                 float dist = Vector2.Distance(_collider.ClosestPoint(_playerHand.position), _playerHand.position);
@@ -207,6 +257,7 @@ namespace Obstacle
                     Gizmos.DrawWireCube(targetPos, cubeSize);
                 }
             }
+            */
         }
     }
 }
