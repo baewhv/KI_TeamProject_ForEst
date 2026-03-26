@@ -116,7 +116,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   _groundDistance: 0.2
-  _groundSizeX: 0.95
+  _groundSizeX: 1.05
 --- !u!50 &6356457998503089489
 Rigidbody2D:
   serializedVersion: 5
@@ -188,5 +188,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.9, y: 0.9}
+  m_Size: {x: 0.9, y: 0.98}
   m_EdgeRadius: 0

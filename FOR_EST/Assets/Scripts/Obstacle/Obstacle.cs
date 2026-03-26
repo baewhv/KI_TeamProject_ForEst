@@ -5,29 +5,19 @@ using UnityEngine.InputSystem;
 
 namespace Obstacle
 {
-    /// <summary>
-    /// 리스폰시 솟아오르는 부분에 대한 문제점
-    ///         1. 상단에 있는 물체 (플레이어)가 장애물이 솟아오를때 위에
-    ///            올라타 있는 상태라면 튀어오른다
-    ///         1-1. 올라오는 속도를 조절해서 해결
-    ///         2. 장애물이 솟아 오를때 장애물에 크기가 플렛폼 보다 크다면
-    ///            아래쪽에 장애물이 뚫려보인다
-    ///         2-1. 장애물의 y포즈가 점점 커지는 느낌으로 변경
-    ///         3. 장애물이 리스폰 되는 도중 리스폰 키 입력 시 솟아오리지
-    ///            않고 즉시 리스폰 되어 버리는 현상 발생
-    ///         3-1. bool 변수 추가로 재생성 도중 리스폰키 추가 입력 방지
-    ///         4. 반전영역에서의 장에물 오브젝트 생성 및 리스폰시
-    ///            반전 영역에 맞게 재설정 필요
-    ///         4-1. 반전영역에 생성될 불 변수 추가로 반전세계에 기본 스폰 관리 및 reverse/ respawn코드 수정
-    ///
-    /// 슬라임의 크기에 따른 대응? 추가 필요
-    /// </summary>
-    // 추가적으로 추상클래스에 대해 열매의 추가 기능에 따라 개편 필요
     public class Obstacle : BaseInteractionObject, IReversable
     {
-        [Header("오브젝트 재생성 대기시간 설정")] 
-        [SerializeField] private float _respawnTime;
-
+        /// <summary>
+        /// 열매와의 공통 기능
+        ///         1. 콜라이더와 렌더러 조정
+        ///         2. onpull 전체
+        ///         3. onstopp 전체
+        ///         4. rigidbody의 freeze기능 사용부분
+        ///         5. respawn코루틴
+        ///                 차이? 열매는 즉시 생성 / 장애물은 기획의도상 솟아오름
+        /// 현재 상태에서 지원님 작업이 끝나면 추가적인 부분 확인 후 열매쪽에도 공통부분은 베이스로 업 
+        /// 예상 추가 부분 ) 업데이트쪽 플레이어와의 연결부 코드 구현 해주시는 방식에 따라 해당 부분도 오버라이딩 시킬 수 있을 것으로 예상
+        /// </summary>
         [Header("플레이어와 장애물 간의 상호작용 가능 거리")] 
         [SerializeField] private float _linkDist = 0.5f;
 
@@ -52,10 +42,7 @@ namespace Obstacle
         [Header("바닥을 감지 할 박스의 x축 크기")]
         [SerializeField] private float _groundSizeX = 0.9f;
         
-        private SpriteRenderer _renderer;
-        private Collider2D _collider; 
         private float _originalGravity;
-        private bool _isRespawning = false;
         private bool _isReversing = false;
 
         private void Awake()
@@ -74,12 +61,12 @@ namespace Obstacle
 
                 if (dist > _linkDist)
                 {
-                    OnStopP();
+                    base.OnStopP();
                 }
             }
 
             // 테스트 코드 후에 리스폰 조건 생성시 삭제해야함 
-            if (Keyboard.current.rKey.wasPressedThisFrame) Respawn();
+            if (Keyboard.current.rKey.wasPressedThisFrame) base.Respawn();
         }
 
         private void FixedUpdate()
@@ -92,7 +79,7 @@ namespace Obstacle
                 
                 _rb.MovePosition(new Vector2(followTarget, _rb.position.y));
                 
-                if (!_isReversing && !IsGrounded()) OnStopP();
+                if (!_isReversing && !IsGrounded()) base.OnStopP();
             }
         }
 
@@ -100,29 +87,9 @@ namespace Obstacle
         private void Init()
         {
             base.Init();
-            _renderer = GetComponent<SpriteRenderer>();
-            _collider = GetComponent<Collider2D>();
             _originalGravity = _rb.gravityScale;
 
-            if (_isThisObjBelongsToTheReverseWorld) ReverseState();
-        }
-
-        public override void OnPull(Transform playerHand)
-        {
-            base.OnPull(playerHand);
-            _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        }
-
-        public override void OnStopP()
-        {
-            if (_playerHand != null)
-            {
-                var player = _playerHand.GetComponentInParent<PlayerController>();
-                if (player != null) player.OffGrab();
-            }
-
-            base.OnStopP();
-            _rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
+            if (_isThisObjBelongsToTheReverseWorld) ReversingState();
         }
 
         public void Reverse()
@@ -139,7 +106,7 @@ namespace Obstacle
             StartCoroutine(ReverseDorpObjIgnoreRoutine());
         }
 
-        public void ReverseState()
+        public void ReversingState()
         {
             _rb.gravityScale = -1f;
             _originalGravity = _rb.gravityScale;
@@ -149,28 +116,17 @@ namespace Obstacle
             transform.localScale = scale;
         }
 
-        // 장애물이 사라지는 조건 (맵 밖으로 밀려남)에 위치에 장애물이 걸리게 되면 해당 메서드를 실행하면 됨
-        public override void Respawn()
-        {
-            if (_isRespawning) return;
-            OnStopP();
-            StartCoroutine(RespawnRoutine());
-        }
-
-        private IEnumerator RespawnRoutine()
+        public override IEnumerator RespawnRoutine()
         {
             _isRespawning = true;
-            _rb.simulated = false;
-            _renderer.enabled = false;
-            _collider.enabled = false;
+            base.RespawningState(false);
 
             float direction = Mathf.Sign(_originalGravity);
             float originalScale = _isThisObjBelongsToTheReverseWorld ? 
                                   -Mathf.Abs(transform.localScale.y) : Mathf.Abs(transform.localScale.y);
-            Vector2 targetScale = new Vector2(transform.localScale.x, originalScale);
-            
             float startH = Mathf.Abs(originalScale) * 0.5f;
             
+            Vector2 targetScale = new Vector2(transform.localScale.x, originalScale);
             Vector2 startPos = _spawnPos + Vector2.down * direction * (startH + 0.2f);
             
             transform.position = startPos;
@@ -179,9 +135,7 @@ namespace Obstacle
             yield return YieldContainer.WaitForSeconds(_respawnTime);
             
             _rb.bodyType = RigidbodyType2D.Kinematic;
-            _rb.simulated = true;
-            _renderer.enabled = true;
-            _collider.enabled = true;
+            base.RespawningState(true);
 
             float elapseTime = 0f;
 
@@ -201,11 +155,12 @@ namespace Obstacle
             _rb.bodyType = RigidbodyType2D.Dynamic;
             _rb.gravityScale = _originalGravity;
             _isRespawning = false;
+            base.PullingState(false);
         }
 
         private IEnumerator ReverseDorpObjIgnoreRoutine()
         {
-            yield return YieldContainer.WaitForSeconds(1f);
+            yield return YieldContainer.WFFU;
             _isReversing = false;
         }
 
