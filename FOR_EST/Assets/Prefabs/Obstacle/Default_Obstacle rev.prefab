@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 964578012674884303}
   - component: {fileID: 2733953350324775740}
-  - component: {fileID: 6707288243000792969}
+  - component: {fileID: -6070256300748356224}
   m_Layer: 12
   m_Name: Default_Obstacle rev
   m_TagString: Obstacle
@@ -79,7 +79,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.95, y: 0.95}
   m_EdgeRadius: 0
---- !u!114 &6707288243000792969
+--- !u!114 &-6070256300748356224
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,8 +88,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5759015643564159108}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec66acecd8d0c784fa43c5538a92486f, type: 3}
+  m_Script: {fileID: 11500000, guid: 575e1f3a245b6354397b6c4379151cd4, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ReverseObject
-  _player: {fileID: 0}
-  canReverse: 0
+  m_EditorClassIdentifier: Assembly-CSharp::ObstacleReverseObject
+  _target: {fileID: 0}
+  _reverseLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  _groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  <canReverse>k__BackingField: 0

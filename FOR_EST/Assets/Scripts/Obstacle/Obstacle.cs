@@ -38,7 +38,7 @@ namespace Obstacle
         [SerializeField] private bool _isThisObjBelongsToTheReverseWorld = false;
         
         [Header("서로 반전 될 오브젝트")]
-        [SerializeField] private ReverseObject _reverseObject;
+        [SerializeField] private ObstacleReverseObject _reverseObject;
         
         [Header("장애물이 솟아오르기까지 걸리는 시간")] 
         [SerializeField] private float _riseT;

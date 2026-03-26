@@ -4,7 +4,7 @@ using UnityEngine;
 public class ObstacleReverse : MonoBehaviour, IReversable, IPullable
 {
     private Rigidbody2D _rb;
-    private ReverseObject _reverseObject;
+    private ObstacleReverseObject _reverseObject;
     private bool _isPulled = false; //당겨지고 있는 상태인지 구별하는 함수 false = 안당겨지고 있음, true = 당겨지고 있음
     private void Awake()
     {

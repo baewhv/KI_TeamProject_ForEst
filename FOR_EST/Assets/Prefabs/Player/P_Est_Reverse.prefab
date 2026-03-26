@@ -93,9 +93,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ReverseObject
   _player: {fileID: 0}
-  _layerMask:
+  _reverseLayerMask:
     serializedVersion: 2
     m_Bits: 1085952
+  _groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 1086976
   <canReverse>k__BackingField: 0
 --- !u!50 &7164242363090795872
 Rigidbody2D:
