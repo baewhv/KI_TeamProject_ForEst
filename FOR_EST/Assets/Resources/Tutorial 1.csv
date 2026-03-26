@@ -1,0 +1,46 @@
+ID,nextID,name,speaker,Textbox_type,Text_KR,Text_EN,Text_JP,Stage
+100001,100002,에스트,10101,0,…,...,...,Tutorial_cg1
+100002,100003,에스트,10101,0,낯선 천장…,A strange ceiling...,見慣れない天井…,Tutorial_cg1
+100003,100004,시드,10201,0,안녕.,Hi there.,こんにちは。,Tutorial_cg1
+100004,100005,에스트,10101,0,"아니, 얼굴이네.","Wait, it's a face.",いや、顔か。,Tutorial_cg1
+100005,100006,에스트,10101,0,…우와.,...Wow.,…うわぁ…。,Tutorial_cg1
+100006,100007,시드,10201,0,…,...,...,Tutorial_cg1
+100007,100008,에스트,10101,0,안… 녕?,He...llo?,…こんにちは？,Tutorial_cg1
+100008,100009,시드,10201,0,별로 놀라지 않네?,You're not that surprised?,あんまり驚かないんだね？,Tutorial_cg1
+100009,100010,에스트,10101,0,뭔가 외계인이 있지 않을까라고 생각을 하며 살긴 했었거든.,I’ve always assumed aliens were out there.,なんか、外界人とかいるんじゃないかなって思って生きてきたんだよね。,Tutorial_cg1
+100010,100011,시드,10201,0,난 외계인이 아니야.,I'm not an alien.,僕は外界人じゃない。,Tutorial_cg1
+100011,100012,에스트,10101,0,어…음…그렇구나. 귀여우니까 이해해 볼게! ,"Uh... okay. You're cute, so I'll let it slide.",あ…うーん…そうなんだ。可愛いから、納得してあげる！,Tutorial_cg1
+100012,100013,에스트,10101,0,넌 이름이 뭐야?,What's your name?,君の名前は？,Tutorial_cg1
+100013,100014,시드,10201,0,난 시드야.,I'm Seed.,僕はシード。,Tutorial_cg1
+100014,100015,시드,10201,0,정원의 관리자를 맡고 있어.,I'm the guardian of the garden.,庭園の管理を任されているんだ。,Tutorial_cg1
+100015,100016,에스트,10101,0,정원? 이 큰 나무 말이야?,Garden? You mean this giant tree?,庭園？ この大きな木のこと？,Tutorial_cg1
+100016,100017,시드,10201,0,맞아. 이제 넌 우리의 정원 관리를 도와야 해.,"Exactly. And now, you're going to help us manage it.",そうだよ。これからは君が僕たちの庭園管理を手伝ってくれる番だね。,Tutorial_cg1
+100017,100018,에스트,10101,0,엥? 내가? 왜?,Huh? Me? Why?,え？ 僕が？ どうして？,Tutorial_cg1
+100018,100019,시드,10201,0,행복나무가 널 데려왔으니까.,Because the Tree of Happiness brought you here.,「幸せの木」が君を連れてきたからだよ。,Tutorial_cg1
+100019,100020,에스트,10101,0,이 큰 나무 이름이 행복나무야?,So this huge tree is the Tree of Happiness?,この大きな木の名前が「幸せの木」なの？,Tutorial_cg1
+100020,100021,시드,10201,0,아니.,No.,ううん。,Tutorial_cg1
+100021,100022,시드,10201,0,이 아래의 나무가 행복나무야.,The one right under there is the Tree of Happiness.,この下の木が「幸せの木」だよ。,Tutorial_cg1
+100022,100023,에스트,10101,0,바닥에 비친 이 큰 나무가…진짜였다고?,So... the huge tree reflected on the ground was the real one?,床に映ったこの大きな木が…本物だったなんて？,Tutorial_cg1
+100023,100024,시드,10201,0,맞아. 여긴 이런 곳이야.,That’s right. That’s how this place is.,そうだよ。ここはそういう場所なんだ。,Tutorial_cg1
+100024,100025,에스트,10101,0,으악!,Whoa!,うわっ！,Tutorial_cg1
+100025,100026,에스트,10101,0,내 몸이 변했어!,My body... it's changing!,体が変わっちゃった！,Tutorial_cg1
+100026,100027,시드,10201,0,행복나무의 공간으로 온 거야.,You’ve entered the space of the Happiness Tree.,「幸せの木」の空間に来たんだよ。,Tutorial_cg1
+100027,100028,시드,10201,0,너도 금방 익숙해질 거야,You’ll get used to it soon.,君もすぐに慣れるはずさ。,Tutorial_cg1
+100028,100029,시드,10201,0,몸은 좀 어때?,How does your body feel?,体の調子はどうだい？,Tutorial_cg1
+100029,100030,에스트,10101,0,좀 당황스럽네.,I’m a bit lost here.,ちょっと戸惑ってるよ。,Tutorial_cg1
+100030,100031,에스트,10101,0,음… 사실 무슨 일이 있었는지 전혀 기억이 안 나!,"Um... actually, I don’t remember anything that happened at all!",うーん…実は何があったのか、全然思い出せなくて！,Tutorial_cg1
+100031,100032,에스트,10101,0,이게 말로만 듣던 기억상실증이란 걸까?,"Is this that ""amnesia"" people talk about?",これが噂に聞く記憶喪失ってやつかな？,Tutorial_cg1
+100032,100033,에스트,10101,0,그 외에는 방금 일어나서 그런지 좀 나른한데 괜찮아!,"Other than that, I feel a bit drowsy since I just woke up, but I'm fine!",それ以外は、さっき起きたばかりだからか、ちょっと体がだるいけど大丈夫だよ！,Tutorial_cg1
+100033,100034,시드,10201,0,…,...,...,Tutorial_cg1
+100034,100035,시드,10201,0,그렇다면 다행이야.,"Well, that's a relief.",…それならよかった。,Tutorial_cg1
+100035,100036,시드,10201,0,"그럼, 이제 일을 시작해 보자.","Then, let’s get to work.",じゃあ、そろそろ仕事を始めようか。,Tutorial_cg1
+100036,100037,에스트,10101,0,잠깐! 아직 이해가 안 된 게 있어!,Wait a minute! I still don't get it. ,ちょっと待って！ まだ納得できてないことがあるよ！,Tutorial_cg1
+100037,100038,에스트,10101,0,행복나무가 날 데려온 게 왜 내가 일을 해야 할 이유야?,Why does the Tree of Happiness bringing me here mean I have to do this?,「幸せの木」が僕を連れてきたことが、どうして仕事をすべき理由になるの？,Tutorial_cg1
+100038,100039,시드,10201,0,…네가 행복을 바라서 행복 나무가 널 데려온 거야.,"Because you wished for happiness, and the Tree of Happiness brought you here.",…君が幸せを願ったから、「幸せの木」が君を連れてきたんだ。,Tutorial_cg1
+100039,100040,에스트,10101,0,…혹시 꿈꾸는 거야?,Am I dreaming?,…もしかして夢でも見てるの？,Tutorial_cg1
+100040,100041,시드,10201,0,그럴 리가. 잠시 우리를 도와주러 네가 오게 된 거지.,Not at all. You’ve just come here to help us for a while.,そんなわけないだろ。しばらく僕たちを手伝うために、君がここに来たんだよ。,Tutorial_cg1
+100041,100042,시드,10201,0,정 이유가 필요하다면…,If you really need a reason... ,どうしても理由が必要なら…,Tutorial_cg1
+100042,100043,시드,10201,0,"우리의 일을 도와주다 보면, 이곳에서 나가게 도와줄게.","help us with our work, and we’ll help you find a way out of here.",僕たちの仕事を手伝ってくれたら、ここから出られるようにしてあげるよ。,Tutorial_cg1
+100043,100044,시드,10201,0,이유가 됐을까?,Is that reason enough?,これじゃ理由になるかな？,Tutorial_cg1
+100044,100045,에스트,10101,0,…어…그래. 알았어.,...Uh... yeah. Okay.,…あ…うん、わかったよ。,Tutorial_cg1
+100045,100046,시드,10201,0,좋아. 따라와..,Good. Follow me.,よし。ついてきて。,Tutorial_cg1
