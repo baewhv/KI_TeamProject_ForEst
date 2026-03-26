@@ -12,8 +12,6 @@ public class ObstacleReverseObject : MonoBehaviour
     
     [field:SerializeField] public bool canReverse { get; private set; }
     
-    private Ray _ray;
-    
     private void Awake()
     {
         canReverse = true;
@@ -23,7 +21,6 @@ public class ObstacleReverseObject : MonoBehaviour
     {
         transform.position = _target.transform.position * new Vector2(1f, -1f);
         transform.localScale = _target.transform.localScale * new Vector2(1f, -1f);
-        OnReverseGround();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -47,25 +44,5 @@ public class ObstacleReverseObject : MonoBehaviour
         if ((_reverseLayerMask & (1 << other.gameObject.layer)) == 0) return;
         
         canReverse = true;
-    }
-
-    private void OnReverseGround()
-    {
-        _ray = new Ray(transform.position, Vector2.down);
-
-        if (Physics.SphereCast(_ray, 1f, 0.1f, _groundLayerMask))
-        {
-            canReverse = true;
-        }
-        else
-        {
-            canReverse = false;
-        }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(_ray);
     }
 }

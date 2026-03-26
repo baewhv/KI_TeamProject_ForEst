@@ -72,9 +72,4 @@ public class PlayerReverseObject : MonoBehaviour
             OnGround = true;
         }
     }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-    }
 }
