@@ -1,11 +1,14 @@
 using System.Collections;
 using UnityEngine;
 
-// IPullable 상속
 public class HappyFruit : MonoBehaviour, IPullable
 {
     [SerializeField] private Vector2 _spawnPos;
+    [Header("플레이어와 장애물 간의 상호작용 가능 거리")]
+    [SerializeField] private float _linkDist = 0.5f;
+    [Header("오브젝트 재생성 대기시간 설정")]
     [SerializeField] private float _respawnTime = 1f;
+
     private Rigidbody2D _rb;
     private SpriteRenderer _renderer;
     private Collider2D _collider;
@@ -15,6 +18,20 @@ public class HappyFruit : MonoBehaviour, IPullable
     private void Awake()
     {
         Init();
+    }
+
+    private void Update()
+    {
+        if (_isPulling && _playerHand != null)
+        {
+            Vector2 grabPoint = _collider.ClosestPoint(_playerHand.position);
+            float dist = Vector2.Distance(grabPoint, _playerHand.position);
+
+            if (dist > _linkDist)
+            {
+                OnStopP();
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -44,7 +61,7 @@ public class HappyFruit : MonoBehaviour, IPullable
     // 플레이어가 잡았을 때
     public void OnPull(Transform playerHand)
     {
-        _isPulling =true;
+        _isPulling = true;
         _playerHand = playerHand;
         _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
@@ -52,10 +69,10 @@ public class HappyFruit : MonoBehaviour, IPullable
     // 플레이어가 놓았을 때
     public void OnStopP()
     {
-        if(_playerHand!= null)
+        if (_playerHand != null)
         {
             var player = _playerHand.GetComponentInParent<PlayerController>();
-            if(player != null) player.OffGrab();
+            if (player != null) player.OffGrab();
         }
 
         _isPulling = false;
@@ -65,18 +82,16 @@ public class HappyFruit : MonoBehaviour, IPullable
 
     // 무언가와 트리거 했을 때 실행되는 함수
     // target : 부딪힌 상대방을 target이라는 변수명 사용
-    private void OnCollisionEnter2D(Collision2D target)
+    private void OnTriggerEnter2D(Collider2D target)
     {
         if (target.gameObject.CompareTag("Boundary"))
         {
             // 부딪힌 대상이 Boundary라면 리셋
             Respawn();
         }
-       
-    }
-    private void OnTriggerEnter2D(Collider2D target)
-    {
-        if (target.gameObject.CompareTag("Seed"))
+
+
+        else if (target.gameObject.CompareTag("Seed"))
         {
             // 부딪힌 대상이 Seed라면 열매를 화면에서 사라지게 함
             gameObject.SetActive(false);

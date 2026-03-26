@@ -1,10 +1,12 @@
 using System.Collections;
 using UnityEngine;
 
-// IPullable 상속
 public class SadFruit : MonoBehaviour, IPullable
 {
     [SerializeField] private Vector2 _spawnPos;
+    [Header("플레이어와 장애물 간의 상호작용 가능 거리")]
+    [SerializeField] private float _linkDist = 0.5f;
+    [Header("오브젝트 재생성 대기시간 설정")]
     [SerializeField] private float _respawnTime = 1f;
 
     private Rigidbody2D _rb;
@@ -16,6 +18,20 @@ public class SadFruit : MonoBehaviour, IPullable
     private void Awake()
     {
         Init();
+    }
+
+    private void Update()
+    {
+        if (_isPulling && _playerHand != null)
+        {
+            Vector2 grabPoint = _collider.ClosestPoint(_playerHand.position);
+            float dist = Vector2.Distance(grabPoint, _playerHand.position);
+
+            if (dist > _linkDist)
+            {
+                OnStopP();
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -51,10 +67,10 @@ public class SadFruit : MonoBehaviour, IPullable
 
     public void OnStopP()
     {
-        if(_playerHand != null)
+        if (_playerHand != null)
         {
             var player = _playerHand.GetComponentInParent<PlayerController>();
-            if(player != null) player.OffGrab();
+            if (player != null) player.OffGrab();
         }
 
         _isPulling = false;
@@ -64,7 +80,7 @@ public class SadFruit : MonoBehaviour, IPullable
 
     // 무언가와 트리거 했을 때 실행되는 함수
     // target : 부딪힌 상대방을 target이라는 변수명 사용
-    private void OnCollisionEnter2D(Collision2D target)
+    private void OnTriggerEnter2D(Collider2D target)
     {
         if (target.gameObject.CompareTag("Boundary"))
         {
@@ -73,10 +89,7 @@ public class SadFruit : MonoBehaviour, IPullable
             GameManager.Instance.FruitCount--;
         }
 
-    }
-    private void OnTriggerEnter2D(Collider2D target)
-    {
-        if (target.gameObject.CompareTag("Seed"))
+        else if (target.gameObject.CompareTag("Seed"))
         {
             // 부딪힌 대상이 Seed라면 리셋
             Respawn();
