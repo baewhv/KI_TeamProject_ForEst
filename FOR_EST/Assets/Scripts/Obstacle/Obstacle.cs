@@ -5,36 +5,36 @@ using UnityEngine.InputSystem;
 
 namespace Obstacle
 {
+    /// <summary>
+    /// 열매와의 공통 기능
+    ///         1. 콜라이더와 렌더러 조정
+    ///         2. onpull 전체
+    ///         3. onstopp 전체
+    ///         4. rigidbody의 freeze기능 사용부분
+    ///         5. respawn코루틴
+    ///                 차이? 열매는 즉시 생성 / 장애물은 기획의도상 솟아오름
+    /// 현재 상태에서 지원님 작업이 끝나면 추가적인 부분 확인 후 열매쪽에도 공통부분은 베이스로 업 
+    /// 예상 추가 부분 ) 업데이트쪽 플레이어와의 연결부 코드 구현 해주시는 방식에 따라 해당 부분도 오버라이딩 시킬 수 있을 것으로 예상
+    /// </summary>
     public class Obstacle : BaseInteractionObject, IReversable
     {
-        /// <summary>
-        /// 열매와의 공통 기능
-        ///         1. 콜라이더와 렌더러 조정
-        ///         2. onpull 전체
-        ///         3. onstopp 전체
-        ///         4. rigidbody의 freeze기능 사용부분
-        ///         5. respawn코루틴
-        ///                 차이? 열매는 즉시 생성 / 장애물은 기획의도상 솟아오름
-        /// 현재 상태에서 지원님 작업이 끝나면 추가적인 부분 확인 후 열매쪽에도 공통부분은 베이스로 업 
-        /// 예상 추가 부분 ) 업데이트쪽 플레이어와의 연결부 코드 구현 해주시는 방식에 따라 해당 부분도 오버라이딩 시킬 수 있을 것으로 예상
-        /// </summary>
-        [Header("플레이어와 장애물 간의 상호작용 가능 거리")] 
-        [SerializeField] private float _linkDist = 0.5f;
-
         [Header("장애물이 플레이어에게 붙어 있을 거리")]
         [SerializeField] private Vector2 _pivot;
 
         [Header("반전 세계에 있는 오브젝트")] 
         [SerializeField] private bool _isThisObjBelongsToTheReverseWorld = false;
-        
-        [Header("서로 반전 될 오브젝트")]
-        [SerializeField] private ObstacleReverseObject _reverseObject;
+
+        [Header("서로 반전 될 오브젝트")] 
+        [SerializeField] private GameObject _reverseObjectPrefab;
         
         [Header("장애물이 솟아오르기까지 걸리는 시간")] 
         [SerializeField] private float _riseT;
 
-        [Header("바닥 레이어 체크")] 
+        [Header("바닥만 레이어 체크")] 
         [SerializeField] private LayerMask _groundLayer;
+
+        [Header("반전 불가능한 전체 레이어 체크")] 
+        [SerializeField] private LayerMask _groundReverseLayer;
         
         [Header("바닥으로 감지될 거리")]
         [SerializeField] private float _groundDistance;
@@ -42,28 +42,21 @@ namespace Obstacle
         [Header("바닥을 감지 할 박스의 x축 크기")]
         [SerializeField] private float _groundSizeX = 0.9f;
         
+        // [field:SerializeField] public bool OnGround { get; private set; }
+        
+        private ObstacleReverseObject _reverseObjectScript;
         private float _originalGravity;
         private bool _isReversing = false;
+        public bool _isReverse = false;
 
         private void Awake()
         {
             Init();
         }
 
-        private void Update()
+        public override void Update()
         {
-            if (_isPulling && _playerHand != null)
-            {
-                if (_isReversing) return;
-                
-                Vector2 grabPoint = _collider.ClosestPoint(_playerHand.position);
-                float dist = Vector2.Distance(grabPoint, _playerHand.position);
-
-                if (dist > _linkDist)
-                {
-                    base.OnStopP();
-                }
-            }
+            if (!_isReversing) base.Update();
 
             // 테스트 코드 후에 리스폰 조건 생성시 삭제해야함 
             if (Keyboard.current.rKey.wasPressedThisFrame) base.Respawn();
@@ -88,15 +81,19 @@ namespace Obstacle
         {
             base.Init();
             _originalGravity = _rb.gravityScale;
+            if (_reverseObjectPrefab != null) _reverseObjectPrefab = Instantiate(_reverseObjectPrefab);
+            _reverseObjectScript = _reverseObjectPrefab.GetComponent<ObstacleReverseObject>();
 
             if (_isThisObjBelongsToTheReverseWorld) ReversingState();
         }
 
         public void Reverse()
         {
-            if (!_reverseObject.canReverse || !_isPulling) return; //당겨지고 있지 않으면 리버스가 안되도록 함
+            _reverseObjectScript.OnReverseGround();
+            if (!_reverseObjectScript.canReverse || !_isPulling || !_reverseObjectScript.OnGround) return; //당겨지고 있지 않으면 리버스가 안되도록 함
 
             _isReversing = true;
+            _isReverse = !_isReverse;
             
             transform.position *= new Vector2(1f, -1f);
             transform.localScale *= new Vector2(1f, -1f);
@@ -108,13 +105,14 @@ namespace Obstacle
 
         public void ReversingState()
         {
-            _rb.gravityScale = -1f;
+            _rb.gravityScale *= -1f;
             _originalGravity = _rb.gravityScale;
             
             Vector3 scale = transform.localScale;
             scale.y *= -1f;
             transform.localScale = scale;
         }
+
 
         public override IEnumerator RespawnRoutine()
         {

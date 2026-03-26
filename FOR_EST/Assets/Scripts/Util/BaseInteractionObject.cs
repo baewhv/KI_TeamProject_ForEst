@@ -1,18 +1,36 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public abstract class BaseInteractionObject : MonoBehaviour, IPullable, IRespawnable
 {
+    [Header("플레이어와 장애물 간의 상호작용 가능 거리")] 
+    [SerializeField] protected float _linkDist = 0.5f;
+    
     [Header("오브젝트 재생성 대기시간 설정")] 
     [SerializeField] protected float _respawnTime = 1f;
     
     protected Vector2 _spawnPos;
     protected Transform _playerHand;
-    protected Rigidbody2D _rb;
+    public Rigidbody2D _rb;
     protected SpriteRenderer _renderer;
     protected Collider2D _collider;
     protected bool _isPulling = false;
     protected bool _isRespawning = false;
+
+    public virtual void Update()
+    {
+        if (_isPulling && _playerHand != null)
+        {
+            Vector2 grabPoint = _collider.ClosestPoint(_playerHand.position);
+            float dist = Vector2.Distance(grabPoint, _playerHand.position);
+
+            if (dist > _linkDist)
+            {
+                OnStopP();
+            }
+        }
+    }
 
     public virtual void Init()
     {

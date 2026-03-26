@@ -1031,7 +1031,7 @@ GameObject:
   m_Component:
   - component: {fileID: 119586554}
   - component: {fileID: 119586556}
-  - component: {fileID: 119586555}
+  - component: {fileID: 119586557}
   m_Layer: 12
   m_Name: test_Obstacle rev (2)
   m_TagString: Obstacle
@@ -1054,23 +1054,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1260486688}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &119586555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 119586553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec66acecd8d0c784fa43c5538a92486f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ReverseObject
-  _player: {fileID: 1317452622}
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  <canReverse>k__BackingField: 0
 --- !u!61 &119586556
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1117,6 +1100,26 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &119586557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119586553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 575e1f3a245b6354397b6c4379151cd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObstacleReverseObject
+  _target: {fileID: 1317452621}
+  _reverseLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  _groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  <canReverse>k__BackingField: 0
 --- !u!1001 &120782688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6355,11 +6358,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15bf65d52f785ca4190cedb5dec7a534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Obstacle
-  _respawnTime: 2
   _linkDist: 0.5
+  _respawnTime: 2
   _pivot: {x: 0.2, y: 0}
   _isThisObjBelongsToTheReverseWorld: 0
-  _reverseObject: {fileID: 1168810103}
+  _reverseObject: {fileID: 1168810105}
   _riseT: 0.3
   _groundLayer:
     serializedVersion: 2
@@ -6627,6 +6630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SadFruit
   _spawnPos: {x: 0, y: 0}
+  _linkDist: 0.5
   _respawnTime: 1
 --- !u!61 &1019132477
 BoxCollider2D:
@@ -7833,7 +7837,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1168810102}
   - component: {fileID: 1168810104}
-  - component: {fileID: 1168810103}
+  - component: {fileID: 1168810105}
   m_Layer: 12
   m_Name: test_Obstacle rev (1)
   m_TagString: Obstacle
@@ -7856,23 +7860,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1260486688}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1168810103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1168810101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec66acecd8d0c784fa43c5538a92486f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ReverseObject
-  _player: {fileID: 1002133316}
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  <canReverse>k__BackingField: 0
 --- !u!61 &1168810104
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7919,6 +7906,26 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1168810105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168810101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 575e1f3a245b6354397b6c4379151cd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObstacleReverseObject
+  _target: {fileID: 1002133315}
+  _reverseLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  _groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  <canReverse>k__BackingField: 0
 --- !u!1001 &1174175275
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8891,11 +8898,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15bf65d52f785ca4190cedb5dec7a534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Obstacle
-  _respawnTime: 2
   _linkDist: 0.5
+  _respawnTime: 2
   _pivot: {x: 0.2, y: 0}
   _isThisObjBelongsToTheReverseWorld: 0
-  _reverseObject: {fileID: 119586555}
+  _reverseObject: {fileID: 119586557}
   _riseT: 0.3
   _groundLayer:
     serializedVersion: 2
@@ -10049,6 +10056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HappyFruit
   _spawnPos: {x: 0, y: 0}
+  _linkDist: 0.5
   _respawnTime: 1
 --- !u!61 &1502581814
 BoxCollider2D:
