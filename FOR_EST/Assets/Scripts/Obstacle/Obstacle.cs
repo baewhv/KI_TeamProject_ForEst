@@ -160,7 +160,7 @@ namespace Obstacle
 
         private IEnumerator ReverseDorpObjIgnoreRoutine()
         {
-            yield return YieldContainer.WaitForSeconds(0.5f);
+            yield return YieldContainer.WaitForSeconds(0.1f);
             _isReversing = false;
         }
 
