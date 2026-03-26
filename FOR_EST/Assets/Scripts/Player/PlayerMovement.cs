@@ -54,12 +54,12 @@ public class PlayerMovement : MonoBehaviour
 
     public bool IsGround()
     {
-        //if (_rigidbody.linearVelocityY < 0.01f) return false;
-        Vector2 ray = _rigidbody.position - new Vector2(0, _collider.size.y * 0.5f * (_controller._isReverse ? -1 : 1));
+        Vector2 origin = _rigidbody.position + new Vector2(0, _collider.size.y * 0.5f * (_controller._isReverse ? 1 : -1));
+        Vector2 boxSize = new Vector2(_collider.size.x, 0.2f);
         List<RaycastHit2D> hits = new List<RaycastHit2D>();
-        if (Physics2D.Raycast(ray, _controller._isReverse ? Vector2.up : Vector2.down, GroundFilter, hits, 0.1f) > 0)
+        //GizmoHelper.Instance.SetGizmos(gameObject.name, origin, origin + Vector2.down * _collider.size.y * 0.2f);
+        if (Physics2D.BoxCast(origin,boxSize, 0, Vector2.zero, GroundFilter, hits,0) > 0)
             return true;
-
         return false;
     }
 
