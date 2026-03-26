@@ -1027,8 +1027,8 @@ Transform:
   m_GameObject: {fileID: 111098129}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.6, y: -1.29, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalPosition: {x: 20.7667, y: -3.79, z: 0}
+  m_LocalScale: {x: 1.3333, y: 7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3407,7 +3407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Obstacle
   _respawnTime: 2
   _linkDist: 0.5
-  _pivot: {x: 0.2, y: 0}
+  _pivot: {x: 0.1, y: 0}
   _isThisObjBelongsToTheReverseWorld: 0
   _reverseObject: {fileID: 0}
   _riseT: 0.5
@@ -3415,7 +3415,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   _groundDistance: 0.2
-  _groundSizeX: 0.98
+  _groundSizeX: 1
 --- !u!212 &462687431
 SpriteRenderer:
   serializedVersion: 2
@@ -3484,8 +3484,8 @@ Transform:
   m_GameObject: {fileID: 462687426}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.37, y: 10.73, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalPosition: {x: 19.2366, y: 12.83, z: 0}
+  m_LocalScale: {x: 10.7332, y: 6.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -12701,11 +12701,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Obstacle
   _respawnTime: 2
-  _linkDist: 0.1
-  _pivot: {x: 0.2, y: 0}
+  _linkDist: 0.5
+  _pivot: {x: 0.1, y: 0}
   _isThisObjBelongsToTheReverseWorld: 0
   _reverseObject: {fileID: 0}
-  _riseT: 0
+  _riseT: 0.5
   _groundLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -12779,8 +12779,8 @@ Transform:
   m_GameObject: {fileID: 1180831801}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.87, y: 10.73, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalPosition: {x: 0.6033, y: 10.3633, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     private UserInput _input;
     private GameObject _grabObject;
     public bool _isReverse { get; set; }
+
+    [SerializeField] private LayerMask grabLayer; 
     
     [SerializeField] private GameObject _reverseObjectPrefab;
     private ReverseObject _reverseObjectScript;
@@ -128,10 +130,9 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * (_status.IsRight ? 1 : -1), 0.5f, 1<<12);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * (_status.IsRight ? 1 : -1), 0.5f, grabLayer);
         if (hit.collider && hit.collider.CompareTag("Obstacle"))
         {
-            
             _status.GrabbedObject = hit.collider.GetComponent<IPullable>();
             _status.GrabbedObject.OnPull(_grabPoint);
             _status.IsGrab = true;
