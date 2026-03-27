@@ -8,6 +8,7 @@ TagManager:
   - Seed
   - Obstacle
   - Reverse
+  - Fruit
   layers:
   - Default
   - TransparentFX
@@ -30,8 +31,8 @@ TagManager:
   - 
   - 
   - Fruit
-  - Happy
-  - Sad
+  - 
+  - 
   - 
   - 
   - 

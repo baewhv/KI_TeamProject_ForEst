@@ -4,10 +4,14 @@ using UnityEngine;
 public class HappyFruit : MonoBehaviour, IPullable
 {
     [SerializeField] private Vector2 _spawnPos;
-    [Header("플레이어와 장애물 간의 상호작용 가능 거리")]
-    [SerializeField] private float _linkDist = 0.5f;
-    [Header("오브젝트 재생성 대기시간 설정")]
+    [Header("상호작용 및 리스폰 설정")]
+    [SerializeField] private float _linkDist = 1.2f;
     [SerializeField] private float _respawnTime = 1f;
+
+    [Header("바닥 체크 설정")]
+    [SerializeField] private LayerMask _groundLayer; 
+    [SerializeField] private float _groundDistance = 0.1f;
+    [SerializeField] private float _groundSizeX = 0.3f;
 
     private Rigidbody2D _rb;
     private SpriteRenderer _renderer;
@@ -38,8 +42,13 @@ public class HappyFruit : MonoBehaviour, IPullable
     {
         if (_isPulling && _playerHand != null)
         {
-            var playerMovement = _playerHand.GetComponentInParent<PlayerMovement>();
+            if (!IsGrounded())
+            {
+                OnStopP();
+                return;
+            }
 
+            var playerMovement = _playerHand.GetComponentInParent<PlayerMovement>();
             if (playerMovement != null)
             {
                 float playerVX = playerMovement._rigidbody.linearVelocityX;
@@ -51,14 +60,13 @@ public class HappyFruit : MonoBehaviour, IPullable
 
     public void Init()
     {
-        _spawnPos = gameObject.transform.position;
+        _spawnPos = transform.position;
         _rb = GetComponent<Rigidbody2D>();
         _renderer = GetComponent<SpriteRenderer>();
         _collider = GetComponent<Collider2D>();
         _rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
     }
 
-    // 플레이어가 잡았을 때
     public void OnPull(Transform playerHand)
     {
         _isPulling = true;
@@ -66,22 +74,54 @@ public class HappyFruit : MonoBehaviour, IPullable
         _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
-    // 플레이어가 놓았을 때
     public void OnStopP()
     {
         if (_playerHand != null)
         {
             var player = _playerHand.GetComponentInParent<PlayerController>();
-            if (player != null) player.OffGrab();
+            if (player != null)
+            {
+                player.OffGrab();
+            }
         }
 
         _isPulling = false;
         _playerHand = null;
+
+        _rb.linearVelocity = new Vector2(0f, _rb.linearVelocity.y);
+
         _rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
     }
 
-    // 무언가와 트리거 했을 때 실행되는 함수
-    // target : 부딪힌 상대방을 target이라는 변수명 사용
+    private bool IsGrounded()
+    {
+        if (_collider == null)
+        {
+            return false;
+        }
+
+        float direction = Mathf.Sign(_rb.gravityScale);
+        float checkY = (direction > 0) ? _collider.bounds.min.y : _collider.bounds.max.y;
+
+        Vector2 origin = new Vector2(_collider.bounds.center.x, checkY);
+        Vector2 checkBoxSize = new Vector2(_collider.bounds.size.x * _groundSizeX, 0.05f);
+
+        RaycastHit2D[] hits = Physics2D.BoxCastAll(origin, checkBoxSize, 0f, Vector2.down * direction, _groundDistance);
+
+        foreach (var hit in hits)
+        {
+            if (hit.collider != null &&
+                hit.collider.gameObject != gameObject &&
+                !hit.collider.isTrigger &&
+                !hit.collider.CompareTag("Player") &&
+                !hit.collider.CompareTag("Seed"))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     private void OnTriggerEnter2D(Collider2D target)
     {
         if (target.gameObject.CompareTag("Boundary"))
@@ -89,17 +129,14 @@ public class HappyFruit : MonoBehaviour, IPullable
             // 부딪힌 대상이 Boundary라면 리셋
             Respawn();
         }
-
-
         else if (target.gameObject.CompareTag("Seed"))
         {
             // 부딪힌 대상이 Seed라면 열매를 화면에서 사라지게 함
             gameObject.SetActive(false);
-            GameManager.Instance.FruitCount--;
+            if (GameManager.Instance != null) GameManager.Instance.FruitCount--;
         }
     }
 
-    // 열매 리셋하는 함수
     public void Respawn()
     {
         StartCoroutine(RespawnRoutine());

@@ -902,6 +902,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3899329150763503736, guid: 3ae23e0919863e24bbb258e187c27ee6, type: 3}
+      propertyPath: _linkDist
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3899329150763503736, guid: 3ae23e0919863e24bbb258e187c27ee6, type: 3}
+      propertyPath: _groundSizeX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3899329150763503736, guid: 3ae23e0919863e24bbb258e187c27ee6, type: 3}
+      propertyPath: _groundDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3899329150763503736, guid: 3ae23e0919863e24bbb258e187c27ee6, type: 3}
+      propertyPath: _groundLayer.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -915,6 +931,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4881375561114535412, guid: 0d30282f4b10eea4ba957045a92f7b75, type: 3}
+      propertyPath: _linkDist
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4881375561114535412, guid: 0d30282f4b10eea4ba957045a92f7b75, type: 3}
+      propertyPath: _groundSizeX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4881375561114535412, guid: 0d30282f4b10eea4ba957045a92f7b75, type: 3}
+      propertyPath: _groundDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4881375561114535412, guid: 0d30282f4b10eea4ba957045a92f7b75, type: 3}
+      propertyPath: _groundLayer.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 6953991155856480105, guid: 0d30282f4b10eea4ba957045a92f7b75, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6
