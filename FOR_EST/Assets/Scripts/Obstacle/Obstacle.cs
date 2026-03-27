@@ -5,17 +5,6 @@ using UnityEngine.InputSystem;
 
 namespace Obstacle
 {
-    /// <summary>
-    /// 열매와의 공통 기능
-    ///         1. 콜라이더와 렌더러 조정
-    ///         2. onpull 전체
-    ///         3. onstopp 전체
-    ///         4. rigidbody의 freeze기능 사용부분
-    ///         5. respawn코루틴
-    ///                 차이? 열매는 즉시 생성 / 장애물은 기획의도상 솟아오름
-    /// 현재 상태에서 지원님 작업이 끝나면 추가적인 부분 확인 후 열매쪽에도 공통부분은 베이스로 업 
-    /// 예상 추가 부분 ) 업데이트쪽 플레이어와의 연결부 코드 구현 해주시는 방식에 따라 해당 부분도 오버라이딩 시킬 수 있을 것으로 예상
-    /// </summary>
     public class Obstacle : BaseInteractionObject, IReversable
     {
         [Header("장애물이 플레이어에게 붙어 있을 거리")]
@@ -41,8 +30,6 @@ namespace Obstacle
         
         [Header("바닥을 감지 할 박스의 x축 크기")]
         [SerializeField] private float _groundSizeX = 0.9f;
-        
-        // [field:SerializeField] public bool OnGround { get; private set; }
         
         private ObstacleReverseObject _reverseObjectScript;
         private float _originalGravity;
