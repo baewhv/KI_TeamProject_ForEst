@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -106,17 +106,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15bf65d52f785ca4190cedb5dec7a534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Obstacle
-  _respawnTime: 1
   _linkDist: 0.5
+  _respawnTime: 1
   _pivot: {x: 0.1, y: 0}
   _isThisObjBelongsToTheReverseWorld: 0
-  _reverseObject: {fileID: 0}
+  _reverseObjectPrefab: {fileID: 5759015643564159108, guid: 7337699255f2b9b4eb7fa4cd689255b2, type: 3}
   _riseT: 0.3
   _groundLayer:
     serializedVersion: 2
     m_Bits: 512
+  _groundReverseLayer:
+    serializedVersion: 2
+    m_Bits: 7386624
   _groundDistance: 0.2
   _groundSizeX: 1.02
+  _isReverse: 0
 --- !u!50 &6356457998503089489
 Rigidbody2D:
   serializedVersion: 5

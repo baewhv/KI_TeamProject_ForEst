@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Obstacle;
 using UnityEngine;
 
@@ -17,12 +18,12 @@ public class ObstacleReverseObject : MonoBehaviour
 
     private Obstacle.Obstacle _obstacle;
     private Collider2D _collider;
+    private Rigidbody2D _targetRb;
     
     private void Awake()
     {
         canReverse = true;
         OnGround = true;
-        _obstacle = _target.GetComponent<Obstacle.Obstacle>();
         _collider = GetComponent<Collider2D>();
     }
 
@@ -54,15 +55,26 @@ public class ObstacleReverseObject : MonoBehaviour
         
         canReverse = true;
     }
+
+    public void Init(GameObject target, Obstacle.Obstacle obstacle)
+    {
+        _target = target;
+        _obstacle = obstacle;
+        _targetRb = _target.GetComponent<Rigidbody2D>();
+        
+    }
     
     public void OnReverseGround()
     {
-        float gravity = _obstacle.GetComponent<Rigidbody2D>().gravityScale;
+        if(_obstacle == null || _targetRb == null) return;
+        
+        float gravity = _targetRb.gravityScale;
+        Debug.Log(gravity);
         float checkY = (Mathf.Sign(gravity) * -1 > 0) ? _collider.bounds.min.y : _collider.bounds.max.y;
         
         Vector2 origin = new Vector2(_collider.bounds.center.x, checkY);
         Vector2 direction = (Mathf.Sign(gravity) * -1 > 0) ? Vector2.down : Vector2.up;
-        Vector2 checkBoxSize = new Vector2(transform.localScale.x - 2f, 0.5f);
+        Vector2 checkBoxSize = new Vector2(transform.localScale.x / 1.5f, 0.5f);
 
         RaycastHit2D hit = Physics2D.BoxCast
         (
@@ -71,7 +83,7 @@ public class ObstacleReverseObject : MonoBehaviour
             0f,
             direction,
             0.1f,
-            _groundLayerMask
+            _groundLayerMask | _reverseLayerMask
         );
 
         if (!hit)
@@ -88,12 +100,12 @@ public class ObstacleReverseObject : MonoBehaviour
     {
         if (_obstacle == null) return;
 
-        float gravity = _obstacle.GetComponent<Rigidbody2D>().gravityScale;
+        float gravity = _targetRb.gravityScale;
         float checkY = (Mathf.Sign(gravity) * -1 > 0) ? _collider.bounds.min.y : _collider.bounds.max.y;
         
         Vector2 origin = new Vector2(_collider.bounds.center.x, checkY);
         Vector2 direction = (Mathf.Sign(gravity) * -1 > 0) ? Vector2.down : Vector2.up;
-        Vector2 checkBoxSize = new Vector2(transform.localScale.x - 2f, 0.5f);
+        Vector2 checkBoxSize = new Vector2(transform.localScale.x / 1.5f , 0.5f);
         Vector2 targetPosition = origin + direction * 0.1f;
 
         Gizmos.color = Color.cyan;

@@ -10,7 +10,7 @@ public class UIButton : MonoBehaviour
   
     public void NewGame()
     {
-        SceneManagement.Instance.LoadScene("SampleScene");
+        SceneManagement.Instance.LoadScene("ConversationUI_SHY");
     }
 
     public void LoadGame()
