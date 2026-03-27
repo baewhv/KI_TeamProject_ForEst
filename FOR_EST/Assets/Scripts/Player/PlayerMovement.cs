@@ -17,8 +17,13 @@ public class PlayerMovement : MonoBehaviour
     public JumpingState Jumping { get; private set; }
     public FallingState Falling { get; private set; }
     public LandingState Landing { get; private set; }
+    
+    private Animator _anim;
+
+    private float _walkAnimSpeed;
 
     [field:SerializeField] public ObserveValue<EJumpState> JumpState { get; set; }
+    
     public void Init(PlayerStatus status)
     {
         _status = status;
@@ -34,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
         Landing = new LandingState(_status, this);
 
         _jumpStateMachine.ChangeState(JumpStandby);
+        _anim = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -45,6 +51,18 @@ public class PlayerMovement : MonoBehaviour
     {
         //좌우 입력
         _rigidbody.linearVelocityX = _status.InputAxis.Value.x * _status.MoveSpeed * Time.fixedDeltaTime;
+        
+        
+        if (Mathf.Abs(_status.InputAxis.Value.x) > 0)
+        {
+            _walkAnimSpeed = 1f;
+            _anim.SetFloat("MoveSpeed", _walkAnimSpeed);
+        }
+        else
+        {
+            _walkAnimSpeed = Mathf.Lerp(_walkAnimSpeed, 0f, 0.4f);
+            _anim.SetFloat("MoveSpeed", _walkAnimSpeed);
+        }
     }
 
     public void ChangeJumpState(IState state)

@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour
     
     [SerializeField] private GameObject _reverseObjectPrefab;
     private PlayerReverseObject _reverseObjectScript;
+
+    private Animator _anim;
+    private SpriteRenderer _renderer;
     
     private void Awake()
     {
@@ -34,6 +37,8 @@ public class PlayerController : MonoBehaviour
         _isReverse = false;
         if (_reverseObjectPrefab != null) _reverseObjectPrefab = Instantiate(_reverseObjectPrefab);
         _reverseObjectScript = _reverseObjectPrefab.GetComponent<PlayerReverseObject>();
+        _anim = GetComponentInChildren<Animator>();
+        _renderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void OnEnable()
@@ -62,7 +67,13 @@ public class PlayerController : MonoBehaviour
     private void OnMove(InputAction.CallbackContext ctx)
     {
         if (!_reverseView.IsPlayerView) return;
+        
         _status.InputAxis.Value = ctx.ReadValue<Vector2>();
+
+        if (_status.InputAxis.Value.x < 0) 
+            _renderer.flipX = true;
+        else 
+            _renderer.flipX = false;
     }
 
     private void OffMove(InputAction.CallbackContext ctx)
@@ -73,6 +84,8 @@ public class PlayerController : MonoBehaviour
     private void OnJump(InputAction.CallbackContext ctx)
     {
         if (_status.IsJumping || _status.IsFalling || !_reverseView.IsPlayerView) return;
+        
+        _anim.SetTrigger("Jump");
         _movement.ChangeJumpState(_movement.Jumping);
     }
 
