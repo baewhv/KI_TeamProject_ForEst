@@ -51,7 +51,12 @@ public class UIButton : MonoBehaviour
 
     public void Quit()
     {
+#if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false; //유니티 에디터에서 Play만 비활성화 시키는 함수
-        //Application.Quit(); 실제 빌드에서는 게임 종료 시키려면 이 함수 활성화 해야 함
+        
+#else
+        Application.Quit(); 실제 빌드에서는 게임 종료 시키려면 이 함수 활성화 해야 함
+
+#endif
     }
 }
