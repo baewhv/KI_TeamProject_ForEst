@@ -44,9 +44,6 @@ namespace Obstacle
         public override void Update()
         {
             if (!_isReversing) base.Update();
-
-            // 테스트 코드 후에 리스폰 조건 생성시 삭제해야함 
-            if (Keyboard.current.rKey.wasPressedThisFrame) base.Respawn();
         }
 
         private void FixedUpdate()
@@ -63,6 +60,13 @@ namespace Obstacle
             }
         }
 
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.CompareTag("Boundary"))
+            {
+                base.Respawn();
+            }
+        }
 
         private void Init()
         {

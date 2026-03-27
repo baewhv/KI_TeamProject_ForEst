@@ -53,4 +53,6 @@ MonoBehaviour:
     layer: Obstacle
   - prefab: {fileID: 7703566366851447466, guid: e2731321767292e4180c274ecf8fdf5f, type: 3}
     layer: Default
+  - prefab: {fileID: 2089088033210399094, guid: 6088dfb90db9bf348a81667531ccc745, type: 3}
+    layer: BigObstacle
   tileMap: {fileID: 0}

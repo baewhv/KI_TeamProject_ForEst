@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -12,11 +13,31 @@ public class SpawnManager : MonoBehaviour
     }
     
     public List<SpawnPrefab> spawnPrefabs;
+    private List<IRespawnable> _respawnable;
     public Transform tileMap;
 
     private void Awake()
     {
+        Init();
+    }
+
+    private void Update()
+    {
+        if (Keyboard.current.rKey.wasPressedThisFrame) Respawn();
+    }
+
+    private void Init()
+    {
+        _respawnable = new List<IRespawnable>();
         Spawnning();
+    }
+
+    private void Respawn()
+    {
+        foreach (var gameObj in _respawnable)
+        {
+            gameObj?.Respawn();
+        }
     }
 
     private void Spawnning()
@@ -32,11 +53,19 @@ public class SpawnManager : MonoBehaviour
             if (prefab.prefab != null)
             {
                 GameObject spawnObj = Instantiate(prefab.prefab, dummy.transform.position, Quaternion.identity);
+
+                IRespawnable respawnable = spawnObj.GetComponent<IRespawnable>();
+                if(respawnable != null) _respawnable.Add(respawnable);
                 
-                if(dummy.transform.position.y < -1 && spawnObj.TryGetComponent<Obstacle.Obstacle>(out Obstacle.Obstacle obstacle))
+                if(dummy.transform.position.y < -1)
                 {
-                    obstacle._isThisObjBelongsToTheReverseWorld = true;
-                    obstacle.ReversingState();
+                    spawnObj.transform.rotation = Quaternion.Euler(0, 0, 180f);
+                    
+                    if(spawnObj.TryGetComponent<Obstacle.Obstacle>(out Obstacle.Obstacle obstacle))
+                    {
+                        obstacle._isThisObjBelongsToTheReverseWorld = true;
+                        obstacle.ReversingState();
+                    }
                 };
                 
                 Destroy(dummy.gameObject);
