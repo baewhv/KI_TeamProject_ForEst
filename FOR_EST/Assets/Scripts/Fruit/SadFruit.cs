@@ -117,6 +117,7 @@ public class SadFruit : MonoBehaviour, IPullable
         {
             gameObject.SetActive(false);
             GameManager.Instance.FruitCount--;
+            GameManager.Instance.CheckClear();
         }
         else if (target.gameObject.CompareTag("Seed"))
         {

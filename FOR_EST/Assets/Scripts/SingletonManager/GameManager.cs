@@ -16,7 +16,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     public int FruitCount { get; set; }
     public bool IsClear { get; private set; }
     
-    private LayerMask _fruitMask;
+    [SerializeField] private LayerMask _fruitMask;
     private LayerMask _playerMask;
 
 
@@ -29,7 +29,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     
     private void Init()
     {
-        _fruitMask = LayerMask.GetMask("Fruit");
+
     }
 
     // SceneManagement 스크립트에서 Scene 전환 시
@@ -66,11 +66,12 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         if (_startPoint == null || _player == null) return;
         _startPoint.SpawnPoint(_player);
     }
-
-    private void CheckClear()
+    
+    public void CheckClear()
     {
         if (FruitCount != 0) return;
 
+        Debug.Log("클리어!");
         IsClear = true;
     }
 

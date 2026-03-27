@@ -514,6 +514,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8490457785692842656}
     m_Modifications:
+    - target: {fileID: 1292345123876247010, guid: ca6cbe52175037745bcabd69e4d3fbd3, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1292345123876247010, guid: ca6cbe52175037745bcabd69e4d3fbd3, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2636646088407969969, guid: ca6cbe52175037745bcabd69e4d3fbd3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.5
@@ -930,7 +938,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3552864957725526067, guid: 37952c3549abae64d93467d617981da2, type: 3}
   m_PrefabInstance: {fileID: 9105997491198158595}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3381665513584855954
+--- !u!114 &1333618592569980235
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
