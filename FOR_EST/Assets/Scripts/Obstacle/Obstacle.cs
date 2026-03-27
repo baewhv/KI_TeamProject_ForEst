@@ -63,6 +63,13 @@ namespace Obstacle
             }
         }
 
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.CompareTag("Boundary"))
+            {
+                base.Respawn();
+            }
+        }
 
         private void Init()
         {

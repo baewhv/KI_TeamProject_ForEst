@@ -33,10 +33,15 @@ public class SpawnManager : MonoBehaviour
             {
                 GameObject spawnObj = Instantiate(prefab.prefab, dummy.transform.position, Quaternion.identity);
                 
-                if(dummy.transform.position.y < -1 && spawnObj.TryGetComponent<Obstacle.Obstacle>(out Obstacle.Obstacle obstacle))
+                if(dummy.transform.position.y < -1)
                 {
-                    obstacle._isThisObjBelongsToTheReverseWorld = true;
-                    obstacle.ReversingState();
+                    spawnObj.transform.rotation = Quaternion.Euler(0, 0, 180f);
+                    
+                    if(spawnObj.TryGetComponent<Obstacle.Obstacle>(out Obstacle.Obstacle obstacle))
+                    {
+                        obstacle._isThisObjBelongsToTheReverseWorld = true;
+                        obstacle.ReversingState();
+                    }
                 };
                 
                 Destroy(dummy.gameObject);
