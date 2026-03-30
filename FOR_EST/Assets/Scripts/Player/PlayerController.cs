@@ -181,7 +181,10 @@ public class PlayerController : MonoBehaviour, IRespawnable
     {
         _isRespawning = true;
 
+        if (_isReverse) _reverse.Reverse();
+        _isReverse = false;
         transform.position = _spawnPos;
+        _anim.SetBool("Reverse", false);
         _status.InputAxis.Value = Vector2.zero;
         _input.asset.Disable();
 
