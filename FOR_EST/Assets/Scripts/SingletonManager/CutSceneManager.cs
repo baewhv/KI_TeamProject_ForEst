@@ -10,9 +10,10 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
     private StateMachine CutSceneState;
     [SerializeField] private GameObject _cinemaCameraPrefab;
     [SerializeField] private GameObject _cinemaCanvasPrefab;
-    public CinemachineCamera _cinemaCamera { get; private set; }
+    public CinemachineCamera CinemaCamera { get; private set; }
     private Dictionary<string, ScenarioSO> Scenarios = new ();
 
+    public CutsceneUIController CinemaUI { get; private set; }
     [SerializeField] private ScenarioSO testSO;
     private GameObject CutSceneObjects;
 
@@ -52,7 +53,7 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
     private void SetCamera()
     {
         if(_cinemaCameraPrefab)
-            _cinemaCamera = Instantiate(_cinemaCameraPrefab, CutSceneObjects.transform).GetComponent<CinemachineCamera>();
+            CinemaCamera = Instantiate(_cinemaCameraPrefab, CutSceneObjects.transform).GetComponent<CinemachineCamera>();
     }
 
 
