@@ -3,7 +3,7 @@ using TMPro;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 
-public class DialogueTest : MonoBehaviour
+public class Dialogue : MonoBehaviour
 {
     public TMP_Text dialogueText;
 
@@ -14,6 +14,10 @@ public class DialogueTest : MonoBehaviour
     public Vector3 offset;
     Transform currentTarget;
     int currentID;
+    public int languageIndex = 5; // CSV파일에서 텍스트가 있는 열의 인덱스 5 : 한국어, 6: 영어, 7: 일본어
+    public const int minLang = 5;
+    public const int maxLang = 7;
+    public GameObject textBox;
 
     void Start()
     {
@@ -62,7 +66,7 @@ public class DialogueTest : MonoBehaviour
             if (!int.TryParse(idStr, out int id)) continue;
             if (!int.TryParse(nextStr, out int nextId)) continue;
 
-            string text = row[5];
+            string text = row[languageIndex];
 
             textDict[id] = text;
             nextDict[id] = nextId;
@@ -88,9 +92,9 @@ public class DialogueTest : MonoBehaviour
 
         int nextID = nextDict[currentID];
 
-        if (nextID == 0)
+        if (nextID == 100046)
         {
-            dialogueText.text = "끝!";
+            Destroy(textBox);
             return;
         }
 

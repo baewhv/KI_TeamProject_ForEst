@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-public class UIManager : MonoBehaviour
+public class BlackCurtain : MonoBehaviour
 {
     /*Scene 이동 할 때 창이 서서히 밝아지게끔 만들어주는 스크립트입니다. 
      Scene 이동 시 blackOut_Curtain 이미지의 알파값이(투명도) 1에서 0으로 서서히
