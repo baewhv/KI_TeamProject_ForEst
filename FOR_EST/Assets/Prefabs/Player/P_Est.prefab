@@ -311,7 +311,7 @@ MonoBehaviour:
   _grabPoint: {fileID: 7449944866376114759}
   grabLayer:
     serializedVersion: 2
-    m_Bits: 1052672
+    m_Bits: 7344128
   _reverseObjectPrefab: {fileID: 4958028719943443453, guid: 0e4e8b2db316005429f171e44580a339, type: 3}
 --- !u!114 &5414808557473862683
 MonoBehaviour:

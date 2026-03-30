@@ -10,9 +10,15 @@ public abstract class BaseInteractionObject : MonoBehaviour, IPullable, IRespawn
     [Header("오브젝트 재생성 대기시간 설정")] 
     [SerializeField] protected float _respawnTime = 1f;
     
+    [Header("바닥으로 감지될 거리")]
+    [SerializeField] protected float _groundDistance;
+        
+    [Header("바닥을 감지 할 박스의 x축 크기")]
+    [SerializeField] protected float _groundSizeX = 1.02f;
+    
     protected Vector2 _spawnPos;
     protected Transform _playerHand;
-    protected Rigidbody2D _rb { get; private set; }
+    protected Rigidbody2D _rb;
     protected SpriteRenderer _renderer;
     protected Collider2D _collider;
     protected bool _isPulling = false;
@@ -54,7 +60,7 @@ public abstract class BaseInteractionObject : MonoBehaviour, IPullable, IRespawn
         if (_playerHand != null)
         {
             var player = _playerHand.GetComponentInParent<PlayerController>();
-            player?.OffGrab();
+            if (player != null) player?.OffGrab();
         }
         _isPulling = false;
         _playerHand = null;
@@ -66,6 +72,15 @@ public abstract class BaseInteractionObject : MonoBehaviour, IPullable, IRespawn
         if (_isRespawning) return;
         OnStopP();
         StartCoroutine(RespawnRoutine());
+    }
+    
+    public virtual void CheckGroundState(out Vector2 origin, out Vector2 checkBoxSize, out float direction)
+    {
+        direction = Mathf.Sign(_rb.gravityScale);
+        float checkY = (direction > 0) ? _collider.bounds.min.y : _collider.bounds.max.y;
+
+        origin = new Vector2(_collider.bounds.center.x, checkY);
+        checkBoxSize = new Vector2(_collider.bounds.size.x * _groundSizeX, 0.05f);
     }
 
     public virtual void PullingState(bool isPulling)

@@ -108,6 +108,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Obstacle
   _linkDist: 0.5
   _respawnTime: 1
+  _groundDistance: 0.05
+  _groundSizeX: 1.02
   _pivot: {x: 0.1, y: 0}
   _isThisObjBelongsToTheReverseWorld: 0
   _reverseObjectPrefab: {fileID: 5759015643564159108, guid: 7337699255f2b9b4eb7fa4cd689255b2, type: 3}
@@ -118,8 +120,6 @@ MonoBehaviour:
   _groundReverseLayer:
     serializedVersion: 2
     m_Bits: 1095168
-  _groundDistance: 0.1
-  _groundSizeX: 1.02
   _isReverse: 0
 --- !u!50 &6356457998503089489
 Rigidbody2D:
