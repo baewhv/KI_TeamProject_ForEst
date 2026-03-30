@@ -165,8 +165,7 @@ namespace Obstacle
             Vector2 origin = new Vector2(_collider.bounds.center.x, checkY);
             Vector2 checkBoxSize = new Vector2(_collider.bounds.size.x * _groundSizeX, 0.1f);
             
-            RaycastHit2D hit =
-                                Physics2D.BoxCast
+            RaycastHit2D hit = Physics2D.BoxCast
                                  (
                                      origin,
                                      checkBoxSize,
