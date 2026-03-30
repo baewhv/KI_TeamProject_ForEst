@@ -1,39 +1,39 @@
 using System.Collections;
 using UnityEngine;
 
-public class SadFruit : MonoBehaviour, IPullable, IRespawnable
+public class SadFruit : BaseInteractionObject
 {
-    [SerializeField] private Vector2 _spawnPos;
-    [Header("상호작용 및 리스폰 설정")]
-    [SerializeField] private float _linkDist = 1.2f;
-    [SerializeField] private float _respawnTime = 1f;
+    // [SerializeField] private Vector2 _spawnPos;
+    // [Header("상호작용 및 리스폰 설정")]
+    // [SerializeField] private float _linkDist = 1.2f;
+    // [SerializeField] private float _respawnTime = 1f;
 
-    [Header("바닥 체크 설정")]
-    [SerializeField] private LayerMask _groundLayer;
-    [SerializeField] private float _groundDistance = 0.1f;
-    [SerializeField] private float _groundSizeX = 0.3f;
+    // [Header("바닥 체크 설정")]
+    // [SerializeField] private LayerMask _groundLayer;
+    // [SerializeField] private float _groundDistance = 0.1f;
+    // [SerializeField] private float _groundSizeX = 0.3f;
 
-    private Rigidbody2D _rb;
-    private SpriteRenderer _renderer;
-    private Collider2D _collider;
-    private Transform _playerHand;
-    private bool _isPulling = false;
+    // private Rigidbody2D _rb;
+    // private SpriteRenderer _renderer;
+    // private Collider2D _collider;
+    // private Transform _playerHand;
+    // private bool _isPulling = false;
 
     private void Awake() { Init(); }
 
-    private void Update()
-    {
-        if (_isPulling && _playerHand != null)
-        {
-            Vector2 grabPoint = _collider.ClosestPoint(_playerHand.position);
-            float dist = Vector2.Distance(grabPoint, _playerHand.position);
-
-            if (dist > _linkDist)
-            {
-                OnStopP();
-            }
-        }
-    }
+    // private void Update()
+    // {
+    //     if (_isPulling && _playerHand != null)
+    //     {
+    //         Vector2 grabPoint = _collider.ClosestPoint(_playerHand.position);
+    //         float dist = Vector2.Distance(grabPoint, _playerHand.position);
+    //
+    //         if (dist > _linkDist)
+    //         {
+    //             OnStopP();
+    //         }
+    //     }
+    // }
 
     private void FixedUpdate()
     {
@@ -54,46 +54,49 @@ public class SadFruit : MonoBehaviour, IPullable, IRespawnable
         }
     }
 
-    public void Init()
-    {
-        _spawnPos = gameObject.transform.position;
-        _rb = GetComponent<Rigidbody2D>();
-        _renderer = GetComponent<SpriteRenderer>();
-        _collider = GetComponent<Collider2D>();
-        _rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
-    }
+    // public void Init()
+    // {
+    //     base.Init();
+    //     // _spawnPos = gameObject.transform.position;
+    //     // _rb = GetComponent<Rigidbody2D>();
+    //     // _renderer = GetComponent<SpriteRenderer>();
+    //     // _collider = GetComponent<Collider2D>();
+    //     _rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
+    // }
 
-    public void OnPull(Transform playerHand)
-    {
-        _isPulling = true;
-        _playerHand = playerHand;
-        _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-    }
+    // public void OnPull(Transform playerHand)
+    // {
+    //     _isPulling = true;
+    //     _playerHand = playerHand;
+    //     _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+    // }
 
-    public void OnStopP()
+    public override void OnStopP()
     {
-        if (_playerHand != null)
-        {
-            var player = _playerHand.GetComponentInParent<PlayerController>();
-            if (player != null) player.OffGrab();
-        }
-
-        _isPulling = false;
-        _playerHand = null;
+        base.OnStopP();
+        // if (_playerHand != null)
+        // {
+        //     var player = _playerHand.GetComponentInParent<PlayerController>();
+        //     if (player != null) player.OffGrab();
+        // }
+        //
+        // _isPulling = false;
+        // _playerHand = null;
 
         _rb.linearVelocity = new Vector2(0f, _rb.linearVelocity.y);
-        _rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
+        // _rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
     }
 
     private bool IsGrounded()
     {
         if (_collider == null) return false;
 
-        float direction = Mathf.Sign(_rb.gravityScale);
-        float checkY = (direction > 0) ? _collider.bounds.min.y : _collider.bounds.max.y;
-
-        Vector2 origin = new Vector2(_collider.bounds.center.x, checkY);
-        Vector2 checkBoxSize = new Vector2(_collider.bounds.size.x * _groundSizeX, 0.05f);
+        base.CheckGroundState(out Vector2 origin, out Vector2 checkBoxSize, out float direction);
+        // float direction = Mathf.Sign(_rb.gravityScale);
+        // float checkY = (direction > 0) ? _collider.bounds.min.y : _collider.bounds.max.y;
+        //
+        // Vector2 origin = new Vector2(_collider.bounds.center.x, checkY);
+        // Vector2 checkBoxSize = new Vector2(_collider.bounds.size.x * _groundSizeX, 0.05f);
 
         RaycastHit2D[] hits = Physics2D.BoxCastAll(origin, checkBoxSize, 0f, Vector2.down * direction, _groundDistance);
 
@@ -125,22 +128,22 @@ public class SadFruit : MonoBehaviour, IPullable, IRespawnable
         }
     }
 
-    public void Respawn() { StartCoroutine(RespawnRoutine()); }
-
-    private IEnumerator RespawnRoutine()
-    {
-        _rb.simulated = false;
-        _renderer.enabled = false;
-        _collider.enabled = false;
-
-        yield return new WaitForSeconds(_respawnTime);
-
-        transform.position = _spawnPos;
-        _rb.linearVelocity = Vector2.zero;
-
-        _rb.simulated = true;
-        _renderer.enabled = true;
-        _collider.enabled = true;
-        _rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
-    }
+    // public void Respawn() { StartCoroutine(RespawnRoutine()); }
+    //
+    // private IEnumerator RespawnRoutine()
+    // {
+    //     _rb.simulated = false;
+    //     _renderer.enabled = false;
+    //     _collider.enabled = false;
+    //
+    //     yield return new WaitForSeconds(_respawnTime);
+    //
+    //     transform.position = _spawnPos;
+    //     _rb.linearVelocity = Vector2.zero;
+    //
+    //     _rb.simulated = true;
+    //     _renderer.enabled = true;
+    //     _collider.enabled = true;
+    //     _rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
+    // }
 }
