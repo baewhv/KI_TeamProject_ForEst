@@ -17,6 +17,7 @@ namespace CutScene
         [InspectorName("카메라 대상 추적")]CameraSetTarget,
         [InspectorName("카메라 이동")]CameraMove,
         [InspectorName("카메라 줌")]CameraZoom,
+        [InspectorName("딜레이")]Delay,
         Max
     }
 

@@ -14,17 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ScenarioSO
   ActionList:
   - rid: 3650131829090418774
-  - rid: 3650131829090418690
+  - rid: 3650131829090418847
   - rid: 3650131829090418700
   - rid: 3650131829090418710
   references:
     version: 2
     RefIds:
-    - rid: 3650131829090418690
-      type: {class: CameraMoveAction, ns: CutScene, asm: Assembly-CSharp}
-      data:
-        _actionType: 10
-        position: {x: 1, y: 0}
     - rid: 3650131829090418700
       type: {class: CameraTargetAction, ns: CutScene, asm: Assembly-CSharp}
       data:
@@ -41,3 +36,8 @@ MonoBehaviour:
         dialogNumber: 
         dialogTarget: 
         dialogPosition: {x: 0, y: 0}
+    - rid: 3650131829090418847
+      type: {class: FadeOutAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 7
+        time: 0

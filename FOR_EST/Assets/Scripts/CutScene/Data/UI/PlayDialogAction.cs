@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace CutScene
 {
@@ -12,5 +13,21 @@ namespace CutScene
         public string dialogNumber;
         public string dialogTarget;
         public Vector2 dialogPosition;
+        public override void PlayAction()
+        {
+            Debug.Log($"{GetType()} : 시작");
+        }
+        
+        public override void Update()
+        {
+            
+        }
+
+        public override IEnumerator PlayActionRoutine()
+        {
+            yield return YieldContainer.WaitForSeconds(1);
+            Debug.Log($"{GetType()} : 종료");
+            CutSceneManager.Instance.EndAction();
+        }
     }
 }

@@ -1,13 +1,17 @@
+using System.Collections;
 using UnityEngine;
 
 namespace CutScene
 {
     [System.Serializable]
-    public class BaseAction
+    public abstract class BaseAction
     {
         [SerializeField] protected EActions _actionType;
-        public EActions actionType => _actionType; 
-        
-        private ENextActionType nextType; 
+        public EActions ActionType => _actionType; 
+        public ENextActionType NextType;
+
+        public abstract void PlayAction();
+        public abstract void Update();
+        public abstract IEnumerator PlayActionRoutine();
     }
 }   

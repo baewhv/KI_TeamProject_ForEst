@@ -4,26 +4,26 @@ using UnityEngine;
 namespace CutScene
 {
     [System.Serializable]
-    public class CharacterReverseAction : BaseAction
+    public class DelayAction : BaseAction
     {
-        public CharacterReverseAction()
+        public DelayAction()
         {
-            _actionType = EActions.CharacterReverse;
+            _actionType = EActions.Delay;
         }
-        public string character;
+        
+        public float delayTime;
         public override void PlayAction()
         {
             Debug.Log($"{GetType()} : 시작");
         }
-        
+
         public override void Update()
         {
-            
         }
 
         public override IEnumerator PlayActionRoutine()
         {
-            yield return YieldContainer.WaitForSeconds(1);
+            yield return YieldContainer.WaitForSeconds(delayTime);
             Debug.Log($"{GetType()} : 종료");
             CutSceneManager.Instance.EndAction();
         }

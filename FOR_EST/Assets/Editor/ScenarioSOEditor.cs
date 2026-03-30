@@ -1,11 +1,9 @@
 using System;
 using System.Linq;
-using System.Reflection;
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
 using CutScene;
-using Unity.VisualScripting;
 
 [CustomEditor(typeof(ScenarioSO))]
 public class ScenarioSOEditor : Editor
@@ -63,12 +61,13 @@ public class ScenarioSOEditor : Editor
                 .Where(p => typeof(BaseAction).IsAssignableFrom(p) && !p.IsAbstract);
             for (int i = 1; i < (int)EActions.Max; i++)
             {
+                var i1 = i;
                 menu.AddItem(new GUIContent(GetEnumInspectorName((EActions)i)) , false, () =>
                 {
                     serializedObject.Update();//새로 추가할 때 함수.
                     int index = temp.arraySize;
                     temp.InsertArrayElementAtIndex(index);
-                    temp.GetArrayElementAtIndex(index).managedReferenceValue = CreateActionInstance((EActions)index); 
+                    temp.GetArrayElementAtIndex(index).managedReferenceValue = CreateActionInstance((EActions)i1); 
                     serializedObject.ApplyModifiedProperties();
                 });
             }
@@ -111,8 +110,10 @@ public class ScenarioSOEditor : Editor
                 return new CharacterReverseAction();
             case EActions.CharacterPlayAnimation:
                 return new CharacterPlayAnimationAction();
+            case EActions.Delay:
+                return new DelayAction();
             default:
-                return new BaseAction();
+                return new DelayAction();
         }
     }
     
@@ -142,6 +143,8 @@ public class ScenarioSOEditor : Editor
                 return "캐릭터 반전";
             case EActions.CharacterPlayAnimation:
                 return "캐릭터 애니메이션";
+            case EActions.Delay:
+                return "딜레이";
             default:
                 return "에러";
 
