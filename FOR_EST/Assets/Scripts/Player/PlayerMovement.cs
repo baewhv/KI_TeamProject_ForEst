@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private PlayerStatus _status;
-    private PlayerController _controller;
+    public PlayerController Controller {get; private set;}
 
     public Rigidbody2D _rigidbody { get; private set; }
     private BoxCollider2D _collider; 
@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public FallingState Falling { get; private set; }
     public LandingState Landing { get; private set; }
     
-    private Animator _anim;
+    public Animator Anim { get; private set; }
 
     private float _walkAnimSpeed;
 
@@ -29,17 +29,17 @@ public class PlayerMovement : MonoBehaviour
         _status = status;
         _rigidbody = GetComponent<Rigidbody2D>();
         _collider = GetComponent<BoxCollider2D>();
-        _controller = GetComponent<PlayerController>();
+        Controller = GetComponent<PlayerController>();
         _jumpStateMachine = new StateMachine();
         JumpState = new ObserveValue<EJumpState>();
+        Anim = GetComponentInChildren<Animator>();
         
         JumpStandby = new JumpStandbyState(_status, this);
         Jumping = new JumpingState(_status, this);
         Falling = new FallingState(_status, this);
         Landing = new LandingState(_status, this);
 
-        _jumpStateMachine.ChangeState(JumpStandby);
-        _anim = GetComponentInChildren<Animator>();
+        _jumpStateMachine.ChangeState(JumpStandby); 
     }
 
     void Update()
@@ -56,12 +56,13 @@ public class PlayerMovement : MonoBehaviour
         if (Mathf.Abs(_status.InputAxis.Value.x) > 0)
         {
             _walkAnimSpeed = 1f;
-            _anim.SetFloat("MoveSpeed", _walkAnimSpeed);
+            Anim.SetFloat("MoveSpeed", _walkAnimSpeed);
         }
         else
         {
             _walkAnimSpeed = Mathf.Lerp(_walkAnimSpeed, 0f, 0.4f);
-            _anim.SetFloat("MoveSpeed", _walkAnimSpeed);
+            if (_walkAnimSpeed < 0.1f) _walkAnimSpeed = 0;
+            Anim.SetFloat("MoveSpeed", _walkAnimSpeed);
         }
     }
 
@@ -72,12 +73,25 @@ public class PlayerMovement : MonoBehaviour
 
     public bool IsGround()
     {
-        Vector2 origin = _rigidbody.position + new Vector2(0, _collider.size.y * 0.5f * (_controller._isReverse ? 1 : -1));
+        Vector2 origin = _rigidbody.position + new Vector2(0, _collider.size.y * 0.5f * (Controller._isReverse ? 1 : -1));
         Vector2 boxSize = new Vector2(_collider.size.x, 0.2f);
         List<RaycastHit2D> hits = new List<RaycastHit2D>();
         //GizmoHelper.Instance.SetGizmos(gameObject.name, origin, origin + Vector2.down * _collider.size.y * 0.2f);
         if (Physics2D.BoxCast(origin,boxSize, 0, Vector2.zero, GroundFilter, hits,0) > 0)
             return true;
+        return false;
+    }
+
+    public bool LandingReady()
+    {
+        RaycastHit2D hit = Physics2D.CircleCast(
+            (Controller._isReverse ? transform.position + new Vector3(0f, 1f, 0f) : transform.position - new Vector3(0f, 1f, 0f))
+            , 0.5f
+            , (Controller._isReverse ? Vector2.up : Vector2.down)
+            , 3f
+            , LayerMask.GetMask("Ground"));
+
+        if (hit) return true;
         return false;
     }
 

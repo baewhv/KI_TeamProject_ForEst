@@ -4,7 +4,8 @@ public class JumpingState : IState
 {
     private PlayerStatus _status;
     private PlayerMovement _movement;
-
+    private bool _isFalling;
+    
     public JumpingState(PlayerStatus status, PlayerMovement movement)
     {
         _status = status;
@@ -27,8 +28,16 @@ public class JumpingState : IState
 
     public void Update()
     {
-        if(_movement._rigidbody.linearVelocityY < 0)
-            _movement.ChangeJumpState(_movement.Falling);
+        if (!_movement.Controller._isReverse)
+        {
+            if(_movement._rigidbody.linearVelocityY < 0)
+                _movement.ChangeJumpState(_movement.Falling);
+        }
+        else
+        {
+            if(_movement._rigidbody.linearVelocityY > 0)
+                _movement.ChangeJumpState(_movement.Falling);
+        }
     }
 
     public void Exit()

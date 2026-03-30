@@ -65,12 +65,8 @@ public class PlayerReverseObject : MonoBehaviour
                         _groundLayerMask);
 
         if (!hit)
-        {
             OnGround = false;
-        }
         else
-        {
             OnGround = true;
-        }
     }
 }

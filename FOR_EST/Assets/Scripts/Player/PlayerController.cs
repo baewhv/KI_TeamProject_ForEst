@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 /// <summary>
 /// 플레이어 조작 부분
 /// </summary>
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IRespawnable
 {
     [SerializeField] private PlayerStatus _status = new PlayerStatus();
     [SerializeField] private Transform _grabPoint;
@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_status.IsJumping || _status.IsFalling || !_reverseView.IsPlayerView) return;
         
-        _anim.SetTrigger("Jump");
+        _anim.SetBool("Jump", true);
         _movement.ChangeJumpState(_movement.Jumping);
     }
 
@@ -159,4 +159,8 @@ public class PlayerController : MonoBehaviour
         _status.IsGrab = false;
     }
 
+    public void Respawn()
+    {
+        
+    }
 }
