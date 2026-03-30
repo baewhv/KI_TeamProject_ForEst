@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class SadFruit : MonoBehaviour, IPullable
+public class SadFruit : MonoBehaviour, IPullable, IRespawnable
 {
     [SerializeField] private Vector2 _spawnPos;
     [Header("상호작용 및 리스폰 설정")]
