@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public FallingState Falling { get; private set; }
     public LandingState Landing { get; private set; }
     
-    private Animator _anim;
+    public Animator Anim { get; private set; }
 
     private float _walkAnimSpeed;
 
@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
         Landing = new LandingState(_status, this);
 
         _jumpStateMachine.ChangeState(JumpStandby);
-        _anim = GetComponentInChildren<Animator>();
+        Anim = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -56,12 +56,12 @@ public class PlayerMovement : MonoBehaviour
         if (Mathf.Abs(_status.InputAxis.Value.x) > 0)
         {
             _walkAnimSpeed = 1f;
-            _anim.SetFloat("MoveSpeed", _walkAnimSpeed);
+            Anim.SetFloat("MoveSpeed", _walkAnimSpeed);
         }
         else
         {
             _walkAnimSpeed = Mathf.Lerp(_walkAnimSpeed, 0f, 0.4f);
-            _anim.SetFloat("MoveSpeed", _walkAnimSpeed);
+            Anim.SetFloat("MoveSpeed", _walkAnimSpeed);
         }
     }
 
@@ -78,6 +78,19 @@ public class PlayerMovement : MonoBehaviour
         //GizmoHelper.Instance.SetGizmos(gameObject.name, origin, origin + Vector2.down * _collider.size.y * 0.2f);
         if (Physics2D.BoxCast(origin,boxSize, 0, Vector2.zero, GroundFilter, hits,0) > 0)
             return true;
+        return false;
+    }
+    
+    public bool LandingReady()
+    {
+        RaycastHit2D hit = Physics2D.CircleCast(
+            (Controller._isReverse ? transform.position + new Vector3(0f, 1f, 0f) : transform.position - new Vector3(0f, 1f, 0f))
+            , 0.5f
+            , (Controller._isReverse ? Vector2.up : Vector2.down)
+            , 3f
+            , LayerMask.GetMask("Ground"));
+
+        if (hit) return true;
         return false;
     }
 

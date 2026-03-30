@@ -23,6 +23,11 @@ public class FallingState : IState
         {
             _movement.ChangeJumpState(_movement.Landing);
         }
+
+        if (_movement.LandingReady())
+        {
+            _movement.Anim.SetBool("Jump", false);
+        }
     }
 
     public void Exit()
