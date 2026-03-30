@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a528ccd6b0a70c42ade31bfd67dec88, type: 3}
+  m_Name: ScenarioSO
+  m_EditorClassIdentifier: Assembly-CSharp::ScenarioSO
+  ActionList:
+  - rid: 3650131829090418815
+  - rid: 3650131829090418851
+  - rid: 3650131829090418821
+  - rid: 3650131829090418833
+  - rid: 3650131893831598181
+  - rid: 3650131829090418822
+  - rid: 3650131829090418849
+  - rid: 3650131893831598192
+  references:
+    version: 2
+    RefIds:
+    - rid: 3650131829090418815
+      type: {class: CharacterMoveAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 1
+        NextType: 0
+        character: 
+        position: {x: 0, y: 0}
+    - rid: 3650131829090418821
+      type: {class: DelayAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 12
+        NextType: 0
+        delayTime: 0
+    - rid: 3650131829090418822
+      type: {class: DelayAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 12
+        NextType: 0
+        delayTime: 10
+    - rid: 3650131829090418833
+      type: {class: CameraTargetAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 9
+        NextType: 2
+        Target: 
+    - rid: 3650131829090418849
+      type: {class: BackgroundImageAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 8
+        NextType: 0
+        image: 
+    - rid: 3650131829090418851
+      type: {class: CharacterMoveAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 1
+        NextType: 0
+        character: 
+        position: {x: 0, y: 0}
+    - rid: 3650131893831598181
+      type: {class: CharacterReverseAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 3
+        NextType: 0
+        character: 
+    - rid: 3650131893831598192
+      type: {class: CharacterDirectionAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 2
+        NextType: 0
+        character: 
+        isLeft: 0
