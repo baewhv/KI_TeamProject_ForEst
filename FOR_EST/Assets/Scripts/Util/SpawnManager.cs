@@ -15,19 +15,33 @@ public class SpawnManager : MonoBehaviour
     public List<SpawnPrefab> spawnPrefabs;
     private List<IRespawnable> _respawnable;
     public Transform tileMap;
+    private UserInput _input;
 
     private void Awake()
     {
         Init();
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        if (Keyboard.current.rKey.wasPressedThisFrame) Respawn();
+        _input.asset.Enable();
+        _input.System.Respawn.performed += OnRespawn;
+    }
+
+    private void OnDisable()
+    {
+        _input.System.Respawn.performed -= OnRespawn;
+        _input.asset.Disable();
+    }
+
+    private void OnRespawn(InputAction.CallbackContext ctx)
+    {
+        Respawn();
     }
 
     private void Init()
     {
+        _input = new UserInput();
         _respawnable = new List<IRespawnable>();
         Spawnning();
     }
