@@ -37,7 +37,7 @@ public class ScenarioSOEditor : Editor
             //Rect headerRect = new Rect(rect.x + 25, rect.y, rect.width - 25, lineHeight);
             //EditorGUI.LabelField(headerRect, displayName, EditorStyles.boldLabel);
             
-            EditorGUI.PropertyField(new Rect(rect.x + 10, rect.y, rect.width, rect.height - lineHeight),
+            EditorGUI.PropertyField(new Rect(rect.x + 10, rect.y, rect.width - 10, rect.height - lineHeight),
                 element,new GUIContent(displayName),
                 true);
             if (EditorGUI.EndChangeCheck())
@@ -46,6 +46,7 @@ public class ScenarioSOEditor : Editor
                 if(selectedType != beforeType)   
                     element.managedReferenceValue = CreateActionInstance(selectedType);
             }
+            
         };
 
         _actionList.drawHeaderCallback = (Rect rect) =>

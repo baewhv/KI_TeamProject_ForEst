@@ -6,12 +6,12 @@ namespace CutScene
     [System.Serializable]
     public class BackgroundImageAction : BaseAction
     {
+        public string image;
         public BackgroundImageAction()
         {
             _actionType = EActions.BackgroundImage;
         }
-        public string image;
-        public override void PlayAction()
+        public override void InitAction()
         {
             Debug.Log($"{GetType()} : 시작");
         }

@@ -30,8 +30,8 @@ namespace CutScene
     /// </summary>
     public enum ENextActionType
     {
-        NeedInput,
-        Immediate, 
-        Together,
+        [InspectorName("키 입력 필요")] NeedInput,
+        [InspectorName("종료 후 이어서")] Immediate, 
+        [InspectorName("다음 연출과 함께")] Together,
     }
 }
