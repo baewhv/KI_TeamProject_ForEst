@@ -22,11 +22,8 @@ MonoBehaviour:
   - rid: 3650131893831598257
   - rid: 3650131893831598258
   - rid: 3650131893831598260
-  - rid: 3650131893831598261
   - rid: 3650131893831598264
   - rid: 3650131893831598265
-  - rid: 3650131893831598266
-  - rid: 3650131893831598267
   - rid: 3650131893831598268
   - rid: 3650131893831598269
   - rid: 3650131893831598282
@@ -84,15 +81,7 @@ MonoBehaviour:
       data:
         _actionType: 5
         NextType: 0
-        dialogNumber: 
-        dialogTarget: 
-        dialogPosition: {x: -524, y: -314}
-    - rid: 3650131893831598261
-      type: {class: PlayDialogAction, ns: CutScene, asm: Assembly-CSharp}
-      data:
-        _actionType: 5
-        NextType: 0
-        dialogNumber: 
+        dialogNumber: 100001
         dialogTarget: 
         dialogPosition: {x: -524, y: -314}
     - rid: 3650131893831598262
@@ -106,29 +95,13 @@ MonoBehaviour:
       data:
         _actionType: 12
         NextType: 0
-        delayTime: 0
+        delayTime: 3
     - rid: 3650131893831598265
       type: {class: PlayDialogAction, ns: CutScene, asm: Assembly-CSharp}
       data:
         _actionType: 5
         NextType: 0
-        dialogNumber: 
-        dialogTarget: 
-        dialogPosition: {x: 0, y: 0}
-    - rid: 3650131893831598266
-      type: {class: PlayDialogAction, ns: CutScene, asm: Assembly-CSharp}
-      data:
-        _actionType: 5
-        NextType: 0
-        dialogNumber: 
-        dialogTarget: 
-        dialogPosition: {x: 0, y: 0}
-    - rid: 3650131893831598267
-      type: {class: PlayDialogAction, ns: CutScene, asm: Assembly-CSharp}
-      data:
-        _actionType: 5
-        NextType: 0
-        dialogNumber: 
+        dialogNumber: 100003
         dialogTarget: 
         dialogPosition: {x: 0, y: 0}
     - rid: 3650131893831598268
@@ -281,7 +254,7 @@ MonoBehaviour:
       data:
         _actionType: 5
         NextType: 0
-        dialogNumber: 
+        dialogNumber: 0
         dialogTarget: 
         dialogPosition: {x: 0, y: 0}
     - rid: 3650131893831598290
@@ -289,7 +262,7 @@ MonoBehaviour:
       data:
         _actionType: 5
         NextType: 0
-        dialogNumber: 
+        dialogNumber: 0
         dialogTarget: 
         dialogPosition: {x: 0, y: 0}
     - rid: 3650131893831598291
@@ -297,7 +270,7 @@ MonoBehaviour:
       data:
         _actionType: 5
         NextType: 0
-        dialogNumber: 
+        dialogNumber: 0
         dialogTarget: 
         dialogPosition: {x: 0, y: 0}
     - rid: 3650131893831598292
@@ -305,7 +278,7 @@ MonoBehaviour:
       data:
         _actionType: 5
         NextType: 0
-        dialogNumber: 
+        dialogNumber: 0
         dialogTarget: 
         dialogPosition: {x: 0, y: 0}
     - rid: 3650131893831598293
@@ -313,7 +286,7 @@ MonoBehaviour:
       data:
         _actionType: 5
         NextType: 0
-        dialogNumber: 
+        dialogNumber: 0
         dialogTarget: 
         dialogPosition: {x: 0, y: 0}
     - rid: 3650131893831598294
@@ -321,7 +294,7 @@ MonoBehaviour:
       data:
         _actionType: 5
         NextType: 0
-        dialogNumber: 
+        dialogNumber: 0
         dialogTarget: 
         dialogPosition: {x: 0, y: 0}
     - rid: 3650131893831598295
