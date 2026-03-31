@@ -12,7 +12,7 @@ namespace CutScene
         }
         
         public float delayTime;
-        public override void PlayAction()
+        public override void InitAction()
         {
             Debug.Log($"{GetType()} : 시작");
         }

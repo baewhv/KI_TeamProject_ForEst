@@ -11,7 +11,7 @@ namespace CutScene
             _actionType = EActions.CameraSetTarget;
         }
         public string Target;
-        public override void PlayAction()
+        public override void InitAction()
         {
             Debug.Log($"{GetType()} : 시작");
         }

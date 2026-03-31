@@ -28,8 +28,10 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
     
     protected override void Awake(){
         base.Awake();
-        CutSceneObjects = new GameObject();
+        
+        CutSceneObjects = new GameObject("CutsceneObject");
         SetCamera();
+        SetUI();
         //특정 위치의 시나리오 모두 로드.
         
         //임시 추가
@@ -54,6 +56,12 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
     {
         if(_cinemaCameraPrefab)
             CinemaCamera = Instantiate(_cinemaCameraPrefab, CutSceneObjects.transform).GetComponent<CinemachineCamera>();
+    }
+
+    private void SetUI()
+    {
+        if (_cinemaCanvasPrefab)
+            CinemaUI = Instantiate(_cinemaCanvasPrefab, CutSceneObjects.transform).GetComponent<CutsceneUIController>();
     }
 
 
@@ -104,7 +112,7 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
     {
         foreach (var act in CurrentActions)
         {
-            act.PlayAction();
+            act.InitAction();
             StartCoroutine(act.PlayActionRoutine());
         }
     }

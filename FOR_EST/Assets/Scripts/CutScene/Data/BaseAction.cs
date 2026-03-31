@@ -10,7 +10,7 @@ namespace CutScene
         public EActions ActionType => _actionType; 
         public ENextActionType NextType;
 
-        public abstract void PlayAction();
+        public abstract void InitAction();
         public abstract void Update();
         public abstract IEnumerator PlayActionRoutine();
     }

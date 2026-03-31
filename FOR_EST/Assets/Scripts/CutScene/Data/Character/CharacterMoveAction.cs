@@ -12,7 +12,7 @@ namespace CutScene
         }
         public string character;
         public Vector2 position;
-        public override void PlayAction()
+        public override void InitAction()
         {
             Debug.Log($"{GetType()} : 시작");
         }
