@@ -66,8 +66,17 @@ public class SpawnManager : MonoBehaviour
 
             if (prefab.prefab != null)
             {
-                GameObject spawnObj = Instantiate(prefab.prefab, dummy.transform.position, Quaternion.identity);
-
+                GameObject spawnObj = null;
+                if(prefab.prefab.layer == LayerMask.NameToLayer("Happy") || prefab.prefab.layer == LayerMask.NameToLayer("Sad") || prefab.prefab.layer == LayerMask.NameToLayer("Obstacle"))
+                {
+                    Vector2 spawnPos = new Vector2(dummy.transform.position.x + 0.5f, dummy.transform.position.y);
+                    spawnObj = Instantiate(prefab.prefab, spawnPos, Quaternion.identity);
+                }
+                else
+                {
+                    spawnObj = Instantiate(prefab.prefab, dummy.transform.position, Quaternion.identity);
+                }
+                
                 IRespawnable respawnable = spawnObj.GetComponent<IRespawnable>();
                 if (respawnable != null) _respawnable.Add(respawnable);
                 

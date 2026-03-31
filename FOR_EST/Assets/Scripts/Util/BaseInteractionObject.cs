@@ -71,7 +71,11 @@ public abstract class BaseInteractionObject : MonoBehaviour, IPullable, IRespawn
     {
         if (_isRespawning) return;
         OnStopP();
-        StartCoroutine(RespawnRoutine());
+        _isRespawning = true;
+        transform.position = _spawnPos;
+        _rb.linearVelocity = Vector2.zero;
+        PullingState(false);
+        _isRespawning = false;
     }
     
     public virtual void CheckGroundState(out Vector2 origin, out Vector2 checkBoxSize, out float direction)
@@ -94,20 +98,5 @@ public abstract class BaseInteractionObject : MonoBehaviour, IPullable, IRespawn
         _rb.simulated = isEnabled;
         _renderer.enabled = isEnabled;
         _collider.enabled = isEnabled;
-    }
-
-    public virtual IEnumerator RespawnRoutine()
-    {
-        _isRespawning = true;
-        RespawningState(false);
-        
-        yield return YieldContainer.WaitForSeconds(_respawnTime) ;
-        
-        transform.position = _spawnPos;
-        _rb.linearVelocity = Vector2.zero;
-        
-        RespawningState(true);
-        PullingState(false);
-        _isRespawning = false;
     }
 }

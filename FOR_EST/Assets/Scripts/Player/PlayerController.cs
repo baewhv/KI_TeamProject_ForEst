@@ -181,14 +181,8 @@ public class PlayerController : MonoBehaviour, IRespawnable
     public void Respawn() //r키 눌렸을 때.
     {
         if (_isRespawning) return;
-        StartCoroutine(RespawnRoutine());
-    }
-
-    private IEnumerator RespawnRoutine()
-    {
         _isRespawning = true;
-        _input.asset.Disable();
-
+        
         bool _spawnReverse = _spawnPos.y < 0;
         _movement._rigidbody.gravityScale = _status.GravityScale * (_spawnReverse ? -1 : 1);
         transform.localScale = new Vector2(transform.localScale.x * 1f, Mathf.Abs(transform.localScale.y) * (_spawnReverse ? -1 : 1));
@@ -198,10 +192,7 @@ public class PlayerController : MonoBehaviour, IRespawnable
         transform.position = _spawnPos;
 
         _status.InputAxis.Value = Vector2.zero;
-
-        yield return YieldContainer.WaitForSeconds(1f);
-
-        _input.asset.Enable();
+        
         _isRespawning = false;
     }
 }

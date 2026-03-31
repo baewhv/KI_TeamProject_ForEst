@@ -58,7 +58,8 @@ namespace Obstacle
         {
             if (other.gameObject.CompareTag("Boundary"))
             {
-                Respawn();
+                OnStopP();
+                StartCoroutine(RespawnRoutine());
             }
         }
 
@@ -107,7 +108,7 @@ namespace Obstacle
         }
 
 
-        public override IEnumerator RespawnRoutine()
+        public IEnumerator RespawnRoutine()
         {
             _isRespawning = true;
             base.RespawningState(false);
