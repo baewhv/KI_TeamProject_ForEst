@@ -16,7 +16,6 @@ MonoBehaviour:
   - rid: 3650131829090418711
   - rid: 3650131829090418690
   - rid: 3650131829090418700
-  - rid: 3650131829090418710
   references:
     version: 2
     RefIds:
@@ -24,18 +23,17 @@ MonoBehaviour:
       type: {class: CameraMoveAction, ns: CutScene, asm: Assembly-CSharp}
       data:
         _actionType: 10
+        NextType: 0
         position: {x: 1, y: 0}
     - rid: 3650131829090418700
       type: {class: CameraTargetAction, ns: CutScene, asm: Assembly-CSharp}
       data:
         _actionType: 9
+        NextType: 0
         Target: asdfaedf
-    - rid: 3650131829090418710
-      type: {class: BaseAction, ns: CutScene, asm: Assembly-CSharp}
-      data:
-        _actionType: 0
     - rid: 3650131829090418711
       type: {class: CameraTargetAction, ns: CutScene, asm: Assembly-CSharp}
       data:
         _actionType: 9
+        NextType: 0
         Target: 

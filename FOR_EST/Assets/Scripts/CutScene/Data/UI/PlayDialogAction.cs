@@ -13,7 +13,7 @@ namespace CutScene
         public string dialogNumber;
         public string dialogTarget;
         public Vector2 dialogPosition;
-        public override void PlayAction()
+        public override void InitAction()
         {
             Debug.Log($"{GetType()} : 시작");
         }
