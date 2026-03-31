@@ -5,7 +5,7 @@ public class InGameUI : MonoBehaviour
 {
     public GameObject escPanel;
 
-    public Dialogue dialogue;
+    public DialogueTest dialogue;
 
 
     public void PressEsc(InputAction.CallbackContext context) //esc를 눌렀을 때 escPanel이 꺼져 있다면 켜지고 켜져있었다면 꺼지는 함수

@@ -11,7 +11,7 @@ namespace CutScene
             _actionType = EActions.CameraZoom;
         }
         public float value = 1.0f;
-        public override void PlayAction()
+        public override void InitAction()
         {
             Debug.Log($"{GetType()} : 시작");
         }

@@ -10,12 +10,11 @@ namespace CutScene
         {
             _actionType = EActions.PlayDialog;
         }
-        public string dialogNumber;
+        public int dialogNumber;
         public string dialogTarget;
         public Vector2 dialogPosition;
-        public override void PlayAction()
+        public override void InitAction()
         {
-            Debug.Log($"{GetType()} : 시작");
         }
         
         public override void Update()
@@ -25,9 +24,14 @@ namespace CutScene
 
         public override IEnumerator PlayActionRoutine()
         {
-            yield return YieldContainer.WaitForSeconds(1);
+            DialogueTest.Instance.StartDialog(dialogNumber);
+            while (DialogueTest.Instance.IsPlay)
+            {
+                yield return null;
+            }
             Debug.Log($"{GetType()} : 종료");
             CutSceneManager.Instance.EndAction();
+            yield return null;
         }
     }
 }

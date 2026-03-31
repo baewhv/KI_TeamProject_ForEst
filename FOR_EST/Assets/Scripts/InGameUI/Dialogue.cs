@@ -3,7 +3,7 @@ using TMPro;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 
-public class Dialogue : MonoBehaviour
+public class DialogueTest : SingletonMonoBehaviour<DialogueTest>
 {
     public TMP_Text dialogueText;
 
@@ -13,16 +13,27 @@ public class Dialogue : MonoBehaviour
     public RectTransform dialogueBox;
     public Vector3 offset;
     Transform currentTarget;
-    int currentID;
+    private int _currentID;
     public int languageIndex = 5; // CSV파일에서 텍스트가 있는 열의 인덱스 5 : 한국어, 6: 영어, 7: 일본어
     public const int minLang = 5;
     public const int maxLang = 7;
-    public GameObject textBox;
 
-    void Start()
+    public bool IsPlay { get; private set; }
+    public int CurrentID
     {
+        set => _currentID = value;
+    }
+
+    protected override void Awake()
+    {
+        base.Awake();
         LoadCSV();
-        currentID = 100001; // CSV파일의 시작할 텍스트 ID를 입력해주세요.
+    }
+
+    public void StartDialog(int id)
+    {
+        _currentID = id; // CSV파일의 시작할 텍스트 ID를 입력해주세요.
+        IsPlay = true;
         ShowDialogue();
     }
 
@@ -44,6 +55,7 @@ public class Dialogue : MonoBehaviour
             NextDialogue();
         }
     }
+
     void LoadCSV()
     {
         TextAsset csv = Resources.Load<TextAsset>("Tutorial 1"); //가져올 CSV 파일의 이름을 입력해주세요. 
@@ -57,7 +69,7 @@ public class Dialogue : MonoBehaviour
 
             if (row.Length < 6) continue;
 
-            
+
             string idStr = row[0];
             string nextStr = row[1];
             string speaker = row[2];
@@ -73,34 +85,39 @@ public class Dialogue : MonoBehaviour
             speakerDict[id] = speaker;
         }
     }
+
     void ShowDialogue()
     {
-        if (!textDict.ContainsKey(currentID)) return;
+        dialogueBox.gameObject.SetActive(true);
+        if (!textDict.ContainsKey(_currentID)) return;
 
-        dialogueText.text = textDict[currentID];
+        dialogueText.text = textDict[_currentID];
 
-        if (!speakerDict.ContainsKey(currentID)) return;
+        if (!speakerDict.ContainsKey(_currentID)) return;
 
-        string speaker = speakerDict[currentID];
+        string speaker = speakerDict[_currentID];
 
         currentTarget = GetTargetBySpeaker(speaker);
     }
 
     void NextDialogue()
     {
-        if (!nextDict.ContainsKey(currentID)) return;
+        if (!nextDict.ContainsKey(_currentID)) return;
 
-        int nextID = nextDict[currentID];
+        int nextID = nextDict[_currentID];
 
-        if (nextID == 100046)
+        if (nextID == 0)
         {
-            Destroy(textBox);
+            //dialogueText.text = "끝!";
+            dialogueBox.gameObject.SetActive(false);
+            IsPlay = false;
             return;
         }
 
-        currentID = nextID;
+        _currentID = nextID;
         ShowDialogue();
     }
+
     Transform GetTargetBySpeaker(string speaker)
     {
         //Debug.Log("speaker: [" + speaker + "]");
@@ -108,6 +125,7 @@ public class Dialogue : MonoBehaviour
         if (speaker == "에스트")
         {
             GameObject go = GameObject.FindGameObjectWithTag("Player");
+            //CutSceneManager.Instance.GetActior(TMP_SpriteCharacter.seed)  -> 추후 제작될 컷씬용 캐릭터 호출 방법
 
             if (go == null)
                 Debug.Log("Player 태그 못 찾음");
@@ -123,12 +141,13 @@ public class Dialogue : MonoBehaviour
 
             return go != null ? go.transform : null;
         }
+
         return null;
     }
 
     void UpdatePosition(Transform target)
-    { 
-        if(target == null) return;
+    {
+        if (target == null) return;
 
         Vector3 screenPos = Camera.main.WorldToScreenPoint(target.position + offset);
         dialogueBox.position = screenPos;

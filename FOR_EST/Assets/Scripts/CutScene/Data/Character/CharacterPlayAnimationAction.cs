@@ -11,7 +11,7 @@ namespace CutScene
             _actionType = EActions.CharacterPlayAnimation;
         }
         public string character;
-        public override void PlayAction()
+        public override void InitAction()
         {
             Debug.Log($"{GetType()} : 시작");
         }
