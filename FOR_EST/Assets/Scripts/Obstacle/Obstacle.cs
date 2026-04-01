@@ -50,7 +50,7 @@ namespace Obstacle
                 
                 _rb.MovePosition(new Vector2(followTarget, _rb.position.y));
                 
-                if (!_isReversing && !IsGrounded()) base.OnStopP();
+                if (!_isReversing && !IsGrounded()) base.OnStopPull();
             }
         }
         
@@ -58,7 +58,8 @@ namespace Obstacle
         {
             if (other.gameObject.CompareTag("Boundary"))
             {
-                Respawn();
+                OnStopPull();
+                StartCoroutine(RespawnRoutine());
             }
         }
 
@@ -66,7 +67,11 @@ namespace Obstacle
         {
             base.Init();
             _originalGravity = _rb.gravityScale;
-            if (_isThisObjBelongsToTheReverseWorld) ReversingState();
+            if (transform.position.y < -1)
+            {
+                _isThisObjBelongsToTheReverseWorld = true;
+                ReversingState();
+            }
             if (_reverseObjectPrefab != null) _reverseObjectPrefab = Instantiate(_reverseObjectPrefab);
             _reverseObjectScript = _reverseObjectPrefab.GetComponent<ObstacleReverseObject>();
             if(_reverseObjectScript != null) _reverseObjectScript.Init(this.gameObject, this);
@@ -97,13 +102,18 @@ namespace Obstacle
             _originalGravity = _rb.gravityScale;
             _isReverse = true;
             
-            Vector3 scale = transform.localScale;
+            Vector2 scale = transform.localScale;
             scale.y *= -1f;
             transform.localScale = scale;
         }
 
+        public override void Respawn()
+        {
+            base.Respawn();
+            _rb.gravityScale = _originalGravity;
+        }
 
-        public override IEnumerator RespawnRoutine()
+        public IEnumerator RespawnRoutine()
         {
             _isRespawning = true;
             base.RespawningState(false);

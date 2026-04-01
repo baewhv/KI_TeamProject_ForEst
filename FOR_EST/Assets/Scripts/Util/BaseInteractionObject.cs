@@ -18,7 +18,7 @@ public abstract class BaseInteractionObject : MonoBehaviour, IPullable, IRespawn
     
     protected Vector2 _spawnPos;
     protected Transform _playerHand;
-    protected Rigidbody2D _rb;
+    public Rigidbody2D _rb;
     protected SpriteRenderer _renderer;
     protected Collider2D _collider;
     protected bool _isPulling = false;
@@ -33,7 +33,7 @@ public abstract class BaseInteractionObject : MonoBehaviour, IPullable, IRespawn
 
             if (dist > _linkDist)
             {
-                OnStopP();
+                OnStopPull();
             }
         }
     }
@@ -55,7 +55,7 @@ public abstract class BaseInteractionObject : MonoBehaviour, IPullable, IRespawn
         PullingState(_isPulling);
     }
 
-    public virtual void OnStopP()
+    public virtual void OnStopPull()
     {
         if (_playerHand != null)
         {
@@ -70,8 +70,12 @@ public abstract class BaseInteractionObject : MonoBehaviour, IPullable, IRespawn
     public virtual void Respawn()
     {
         if (_isRespawning) return;
-        OnStopP();
-        StartCoroutine(RespawnRoutine());
+        OnStopPull();
+        _isRespawning = true;
+        transform.position = _spawnPos;
+        _rb.linearVelocity = Vector2.zero;
+        PullingState(false);
+        _isRespawning = false;
     }
     
     public virtual void CheckGroundState(out Vector2 origin, out Vector2 checkBoxSize, out float direction)
@@ -94,20 +98,5 @@ public abstract class BaseInteractionObject : MonoBehaviour, IPullable, IRespawn
         _rb.simulated = isEnabled;
         _renderer.enabled = isEnabled;
         _collider.enabled = isEnabled;
-    }
-
-    public virtual IEnumerator RespawnRoutine()
-    {
-        _isRespawning = true;
-        RespawningState(false);
-        
-        yield return YieldContainer.WaitForSeconds(_respawnTime) ;
-        
-        transform.position = _spawnPos;
-        _rb.linearVelocity = Vector2.zero;
-        
-        RespawningState(true);
-        PullingState(false);
-        _isRespawning = false;
     }
 }

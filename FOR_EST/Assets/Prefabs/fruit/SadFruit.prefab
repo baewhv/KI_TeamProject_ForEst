@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 52560932767612020}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 24370b4aee9db2944b438e24813c2de7, type: 3}
+  m_Sprite: {fileID: 2461029956998988251, guid: 0e0867ea863d1e34eaf493cb48b0d364, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,14 +106,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85b8c3d0ecce4e54c8d8b5963ad30a2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SadFruit
-  _spawnPos: {x: 0, y: 0}
   _linkDist: 0.5
   _respawnTime: 1
-  _groundLayer:
-    serializedVersion: 2
-    m_Bits: 512
   _groundDistance: 0
   _groundSizeX: 1
+  _rb: {fileID: 0}
 --- !u!50 &7287946622711366299
 Rigidbody2D:
   serializedVersion: 5
@@ -179,7 +176,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

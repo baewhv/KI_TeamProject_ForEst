@@ -19,7 +19,17 @@ public class SadFruit : BaseInteractionObject
     // private Transform _playerHand;
     // private bool _isPulling = false;
 
-    private void Awake() { Init(); }
+    private void Awake()
+    {
+        base.Init();
+        if (transform.position.y < -1)
+        {
+            _rb.gravityScale = -1;
+            Vector2 scale = transform.localScale;
+            scale.y *= -1f;
+            transform.localScale = scale;
+        }
+    }
 
     // private void Update()
     // {
@@ -41,7 +51,7 @@ public class SadFruit : BaseInteractionObject
         {
             if (!IsGrounded())
             {
-                OnStopP();
+                OnStopPull();
                 return;
             }
 
@@ -71,9 +81,9 @@ public class SadFruit : BaseInteractionObject
     //     _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     // }
 
-    public override void OnStopP()
+    public override void OnStopPull()
     {
-        base.OnStopP();
+        base.OnStopPull();
         // if (_playerHand != null)
         // {
         //     var player = _playerHand.GetComponentInParent<PlayerController>();

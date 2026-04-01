@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 7988358746665803319, guid: 98692d019a14f3241a577df2a2b341c9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -110,6 +110,7 @@ MonoBehaviour:
   _respawnTime: 1
   _groundDistance: 0.05
   _groundSizeX: 1.02
+  _rb: {fileID: 0}
   _pivot: {x: 0.1, y: 0}
   _isThisObjBelongsToTheReverseWorld: 0
   _reverseObjectPrefab: {fileID: 5759015643564159108, guid: 7337699255f2b9b4eb7fa4cd689255b2, type: 3}

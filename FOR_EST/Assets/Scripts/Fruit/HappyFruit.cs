@@ -21,7 +21,15 @@ public class HappyFruit : BaseInteractionObject
 
     private void Awake()
     {
-        Init();
+        transform.rotation = Quaternion.Euler(0f, 0f, 180f);
+        base.Init();
+        if (transform.position.y > 1)
+        {
+            _rb.gravityScale = 1;
+            Vector2 scale = transform.localScale;
+            scale.y *= -1f;
+            transform.localScale = scale;
+        }
     }
 
     // private void Update()
@@ -44,7 +52,7 @@ public class HappyFruit : BaseInteractionObject
         {
             if (!IsGrounded())
             {
-                OnStopP();
+                OnStopPull();
                 return;
             }
 
@@ -74,9 +82,9 @@ public class HappyFruit : BaseInteractionObject
     //     _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     // }
 
-    public override void OnStopP()
+    public override void OnStopPull()
     {
-        base.OnStopP();
+        base.OnStopPull();
         // if (_playerHand != null)
         // {
         //     var player = _playerHand.GetComponentInParent<PlayerController>();

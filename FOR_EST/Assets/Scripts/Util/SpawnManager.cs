@@ -25,12 +25,12 @@ public class SpawnManager : MonoBehaviour
     private void OnEnable()
     {
         _input.asset.Enable();
-        _input.System.Respawn.performed += OnRespawn;
+        _input.Player.Restart.performed += OnRespawn;
     }
 
     private void OnDisable()
     {
-        _input.System.Respawn.performed -= OnRespawn;
+        _input.Player.Restart.performed -= OnRespawn;
         _input.asset.Disable();
     }
 
@@ -43,7 +43,7 @@ public class SpawnManager : MonoBehaviour
     {
         _input = new UserInput();
         _respawnable = new List<IRespawnable>();
-        Spawnning();
+        SetSpawnData();
     }
 
     private void Respawn()
@@ -54,7 +54,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    private void Spawnning()
+    private void SetSpawnData()
     {
         SpriteRenderer[] dummys = tileMap.GetComponentsInChildren<SpriteRenderer>();
 
@@ -66,21 +66,22 @@ public class SpawnManager : MonoBehaviour
 
             if (prefab.prefab != null)
             {
-                GameObject spawnObj = Instantiate(prefab.prefab, dummy.transform.position, Quaternion.identity);
-
-                IRespawnable respawnable = spawnObj.GetComponent<IRespawnable>();
-                if(respawnable != null) _respawnable.Add(respawnable);
-                
-                if(dummy.transform.position.y < -1)
+                GameObject spawnObj = null;
+                Transform spawnTransform = dummy.transform.Find("point");
+                if (spawnTransform != null)
                 {
-                    spawnObj.transform.rotation = Quaternion.Euler(0, 0, 180f);
-                    
-                    if(spawnObj.TryGetComponent<Obstacle.Obstacle>(out Obstacle.Obstacle obstacle))
-                    {
-                        obstacle._isThisObjBelongsToTheReverseWorld = true;
-                        obstacle.ReversingState();
-                    }
-                };
+                    Debug.Log(dummy.transform.Find("point"));
+                    Vector2 spawnPos = spawnTransform.position;
+                    Debug.Log(spawnPos);
+                    spawnObj = Instantiate(prefab.prefab, spawnPos, Quaternion.identity);
+                }
+                else
+                {
+                    spawnObj = Instantiate(prefab.prefab, dummy.transform.position, Quaternion.identity);
+                }
+                
+                IRespawnable respawnable = spawnObj.GetComponent<IRespawnable>();
+                if (respawnable != null) _respawnable.Add(respawnable);
                 
                 Destroy(dummy.gameObject);
             }
