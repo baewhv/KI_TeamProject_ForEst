@@ -19,12 +19,12 @@ MonoBehaviour:
   - m_Id: 0
     m_Sprites:
     - {fileID: 306422903635258828, guid: 11a184c9ac79f9c41bec9187f4a95755, type: 3}
-    m_GameObject: {fileID: 2239383883767664425, guid: 4c9d862649514e04ba2ed7738d2eeca7, type: 3}
+    m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
     m_PerlinScale: 0.5
     m_Output: 0
-    m_ColliderType: 1
+    m_ColliderType: 2
     m_RandomTransform: 0
     m_Neighbors: 02000000020000000100000002000000
     m_NeighborPositions:
@@ -36,12 +36,12 @@ MonoBehaviour:
   - m_Id: 1
     m_Sprites:
     - {fileID: -3787533030625960035, guid: 748dab95375feb44291a30c109c4c29a, type: 3}
-    m_GameObject: {fileID: 2239383883767664425, guid: 4c9d862649514e04ba2ed7738d2eeca7, type: 3}
+    m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
     m_PerlinScale: 0.5
     m_Output: 0
-    m_ColliderType: 1
+    m_ColliderType: 2
     m_RandomTransform: 0
     m_Neighbors: 02000000020000000200000001000000
     m_NeighborPositions:
@@ -53,12 +53,12 @@ MonoBehaviour:
   - m_Id: 4
     m_Sprites:
     - {fileID: -4336728059272048083, guid: 4565e451e983fc94dbd7bbc4ae613c3d, type: 3}
-    m_GameObject: {fileID: 2239383883767664425, guid: 4c9d862649514e04ba2ed7738d2eeca7, type: 3}
+    m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
     m_PerlinScale: 0.5
     m_Output: 0
-    m_ColliderType: 1
+    m_ColliderType: 2
     m_RandomTransform: 0
     m_Neighbors: 0200000001000000010000000200000002000000020000000200000002000000
     m_NeighborPositions:
@@ -74,12 +74,12 @@ MonoBehaviour:
   - m_Id: 6
     m_Sprites:
     - {fileID: 3889025964935654719, guid: 29cbf019a303fbc4b8b185f9782daccc, type: 3}
-    m_GameObject: {fileID: 2239383883767664425, guid: 4c9d862649514e04ba2ed7738d2eeca7, type: 3}
+    m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
     m_PerlinScale: 0.5
     m_Output: 0
-    m_ColliderType: 1
+    m_ColliderType: 2
     m_RandomTransform: 0
     m_Neighbors: 02000000020000000200000002000000
     m_NeighborPositions:

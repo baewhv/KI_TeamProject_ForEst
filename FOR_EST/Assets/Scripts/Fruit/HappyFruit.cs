@@ -142,6 +142,7 @@ public class HappyFruit : BaseInteractionObject
         else if (target.gameObject.CompareTag("Seed"))
         {
             // 부딪힌 대상이 Seed라면 열매를 화면에서 사라지게 함
+            OnStopPull();
             gameObject.SetActive(false);
             GameManager.Instance.FruitCount--;
             GameManager.Instance.CheckClear();
