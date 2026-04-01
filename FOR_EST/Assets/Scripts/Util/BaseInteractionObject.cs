@@ -69,6 +69,7 @@ public abstract class BaseInteractionObject : MonoBehaviour, IPullable, IRespawn
 
     public virtual void Respawn()
     {
+        gameObject.SetActive(true);
         if (_isRespawning) return;
         OnStopPull();
         _isRespawning = true;

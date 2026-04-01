@@ -20,9 +20,10 @@ public class SceneManagement : SingletonMonoBehaviour<SceneManagement>
         SceneManager.LoadScene(sceneName);
     }
     
-    public void LoadScene(int sceneIndex)
+    public void LoadNextScene()
     {
-        SceneManager.LoadScene(sceneIndex);
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentIndex + 1);
     }
 
     private void OnDestroy()
