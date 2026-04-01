@@ -15,15 +15,22 @@ namespace CutScene
         {
             Debug.Log($"{GetType()} : 시작");
         }
-        
+
         public override void Update()
         {
-            
+
         }
 
         public override IEnumerator PlayActionRoutine()
         {
-            yield return YieldContainer.WaitForSeconds(10);
+            GameObject targetObject = GameObject.Find(Target);
+            if (targetObject != null)
+            {
+                CutSceneManager.Instance.CutsceneCamera.Follow = targetObject.transform;
+            }
+
+            yield return null;
+
             Debug.Log($"{GetType()} : 종료");
             CutSceneManager.Instance.EndAction();
         }
