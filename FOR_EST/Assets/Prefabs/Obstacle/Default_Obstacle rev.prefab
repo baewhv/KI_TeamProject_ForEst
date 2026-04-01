@@ -94,7 +94,7 @@ MonoBehaviour:
   _target: {fileID: 0}
   _reverseLayerMask:
     serializedVersion: 2
-    m_Bits: 1091072
+    m_Bits: 7382528
   _groundLayerMask:
     serializedVersion: 2
     m_Bits: 1091072
