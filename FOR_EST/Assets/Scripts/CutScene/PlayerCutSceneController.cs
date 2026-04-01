@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerCutSceneController : MonoBehaviour
 {
     [SerializeField] private PlayerStatus _status = new PlayerStatus();
+    
     [SerializeField] private Transform _grabPoint;
     private PlayerMovement _movement;
     private PlayerReverse _reverse;
@@ -74,7 +75,7 @@ public class PlayerCutSceneController : MonoBehaviour
     {
         if (_status.IsGrab) //대화 시 잡기 상태를 해제해야 대화 가능
         {
-            _status.GrabbedObject.OnStopP();
+            _status.GrabbedObject.OnStopPull();
             OffGrab();
             return;
         }

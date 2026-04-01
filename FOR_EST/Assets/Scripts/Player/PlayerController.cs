@@ -9,6 +9,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour, IRespawnable
 {
     [SerializeField] private PlayerStatus _status = new PlayerStatus();
+    public PlayerStatus GetStatus => _status;
     [SerializeField] private Transform _grabPoint;
     private PlayerMovement _movement;
     private PlayerReverse _reverse;
@@ -45,10 +46,10 @@ public class PlayerController : MonoBehaviour, IRespawnable
         _renderer = GetComponentInChildren<SpriteRenderer>();
         _spawnPos = transform.position;
 
-        _isReverse = transform.position.y < 0;
-        _movement._rigidbody.gravityScale = _status.GravityScale * (_isReverse ? -1 : 1);
-        transform.localScale *= new Vector2(1f, _isReverse ? -1 : 1);
-        _anim.SetBool("Reverse", _isReverse);
+        _status.IsReverse = transform.position.y < 0;
+        _movement._rigidbody.gravityScale = _status.GravityScale * (_status.IsReverse ? -1 : 1);
+        transform.localScale *= new Vector2(1f, _status.IsReverse ? -1 : 1);
+        _anim.SetBool("Reverse", _status.IsReverse);
     }
 
     private void OnEnable()
@@ -190,7 +191,7 @@ public class PlayerController : MonoBehaviour, IRespawnable
         transform.localScale = new Vector2(transform.localScale.x * 1f, Mathf.Abs(transform.localScale.y) * (_spawnReverse ? -1 : 1));
         _anim.SetBool("Reverse", _spawnReverse);
 
-        _isReverse = _spawnReverse;
+        _status.IsReverse = _spawnReverse;
         transform.position = _spawnPos;
 
         _status.InputAxis.Value = Vector2.zero;
