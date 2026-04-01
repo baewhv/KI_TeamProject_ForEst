@@ -27,7 +27,7 @@ public class JumpingState : IState
 
     public void Update()
     {
-        if (!_movement.Controller._isReverse)
+        if (!_status.IsReverse)
         {
             if(_movement._rigidbody.linearVelocityY < 0)
                 _movement.ChangeJumpState(_movement.Falling);

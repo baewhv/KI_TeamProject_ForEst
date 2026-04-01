@@ -36,9 +36,9 @@ namespace CutScene
                 _fader.color = new Color(0, 0, 0, _fader.color.a - (1.0f / time * Time.deltaTime));
                 yield return null;
             }
-            Debug.Log($"{GetType()} : 종료");
+            _fader.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
             CutSceneManager.Instance.EndAction();
-            yield return null; // while문이 안돌 경우 예비용 return
+            //yield return null; // while문이 안돌 경우 예비용 return
         }
     }
 }

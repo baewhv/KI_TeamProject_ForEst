@@ -13,59 +13,29 @@ MonoBehaviour:
   m_Name: ScenarioSO
   m_EditorClassIdentifier: Assembly-CSharp::ScenarioSO
   ActionList:
-  - rid: 3650131916587532373
-  - rid: 3650131916587532389
-  - rid: 3650131916587532498
-  - rid: 3650131916587532499
-  - rid: 3650131916587532501
-  - rid: 3650131916587532500
-  - rid: 3650131916587532502
+  - rid: 3650131916587532601
+  - rid: 3650131916587532597
+  - rid: 3650131916587532598
   references:
     version: 2
     RefIds:
-    - rid: 3650131916587532373
-      type: {class: FadeInAction, ns: CutScene, asm: Assembly-CSharp}
+    - rid: 3650131916587532597
+      type: {class: CharacterFaderAction, ns: CutScene, asm: Assembly-CSharp}
       data:
-        _actionType: 6
+        _actionType: 13
         NextType: 0
-        time: 2
-    - rid: 3650131916587532389
-      type: {class: FadeOutAction, ns: CutScene, asm: Assembly-CSharp}
-      data:
-        _actionType: 7
-        NextType: 0
-        time: 2
-    - rid: 3650131916587532498
-      type: {class: FadeInAction, ns: CutScene, asm: Assembly-CSharp}
-      data:
-        _actionType: 6
-        NextType: 0
+        isFadeIn: 1
         time: 1
-    - rid: 3650131916587532499
-      type: {class: PlayDialogAction, ns: CutScene, asm: Assembly-CSharp}
+    - rid: 3650131916587532598
+      type: {class: CharacterFaderAction, ns: CutScene, asm: Assembly-CSharp}
       data:
-        _actionType: 5
+        _actionType: 13
         NextType: 0
-        dialogNumber: 100001
-        dialogTarget: 
-        dialogPosition: {x: 0, y: 0}
-    - rid: 3650131916587532500
+        isFadeIn: 0
+        time: 1
+    - rid: 3650131916587532601
       type: {class: FadeInAction, ns: CutScene, asm: Assembly-CSharp}
       data:
         _actionType: 6
         NextType: 0
-        time: 2
-    - rid: 3650131916587532501
-      type: {class: FadeOutAction, ns: CutScene, asm: Assembly-CSharp}
-      data:
-        _actionType: 7
-        NextType: 0
-        time: 1
-    - rid: 3650131916587532502
-      type: {class: PlayDialogAction, ns: CutScene, asm: Assembly-CSharp}
-      data:
-        _actionType: 5
-        NextType: 0
-        dialogNumber: 100004
-        dialogTarget: 
-        dialogPosition: {x: 0, y: 0}
+        time: 0

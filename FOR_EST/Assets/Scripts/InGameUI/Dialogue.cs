@@ -41,7 +41,7 @@ public class DialogueTest : SingletonMonoBehaviour<DialogueTest>
     {
         if (currentTarget == null)
         {
-            Debug.Log("타겟 없음");
+            //Debug.Log("타겟 없음");
             return;
         }
 

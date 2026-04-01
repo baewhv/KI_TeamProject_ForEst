@@ -60,7 +60,7 @@ public class PlayerReverseObject : MonoBehaviour
         RaycastHit2D hit = Physics2D.CircleCast(
                         transform.position, 
                         0.5f, 
-                        (_playerController._isReverse ? Vector2.down : Vector2.up),
+                        (_playerController.IsReverse ? Vector2.down : Vector2.up),
                         0.5f,
                         _groundLayerMask);
 

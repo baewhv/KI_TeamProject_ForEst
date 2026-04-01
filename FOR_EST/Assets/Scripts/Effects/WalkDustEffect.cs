@@ -139,7 +139,7 @@ public class WalkDustEffect : MonoBehaviour
     {
         if (_playerMovement == null || _playerController == null) return;
 
-        bool isReverse = _playerController._isReverse;
+        bool isReverse = _playerController.IsReverse;
         float velX = _playerMovement._rigidbody.linearVelocityX;
         bool isMoving = Mathf.Abs(velX) > _minMoveSpeed;
         bool isGrounded = _playerMovement.IsGround();
@@ -286,7 +286,7 @@ public class WalkDustEffect : MonoBehaviour
     // ──────────────────────────────────────────────
     private void OnDrawGizmosSelected()
     {
-        bool isReverse = _playerController != null && _playerController._isReverse;
+        bool isReverse = _playerController != null && _playerController.IsReverse;
         float footSign = isReverse ? 1f : -1f;
         Vector3 footPos = transform.position + new Vector3(0f, _footOffsetY * footSign, 0f);
 

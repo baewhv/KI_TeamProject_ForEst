@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4893032402716588807}
   - component: {fileID: 3499711686262242462}
   m_Layer: 5
-  m_Name: ScenraioCanvas
+  m_Name: CutSceneCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -19,6 +19,6 @@ public class PlayerStatus
     public bool IsGrab { get; set; }
     public IPullable GrabbedObject { get; set; }
     public bool IsRight { get; set; }
-    
+    public bool IsReverse { get; set; }
     public Vector2 BeforePosition { get; set; }
 }

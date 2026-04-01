@@ -18,6 +18,7 @@ namespace CutScene
         [InspectorName("카메라 이동")]CameraMove,
         [InspectorName("카메라 줌")]CameraZoom,
         [InspectorName("딜레이")]Delay,
+        [InspectorName("캐릭터 페이드")]CharacterFader,
         Max
     }
 
@@ -33,5 +34,12 @@ namespace CutScene
         [InspectorName("키 입력 필요")] NeedInput,
         [InspectorName("종료 후 이어서")] Immediate, 
         [InspectorName("다음 연출과 함께")] Together,
+    }
+
+    public enum ESelectedCharacter
+    {
+        [InspectorName("에스트")]Est,
+        [InspectorName("시드")]Seed,
+        [InspectorName("시드콩")]Seed_B
     }
 }

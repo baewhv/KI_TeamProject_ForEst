@@ -11,6 +11,7 @@ namespace CutScene
             _actionType = EActions.CharacterPlayAnimation;
         }
         public string character;
+        public string animation;
         public override void InitAction()
         {
             Debug.Log($"{GetType()} : 시작");
@@ -23,9 +24,13 @@ namespace CutScene
 
         public override IEnumerator PlayActionRoutine()
         {
-            yield return YieldContainer.WaitForSeconds(2);
-            Debug.Log($"{GetType()} : 종료");
+            CutSceneManager.Instance.Player.SetAnimation(animation);
+            while (CutSceneManager.Instance.Player.DoAction)
+            {
+                
+            }
             CutSceneManager.Instance.EndAction();
+            yield return null;
         }
     }
 }

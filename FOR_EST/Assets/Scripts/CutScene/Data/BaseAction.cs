@@ -13,5 +13,6 @@ namespace CutScene
         public abstract void InitAction();
         public abstract void Update();
         public abstract IEnumerator PlayActionRoutine();
+        private bool _isActionEnd;
     }
 }   
