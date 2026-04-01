@@ -38,8 +38,7 @@ public class ScenarioSOEditor : Editor
             //EditorGUI.LabelField(headerRect, displayName, EditorStyles.boldLabel);
             
             EditorGUI.PropertyField(new Rect(rect.x + 10, rect.y, rect.width - 10, rect.height - lineHeight),
-                element,new GUIContent(displayName),
-                true);
+                element,new GUIContent(displayName), true);
             if (EditorGUI.EndChangeCheck())
             {
                 EActions selectedType = (EActions)nameProp.enumValueIndex;
@@ -113,6 +112,8 @@ public class ScenarioSOEditor : Editor
                 return new CharacterPlayAnimationAction();
             case EActions.Delay:
                 return new DelayAction();
+            case EActions.CharacterFader:
+                return new CharacterFaderAction();
             default:
                 return new DelayAction();
         }
@@ -146,6 +147,8 @@ public class ScenarioSOEditor : Editor
                 return "캐릭터 애니메이션";
             case EActions.Delay:
                 return "딜레이";
+            case EActions.CharacterFader:
+                return "캐릭터 페이드";
             default:
                 return "에러";
 

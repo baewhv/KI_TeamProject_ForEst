@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerCutSceneController : MonoBehaviour
 {
     [SerializeField] private PlayerStatus _status = new PlayerStatus();
-    
+
     [SerializeField] private Transform _grabPoint;
     private PlayerMovement _movement;
     private PlayerReverse _reverse;
@@ -17,13 +17,15 @@ public class PlayerCutSceneController : MonoBehaviour
     [SerializeField] private Animator _anim;
     [SerializeField] private SpriteRenderer _renderer;
     [Header("타겟도착 거리")] [SerializeField] private float CheckDistanceToTarget;
-    [SerializeField] private GameObject Target;
+    [SerializeField] private Vector2 Target;
 
     [SerializeField] private LayerMask grabLayer;
 
     public void Init(PlayerStatus status)
     {
-        _status = status;
+        _status = new PlayerStatus();
+        _status.CopyStatus(status);
+        _status.MoveSpeed = 50.0f;
         _movement = GetComponent<PlayerMovement>();
         _movement.Init(_status);
         _reverse = GetComponent<PlayerReverse>();
@@ -50,9 +52,25 @@ public class PlayerCutSceneController : MonoBehaviour
     }
 
     //연출 중 이동
-    public void SetMoveTarget(Vector2 obj)
+    public IEnumerator SetMoveTarget(Vector2 obj)
     {
-        Target.transform.position = obj;
+        Target = obj;
+        if (obj.y * transform.position.y < 0)
+        {
+            Debug.LogError("연출 이동 위치가 반전위치에 있습니다. 이동을 취소합니다.");
+            yield break; //서로 반대되는 지역에 있을 경우
+        }
+        float dist = Vector2.Distance(transform.position, Target);
+        while (dist > CheckDistanceToTarget)
+        {
+            float dir = transform.position.x < Target.x ? 1 : -1;
+            _status.InputAxis.Value = new Vector2(dir, 0);
+            Debug.Log(dist);
+            yield return null;
+            dist = Vector2.Distance(transform.position, Target);
+        }
+
+        _status.InputAxis.Value = Vector2.zero;
     }
 
     public void SetReverse()
@@ -61,7 +79,7 @@ public class PlayerCutSceneController : MonoBehaviour
         if (_status.IsJumping || _status.IsFalling || !_reverseObjectScript.CanReverse ||
             !_reverseObjectScript.OnGround) return;
 
-        _anim.SetBool("Reverse", _status.IsReverse);
+        _anim.SetBool("Reverse", !_status.IsReverse);
         _status.IsReverse = !_status.IsReverse;
         _reverse.Reverse();
         if (_status.GrabbedObject != null)
@@ -94,11 +112,11 @@ public class PlayerCutSceneController : MonoBehaviour
     {
         _status.GrabbedObject = null;
         _status.IsGrab = false;
-        
     }
 
     private float _currentTime;
     private float _fadeTime;
+
     public IEnumerator Fader(bool isFadeIn, float time)
     {
         _renderer.color = new Color(1, 1, 1, isFadeIn ? 0 : 1);
@@ -110,9 +128,9 @@ public class PlayerCutSceneController : MonoBehaviour
             _currentTime += Time.deltaTime;
             color.a += 1.0f / time * Time.deltaTime * (isFadeIn ? 1 : -1);
             _renderer.color = color;
-            Debug.Log(_renderer.color);
             yield return null;
         }
+
         _renderer.color = new Color(1, 1, 1, isFadeIn ? 1 : 0);
     }
 }

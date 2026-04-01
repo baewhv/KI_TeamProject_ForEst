@@ -23,9 +23,9 @@ namespace CutScene
 
         public override IEnumerator PlayActionRoutine()
         {
-            yield return YieldContainer.WaitForSeconds(1);
-            Debug.Log($"{GetType()} : 종료");
+            CutSceneManager.Instance.Player.SetReverse();
             CutSceneManager.Instance.EndAction();
+            yield return null;
         }
     }
 }
