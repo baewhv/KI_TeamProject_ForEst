@@ -73,7 +73,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
         Debug.Log("클리어!");
         IsClear = true;
-        SceneManagement.Instance.LoadNextScene();
+        // SceneManagement.Instance.LoadNextScene();
     }
 
     private void OnDrawGizmos()
