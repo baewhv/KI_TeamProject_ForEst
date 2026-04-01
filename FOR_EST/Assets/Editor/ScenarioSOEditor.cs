@@ -10,6 +10,7 @@ public class ScenarioSOEditor : Editor
 {
     private SerializedProperty temp;
     private ReorderableList _actionList;
+
     private void OnEnable()
     {
         temp = serializedObject.FindProperty("ActionList");
@@ -31,27 +32,23 @@ public class ScenarioSOEditor : Editor
             string displayName = nameProp.enumDisplayNames[nameProp.enumValueIndex];
             EActions beforeType = (EActions)nameProp.enumValueIndex;
 
-            
+
             //element.isExpanded = EditorGUI.Foldout(new Rect(rect.x + 10, rect.y, 20, lineHeight), element.isExpanded, "");
 
             //Rect headerRect = new Rect(rect.x + 25, rect.y, rect.width - 25, lineHeight);
             //EditorGUI.LabelField(headerRect, displayName, EditorStyles.boldLabel);
-            
+
             EditorGUI.PropertyField(new Rect(rect.x + 10, rect.y, rect.width - 10, rect.height - lineHeight),
-                element,new GUIContent(displayName), true);
+                element, new GUIContent(displayName), true);
             if (EditorGUI.EndChangeCheck())
             {
                 EActions selectedType = (EActions)nameProp.enumValueIndex;
-                if(selectedType != beforeType)   
+                if (selectedType != beforeType)
                     element.managedReferenceValue = CreateActionInstance(selectedType);
             }
-            
         };
 
-        _actionList.drawHeaderCallback = (Rect rect) =>
-        {
-            EditorGUI.LabelField(rect, "시나리오 연출 목록 (드래그 하여 순서 변경)");
-        };
+        _actionList.drawHeaderCallback = (Rect rect) => { EditorGUI.LabelField(rect, "시나리오 연출 목록 (드래그 하여 순서 변경)"); };
 
         _actionList.onAddDropdownCallback = (Rect buttonRect, ReorderableList list) =>
         {
@@ -62,15 +59,16 @@ public class ScenarioSOEditor : Editor
             for (int i = 1; i < (int)EActions.Max; i++)
             {
                 var i1 = i;
-                menu.AddItem(new GUIContent(GetEnumInspectorName((EActions)i)) , false, () =>
+                menu.AddItem(new GUIContent(GetEnumInspectorName((EActions)i)), false, () =>
                 {
-                    serializedObject.Update();//새로 추가할 때 함수.
+                    serializedObject.Update(); //새로 추가할 때 함수.
                     int index = temp.arraySize;
                     temp.InsertArrayElementAtIndex(index);
-                    temp.GetArrayElementAtIndex(index).managedReferenceValue = CreateActionInstance((EActions)i1); 
+                    temp.GetArrayElementAtIndex(index).managedReferenceValue = CreateActionInstance((EActions)i1);
                     serializedObject.ApplyModifiedProperties();
                 });
             }
+
             menu.ShowAsContext();
         };
     }
@@ -80,7 +78,7 @@ public class ScenarioSOEditor : Editor
         serializedObject.Update();
 
         _actionList.DoLayoutList();
-        
+
         serializedObject.ApplyModifiedProperties();
     }
 
@@ -110,15 +108,16 @@ public class ScenarioSOEditor : Editor
                 return new CharacterReverseAction();
             case EActions.CharacterPlayAnimation:
                 return new CharacterPlayAnimationAction();
-            case EActions.Delay:
-                return new DelayAction();
             case EActions.CharacterFader:
                 return new CharacterFaderAction();
+            case EActions.Delay:
+                return new DelayAction();
+
             default:
                 return new DelayAction();
         }
     }
-    
+
     private string GetEnumInspectorName(EActions type)
     {
         switch (type)
@@ -145,13 +144,12 @@ public class ScenarioSOEditor : Editor
                 return "캐릭터 반전";
             case EActions.CharacterPlayAnimation:
                 return "캐릭터 애니메이션";
-            case EActions.Delay:
-                return "딜레이";
             case EActions.CharacterFader:
                 return "캐릭터 페이드";
+            case EActions.Delay:
+                return "딜레이";
             default:
                 return "에러";
-
         }
     }
 }

@@ -10,6 +10,7 @@ namespace CutScene
         [InspectorName("캐릭터 방향")]CharacterDirection,
         [InspectorName("캐릭터 반전")]CharacterReverse,
         [InspectorName("캐릭터 애니메이션")]CharacterPlayAnimation,
+        [InspectorName("캐릭터 페이드")]CharacterFader,
         [InspectorName("대사 출력")]PlayDialog,
         [InspectorName("페이드 인")]FadeIn,
         [InspectorName("페이드 아웃")]FadeOut,
@@ -18,7 +19,6 @@ namespace CutScene
         [InspectorName("카메라 이동")]CameraMove,
         [InspectorName("카메라 줌")]CameraZoom,
         [InspectorName("딜레이")]Delay,
-        [InspectorName("캐릭터 페이드")]CharacterFader,
         Max
     }
 

@@ -16,6 +16,9 @@ public class ScenarioSO : ScriptableObject
      * 배경 이미지
      *
     */
+    [SerializeReference] public CharacterCutsceneData PlayerData;
+    [SerializeReference] public CharacterCutsceneData SeedData;
+    [SerializeReference] public CharacterCutsceneData SeedBData;
     
     
     [SerializeReference]
