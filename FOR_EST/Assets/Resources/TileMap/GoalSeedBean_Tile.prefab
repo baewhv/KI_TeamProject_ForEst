@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2636646088407969969}
   - component: {fileID: 1292345123876247010}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: GoalSeedBean_Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

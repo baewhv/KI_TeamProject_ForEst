@@ -14,6 +14,8 @@ public class SeedController : MonoBehaviour
     private void Awake()
     {
         _input = new UserInput();
+        _anim = GetComponentInChildren<Animator>();
+        if (transform.position.y < -1) _anim.SetTrigger("Reverse");
     }
     
     private void OnEnable()

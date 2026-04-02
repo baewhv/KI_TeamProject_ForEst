@@ -89,8 +89,8 @@ Transform:
   m_GameObject: {fileID: 6654047071369216257}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 1.6000001, y: 1.6000001, z: 1.6000001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1063567267200672208}
@@ -144,12 +144,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7188464035598996343, guid: 40f1a928f16e29c4c968b4fa245be990, type: 3}
+  m_Sprite: {fileID: -8567493581183297854, guid: a32204ac160047b44a484aef8cab07c7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.67, y: 1.28}
+  m_Size: {x: 0.66, y: 1.23}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -206,7 +206,7 @@ Transform:
   m_GameObject: {fileID: 7703566366851447466}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.70438, y: -0.87846, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -472,5 +472,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2bde2e218e840644a13767169d1f80b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ReverseView
-  _player: {fileID: 1063567267200672208}
-  _reverseIcon: {fileID: 6352802407340002352, guid: 593b44f424b7f1a42971007725a074fb, type: 3}
+  _player: {fileID: 7703566366851447466}
+  _reverseIcon: {fileID: 1912021831623110676, guid: afcd127aafce9b54a859b8513d9a179d, type: 3}

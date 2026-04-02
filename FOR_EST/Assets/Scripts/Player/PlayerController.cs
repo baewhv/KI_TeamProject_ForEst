@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour, IRespawnable
 
     private Vector2 _spawnPos;
     private bool _isRespawning;
+    private bool _rightObject;
 
     private void Awake()
     {
@@ -81,10 +82,12 @@ public class PlayerController : MonoBehaviour, IRespawnable
 
         _status.InputAxis.Value = ctx.ReadValue<Vector2>();
 
-        if (_status.InputAxis.Value.x < 0)
-            _renderer.flipX = true;
-        else
-            _renderer.flipX = false;
+        if (!_status.IsGrab)
+        {
+            FlipXCheck();
+        }
+        
+        GrabMoveAnimaiton();
     }
 
     private void OffMove(InputAction.CallbackContext ctx)
@@ -132,6 +135,7 @@ public class PlayerController : MonoBehaviour, IRespawnable
     // 카메라 시점 전환 X키
     private void OnShowReverse(InputAction.CallbackContext ctx)
     {
+        _reverseObjectScript.OnReverseGround();
         if (_status.IsJumping || _status.IsFalling) return;
         if (_status.InputAxis.Value != Vector2.zero) _status.InputAxis.Value = Vector2.zero;
         _reverseView.ChangeReverseView();
@@ -170,6 +174,7 @@ public class PlayerController : MonoBehaviour, IRespawnable
             _status.GrabbedObject = hit.collider.GetComponent<IPullable>();
             _status.GrabbedObject.OnPull(_grabPoint);
             _status.IsGrab = true;
+            _rightObject = GrabObjectPositionCheck();
             _anim.SetBool("Grab", true);
         }
     }
@@ -178,6 +183,7 @@ public class PlayerController : MonoBehaviour, IRespawnable
     {
         _status.GrabbedObject = null;
         _status.IsGrab = false;
+        FlipXCheck();
         _anim.SetBool("Grab", false);
     }
 
@@ -197,5 +203,35 @@ public class PlayerController : MonoBehaviour, IRespawnable
         _status.InputAxis.Value = Vector2.zero;
         
         _isRespawning = false;
+    }
+
+    private bool GrabObjectPositionCheck()
+    {
+        if (_renderer.flipX) return false;
+        return true;
+    }
+
+    private void GrabMoveAnimaiton()
+    {
+        if (!_status.IsGrab) return;
+
+        if (_rightObject)
+        {
+            if (_status.InputAxis.Value.x < 0f) _anim.SetBool("BackWalk", true);
+            else _anim.SetBool("BackWalk", false);
+        }
+        else
+        {
+            if (_status.InputAxis.Value.x > 0f) _anim.SetBool("BackWalk", true);
+            else _anim.SetBool("BackWalk", false);
+        }
+    }
+
+    private void FlipXCheck()
+    {
+        if(_status.InputAxis.Value.x < 0)
+            _renderer.flipX = true;
+        else if (_status.InputAxis.Value.x > 0)
+            _renderer.flipX = false; 
     }
 }
