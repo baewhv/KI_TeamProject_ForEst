@@ -135,6 +135,7 @@ public class PlayerController : MonoBehaviour, IRespawnable
     // 카메라 시점 전환 X키
     private void OnShowReverse(InputAction.CallbackContext ctx)
     {
+        _reverseObjectScript.OnReverseGround();
         if (_status.IsJumping || _status.IsFalling) return;
         if (_status.InputAxis.Value != Vector2.zero) _status.InputAxis.Value = Vector2.zero;
         _reverseView.ChangeReverseView();
