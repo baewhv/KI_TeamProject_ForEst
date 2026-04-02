@@ -22,7 +22,8 @@ public class PlayerCutSceneController : MonoBehaviour, ICutsceneObject
     {
         transform.position = new Vector2(0, 0.5f);
         _status = new PlayerStatus();
-        _status.CopyStatus(status);
+        if(status != null)
+            _status.CopyStatus(status);
         _status.MoveSpeed = 50.0f;
         _movement = GetComponent<PlayerMovement>();
         _movement.Init(_status);
@@ -73,6 +74,7 @@ public class PlayerCutSceneController : MonoBehaviour, ICutsceneObject
         float dist = Vector2.Distance(transform.position, Target);
         while (dist > CheckDistanceToTarget)
         {
+            Debug.Log($"거리 : {dist}   / pos {transform.position} / target {Target}");
             float dir = transform.position.x < Target.x ? 1 : -1;
             _status.InputAxis.Value = new Vector2(dir, 0);
             yield return null;

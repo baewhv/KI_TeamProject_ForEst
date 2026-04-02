@@ -10,6 +10,7 @@ namespace CutScene
     {
         private float _currentTime;
         private Image _fader;
+        public ESelectedCharacter character;
         public bool isFadeIn;
         public float time;
 
@@ -31,8 +32,8 @@ namespace CutScene
         public override IEnumerator PlayActionRoutine()
         {
             Debug.Log("캐릭터 페이드 시작");
-            
-            yield return CutSceneManager.Instance.Player.Fader(isFadeIn, time);
+
+            yield return CutSceneManager.Instance.GetCharacter(character).Fader(isFadeIn, time);
             Debug.Log("캐릭터 페이드 종료");
             CutSceneManager.Instance.EndAction();
         }
