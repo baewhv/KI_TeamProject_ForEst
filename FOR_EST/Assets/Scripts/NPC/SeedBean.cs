@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SeedBean : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class SeedBean : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (SceneManager.GetActiveScene().name == "StageT") return;
+        
         if (other.gameObject.layer == LayerMask.NameToLayer("Happy"))
         {
             Vector2 direction = (other.transform.position - transform.position).normalized;

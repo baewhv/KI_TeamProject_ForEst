@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagement : SingletonMonoBehaviour<SceneManagement>
 {
+    private bool isTuTorial = false;
+    
     protected override void Awake()
     {
         base.Awake();

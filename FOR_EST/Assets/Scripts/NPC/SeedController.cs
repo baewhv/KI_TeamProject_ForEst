@@ -8,6 +8,7 @@ public class SeedController : MonoBehaviour
     private Rigidbody2D _rb;
     private Animator _anim;
     private UserInput _input;
+    private SpriteRenderer _renderer;
     
     private bool checkTriggerEnter = false;
 
@@ -15,7 +16,13 @@ public class SeedController : MonoBehaviour
     {
         _input = new UserInput();
         _anim = GetComponentInChildren<Animator>();
-        if (transform.position.y < -1) _anim.SetTrigger("Reverse");
+        _renderer = GetComponentInChildren<SpriteRenderer>();
+        if (transform.position.y < -1)
+        {
+            _anim.SetTrigger("Reverse");
+            _renderer.flipY = true;
+            transform.position = new Vector2(transform.position.x, transform.position.y + 1.6f);
+        }
     }
     
     private void OnEnable()
