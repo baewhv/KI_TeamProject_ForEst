@@ -151,6 +151,16 @@ public class HappyFruit : BaseInteractionObject
         }
     }
     
+    public override void Respawn()
+    {
+        if (!gameObject.activeSelf)
+        {
+            GameManager.Instance.FruitCount++;
+            Debug.Log(GameManager.Instance.FruitCount);
+        }
+        base.Respawn();
+    }
+    
     // public void Respawn()
     // {
     //     StartCoroutine(RespawnRoutine());
