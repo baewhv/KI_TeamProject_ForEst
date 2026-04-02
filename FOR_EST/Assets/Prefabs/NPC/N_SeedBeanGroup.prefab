@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7792621078109819382}
   - component: {fileID: 3980372327799585435}
   - component: {fileID: 5310631893593631223}
-  m_Layer: 23
+  m_Layer: 24
   m_Name: N_SeedBeanGroup
   m_TagString: Seed
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 8190737614058945018}
   - component: {fileID: 2702854187370952311}
   - component: {fileID: 1022231716152486978}
-  m_Layer: 23
+  m_Layer: 24
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}

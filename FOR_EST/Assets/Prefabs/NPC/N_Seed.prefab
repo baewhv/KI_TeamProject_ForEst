@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1997042170974211922}
   - component: {fileID: 7131816425725632014}
   - component: {fileID: 9145741869999996246}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5649800440649064656}
   - component: {fileID: 2504517574398397662}
-  m_Layer: 0
+  - component: {fileID: -5055449682784974482}
+  m_Layer: 23
   m_Name: N_Seed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,3 +194,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &-5055449682784974482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7630436719479215025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a58809a8eae3ec644b1176b7876412b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SeedController

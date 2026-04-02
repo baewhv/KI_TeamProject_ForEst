@@ -53,8 +53,8 @@ MonoBehaviour:
     layer: Obstacle
   - prefab: {fileID: 7703566366851447466, guid: e2731321767292e4180c274ecf8fdf5f, type: 3}
     layer: Default
-  - prefab: {fileID: 2089088033210399094, guid: 6088dfb90db9bf348a81667531ccc745, type: 3}
-    layer: BigObstacle
-  - prefab: {fileID: 152286638420367575, guid: 30811635739725b44be20c65ec658f5e, type: 3}
+  - prefab: {fileID: 7630436719479215025, guid: 76206a2b638ba634c8772d9660cb92a6, type: 3}
     layer: Seed
+  - prefab: {fileID: 152286638420367575, guid: 30811635739725b44be20c65ec658f5e, type: 3}
+    layer: SeedBean
   tileMap: {fileID: 0}
