@@ -89,7 +89,7 @@ Transform:
   m_GameObject: {fileID: 6654047071369216257}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -144,12 +144,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7188464035598996343, guid: 40f1a928f16e29c4c968b4fa245be990, type: 3}
+  m_Sprite: {fileID: -8567493581183297854, guid: a32204ac160047b44a484aef8cab07c7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.67, y: 1.28}
+  m_Size: {x: 0.66, y: 1.23}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -308,12 +308,14 @@ MonoBehaviour:
     GravityScale: 0
   _grabPoint: {fileID: 0}
   DoAction: 0
-  _reverseObjectPrefab: {fileID: 4958028719943443453, guid: 0e4e8b2db316005429f171e44580a339, type: 3}
   _anim: {fileID: 1636722918157354923}
   _renderer: {fileID: 3128296105000866846}
   CheckDistanceToTarget: 1
   Target: {x: 0, y: 0}
   grabLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  groundLayer:
     serializedVersion: 2
     m_Bits: 0
 --- !u!114 &5414808557473862683
@@ -337,7 +339,7 @@ MonoBehaviour:
     useOutsideNormalAngle: 0
     layerMask:
       serializedVersion: 2
-      m_Bits: 7386624
+      m_Bits: 7388672
     minDepth: 0
     maxDepth: 0
     minNormalAngle: 0

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LayerMaskSO
   layerMask:
     serializedVersion: 2
-    m_Bits: 42998
+    m_Bits: 42999

@@ -8,30 +8,25 @@ public class PlayerCutSceneController : MonoBehaviour, ICutsceneObject
 
     [SerializeField] private Transform _grabPoint;
     private PlayerMovement _movement;
-    private PlayerReverse _reverse;
     public bool DoAction;
-
-    [SerializeField] private GameObject _reverseObjectPrefab;
-    private PlayerReverseObject _reverseObjectScript;
 
     [SerializeField] private Animator _anim;
     [SerializeField] private SpriteRenderer _renderer;
-    [Header("타겟도착 거리")] [SerializeField] private float CheckDistanceToTarget;
+    [InspectorName("타겟도착 거리")] [SerializeField] private float CheckDistanceToTarget;
     [SerializeField] private Vector2 Target;
 
     [SerializeField] private LayerMask grabLayer;
+    [SerializeField] private LayerMask groundLayer;
 
     public void Init(PlayerStatus status)
     {
+        transform.position = new Vector2(0, 0.5f);
         _status = new PlayerStatus();
         _status.CopyStatus(status);
         _status.MoveSpeed = 50.0f;
         _movement = GetComponent<PlayerMovement>();
         _movement.Init(_status);
-        _reverse = GetComponent<PlayerReverse>();
         _movement._rigidbody.gravityScale = _status.GravityScale;
-        if (_reverseObjectPrefab != null) _reverseObjectPrefab = Instantiate(_reverseObjectPrefab);
-        _reverseObjectScript = _reverseObjectPrefab.GetComponent<PlayerReverseObject>();
     }
 
     //연출 중 위치 강제 할당.
@@ -39,9 +34,11 @@ public class PlayerCutSceneController : MonoBehaviour, ICutsceneObject
     {
         if (pos.y * transform.position.y < 0)
         {
-            _anim.SetBool("Reverse", !_status.IsReverse);
+            Debug.Log("reverse Position");
             _status.IsReverse = !_status.IsReverse;
-            _reverse.Reverse();
+            _anim.SetBool("Reverse", !_status.IsReverse);
+            transform.localScale *= new Vector2(1f, -1f);
+            _movement._rigidbody.gravityScale *= -1f;
         }
         transform.position = pos;
         
@@ -87,13 +84,17 @@ public class PlayerCutSceneController : MonoBehaviour, ICutsceneObject
 
     public void SetReverse()
     {
-        _reverseObjectScript.OnReverseGround();
-        if (_status.IsJumping || _status.IsFalling || !_reverseObjectScript.CanReverse ||
-            !_reverseObjectScript.OnGround) return;
+        if (_status.IsJumping || _status.IsFalling || !_movement.IsGround(true))
+        {
+            Debug.Log("연출 캐릭터가 반전할 수 없는곳에서 반전을 시도하였습니다.");
+            return;
+        }
 
         _anim.SetBool("Reverse", !_status.IsReverse);
         _status.IsReverse = !_status.IsReverse;
-        _reverse.Reverse();
+        transform.position *= new Vector2(1f, -1f);
+        transform.localScale *= new Vector2(1f, -1f);
+        _movement._rigidbody.gravityScale *= -1f;
         if (_status.GrabbedObject != null)
         {
             IReversable rv = _status.GrabbedObject as IReversable;
