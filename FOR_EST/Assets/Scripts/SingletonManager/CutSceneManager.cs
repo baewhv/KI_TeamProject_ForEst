@@ -15,7 +15,7 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
 
     private Camera mainCamera;
     public CinemachineCamera CutsceneCamera { get; private set; }
-    [SerializeField] private LayerMask CutsceneMask;
+    private LayerMask cutsceneMask;
     private LayerMask beforeMask;
     public CutsceneUIController CinemaUI { get; private set; }
 
@@ -49,12 +49,21 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
         
     }
 
+    private void Start()
+    {
+        LoadScenario("StageT");
+        PlayCutscene("Start");
+    }
+
     private void InitPrefabs()
     {
         CutSceneObjects = new GameObject("CutsceneObject");
+        if (Camera.main != null)
+            Camera.main.cullingMask = Resources.Load<LayerMaskSO>("Util/DefaultCameraMask").layerMask;
+        cutsceneMask = Resources.Load<LayerMaskSO>("Util/CutsceneMask").layerMask;
         GameObject go = Resources.Load<GameObject>("Prefab/Cutscene/P_Est_Cutscene");
         pc = FindAnyObjectByType<PlayerController>();
-        Player = Instantiate(go, pc.transform.position, pc.transform.rotation, transform).GetComponent<PlayerCutSceneController>();
+        Player = Instantiate(go, transform).GetComponent<PlayerCutSceneController>();
         Player.Init(pc.GetStatus);
         go = Resources.Load<GameObject>("Prefab/Cutscene/CinemachineCamera");
         CutsceneCamera = Instantiate(go, transform).GetComponent<CinemachineCamera>();
@@ -94,6 +103,7 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
 
             Scenarios[name] = d;
         }
+        
     }
 
     public void UnLoadScenario()
@@ -113,7 +123,7 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
         if (mainCamera)
         {
             beforeMask = mainCamera.cullingMask;
-            mainCamera.cullingMask = CutsceneMask;
+            mainCamera.cullingMask = cutsceneMask;
         }
 
     }
@@ -136,12 +146,15 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
         if (CurrentScenario != null) return; //현재 실행중 시나리오가 있는지
         if(!mainCamera)
             mainCamera = Camera.main;
+        if(!pc)
+            pc = FindAnyObjectByType<PlayerController>();
         if (Scenarios.Count == 0)
             CurrentScenario = testSO;
         //컷씬 so 세팅.
         CurrentActionsIndex = 0;
         if (Scenarios.ContainsKey(cutSceneName))
         {
+            Debug.Log($"{cutSceneName} 실행");
             CurrentScenario = Scenarios[cutSceneName];
             SetCharacter(Player.gameObject, pc.gameObject, CurrentScenario.PlayerData);
             //SetCharacter(Player.gameObject, pc.gameObject, CurrentScenario.PlayerData);
