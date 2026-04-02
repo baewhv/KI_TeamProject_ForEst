@@ -7,16 +7,15 @@ namespace CutScene
     [System.Serializable]
     public class CharacterMoveAction : BaseAction
     {
+        public ESelectedCharacter character;
+        public Vector2 position;
+        public bool isForceMove;
         public CharacterMoveAction()
         {
             _actionType = EActions.CharacterMove;
         }
-        public ESelectedCharacter character;
-        public Vector2 position;
-        public bool isForceMove;
         public override void InitAction()
         {
-            Debug.Log($"{GetType()} : 시작");
         }
         
         public override void Update()
@@ -26,7 +25,7 @@ namespace CutScene
 
         public override IEnumerator PlayActionRoutine()
         {
-            yield return CutSceneManager.Instance.Player.SetMoveTarget(position, isForceMove);
+            yield return CutSceneManager.Instance.GetCharacter(character).SetMoveTarget(position, isForceMove);
             CutSceneManager.Instance.EndAction();
         }
     }

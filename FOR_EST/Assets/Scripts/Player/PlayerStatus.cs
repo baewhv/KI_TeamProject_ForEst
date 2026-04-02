@@ -19,6 +19,7 @@ public class PlayerStatus
     public IPullable GrabbedObject { get; set; }
     public bool IsRight { get; set; }
     public bool IsReverse { get; set; }
+    public ObserveValue<bool> OIsReverse { get; private set; } = new();
     public Vector2 BeforePosition { get; set; }
 
     public void CopyStatus(PlayerStatus other)
