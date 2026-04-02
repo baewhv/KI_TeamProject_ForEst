@@ -28,6 +28,8 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
     // 연출 NPC 시드콩
     public GameObject Seed_B { get; private set; }
 
+    public ObserveValue<bool> IsPlayCutscene = new();
+
 
 
     //SO에서 현재 실행중인 액션.
@@ -43,8 +45,8 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
     protected override void Awake()
     {
         base.Awake();
-
         InitPrefabs();
+        
     }
 
     private void InitPrefabs()
@@ -68,12 +70,6 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
         {
             act.Update();
         }
-    }
-
-    private void Start()
-    {
-        LoadScenario("StageT");
-        PlayCutscene("Start");
     }
 
     //스테이지 명을 기준으로 시나리오를 호출하도록...
@@ -147,7 +143,11 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
         if (Scenarios.ContainsKey(cutSceneName))
         {
             CurrentScenario = Scenarios[cutSceneName];
+            SetCharacter(Player.gameObject, pc.gameObject, CurrentScenario.PlayerData);
+            //SetCharacter(Player.gameObject, pc.gameObject, CurrentScenario.PlayerData);
+            //SetCharacter(Player.gameObject, pc.gameObject, CurrentScenario.PlayerData);
             EnableCutsceneMode();
+            IsPlayCutscene.Value = true;
             SetNextCut();
         }
         else
@@ -159,6 +159,7 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
 
     public void EndCutscene()
     {
+        IsPlayCutscene.Value = false;
         CurrentScenario = null;
         DisableCutsceneMode();
     }
