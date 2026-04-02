@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2636646088407969969}
   - component: {fileID: 1292345123876247010}
-  m_Layer: 23
+  m_Layer: 24
   m_Name: Seed_Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

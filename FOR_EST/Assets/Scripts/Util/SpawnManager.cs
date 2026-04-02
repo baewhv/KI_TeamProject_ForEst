@@ -50,6 +50,7 @@ public class SpawnManager : MonoBehaviour
     {
         foreach (var gameObj in _respawnable)
         {
+             
             gameObj?.Respawn();
         }
     }

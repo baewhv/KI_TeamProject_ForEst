@@ -7,6 +7,12 @@ namespace Obstacle
 {
     public class Obstacle : BaseInteractionObject, IReversable
     {
+        [Header("기본 상태 이미지")]
+        [SerializeField] private Sprite _normalSprite;
+        
+        [Header("반전 상태 이미지")]
+        [SerializeField] private Sprite _reverseSprite;
+        
         [Header("장애물이 플레이어에게 붙어 있을 거리")]
         [SerializeField] private Vector2 _pivot;
 
@@ -78,6 +84,11 @@ namespace Obstacle
 
         }
 
+        private void ChangeSprite()
+        {
+            if (_renderer != null)  _renderer.sprite = _isReverse ? _reverseSprite : _normalSprite;
+        }
+
         public void Reverse()
         {
             if (_reverseObjectScript == null) Init();
@@ -87,6 +98,8 @@ namespace Obstacle
 
             _isReversing = true;
             _isReverse = !_isReverse;
+            
+            ChangeSprite();
             
             transform.position *= new Vector2(1f, -1f);
             transform.localScale *= new Vector2(1f, -1f);
@@ -102,6 +115,8 @@ namespace Obstacle
             _originalGravity = _rb.gravityScale;
             _isReverse = true;
             
+            ChangeSprite();
+            
             Vector2 scale = transform.localScale;
             scale.y *= -1f;
             transform.localScale = scale;
@@ -111,6 +126,8 @@ namespace Obstacle
         {
             base.Respawn();
             _rb.gravityScale = _originalGravity;
+            _isReverse = _isThisObjBelongsToTheReverseWorld;
+            ChangeSprite();
         }
 
         public IEnumerator RespawnRoutine()

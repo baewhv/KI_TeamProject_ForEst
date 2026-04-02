@@ -8,7 +8,7 @@ namespace CutScene
     {
         [SerializeField] protected EActions _actionType;
         public EActions ActionType => _actionType; 
-        public ENextActionType NextType;
+        public ENextActionType NextType = ENextActionType.Immediate;
 
         public abstract void InitAction();
         public abstract void Update();

@@ -21,7 +21,7 @@ public class HappyFruit : BaseInteractionObject
 
     private void Awake()
     {
-        transform.rotation = Quaternion.Euler(0f, 0f, 180f);
+        // transform.rotation = Quaternion.Euler(0f, 0f, 180f);
         base.Init();
         if (transform.position.y > 1)
         {
@@ -142,12 +142,25 @@ public class HappyFruit : BaseInteractionObject
         else if (target.gameObject.CompareTag("Seed"))
         {
             // 부딪힌 대상이 Seed라면 열매를 화면에서 사라지게 함
+            OnStopPull();
             gameObject.SetActive(false);
+            target.TryGetComponent<SeedBean>(out SeedBean seedBean);
+            seedBean.BeHandedFruit();
             GameManager.Instance.FruitCount--;
             GameManager.Instance.CheckClear();
         }
     }
-
+    
+    public override void Respawn()
+    {
+        if (!gameObject.activeSelf)
+        {
+            GameManager.Instance.FruitCount++;
+            Debug.Log(GameManager.Instance.FruitCount);
+        }
+        base.Respawn();
+    }
+    
     // public void Respawn()
     // {
     //     StartCoroutine(RespawnRoutine());

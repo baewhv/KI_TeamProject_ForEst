@@ -142,6 +142,15 @@ public class SadFruit : BaseInteractionObject
             Respawn();
         }
     }
+    
+    public override void Respawn()
+    {
+        if (!gameObject.activeSelf)
+        {
+            GameManager.Instance.FruitCount++;
+        }
+        base.Respawn();
+    }
 
     // public void Respawn() { StartCoroutine(RespawnRoutine()); }
     //
