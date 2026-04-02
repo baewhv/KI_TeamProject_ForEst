@@ -17,7 +17,7 @@ public class PanelManager : MonoBehaviour
 
     public void NewGame()
     {
-        SceneManagement.Instance.LoadScene("Stage T");
+        SceneManagement.Instance.LoadScene("StageT");
     }
 
     public void LoadGame()

@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class SceneManagement : SingletonMonoBehaviour<SceneManagement>
 {
     private bool isTuTorial = false;
+    public string CurrentSceneName { get; private set; }
     
     protected override void Awake()
     {
@@ -14,6 +15,7 @@ public class SceneManagement : SingletonMonoBehaviour<SceneManagement>
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        CurrentSceneName = scene.name;
         GameManager.Instance.OnSceneLoadedCheck();
     }
 

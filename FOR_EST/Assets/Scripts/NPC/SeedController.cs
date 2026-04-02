@@ -55,7 +55,7 @@ public class SeedController : MonoBehaviour
 
     private void StageClearCheck(InputAction.CallbackContext ctx)
     {
-        if (GameManager.Instance.IsClear && checkTriggerEnter) SceneManagement.Instance.LoadNextScene();
+        if (GameManager.Instance.IsClear && checkTriggerEnter) GameManager.Instance.PlayEndCutscene();
         else if (checkTriggerEnter)                            Debug.Log("대충 넌 아직 못 지나간다");
         else                                                   return;
     }

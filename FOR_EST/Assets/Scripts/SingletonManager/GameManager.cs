@@ -18,7 +18,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     
     [SerializeField] private LayerMask _fruitMask;
     private LayerMask _playerMask;
-
+    private PlayerController _playerController;
 
     protected override void Awake()
     {
@@ -37,15 +37,21 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     // 즉시 체크하면 Awake 단계에서 오브젝트가 생성되지 않은 상태에서 검사하는 경우가 발생
     public void OnSceneLoadedCheck()
     {
+        if (SceneManagement.Instance.CurrentSceneName == "TitleScene_SHY") return;
         StartCoroutine(DelayCheck());
     }
 
     private IEnumerator DelayCheck()
     {
         yield return null;
+
+        if (_player == null) _player = GameObject.FindGameObjectWithTag("Player");
+        if (_playerController == null) _playerController = _player.GetComponent<PlayerController>();
+        
+        CutSceneManager.Instance.LoadScenario(SceneManagement.Instance.CurrentSceneName);
+        CutSceneManager.Instance.PlayCutscene("Start");
         
         CheckFruitCount();
-        PlayerOnPoint();
     }
 
     private void CheckFruitCount()
@@ -57,15 +63,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
             FruitCount++;
         }
     }
-
-    private void PlayerOnPoint()
-    {
-        _startPoint = FindAnyObjectByType<PlayerStartPoint>();
-        _player = GameObject.FindGameObjectWithTag("Player");
-        
-        if (_startPoint == null || _player == null) return;
-        _startPoint.SpawnPoint(_player);
-    }
     
     public void CheckClear()
     {
@@ -75,6 +72,22 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         IsClear = true;
         // SceneManagement.Instance.LoadNextScene();
     }
+
+    public void PlayEndCutscene()
+    {
+        CutSceneManager.Instance.PlayCutscene("End");
+        CutSceneManager.Instance.IsPlayCutscene.AddListener(EndCutsceneHandler);
+    }
+
+    private void EndCutsceneHandler(bool trigger)
+    {
+        if (!trigger)
+        {
+            CutSceneManager.Instance.IsPlayCutscene.RemoveListener(EndCutsceneHandler);
+            SceneManagement.Instance.LoadNextScene();
+        }
+    }
+    
 
     private void OnDrawGizmos()
     {
