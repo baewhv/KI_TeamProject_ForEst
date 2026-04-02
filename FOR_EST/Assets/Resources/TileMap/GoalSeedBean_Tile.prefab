@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2636646088407969969}
   - component: {fileID: 1292345123876247010}
-  m_Layer: 0
+  m_Layer: 24
   m_Name: GoalSeedBean_Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 4eeccd934d897954b976390891b8295d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3581edf6e37d7ee45aa072c739ef0339, type: 3}
   m_Color: {r: 0.06666667, g: 0.33333334, b: 0.8000001, a: 1}
   m_FlipX: 0
   m_FlipY: 0

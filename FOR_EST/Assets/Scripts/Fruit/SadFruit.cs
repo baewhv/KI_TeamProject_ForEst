@@ -19,9 +19,13 @@ public class SadFruit : BaseInteractionObject
     // private Transform _playerHand;
     // private bool _isPulling = false;
 
+    private SadFruitDissolveFX _dissolveFX;
+
     private void Awake()
     {
         base.Init();
+        _dissolveFX = GetComponent<SadFruitDissolveFX>();
+
         if (transform.position.y < -1)
         {
             _rb.gravityScale = -1;
@@ -128,6 +132,7 @@ public class SadFruit : BaseInteractionObject
     {
         if (target.gameObject.CompareTag("Boundary"))
         {
+            _dissolveFX?.PlayEffect();
             gameObject.SetActive(false);
             GameManager.Instance.FruitCount--;
             GameManager.Instance.CheckClear();
@@ -136,6 +141,15 @@ public class SadFruit : BaseInteractionObject
         {
             Respawn();
         }
+    }
+    
+    public override void Respawn()
+    {
+        if (!gameObject.activeSelf)
+        {
+            GameManager.Instance.FruitCount++;
+        }
+        base.Respawn();
     }
 
     // public void Respawn() { StartCoroutine(RespawnRoutine()); }

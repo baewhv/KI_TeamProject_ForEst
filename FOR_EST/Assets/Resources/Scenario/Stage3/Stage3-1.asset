@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a528ccd6b0a70c42ade31bfd67dec88, type: 3}
+  m_Name: Stage3-1
+  m_EditorClassIdentifier: Assembly-CSharp::ScenarioSO
+  PlayerData:
+    ShowCharacter: 0
+    GetInGamePosition: 0
+    position: {x: 0, y: 0}
+    isRight: 0
+  SeedData:
+    ShowCharacter: 0
+    GetInGamePosition: 0
+    position: {x: 0, y: 0}
+    isRight: 0
+  SeedBData:
+    ShowCharacter: 0
+    GetInGamePosition: 0
+    position: {x: 0, y: 0}
+    isRight: 0
+  ActionList:
+  - rid: 7021410910219010222
+  - rid: 7021410910219010224
+  - rid: 7021410910219010226
+  - rid: 3650131893831598258
+  - rid: 7021410910219010228
+  references:
+    version: 2
+    RefIds:
+    - rid: 3650131893831598258
+      type: {class: FadeOutAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 8
+        NextType: 1
+        time: 0.5
+    - rid: 7021410910219010222
+      type: {class: FadeInAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 7
+        NextType: 1
+        time: 0.5
+    - rid: 7021410910219010224
+      type: {class: FadeOutAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 8
+        NextType: 1
+        time: 0.5
+    - rid: 7021410910219010226
+      type: {class: FadeInAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 7
+        NextType: 1
+        time: 0.5
+    - rid: 7021410910219010228
+      type: {class: FadeInAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 7
+        NextType: 1
+        time: 0.5

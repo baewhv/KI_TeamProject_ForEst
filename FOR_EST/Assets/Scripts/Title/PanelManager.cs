@@ -17,7 +17,7 @@ public class PanelManager : MonoBehaviour
 
     public void NewGame()
     {
-        SceneManagement.Instance.LoadScene("ConversationUI_SHY");
+        SceneManagement.Instance.LoadScene("Stage T");
     }
 
     public void LoadGame()

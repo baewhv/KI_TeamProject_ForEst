@@ -6,17 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SJW_Fruit.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: b989e92287cf0f24abf92c3811a736a7
-  - enabled: 1
     path: Assets/Scenes/TitleScene_SHY.unity
     guid: ac1096d38ef2485498adb61c7371edaa
   - enabled: 1
-    path: Assets/Scenes/ConversationUI_SHY.unity
-    guid: 8499b953eac2dd849abae01e44aa38ac
+    path: Assets/Scenes/LevelDesign/Stage T.unity
+    guid: 951cbb0fcbc966e46b3d0c6c92ff427f
+  - enabled: 1
+    path: Assets/Scenes/LevelDesign/Stage1.unity
+    guid: b91789eba0e9da043b3ad0df1e26ae3f
+  - enabled: 1
+    path: Assets/Scenes/LevelDesign/Stage2.unity
+    guid: d07372f8697af1d48aad6132d28e3f1b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 693fbe6bf9862c048966842769e69c73, type: 3}
   m_UseUCBPForAssetBundles: 0

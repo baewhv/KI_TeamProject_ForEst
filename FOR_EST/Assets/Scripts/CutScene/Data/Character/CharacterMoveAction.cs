@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace CutScene
 {
@@ -10,8 +11,9 @@ namespace CutScene
         {
             _actionType = EActions.CharacterMove;
         }
-        public string character;
+        public ESelectedCharacter character;
         public Vector2 position;
+        public bool isForceMove;
         public override void InitAction()
         {
             Debug.Log($"{GetType()} : 시작");
@@ -24,7 +26,7 @@ namespace CutScene
 
         public override IEnumerator PlayActionRoutine()
         {
-            yield return CutSceneManager.Instance.Player.SetMoveTarget(position);
+            yield return CutSceneManager.Instance.Player.SetMoveTarget(position, isForceMove);
             CutSceneManager.Instance.EndAction();
         }
     }

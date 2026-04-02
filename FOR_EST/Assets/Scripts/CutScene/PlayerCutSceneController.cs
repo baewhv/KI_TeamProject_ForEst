@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class PlayerCutSceneController : MonoBehaviour
+public class PlayerCutSceneController : MonoBehaviour, ICutsceneObject
 {
     [SerializeField] private PlayerStatus _status = new PlayerStatus();
 
@@ -37,7 +37,14 @@ public class PlayerCutSceneController : MonoBehaviour
     //연출 중 위치 강제 할당.
     public void SetPosition(Vector2 pos)
     {
+        if (pos.y * transform.position.y < 0)
+        {
+            _anim.SetBool("Reverse", !_status.IsReverse);
+            _status.IsReverse = !_status.IsReverse;
+            _reverse.Reverse();
+        }
         transform.position = pos;
+        
     }
 
     public void SetDirection(bool isRight)
@@ -52,20 +59,25 @@ public class PlayerCutSceneController : MonoBehaviour
     }
 
     //연출 중 이동
-    public IEnumerator SetMoveTarget(Vector2 obj)
+    public IEnumerator SetMoveTarget(Vector2 obj, bool isForceMove)
     {
         Target = obj;
+        if (isForceMove) // 강제이동 시
+        {
+            SetPosition(obj);
+            yield break;
+        }
         if (obj.y * transform.position.y < 0)
         {
             Debug.LogError("연출 이동 위치가 반전위치에 있습니다. 이동을 취소합니다.");
             yield break; //서로 반대되는 지역에 있을 경우
         }
+        
         float dist = Vector2.Distance(transform.position, Target);
         while (dist > CheckDistanceToTarget)
         {
             float dir = transform.position.x < Target.x ? 1 : -1;
             _status.InputAxis.Value = new Vector2(dir, 0);
-            Debug.Log(dist);
             yield return null;
             dist = Vector2.Distance(transform.position, Target);
         }
