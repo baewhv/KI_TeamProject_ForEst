@@ -51,8 +51,12 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
 
     private void Start()
     {
-        LoadScenario("StageT");
-        PlayCutscene("Start");
+        if (Scenarios.Count == 0)
+        {
+            Scenarios["test"] = testSO;
+            PlayCutscene("test");
+        }
+
     }
 
     private void InitPrefabs()
@@ -125,6 +129,8 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
             beforeMask = mainCamera.cullingMask;
             mainCamera.cullingMask = cutsceneMask;
         }
+        SetCharacter(Player.gameObject, pc.gameObject, CurrentScenario.PlayerData);
+        
 
     }
 
@@ -148,15 +154,14 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
             mainCamera = Camera.main;
         if(!pc)
             pc = FindAnyObjectByType<PlayerController>();
-        if (Scenarios.Count == 0)
-            CurrentScenario = testSO;
+        
         //컷씬 so 세팅.
         CurrentActionsIndex = 0;
         if (Scenarios.ContainsKey(cutSceneName))
         {
             Debug.Log($"{cutSceneName} 실행");
             CurrentScenario = Scenarios[cutSceneName];
-            SetCharacter(Player.gameObject, pc.gameObject, CurrentScenario.PlayerData);
+            
             //SetCharacter(Player.gameObject, pc.gameObject, CurrentScenario.PlayerData);
             //SetCharacter(Player.gameObject, pc.gameObject, CurrentScenario.PlayerData);
             EnableCutsceneMode();
@@ -224,7 +229,7 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
         if (data.GetInGamePosition)
         {
             obj?.SetPosition(inGameObj.transform.position);
-            //cutSceneObj.SetDirection(); // 실제 플레이어의 방향 가져오기.
+            //obj?.SetDirection(inGameObj.GetComponent<IStatus>().IsRight); // 실제 플레이어의 방향 가져오기.
         }
         else
         {
