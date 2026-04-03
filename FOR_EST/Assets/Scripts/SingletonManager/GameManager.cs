@@ -16,7 +16,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     public int FruitCount { get; set; }
     public bool IsClear { get; private set; }
     
-    [SerializeField] private LayerMask _fruitMask;
+    private LayerMask _fruitMask;
     private LayerMask _playerMask;
     private PlayerController _playerController;
 
@@ -29,7 +29,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     
     private void Init()
     {
-
+        _fruitMask = LayerMask.GetMask("Happy", "Sad");
     }
 
     // SceneManagement 스크립트에서 Scene 전환 시
@@ -38,6 +38,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     public void OnSceneLoadedCheck()
     {
         if (SceneManagement.Instance.CurrentSceneName == "TitleScene_SHY") return;
+        IsClear = false;
         StartCoroutine(DelayCheck());
     }
 
@@ -52,6 +53,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         CutSceneManager.Instance.PlayCutscene("Start");
         
         CheckFruitCount();
+        
     }
 
     private void CheckFruitCount()

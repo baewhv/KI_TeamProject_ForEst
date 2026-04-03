@@ -56,5 +56,11 @@ MonoBehaviour:
   - prefab: {fileID: 7630436719479215025, guid: 76206a2b638ba634c8772d9660cb92a6, type: 3}
     layer: Seed
   - prefab: {fileID: 152286638420367575, guid: 30811635739725b44be20c65ec658f5e, type: 3}
-    layer: SeedBean
+    layer: SeedBeanGoal
+  - prefab: {fileID: 4290046955283111312, guid: d35ca3814cf7d3c4cb492d93ad758b79, type: 3}
+    layer: SeedBean1
+  - prefab: {fileID: 1651968273943918820, guid: f32425bc760e0204fa5fde7fafb7480b, type: 3}
+    layer: SeedBean2
+  - prefab: {fileID: 7324915406118440499, guid: efb530b42e60dca42b55f5afedd72e8c, type: 3}
+    layer: SeedBean3
   tileMap: {fileID: 0}
