@@ -119,7 +119,7 @@ MonoBehaviour:
   _riseT: 0.3
   _groundLayer:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 5632
   _groundReverseLayer:
     serializedVersion: 2
     m_Bits: 7386624
