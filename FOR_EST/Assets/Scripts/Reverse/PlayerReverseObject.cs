@@ -5,8 +5,6 @@ using Vector2 = UnityEngine.Vector2;
 
 public class PlayerReverseObject : MonoBehaviour
 {
-    [SerializeField] private GameObject _player;
-    
     [Header("반전 불가능 영역 레이어 마스크")]
     [SerializeField] private LayerMask _reverseLayerMask;
     
@@ -22,14 +20,18 @@ public class PlayerReverseObject : MonoBehaviour
     {
         CanReverse = true;
         OnGround = true;
-        if (_player == null) _player = GameObject.FindGameObjectWithTag("Player");
-        _playerController = _player.GetComponent<PlayerController>();
     }
 
     private void Update()
     {
-        transform.position = _player.transform.position * new Vector2(1f, -1f);
-        transform.localScale = _player.transform.localScale * new Vector2(1f, -1f);
+        if (_playerController == null) return;
+        transform.position = _playerController.transform.position * new Vector2(1f, -1f);
+        transform.localScale = _playerController.transform.localScale * new Vector2(1f, -1f);
+    }
+
+    public void Init(PlayerController playerController)
+    {
+        _playerController = playerController;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -60,7 +62,7 @@ public class PlayerReverseObject : MonoBehaviour
         RaycastHit2D hit = Physics2D.CircleCast(
                         transform.position, 
                         0.5f, 
-                        (_playerController._isReverse ? Vector2.down : Vector2.up),
+                        (_playerController.IsReverse ? Vector2.down : Vector2.up),
                         0.5f,
                         _groundLayerMask);
 

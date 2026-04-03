@@ -8,9 +8,8 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerStatus
 {
-    public ObserveValue<Vector2> InputAxis;
+    public ObserveValue<Vector2> InputAxis = new ObserveValue<Vector2>();
     public float MoveSpeed;
-    public float PushSpeed;
     public float JumpPower;
     public float GravityScale;
 
@@ -19,6 +18,14 @@ public class PlayerStatus
     public bool IsGrab { get; set; }
     public IPullable GrabbedObject { get; set; }
     public bool IsRight { get; set; }
-    
+    public bool IsReverse { get; set; }
+    public ObserveValue<bool> OIsReverse { get; private set; } = new();
     public Vector2 BeforePosition { get; set; }
+
+    public void CopyStatus(PlayerStatus other)
+    {
+        MoveSpeed = other.MoveSpeed;
+        JumpPower = other.JumpPower;
+        GravityScale = other.GravityScale;
+    }
 }

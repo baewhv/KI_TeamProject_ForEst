@@ -16,12 +16,12 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Cutscene_Player
+  - Cutscene_NPC
+  - Cutscene_Object
   - Ground
   - Border
-  - 
+  - BigObstacle
   - Obstacle
   - Wall
   - 
@@ -33,11 +33,11 @@ TagManager:
   - Fruit
   - Happy
   - Sad
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Seed
+  - SeedBeanGoal
+  - SeedBean1
+  - SeedBean2
+  - SeedBean3
   - 
   - 
   - 

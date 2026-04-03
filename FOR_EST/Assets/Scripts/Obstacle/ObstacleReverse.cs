@@ -15,7 +15,7 @@ public class ObstacleReverse : MonoBehaviour, IReversable, IPullable
         _isPulled = true; //당겨지고 있는 상태면 true로 바꿔줌
     }
 
-    public void OnStopP()
+    public void OnStopPull()
     {
         _isPulled = false; //당겨지고 있지 않은 상태면 false로 바꿔줌
     }

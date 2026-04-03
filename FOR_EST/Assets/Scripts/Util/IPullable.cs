@@ -9,5 +9,5 @@ public interface IPullable
     /// <summary>
     /// 상호작용 멈춤
     /// </summary>
-    public void OnStopP();
+    public void OnStopPull();
 }

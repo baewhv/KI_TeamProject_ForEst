@@ -7,6 +7,12 @@ namespace Obstacle
 {
     public class Obstacle : BaseInteractionObject, IReversable
     {
+        [Header("기본 상태 이미지")]
+        [SerializeField] private Sprite _normalSprite;
+        
+        [Header("반전 상태 이미지")]
+        [SerializeField] private Sprite _reverseSprite;
+        
         [Header("장애물이 플레이어에게 붙어 있을 거리")]
         [SerializeField] private Vector2 _pivot;
 
@@ -25,12 +31,6 @@ namespace Obstacle
         [Header("반전 불가능한 전체 레이어 체크")] 
         [SerializeField] private LayerMask _groundReverseLayer;
         
-        [Header("바닥으로 감지될 거리")]
-        [SerializeField] private float _groundDistance;
-        
-        [Header("바닥을 감지 할 박스의 x축 크기")]
-        [SerializeField] private float _groundSizeX = 0.9f;
-        
         private ObstacleReverseObject _reverseObjectScript;
         private float _originalGravity;
         private bool _isReversing = false;
@@ -44,9 +44,6 @@ namespace Obstacle
         public override void Update()
         {
             if (!_isReversing) base.Update();
-
-            // 테스트 코드 후에 리스폰 조건 생성시 삭제해야함 
-            if (Keyboard.current.rKey.wasPressedThisFrame) base.Respawn();
         }
 
         private void FixedUpdate()
@@ -59,20 +56,37 @@ namespace Obstacle
                 
                 _rb.MovePosition(new Vector2(followTarget, _rb.position.y));
                 
-                if (!_isReversing && !IsGrounded()) base.OnStopP();
+                if (!_isReversing && !IsGrounded()) base.OnStopPull();
             }
         }
-
+        
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.CompareTag("Boundary"))
+            {
+                OnStopPull();
+                StartCoroutine(RespawnRoutine());
+            }
+        }
 
         private void Init()
         {
             base.Init();
             _originalGravity = _rb.gravityScale;
-            if (_isThisObjBelongsToTheReverseWorld) ReversingState();
+            if (transform.position.y < -1)
+            {
+                _isThisObjBelongsToTheReverseWorld = true;
+                ReversingState();
+            }
             if (_reverseObjectPrefab != null) _reverseObjectPrefab = Instantiate(_reverseObjectPrefab);
             _reverseObjectScript = _reverseObjectPrefab.GetComponent<ObstacleReverseObject>();
             if(_reverseObjectScript != null) _reverseObjectScript.Init(this.gameObject, this);
 
+        }
+
+        private void ChangeSprite()
+        {
+            if (_renderer != null)  _renderer.sprite = _isReverse ? _reverseSprite : _normalSprite;
         }
 
         public void Reverse()
@@ -84,6 +98,8 @@ namespace Obstacle
 
             _isReversing = true;
             _isReverse = !_isReverse;
+            
+            ChangeSprite();
             
             transform.position *= new Vector2(1f, -1f);
             transform.localScale *= new Vector2(1f, -1f);
@@ -99,13 +115,22 @@ namespace Obstacle
             _originalGravity = _rb.gravityScale;
             _isReverse = true;
             
-            Vector3 scale = transform.localScale;
+            ChangeSprite();
+            
+            Vector2 scale = transform.localScale;
             scale.y *= -1f;
             transform.localScale = scale;
         }
 
+        public override void Respawn()
+        {
+            base.Respawn();
+            _rb.gravityScale = _originalGravity;
+            _isReverse = _isThisObjBelongsToTheReverseWorld;
+            ChangeSprite();
+        }
 
-        public override IEnumerator RespawnRoutine()
+        public IEnumerator RespawnRoutine()
         {
             _isRespawning = true;
             base.RespawningState(false);
@@ -155,14 +180,9 @@ namespace Obstacle
 
         private bool IsGrounded()
         {
-            float direction = Mathf.Sign(_rb.gravityScale);
-            float checkY = (direction > 0) ? _collider.bounds.min.y : _collider.bounds.max.y;
+            base.CheckGroundState(out Vector2 origin, out Vector2 checkBoxSize, out float direction);
             
-            Vector2 origin = new Vector2(_collider.bounds.center.x, checkY);
-            Vector2 checkBoxSize = new Vector2(_collider.bounds.size.x * _groundSizeX, 0.1f);
-            
-            RaycastHit2D hit =
-                                Physics2D.BoxCast
+            RaycastHit2D hit = Physics2D.BoxCast
                                  (
                                      origin,
                                      checkBoxSize,
@@ -178,42 +198,12 @@ namespace Obstacle
         private void OnDrawGizmos()
         {
             if(_collider == null) return;
-            
-            float direction = Mathf.Sign(_rb.gravityScale);
-            float checkY = (direction > 0) ? _collider.bounds.min.y : _collider.bounds.max.y;
-            
-            Vector2 origin = new Vector2(_collider.bounds.center.x, checkY);
-            Vector2 checkBoxSize = new Vector2(_collider.bounds.size.x * _groundSizeX, 0.2f);
-            
+            base.CheckGroundState(out Vector2 origin, out Vector2 checkBoxSize,out float direction);
             Vector2 endPos = origin + (Vector2.down * direction * _groundDistance);
             
             Gizmos.color = IsGrounded() ? Color.green : Color.red;
             Gizmos.DrawWireCube(endPos, checkBoxSize);
             Gizmos.DrawLine(origin, endPos);
-            
-            /*
-            if (_playerHand != null)
-            {
-                float dist = Vector2.Distance(_collider.ClosestPoint(_playerHand.position), _playerHand.position);
-        
-                if (dist > _linkDist) Gizmos.color = Color.red;
-                else                  Gizmos.color = Color.green;
-        
-                Gizmos.DrawLine(transform.position, _playerHand.position);
-                Vector3 cubeSize = new Vector3(_linkDist * 2, _linkDist * 2, 0.1f);
-        
-                if (_isPulling && _playerHand != null && _renderer != null)
-                {
-                    float direction = (_playerHand.position.x > transform.position.x) ? -1f : 1f;
-                    float halfW = _renderer.bounds.extents.x;
-                    float followTarget = _playerHand.position.x + ((halfW + _pivot.x) * direction);
-                    Vector3 targetPos = new Vector3(followTarget, transform.position.y, 0);
-        
-                    Gizmos.color = Color.yellow;
-                    Gizmos.DrawWireCube(targetPos, cubeSize);
-                }
-            }
-            */
         }
     }
 }
