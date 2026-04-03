@@ -87,8 +87,8 @@ public class HappyTreeLeafBloom : MonoBehaviour
     [SerializeField] private int _sortingOrder = 10;
 
     [Tooltip("글로우 텍스처 해상도 (32~128). 클수록 부드럽지만 메모리가 늘어남).")]
-    [Range(32, 128)]
-    [SerializeField] private int _textureResolution = 64;
+    [Range(32, 512)]
+    [SerializeField] private int _textureResolution = 512;
 
     // ────────────────────────────────────────────────
     //  내부 상태

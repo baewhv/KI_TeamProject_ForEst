@@ -119,6 +119,65 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &7739231
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7739232}
+  - component: {fileID: 7739233}
+  m_Layer: 0
+  m_Name: HappyLeaf (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7739232
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7739231}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.94, y: -4.15, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 505703510}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7739233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7739231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3062440fe3a9e7944bd50070791f27d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HappyTreeLeafBloom
+  _leafCenterOffset: {x: 0, y: -2.5}
+  _bloomColor: {r: 1, g: 1, b: 1, a: 1}
+  _intensity: 0.2
+  _radius: 2.5
+  _layerCount: 3
+  _layerScaleMultiplier: 1.6
+  _layerAlphaFalloff: 0.45
+  _enablePulse: 1
+  _pulseSpeed: 0.8
+  _pulseStrength: 0.25
+  _pulseScale: 1
+  _pulseScaleStrength: 0.08
+  _sortingLayerName: Default
+  _sortingOrder: 10
+  _textureResolution: 128
 --- !u!1001 &17254138
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -638,6 +697,65 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 4284052444120879578, guid: 34dcc3ad31c73ba469b3c789d3919f77, type: 3}
   m_PrefabInstance: {fileID: 75161426}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &82026539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 82026540}
+  - component: {fileID: 82026541}
+  m_Layer: 0
+  m_Name: HappyLeaf (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &82026540
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82026539}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.38, y: -5.84, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 505703510}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &82026541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82026539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3062440fe3a9e7944bd50070791f27d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HappyTreeLeafBloom
+  _leafCenterOffset: {x: 0, y: -2.5}
+  _bloomColor: {r: 1, g: 1, b: 1, a: 1}
+  _intensity: 0.2
+  _radius: 2.5
+  _layerCount: 3
+  _layerScaleMultiplier: 1.6
+  _layerAlphaFalloff: 0.45
+  _enablePulse: 1
+  _pulseSpeed: 0.8
+  _pulseStrength: 0.25
+  _pulseScale: 1
+  _pulseScaleStrength: 0.08
+  _sortingLayerName: Default
+  _sortingOrder: 10
+  _textureResolution: 128
 --- !u!1001 &87341488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2853,6 +2971,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289105438}
   m_CullTransparentMesh: 1
+--- !u!1 &296884008
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 296884009}
+  m_Layer: 0
+  m_Name: Effect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &296884009
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296884008}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -21.09588, y: -2.10504, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1122504890}
+  - {fileID: 1424842040}
+  - {fileID: 552220730}
+  - {fileID: 505703510}
+  - {fileID: 833211154}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &297553722
 GameObject:
   m_ObjectHideFlags: 0
@@ -3199,6 +3353,65 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 4284052444120879578, guid: 34dcc3ad31c73ba469b3c789d3919f77, type: 3}
   m_PrefabInstance: {fileID: 319180517}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &320786096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 320786097}
+  - component: {fileID: 320786098}
+  m_Layer: 0
+  m_Name: SadLeaf (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &320786097
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320786096}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 12.21, y: 35.74, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 833211154}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &320786098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320786096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3062440fe3a9e7944bd50070791f27d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HappyTreeLeafBloom
+  _leafCenterOffset: {x: 0, y: -2.5}
+  _bloomColor: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
+  _intensity: 0.6
+  _radius: 3.5
+  _layerCount: 3
+  _layerScaleMultiplier: 1.6
+  _layerAlphaFalloff: 0.45
+  _enablePulse: 1
+  _pulseSpeed: 0.8
+  _pulseStrength: 0.25
+  _pulseScale: 1
+  _pulseScaleStrength: 0.08
+  _sortingLayerName: Default
+  _sortingOrder: 10
+  _textureResolution: 128
 --- !u!1001 &350991011
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3467,6 +3680,85 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 4284052444120879578, guid: 34dcc3ad31c73ba469b3c789d3919f77, type: 3}
   m_PrefabInstance: {fileID: 388223014}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &410469756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 410469759}
+  - component: {fileID: 410469758}
+  - component: {fileID: 410469757}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &410469757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410469756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.UI.InputSystemUIInputModule
+  m_SendPointerHoverToParent: 1
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
+  m_ScrollDeltaPerTick: 6
+--- !u!114 &410469758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410469756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventSystem
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &410469759
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410469756}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &415654726
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5242,6 +5534,106 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 501584178}
   m_CullTransparentMesh: 1
+--- !u!1 &505632332
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 505632333}
+  - component: {fileID: 505632334}
+  m_Layer: 0
+  m_Name: HappyLeaf (8)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &505632333
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505632332}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 13.66, y: 2.16, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 505703510}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &505632334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505632332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3062440fe3a9e7944bd50070791f27d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HappyTreeLeafBloom
+  _leafCenterOffset: {x: 0, y: -2.5}
+  _bloomColor: {r: 1, g: 1, b: 1, a: 1}
+  _intensity: 0.2
+  _radius: 2.5
+  _layerCount: 3
+  _layerScaleMultiplier: 1.6
+  _layerAlphaFalloff: 0.45
+  _enablePulse: 1
+  _pulseSpeed: 0.8
+  _pulseStrength: 0.25
+  _pulseScale: 1
+  _pulseScaleStrength: 0.08
+  _sortingLayerName: Default
+  _sortingOrder: 10
+  _textureResolution: 128
+--- !u!1 &505703509
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 505703510}
+  m_Layer: 0
+  m_Name: HappyLeafEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &505703510
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505703509}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 18.82666, y: -14.418421, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1286008492}
+  - {fileID: 1901945362}
+  - {fileID: 625837474}
+  - {fileID: 2066373232}
+  - {fileID: 82026540}
+  - {fileID: 7739232}
+  - {fileID: 2120648625}
+  - {fileID: 2115556004}
+  - {fileID: 505632333}
+  - {fileID: 2044785091}
+  m_Father: {fileID: 296884009}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &508023709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5309,6 +5701,124 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 4284052444120879578, guid: 34dcc3ad31c73ba469b3c789d3919f77, type: 3}
   m_PrefabInstance: {fileID: 508023709}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &519657406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 519657407}
+  - component: {fileID: 519657408}
+  m_Layer: 0
+  m_Name: SadLeaf
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &519657407
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519657406}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.92, y: 32.23, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 833211154}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519657408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519657406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3062440fe3a9e7944bd50070791f27d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HappyTreeLeafBloom
+  _leafCenterOffset: {x: 0, y: -2.5}
+  _bloomColor: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
+  _intensity: 0.6
+  _radius: 3.5
+  _layerCount: 3
+  _layerScaleMultiplier: 1.6
+  _layerAlphaFalloff: 0.45
+  _enablePulse: 1
+  _pulseSpeed: 0.8
+  _pulseStrength: 0.25
+  _pulseScale: 1
+  _pulseScaleStrength: 0.08
+  _sortingLayerName: Default
+  _sortingOrder: 10
+  _textureResolution: 128
+--- !u!1 &523500993
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 523500994}
+  - component: {fileID: 523500995}
+  m_Layer: 0
+  m_Name: SadLeaf (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &523500994
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523500993}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.65, y: 40.04, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 833211154}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &523500995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523500993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3062440fe3a9e7944bd50070791f27d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HappyTreeLeafBloom
+  _leafCenterOffset: {x: 0, y: -2.5}
+  _bloomColor: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
+  _intensity: 0.6
+  _radius: 3.5
+  _layerCount: 3
+  _layerScaleMultiplier: 1.6
+  _layerAlphaFalloff: 0.45
+  _enablePulse: 1
+  _pulseSpeed: 0.8
+  _pulseStrength: 0.25
+  _pulseScale: 1
+  _pulseScaleStrength: 0.08
+  _sortingLayerName: Default
+  _sortingOrder: 10
+  _textureResolution: 128
 --- !u!1 &526023239
 GameObject:
   m_ObjectHideFlags: 0
@@ -5518,6 +6028,92 @@ Transform:
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 4284052444120879578, guid: 34dcc3ad31c73ba469b3c789d3919f77, type: 3}
   m_PrefabInstance: {fileID: 540354947}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &552220729
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 296884009}
+    m_Modifications:
+    - target: {fileID: 98234249889647428, guid: 29d7476f69725f84e97a535ea960a629, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 21.09588
+      objectReference: {fileID: 0}
+    - target: {fileID: 98234249889647428, guid: 29d7476f69725f84e97a535ea960a629, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.10504
+      objectReference: {fileID: 0}
+    - target: {fileID: 98234249889647428, guid: 29d7476f69725f84e97a535ea960a629, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 98234249889647428, guid: 29d7476f69725f84e97a535ea960a629, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 98234249889647428, guid: 29d7476f69725f84e97a535ea960a629, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 98234249889647428, guid: 29d7476f69725f84e97a535ea960a629, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 98234249889647428, guid: 29d7476f69725f84e97a535ea960a629, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 98234249889647428, guid: 29d7476f69725f84e97a535ea960a629, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 98234249889647428, guid: 29d7476f69725f84e97a535ea960a629, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 98234249889647428, guid: 29d7476f69725f84e97a535ea960a629, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457645877805855835, guid: 29d7476f69725f84e97a535ea960a629, type: 3}
+      propertyPath: _count
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457645877805855835, guid: 29d7476f69725f84e97a535ea960a629, type: 3}
+      propertyPath: _maxSize
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457645877805855835, guid: 29d7476f69725f84e97a535ea960a629, type: 3}
+      propertyPath: _minSize
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457645877805855835, guid: 29d7476f69725f84e97a535ea960a629, type: 3}
+      propertyPath: _spawnMargin
+      value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457645877805855835, guid: 29d7476f69725f84e97a535ea960a629, type: 3}
+      propertyPath: _fireflyPrefab
+      value: 
+      objectReference: {fileID: 8820830537277840866, guid: 29d7476f69725f84e97a535ea960a629, type: 3}
+    - target: {fileID: 8820830537277840866, guid: 29d7476f69725f84e97a535ea960a629, type: 3}
+      propertyPath: m_Name
+      value: Firefly
+      objectReference: {fileID: 0}
+    - target: {fileID: 8820830537277840866, guid: 29d7476f69725f84e97a535ea960a629, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 29d7476f69725f84e97a535ea960a629, type: 3}
+--- !u!4 &552220730 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 98234249889647428, guid: 29d7476f69725f84e97a535ea960a629, type: 3}
+  m_PrefabInstance: {fileID: 552220729}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &572343694
 GameObject:
@@ -6227,6 +6823,65 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 4284052444120879578, guid: 34dcc3ad31c73ba469b3c789d3919f77, type: 3}
   m_PrefabInstance: {fileID: 620951087}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &625837473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 625837474}
+  - component: {fileID: 625837475}
+  m_Layer: 0
+  m_Name: HappyLeaf (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &625837474
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625837473}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.51, y: -5.11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 505703510}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &625837475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625837473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3062440fe3a9e7944bd50070791f27d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HappyTreeLeafBloom
+  _leafCenterOffset: {x: 0, y: -2.5}
+  _bloomColor: {r: 1, g: 1, b: 1, a: 1}
+  _intensity: 0.2
+  _radius: 2.5
+  _layerCount: 3
+  _layerScaleMultiplier: 1.6
+  _layerAlphaFalloff: 0.45
+  _enablePulse: 1
+  _pulseSpeed: 0.8
+  _pulseStrength: 0.25
+  _pulseScale: 1
+  _pulseScaleStrength: 0.08
+  _sortingLayerName: Default
+  _sortingOrder: 10
+  _textureResolution: 128
 --- !u!1 &631305739
 GameObject:
   m_ObjectHideFlags: 0
@@ -6513,6 +7168,65 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 4284052444120879578, guid: 34dcc3ad31c73ba469b3c789d3919f77, type: 3}
   m_PrefabInstance: {fileID: 637102109}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &644712475
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 644712476}
+  - component: {fileID: 644712477}
+  m_Layer: 0
+  m_Name: SadLeaf (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &644712476
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644712475}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.13, y: 42.46, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 833211154}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &644712477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644712475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3062440fe3a9e7944bd50070791f27d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HappyTreeLeafBloom
+  _leafCenterOffset: {x: 0, y: -2.5}
+  _bloomColor: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
+  _intensity: 0.6
+  _radius: 3.5
+  _layerCount: 3
+  _layerScaleMultiplier: 1.6
+  _layerAlphaFalloff: 0.45
+  _enablePulse: 1
+  _pulseSpeed: 0.8
+  _pulseStrength: 0.25
+  _pulseScale: 1
+  _pulseScaleStrength: 0.08
+  _sortingLayerName: Default
+  _sortingOrder: 10
+  _textureResolution: 128
 --- !u!1 &645613499
 GameObject:
   m_ObjectHideFlags: 0
@@ -7005,67 +7719,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1001 &686017294
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5649800440649064656, guid: 76206a2b638ba634c8772d9660cb92a6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.505
-      objectReference: {fileID: 0}
-    - target: {fileID: 5649800440649064656, guid: 76206a2b638ba634c8772d9660cb92a6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.0327331
-      objectReference: {fileID: 0}
-    - target: {fileID: 5649800440649064656, guid: 76206a2b638ba634c8772d9660cb92a6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5649800440649064656, guid: 76206a2b638ba634c8772d9660cb92a6, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5649800440649064656, guid: 76206a2b638ba634c8772d9660cb92a6, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5649800440649064656, guid: 76206a2b638ba634c8772d9660cb92a6, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5649800440649064656, guid: 76206a2b638ba634c8772d9660cb92a6, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5649800440649064656, guid: 76206a2b638ba634c8772d9660cb92a6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5649800440649064656, guid: 76206a2b638ba634c8772d9660cb92a6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5649800440649064656, guid: 76206a2b638ba634c8772d9660cb92a6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7630436719479215025, guid: 76206a2b638ba634c8772d9660cb92a6, type: 3}
-      propertyPath: m_Name
-      value: N_Seed
-      objectReference: {fileID: 0}
-    - target: {fileID: 7630436719479215025, guid: 76206a2b638ba634c8772d9660cb92a6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 76206a2b638ba634c8772d9660cb92a6, type: 3}
 --- !u!1 &691761237
 GameObject:
   m_ObjectHideFlags: 0
@@ -8541,6 +9194,42 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 4284052444120879578, guid: 34dcc3ad31c73ba469b3c789d3919f77, type: 3}
   m_PrefabInstance: {fileID: 818440452}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &833211153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 833211154}
+  m_Layer: 0
+  m_Name: SadLeafEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &833211154
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833211153}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 18.82666, y: -14.418421, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 519657407}
+  - {fileID: 1643637203}
+  - {fileID: 320786097}
+  - {fileID: 523500994}
+  - {fileID: 644712476}
+  m_Father: {fileID: 296884009}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &835301440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11187,6 +11876,75 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 4284052444120879578, guid: 34dcc3ad31c73ba469b3c789d3919f77, type: 3}
   m_PrefabInstance: {fileID: 1087260422}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1122504888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1122504890}
+  - component: {fileID: 1122504889}
+  m_Layer: 0
+  m_Name: HappinessTreeEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1122504889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122504888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18f366ee75a40b24bbf82512fb217db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HappinessTreeEffect
+  _count: 80
+  _spawnHalfWidth: 15
+  _spawnDepthMin: 8.58
+  _spawnDepthMax: -8.8
+  _groundY: 0
+  _minSize: 0.12
+  _maxSize: 0.5
+  _minRiseSpeed: 0.4
+  _maxRiseSpeed: 1.2
+  _wobbleAmplitude: 0.3
+  _wobbleSpeed: 1.2
+  _sparkleStrength: 0.35
+  _sparkleSpeed: 2.5
+  _colors:
+  - {r: 0.55, g: 0.9, b: 0.3, a: 1}
+  - {r: 0.4, g: 0.85, b: 0.45, a: 1}
+  - {r: 0.8, g: 0.95, b: 0.3, a: 1}
+  - {r: 1, g: 0.88, b: 0.3, a: 1}
+  - {r: 0.7, g: 1, b: 0.55, a: 1}
+  - {r: 0.95, g: 1, b: 0.6, a: 1}
+  - {r: 0.5, g: 0.95, b: 0.7, a: 1}
+  _maxAlpha: 0.85
+  _minAlpha: 0
+  _sortingLayerName: Default
+  _sortingOrder: 5
+--- !u!4 &1122504890
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122504888}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 21.48588, y: -15.89496, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 296884009}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1124808054
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12290,6 +13048,11 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 4284052444120879578, guid: 34dcc3ad31c73ba469b3c789d3919f77, type: 3}
   m_PrefabInstance: {fileID: 1232557350}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1240576184 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8362041208389387322, guid: cbdf22196557fdf41bed990fe7fea7b5, type: 3}
+  m_PrefabInstance: {fileID: 1983781775}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1272925309
 GameObject:
   m_ObjectHideFlags: 0
@@ -12427,6 +13190,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1272925309}
   m_CullTransparentMesh: 1
+--- !u!1 &1286008491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1286008492}
+  - component: {fileID: 1286008493}
+  m_Layer: 0
+  m_Name: HappyLeaf
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1286008492
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286008491}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10.1, y: 3.8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 505703510}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1286008493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286008491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3062440fe3a9e7944bd50070791f27d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HappyTreeLeafBloom
+  _leafCenterOffset: {x: 0, y: -2.5}
+  _bloomColor: {r: 1, g: 1, b: 1, a: 1}
+  _intensity: 0.2
+  _radius: 2.5
+  _layerCount: 3
+  _layerScaleMultiplier: 1.6
+  _layerAlphaFalloff: 0.45
+  _enablePulse: 1
+  _pulseSpeed: 0.8
+  _pulseStrength: 0.25
+  _pulseScale: 1
+  _pulseScaleStrength: 0.08
+  _sortingLayerName: Default
+  _sortingOrder: 10
+  _textureResolution: 128
 --- !u!1001 &1286670381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24293,6 +25115,72 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1419430149}
   m_CullTransparentMesh: 1
+--- !u!1 &1424842038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1424842040}
+  - component: {fileID: 1424842039}
+  m_Layer: 0
+  m_Name: SadnessTreeEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1424842039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424842038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce622f150f905e4bac8efc297154e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SadnessTreeEffect
+  _count: 80
+  _spawnHalfWidth: 18
+  _spawnHeightMin: -7
+  _spawnHeightMax: 10.5
+  _groundY: 0
+  _minSize: 0.36
+  _maxSize: 1.5
+  _minFallSpeed: 0.3
+  _maxFallSpeed: 1.4
+  _wobbleAmplitude: 0.18
+  _wobbleSpeed: 0.9
+  _colors:
+  - {r: 0.12, g: 0.1, b: 0.09, a: 1}
+  - {r: 0.22, g: 0.2, b: 0.18, a: 1}
+  - {r: 0.35, g: 0.3, b: 0.27, a: 1}
+  - {r: 0.18, g: 0.16, b: 0.14, a: 1}
+  - {r: 0.42, g: 0.37, b: 0.32, a: 1}
+  - {r: 0.08, g: 0.07, b: 0.06, a: 1}
+  _maxAlpha: 0.8
+  _minAlpha: 0
+  _sortingLayerName: Default
+  _sortingOrder: 5
+--- !u!4 &1424842040
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424842038}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 21.09588, y: 20.10504, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 296884009}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1426471819
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24499,6 +25387,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 169208798031243282, guid: cbdf22196557fdf41bed990fe7fea7b5, type: 3}
   m_PrefabInstance: {fileID: 1983781775}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1450687576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240576184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4f2e8c1a7d35fe690b2c4d6a8e0f2c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FruitShineEffect
+  isSadFruit: 1
+  ellipseRatio: 0.88
+  textureResolution: 128
+  effectScale: 2
+  rotationSpeed: 35
+  sortingOrder: 3
+  sortingLayerName: Default
 --- !u!1001 &1452709079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27363,6 +28270,65 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 4284052444120879578, guid: 34dcc3ad31c73ba469b3c789d3919f77, type: 3}
   m_PrefabInstance: {fileID: 1634520820}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1643637202
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1643637203}
+  - component: {fileID: 1643637204}
+  m_Layer: 0
+  m_Name: SadLeaf (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1643637203
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643637202}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -9.03, y: 38.43, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 833211154}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1643637204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643637202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3062440fe3a9e7944bd50070791f27d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HappyTreeLeafBloom
+  _leafCenterOffset: {x: 0, y: -2.5}
+  _bloomColor: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
+  _intensity: 0.6
+  _radius: 3.5
+  _layerCount: 3
+  _layerScaleMultiplier: 1.6
+  _layerAlphaFalloff: 0.45
+  _enablePulse: 1
+  _pulseSpeed: 0.8
+  _pulseStrength: 0.25
+  _pulseScale: 1
+  _pulseScaleStrength: 0.08
+  _sortingLayerName: Default
+  _sortingOrder: 10
+  _textureResolution: 128
 --- !u!1001 &1662168596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29881,6 +30847,65 @@ RectTransform:
   m_AnchoredPosition: {x: -960, y: -200}
   m_SizeDelta: {x: 390, y: 100}
   m_Pivot: {x: 0.5, y: 0}
+--- !u!1 &1901945361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1901945362}
+  - component: {fileID: 1901945363}
+  m_Layer: 0
+  m_Name: HappyLeaf (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1901945362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901945361}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.33, y: -1.91, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 505703510}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1901945363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901945361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3062440fe3a9e7944bd50070791f27d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HappyTreeLeafBloom
+  _leafCenterOffset: {x: 0, y: -2.5}
+  _bloomColor: {r: 1, g: 1, b: 1, a: 1}
+  _intensity: 0.2
+  _radius: 2.5
+  _layerCount: 3
+  _layerScaleMultiplier: 1.6
+  _layerAlphaFalloff: 0.45
+  _enablePulse: 1
+  _pulseSpeed: 0.8
+  _pulseStrength: 0.25
+  _pulseScale: 1
+  _pulseScaleStrength: 0.08
+  _sortingLayerName: Default
+  _sortingOrder: 10
+  _textureResolution: 128
 --- !u!1001 &1927207769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30653,7 +31678,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8362041208389387322, guid: cbdf22196557fdf41bed990fe7fea7b5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1450687576}
   m_SourcePrefab: {fileID: 100100000, guid: cbdf22196557fdf41bed990fe7fea7b5, type: 3}
 --- !u!4 &1984297051 stripped
 Transform:
@@ -30995,6 +32023,65 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 4284052444120879578, guid: 34dcc3ad31c73ba469b3c789d3919f77, type: 3}
   m_PrefabInstance: {fileID: 2033951173}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2044785090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2044785091}
+  - component: {fileID: 2044785092}
+  m_Layer: 0
+  m_Name: HappyLeaf (9)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2044785091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044785090}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 15.47, y: 4.73, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 505703510}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2044785092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044785090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3062440fe3a9e7944bd50070791f27d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HappyTreeLeafBloom
+  _leafCenterOffset: {x: 0, y: -2.5}
+  _bloomColor: {r: 1, g: 1, b: 1, a: 1}
+  _intensity: 0.2
+  _radius: 2.5
+  _layerCount: 3
+  _layerScaleMultiplier: 1.6
+  _layerAlphaFalloff: 0.45
+  _enablePulse: 1
+  _pulseSpeed: 0.8
+  _pulseStrength: 0.25
+  _pulseScale: 1
+  _pulseScaleStrength: 0.08
+  _sortingLayerName: Default
+  _sortingOrder: 10
+  _textureResolution: 128
 --- !u!1 &2051687113
 GameObject:
   m_ObjectHideFlags: 0
@@ -31199,6 +32286,65 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 4284052444120879578, guid: 34dcc3ad31c73ba469b3c789d3919f77, type: 3}
   m_PrefabInstance: {fileID: 2063015221}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2066373231
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2066373232}
+  - component: {fileID: 2066373233}
+  m_Layer: 0
+  m_Name: HappyLeaf (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2066373232
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066373231}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.39, y: -0.64, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 505703510}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2066373233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066373231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3062440fe3a9e7944bd50070791f27d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HappyTreeLeafBloom
+  _leafCenterOffset: {x: 0, y: -2.5}
+  _bloomColor: {r: 1, g: 1, b: 1, a: 1}
+  _intensity: 0.2
+  _radius: 2.5
+  _layerCount: 3
+  _layerScaleMultiplier: 1.6
+  _layerAlphaFalloff: 0.45
+  _enablePulse: 1
+  _pulseSpeed: 0.8
+  _pulseStrength: 0.25
+  _pulseScale: 1
+  _pulseScaleStrength: 0.08
+  _sortingLayerName: Default
+  _sortingOrder: 10
+  _textureResolution: 128
 --- !u!1001 &2069066363
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31561,6 +32707,65 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 4284052444120879578, guid: 34dcc3ad31c73ba469b3c789d3919f77, type: 3}
   m_PrefabInstance: {fileID: 2113117290}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2115556003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2115556004}
+  - component: {fileID: 2115556005}
+  m_Layer: 0
+  m_Name: HappyLeaf (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2115556004
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115556003}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 14.65, y: -1.29, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 505703510}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2115556005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115556003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3062440fe3a9e7944bd50070791f27d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HappyTreeLeafBloom
+  _leafCenterOffset: {x: 0, y: -2.5}
+  _bloomColor: {r: 1, g: 1, b: 1, a: 1}
+  _intensity: 0.2
+  _radius: 2.5
+  _layerCount: 3
+  _layerScaleMultiplier: 1.6
+  _layerAlphaFalloff: 0.45
+  _enablePulse: 1
+  _pulseSpeed: 0.8
+  _pulseStrength: 0.25
+  _pulseScale: 1
+  _pulseScaleStrength: 0.08
+  _sortingLayerName: Default
+  _sortingOrder: 10
+  _textureResolution: 128
 --- !u!1 &2117481012
 GameObject:
   m_ObjectHideFlags: 0
@@ -31652,6 +32857,65 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &2120648624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2120648625}
+  - component: {fileID: 2120648626}
+  m_Layer: 0
+  m_Name: HappyLeaf (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2120648625
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120648624}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.56, y: -1.87, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 505703510}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2120648626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120648624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3062440fe3a9e7944bd50070791f27d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HappyTreeLeafBloom
+  _leafCenterOffset: {x: 0, y: -2.5}
+  _bloomColor: {r: 1, g: 1, b: 1, a: 1}
+  _intensity: 0.2
+  _radius: 2.5
+  _layerCount: 3
+  _layerScaleMultiplier: 1.6
+  _layerAlphaFalloff: 0.45
+  _enablePulse: 1
+  _pulseSpeed: 0.8
+  _pulseStrength: 0.25
+  _pulseScale: 1
+  _pulseScaleStrength: 0.08
+  _sortingLayerName: Default
+  _sortingOrder: 10
+  _textureResolution: 128
 --- !u!1001 &2122602155
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31926,4 +33190,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 237410430}
   - {fileID: 449333572}
-  - {fileID: 686017294}
+  - {fileID: 296884009}
+  - {fileID: 410469759}
