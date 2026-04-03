@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5403046606770695509}
   - component: {fileID: 4501975331302832760}
   - component: {fileID: 637314759841476334}
-  m_Layer: 23
+  m_Layer: 26
   m_Name: Body
   m_TagString: Seed
   m_Icon: {fileID: 0}
@@ -124,7 +124,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5388293829200727851}
   - component: {fileID: 3248832451600408609}
-  m_Layer: 23
+  - component: {fileID: 1829202596933574576}
+  m_Layer: 26
   m_Name: N_SeedBean3
   m_TagString: Seed
   m_Icon: {fileID: 0}
@@ -193,3 +194,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1829202596933574576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7324915406118440499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4344b359a07d5a9429beb7f229249bdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SeedBean3

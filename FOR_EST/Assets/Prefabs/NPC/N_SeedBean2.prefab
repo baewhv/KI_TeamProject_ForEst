@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7737830176731575187}
   - component: {fileID: 8736091725085864376}
-  m_Layer: 23
+  - component: {fileID: 4014900764526169465}
+  m_Layer: 25
   m_Name: N_SeedBean2
   m_TagString: Seed
   m_Icon: {fileID: 0}
@@ -79,6 +80,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &4014900764526169465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651968273943918820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e28e85e2b932ff4f88e5e9c5375f370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SeedBean2
 --- !u!1 &2864271499145559567
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,7 +103,7 @@ GameObject:
   - component: {fileID: 2401246783704310169}
   - component: {fileID: 6964685576439364220}
   - component: {fileID: 3249790343325310282}
-  m_Layer: 23
+  m_Layer: 25
   m_Name: Body
   m_TagString: Seed
   m_Icon: {fileID: 0}

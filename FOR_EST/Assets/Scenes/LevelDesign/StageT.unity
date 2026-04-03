@@ -7618,6 +7618,10 @@ PrefabInstance:
       propertyPath: tileMap
       value: 
       objectReference: {fileID: 1307092341}
+    - target: {fileID: 2220191012763933397, guid: d78c7577f7f3c5340ac1b7d49ebb2cd6, type: 3}
+      propertyPath: spawnPrefabs.Array.data[5].layer
+      value: SeedBeanGoal
+      objectReference: {fileID: 0}
     - target: {fileID: 6235013264145483079, guid: d78c7577f7f3c5340ac1b7d49ebb2cd6, type: 3}
       propertyPath: m_Name
       value: SpawnManager
