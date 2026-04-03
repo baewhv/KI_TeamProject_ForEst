@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class SeedBean1 : BaseSeedBean
 {
-    private GameObject textBox;
-    private Canvas textBoxCanvas;
 
     private void Awake()
     {
@@ -30,14 +28,6 @@ public class SeedBean1 : BaseSeedBean
     private void Init()
     {
         base.Init();
-        
-        // _anim.SetBool("Sit", true);
-        
-        textBoxCanvas = GetComponentInChildren<Canvas>();
-        if (textBoxCanvas != null)
-        {
-            textBox = textBoxCanvas.gameObject;
-            textBox.SetActive(false);
-        }
+        _anim.SetBool("Sit", true);
     }
 }
