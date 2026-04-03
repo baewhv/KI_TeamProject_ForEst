@@ -76,6 +76,7 @@ public class PlayerCutSceneController : MonoBehaviour, ICutsceneObject
         {
             Debug.Log($"거리 : {dist}   / pos {transform.position} / target {Target}");
             float dir = transform.position.x < Target.x ? 1 : -1;
+            _renderer.flipX = dir < 0;
             _status.InputAxis.Value = new Vector2(dir, 0);
             yield return null;
             dist = Vector2.Distance(transform.position, Target);
