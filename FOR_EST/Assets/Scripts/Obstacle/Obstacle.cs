@@ -126,6 +126,7 @@ namespace Obstacle
         {
             base.Respawn();
             _rb.gravityScale = _originalGravity;
+            _rb.linearVelocity = Vector2.zero;
             _isReverse = _isThisObjBelongsToTheReverseWorld;
             ChangeSprite();
         }
@@ -145,6 +146,7 @@ namespace Obstacle
             
             transform.position = startPos;
             transform.localScale = new Vector2(targetScale.x, 0);
+            _rb.linearVelocity = Vector2.zero;
 
             yield return YieldContainer.WaitForSeconds(_respawnTime);
             
