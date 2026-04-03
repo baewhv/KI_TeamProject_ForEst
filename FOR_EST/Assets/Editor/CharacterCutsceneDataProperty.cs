@@ -25,7 +25,7 @@ public class CharacterCutsceneDataProperty : PropertyDrawer
                     new GUIContent(" 연출 전 위치 가져오기", "인게임의 위치를 그대로 가져올지 결정합니다."));
             }
 
-            if (_characterType.enumValueIndex == (int)ESelectedCharacter.Seed_B || GetInGamePosition.boolValue)
+            if (_characterType.enumValueIndex == (int)ESelectedCharacter.Seed_B || !GetInGamePosition.boolValue)
             {
                 EditorGUILayout.PropertyField(property.FindPropertyRelative("position"),
                     new GUIContent(" 위치", "해당 좌표에 배치합니다."));
