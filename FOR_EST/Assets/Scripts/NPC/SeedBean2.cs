@@ -28,5 +28,15 @@ public class SeedBean2 : BaseSeedBean
     {
         base.Init();
         _anim.SetBool("Head", RandomSetBool());
+        
+        if (transform.position.y > 5f)
+        {
+            _text.text = "높다";
+        }
+        else if (transform.position.y < -5f)
+        {
+            _text.text = "낮다";
+        }
+        else _text.text = "평범하다";
     }
 }

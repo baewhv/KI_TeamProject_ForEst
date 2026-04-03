@@ -16,13 +16,13 @@ MonoBehaviour:
     character: 0
     ShowCharacter: 1
     GetInGamePosition: 0
-    position: {x: 0, y: 0}
+    position: {x: 25, y: -1}
     isRight: 0
   SeedData:
     character: 1
     ShowCharacter: 1
     GetInGamePosition: 0
-    position: {x: 0, y: 0}
+    position: {x: 6, y: -1}
     isRight: 0
   SeedBData:
     character: 2
@@ -34,7 +34,7 @@ MonoBehaviour:
     followTarget: 0
     target: 0
     position: {x: 0, y: 0}
-    zoom: 0
+    zoom: 11.5
   BackgroundImage: []
   ImageResource: []
   ActionList:
@@ -42,7 +42,10 @@ MonoBehaviour:
   - rid: 4832695620617109576
   - rid: 4832695620617109577
   - rid: 4832695620617109578
-  - rid: 4832695620617109581
+  - rid: 4832695620617109636
+  - rid: 4832695620617109635
+  - rid: 4832695620617109637
+  - rid: 4832695620617109634
   - rid: 4832695620617109582
   - rid: 4832695620617109583
   references:
@@ -68,12 +71,6 @@ MonoBehaviour:
         dialogNumber: 100148
         dialogTarget: 
         dialogPosition: {x: 0, y: 0}
-    - rid: 4832695620617109581
-      type: {class: FadeInAction, ns: CutScene, asm: Assembly-CSharp}
-      data:
-        _actionType: 7
-        NextType: 1
-        time: 2
     - rid: 4832695620617109582
       type: {class: CharacterDirectionAction, ns: CutScene, asm: Assembly-CSharp}
       data:
@@ -89,6 +86,32 @@ MonoBehaviour:
         dialogNumber: 100149
         dialogTarget: 
         dialogPosition: {x: 0, y: 0}
+    - rid: 4832695620617109634
+      type: {class: CameraTargetAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 10
+        NextType: 1
+        character: 0
+    - rid: 4832695620617109635
+      type: {class: CameraZoomAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 12
+        NextType: 2
+        value: 20
+        time: 3
+    - rid: 4832695620617109636
+      type: {class: CameraMoveAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 11
+        NextType: 1
+        position: {x: 0, y: 0}
+        time: 0
+    - rid: 4832695620617109637
+      type: {class: DelayAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 13
+        NextType: 1
+        delayTime: 2
     - rid: 7021410910219010348
       type: {class: FadeInAction, ns: CutScene, asm: Assembly-CSharp}
       data:

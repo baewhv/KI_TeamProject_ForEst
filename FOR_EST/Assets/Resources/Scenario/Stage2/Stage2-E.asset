@@ -16,25 +16,25 @@ MonoBehaviour:
     character: 0
     ShowCharacter: 1
     GetInGamePosition: 0
-    position: {x: 10, y: 5}
+    position: {x: 25, y: 1}
     isRight: 0
   SeedData:
     character: 1
     ShowCharacter: 1
     GetInGamePosition: 0
-    position: {x: 0, y: 0}
+    position: {x: 21, y: 1}
     isRight: 1
   SeedBData:
     character: 2
     ShowCharacter: 1
     GetInGamePosition: 0
-    position: {x: 0, y: 0}
+    position: {x: 22, y: 1}
     isRight: 1
   CameraData:
     followTarget: 0
     target: 0
     position: {x: 0, y: 0}
-    zoom: 0
+    zoom: 11.5
   BackgroundImage: []
   ImageResource: []
   ActionList:
@@ -56,9 +56,11 @@ MonoBehaviour:
   - rid: 4832695620617109620
   - rid: 4832695620617109621
   - rid: 4832695620617109622
-  - rid: 4832695620617109624
   - rid: 4832695620617109623
+  - rid: 4832695620617109639
+  - rid: 4832695620617109624
   - rid: 4832695620617109625
+  - rid: 4832695620617109640
   - rid: 4832695620617109626
   - rid: 4832695620617109627
   - rid: 4832695620617109628
@@ -208,19 +210,19 @@ MonoBehaviour:
       data:
         _actionType: 10
         NextType: 1
-        Target: 
+        character: 0
     - rid: 4832695620617109623
       type: {class: CameraZoomAction, ns: CutScene, asm: Assembly-CSharp}
       data:
         _actionType: 12
         NextType: 2
-        value: 0.03
-        time: 10
+        value: 13
+        time: 1
     - rid: 4832695620617109624
       type: {class: PlayDialogAction, ns: CutScene, asm: Assembly-CSharp}
       data:
         _actionType: 6
-        NextType: 1
+        NextType: 2
         dialogNumber: 100195
         dialogTarget: 
         dialogPosition: {x: 0, y: 0}
@@ -229,12 +231,12 @@ MonoBehaviour:
       data:
         _actionType: 10
         NextType: 1
-        Target: 
+        character: 1
     - rid: 4832695620617109626
       type: {class: CharacterDirectionAction, ns: CutScene, asm: Assembly-CSharp}
       data:
         _actionType: 2
-        NextType: 1
+        NextType: 2
         character: 1
         isRight: 1
     - rid: 4832695620617109627
@@ -292,3 +294,18 @@ MonoBehaviour:
         character: 2
         animation: Sit
         TrueAndFalse: 1
+    - rid: 4832695620617109639
+      type: {class: CameraZoomAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 12
+        NextType: 1
+        value: 9
+        time: 10
+    - rid: 4832695620617109640
+      type: {class: CharacterPlayAnimationAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 4
+        NextType: 2
+        character: 1
+        animation: Back
+        TrueAndFalse: 0

@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public abstract class BaseSeedBean : MonoBehaviour
@@ -6,12 +7,14 @@ public abstract class BaseSeedBean : MonoBehaviour
     protected SpriteRenderer _renderer;
     protected GameObject textBox;
     protected Canvas textBoxCanvas;
+    protected TextMeshProUGUI _text;
 
     public virtual void Init()
     {
         _anim = GetComponentInChildren<Animator>();
         _renderer = GetComponentInChildren<SpriteRenderer>();
         textBoxCanvas = GetComponentInChildren<Canvas>();
+        _text = GetComponentInChildren<TextMeshProUGUI>();
         
         if (textBoxCanvas != null)
         {
