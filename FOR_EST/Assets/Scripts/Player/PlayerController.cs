@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour, IRespawnable
     private Vector2 _spawnPos;
     private bool _isRespawning;
     private bool _rightObject;
+    private bool _inputKeyCheck;
 
     private void Awake()
     {
@@ -108,7 +109,7 @@ public class PlayerController : MonoBehaviour, IRespawnable
     private void OnReverse(InputAction.CallbackContext ctx)
     {
         _reverseObjectScript.OnReverseGround();
-        if (_status.IsJumping || _status.IsFalling || !_reverseObjectScript.CanReverse || !_reverseObjectScript.OnGround) return;
+        if (_status.IsJumping || _status.IsFalling || !_reverseObjectScript.CanReverse || !_reverseObjectScript.OnGround || _inputKeyCheck) return;
         if (!_status.IsReverse)
         {
             _anim.SetBool("Reverse", true);
@@ -119,6 +120,7 @@ public class PlayerController : MonoBehaviour, IRespawnable
         }
         _status.IsReverse = !_status.IsReverse; 
         _reverse.Reverse();
+        InputKeyCheck();
         if (!_reverseView.IsPlayerView) _reverseView.ChangeReverseView();
         if (_status.GrabbedObject != null)
         {
@@ -137,7 +139,8 @@ public class PlayerController : MonoBehaviour, IRespawnable
     private void OnShowReverse(InputAction.CallbackContext ctx)
     {
         _reverseObjectScript.OnReverseGround();
-        if (_status.IsJumping || _status.IsFalling) return;
+        if (_status.IsJumping || _status.IsFalling || _inputKeyCheck) return;
+        InputKeyCheck();
         if (_status.InputAxis.Value != Vector2.zero) _status.InputAxis.Value = Vector2.zero;
         _reverseView.ChangeReverseView();
     }
@@ -234,5 +237,18 @@ public class PlayerController : MonoBehaviour, IRespawnable
             _renderer.flipX = true;
         else if (_status.InputAxis.Value.x > 0)
             _renderer.flipX = false; 
+    }
+
+    private void InputKeyCheck()
+    {
+        _inputKeyCheck = true;
+        StartCoroutine(DelayCheck());
+    }
+
+    private IEnumerator DelayCheck()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        _inputKeyCheck = false;
     }
 }

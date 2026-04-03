@@ -55,7 +55,6 @@ public class SpawnManager : MonoBehaviour
             isRespawning = true;
             foreach (var gameObj in _respawnable)
             {
-             
                 gameObj?.Respawn();
                 StartCoroutine(RespawnRoutine());
             }

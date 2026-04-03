@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Obstacle
   _linkDist: 0.5
-  _respawnTime: 1
+  _respawnTime: 2
   _groundDistance: 0.05
   _groundSizeX: 1.02
   _rb: {fileID: 0}
