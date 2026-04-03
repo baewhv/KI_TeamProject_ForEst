@@ -6,21 +6,12 @@ namespace CutScene
     [System.Serializable]
     public class CharacterPlayAnimationAction : BaseAction
     {
-        public CharacterPlayAnimationAction()
-        {
-            _actionType = EActions.CharacterPlayAnimation;
-        }
         public ESelectedCharacter character;
         public string animation;
         public bool TrueAndFalse;
-        public override void InitAction()
+        public CharacterPlayAnimationAction()
         {
-            Debug.Log($"{GetType()} : 시작");
-        }
-        
-        public override void Update()
-        {
-            
+            _actionType = EActions.CharacterPlayAnimation;
         }
 
         public override IEnumerator PlayActionRoutine()

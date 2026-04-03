@@ -18,16 +18,6 @@ namespace CutScene
         {
             _actionType = EActions.CharacterFader;
         }
-        
-        public override void InitAction()
-        {
-            
-        }
-
-        public override void Update()
-        {
-            
-        }
 
         public override IEnumerator PlayActionRoutine()
         {

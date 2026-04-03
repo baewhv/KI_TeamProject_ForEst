@@ -11,16 +11,6 @@ namespace CutScene
         {
             _actionType = EActions.CharacterReverse;
         }
-        public override void InitAction()
-        {
-            Debug.Log($"{GetType()} : 시작");
-        }
-        
-        public override void Update()
-        {
-            
-        }
-
         public override IEnumerator PlayActionRoutine()
         {
             CutSceneManager.Instance.GetCharacter(character).SetReverse();

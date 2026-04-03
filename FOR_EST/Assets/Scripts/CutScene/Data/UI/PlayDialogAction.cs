@@ -13,14 +13,6 @@ namespace CutScene
         public int dialogNumber;
         public string dialogTarget;
         public Vector2 dialogPosition;
-        public override void InitAction()
-        {
-        }
-        
-        public override void Update()
-        {
-            
-        }
 
         public override IEnumerator PlayActionRoutine()
         {

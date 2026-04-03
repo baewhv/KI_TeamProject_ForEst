@@ -16,20 +16,11 @@ namespace CutScene
             _actionType = EActions.FadeIn;
         }
 
-
-        public override void InitAction()
+        public override IEnumerator PlayActionRoutine()
         {
             _fader = CutSceneManager.Instance.CinemaUI.Fader;
             _currentTime = 0.0f;
             _fader.color = new Color(0.0f, 0.0f, 0.0f, 1.0f);
-        }
-
-        public override void Update()
-        {
-        }
-
-        public override IEnumerator PlayActionRoutine()
-        {
             while (_currentTime < time)
             {
                 _currentTime += Time.deltaTime;
@@ -38,7 +29,6 @@ namespace CutScene
             }
             _fader.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
             CutSceneManager.Instance.EndAction();
-            //yield return null; // while문이 안돌 경우 예비용 return
         }
     }
 }

@@ -6,26 +6,28 @@ namespace CutScene
     [System.Serializable]
     public class BackgroundImageAction : BaseAction
     {
-        public string image;
+        public bool hideBackground;
+        public Sprite backgroundImage;
         public BackgroundImageAction()
         {
             _actionType = EActions.BackgroundImage;
         }
-        public override void InitAction()
-        {
-            Debug.Log($"{GetType()} : 시작");
-        }
-        
-        public override void Update()
-        {
-            
-        }
 
         public override IEnumerator PlayActionRoutine()
         {
-            yield return YieldContainer.WaitForSeconds(1);
-            Debug.Log($"{GetType()} : 종료");
+            if(hideBackground || !backgroundImage)
+            {
+                CutSceneManager.Instance.CinemaUI.BackgroundImage.color = new Color(1, 1, 1, 0);
+                CutSceneManager.Instance.CinemaUI.BackgroundImage.sprite = null;
+            }
+            else
+            {
+                CutSceneManager.Instance.CinemaUI.BackgroundImage.color = new Color(1, 1, 1, 1);
+                CutSceneManager.Instance.CinemaUI.BackgroundImage.sprite = backgroundImage;
+            }
+
             CutSceneManager.Instance.EndAction();
+            yield return null;
         }
     }
 }

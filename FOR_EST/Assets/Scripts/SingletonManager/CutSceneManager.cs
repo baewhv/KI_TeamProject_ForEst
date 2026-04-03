@@ -1,8 +1,6 @@
-using System;
 using System.Collections.Generic;
 using CutScene;
 using Unity.Cinemachine;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
@@ -10,7 +8,7 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
     private Dictionary<string, ScenarioSO> Scenarios = new();
     [SerializeField] private ScenarioSO testSO;
 
-    private ScenarioSO CurrentScenario;
+    public ScenarioSO CurrentScenario { get; private set; }
 
     // 컷씬용 오브젝트
     private GameObject CutSceneObjects;
@@ -82,14 +80,6 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
         Seed_B.Init(pc.GetStatus);
     }
 
-    private void Update()
-    {
-        foreach (var act in CurrentActions)
-        {
-            act.Update();
-        }
-    }
-
     //스테이지 명을 기준으로 시나리오를 호출하도록...
     public void LoadScenario(string stageName)
     {
@@ -133,7 +123,10 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
             mainCamera.cullingMask = cutsceneMask;
         }
 
-        SetCharacter(Player.gameObject, pc.gameObject, CurrentScenario.PlayerData);
+        SetCharacter(Player, pc.gameObject, CurrentScenario.PlayerData);
+        SetCharacter(Seed, null, CurrentScenario.SeedData);
+        SetCharacter(Seed_B, null, CurrentScenario.SeedBData);
+        SetCamera(CurrentScenario.CameraData);
     }
 
     private void DisableCutsceneMode()
@@ -156,13 +149,14 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
         if (!mainCamera)
             mainCamera = Camera.main;
         if (!pc)
-            pc = FindAnyObjectByType<PlayerController>();
+            pc = FindAnyObjectByType<PlayerController>(); //Todo : PlayerCharacter 게임매니저에서 받아오기
+        //if (!seed)                                        //Todo : Seed 게임 매니저에서 받아오기
+            //seed = 
 
         //컷씬 so 세팅.
         CurrentActionsIndex = 0;
         if (Scenarios.ContainsKey(cutSceneName))
         {
-            Debug.Log($"{cutSceneName} 실행");
             CurrentScenario = Scenarios[cutSceneName];
             EnableCutsceneMode();
             IsPlayCutscene.Value = true;
@@ -194,7 +188,6 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
         while (true)
         {
             BaseAction curAction = CurrentScenario.ActionList[CurrentActionsIndex];
-            Debug.Log($"{CurrentActionsIndex} : {curAction.GetType()}");
             CurrentActions.Add(curAction); //현재 액션 추가
             CurrentActionsIndex++; //인덱스 추가
             _currentActionsCount++;
@@ -210,7 +203,6 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
     {
         for (int i = 0; i < CurrentActions.Count; i++)
         {
-            CurrentActions[i].InitAction();
             StartCoroutine(CurrentActions[i].PlayActionRoutine());
         }
     }
@@ -222,21 +214,43 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
             SetNextCut();
     }
 
-    public void SetCharacter(GameObject cutSceneObj, GameObject inGameObj, CharacterCutsceneData data)
+    public void SetCharacter(PlayerCutSceneController cutSceneObj, GameObject inGameObj, CharacterCutsceneData data)
     {
-        ICutsceneObject obj = cutSceneObj.GetComponent<ICutsceneObject>();
-        if (data.GetInGamePosition)
+        if (!inGameObj && data.GetInGamePosition)
+            cutSceneObj.SetPosition(inGameObj.transform.position);
+        else
+            cutSceneObj.SetPosition(data.position);
+        cutSceneObj.SetDirection(data.isRight);
+
+        cutSceneObj.gameObject.SetActive(data.ShowCharacter);
+    }
+
+    public void SetCamera(CameraCutsceneData data)
+    {
+        CinemachineBrain brain = mainCamera.GetComponent<CinemachineBrain>();
+        brain.DefaultBlend.Time = 0;
+        if (data.followTarget)
         {
-            obj?.SetPosition(inGameObj.transform.position);
-            //obj?.SetDirection(inGameObj.GetComponent<IStatus>().IsRight); // 실제 플레이어의 방향 가져오기.
+            switch (data.target)
+            {
+                case ESelectedCharacter.Est:
+                    CutsceneCamera.Follow = Player.transform;            
+                    break;
+                case ESelectedCharacter.Seed:
+                    CutsceneCamera.Follow = Seed.transform;
+                    break;
+                case ESelectedCharacter.Seed_B:
+                    CutsceneCamera.Follow = Seed_B.transform;
+                    break;
+            }
         }
         else
         {
-            obj?.SetPosition(data.position);
-            obj?.SetDirection(data.isRight);
+            CutsceneCamera.Follow = null;
+            CutsceneCamera.transform.position = data.position;
         }
-
-        cutSceneObj.gameObject.SetActive(data.ShowCharacter);
+            
+        CutsceneCamera.Lens.OrthographicSize = data.zoom < 1 ? 1 : data.zoom;
     }
 
     public PlayerCutSceneController GetCharacter(ESelectedCharacter character)
@@ -252,5 +266,6 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
             default:
                 return null;
         }
+        
     }
 }

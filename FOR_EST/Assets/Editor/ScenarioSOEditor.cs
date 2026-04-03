@@ -1,11 +1,10 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
 using CutScene;
-using UnityEditor.UIElements;
-using UnityEngine.TextCore.Text;
 
 [CustomEditor(typeof(ScenarioSO))]
 public class ScenarioSOEditor : Editor
@@ -14,9 +13,12 @@ public class ScenarioSOEditor : Editor
     private SerializedProperty _estProperty;
     private SerializedProperty _seedProperty;
     private SerializedProperty _seedBProperty;
-    
+    private SerializedProperty _cameraProperty;
+    private SerializedProperty _imgListProperty;
     
     private ReorderableList _actionList;
+    private List<Vector2> points = new();
+    private static GameObject go;
 
     private void OnEnable()
     {
@@ -24,6 +26,9 @@ public class ScenarioSOEditor : Editor
         _estProperty = serializedObject.FindProperty("PlayerData");
         _seedProperty = serializedObject.FindProperty("SeedData");
         _seedBProperty = serializedObject.FindProperty("SeedBData");
+        _cameraProperty = serializedObject.FindProperty("CameraData");
+        
+        _imgListProperty = serializedObject.FindProperty("ImageResource");
         
         _actionList = new ReorderableList(serializedObject, _actionsProperty, true, true, true, true);
         _actionList.elementHeightCallback = (index) =>
@@ -42,12 +47,6 @@ public class ScenarioSOEditor : Editor
             SerializedProperty nameProp = element.FindPropertyRelative("_actionType");
             string displayName = nameProp.enumDisplayNames[nameProp.enumValueIndex];
             EActions beforeType = (EActions)nameProp.enumValueIndex;
-
-
-            //element.isExpanded = EditorGUI.Foldout(new Rect(rect.x + 10, rect.y, 20, lineHeight), element.isExpanded, "");
-
-            //Rect headerRect = new Rect(rect.x + 25, rect.y, rect.width - 25, lineHeight);
-            //EditorGUI.LabelField(headerRect, displayName, EditorStyles.boldLabel);
 
             EditorGUI.PropertyField(new Rect(rect.x + 10, rect.y, rect.width - 10, rect.height - lineHeight),
                 element, new GUIContent(displayName), true);
@@ -79,9 +78,13 @@ public class ScenarioSOEditor : Editor
                     serializedObject.ApplyModifiedProperties();
                 });
             }
-
             menu.ShowAsContext();
         };
+    }
+
+    public void OnDisable()
+    {
+        DestroyImmediate(go);
     }
 
     public override void OnInspectorGUI()
@@ -91,9 +94,26 @@ public class ScenarioSOEditor : Editor
         EditorGUILayout.PropertyField(_estProperty, new GUIContent("에스트 설정"), true);
         EditorGUILayout.PropertyField(_seedProperty, new GUIContent("시드 설정"), true);
         EditorGUILayout.PropertyField(_seedBProperty, new GUIContent("시드콩 설정"), true);
+        EditorGUILayout.PropertyField(_cameraProperty, new GUIContent("카메라 설정"), true);
+        
+        EditorGUILayout.PropertyField(_imgListProperty, new GUIContent("이미지 설정(준비중)"), true);
+            
         _actionList.DoLayoutList();
-
+        if (GUILayout.Button("위치 확인용(테스트중)"))
+        {
+            Vector2 pos = new Vector2(5, 4);
+            CreateDummy(pos);
+        }
         serializedObject.ApplyModifiedProperties();
+    }
+
+    public void CreateDummy(Vector2 pos)
+    {
+        go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        go.transform.position = pos;
+        go.name = "[TEMP] Cutscene Helper";
+        go.hideFlags = HideFlags.DontSave | HideFlags.DontSaveInEditor;
+        
     }
 
     private BaseAction CreateActionInstance(EActions type)

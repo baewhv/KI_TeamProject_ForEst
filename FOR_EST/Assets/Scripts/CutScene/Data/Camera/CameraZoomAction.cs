@@ -7,20 +7,11 @@ namespace CutScene
     [System.Serializable]
     public class CameraZoomAction : BaseAction
     {
+        public float value = 1.0f;
+        public float time;
         public CameraZoomAction()
         {
             _actionType = EActions.CameraZoom;
-        }
-        public float value = 1.0f;
-        public float time;
-        public override void InitAction()
-        {
-            Debug.Log($"{GetType()} : 시작");
-        }
-
-        public override void Update()
-        {
-
         }
 
         public override IEnumerator PlayActionRoutine()

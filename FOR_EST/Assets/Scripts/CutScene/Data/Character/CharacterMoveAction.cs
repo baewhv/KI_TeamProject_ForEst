@@ -14,14 +14,6 @@ namespace CutScene
         {
             _actionType = EActions.CharacterMove;
         }
-        public override void InitAction()
-        {
-        }
-        
-        public override void Update()
-        {
-            
-        }
 
         public override IEnumerator PlayActionRoutine()
         {

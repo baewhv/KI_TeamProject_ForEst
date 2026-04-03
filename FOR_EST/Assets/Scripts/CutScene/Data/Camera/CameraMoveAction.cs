@@ -13,15 +13,6 @@ namespace CutScene
         }
         public Vector2 position;
         public float time;
-        public override void InitAction()
-        {
-            Debug.Log($"{GetType()} : 시작");
-        }
-
-        public override void Update()
-        {
-
-        }
 
         public override IEnumerator PlayActionRoutine()
         {

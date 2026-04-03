@@ -15,20 +15,12 @@ namespace CutScene
         {
             _actionType = EActions.FadeOut;
         }
-        public override void InitAction()
+
+        public override IEnumerator PlayActionRoutine()
         {
             _fader = CutSceneManager.Instance.CinemaUI.Fader;
             _currentTime = 0.0f;
             _fader.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
-        }
-        
-        public override void Update()
-        {
-            
-        }
-
-        public override IEnumerator PlayActionRoutine()
-        {
             while (_currentTime < time)
             {
                 _currentTime += Time.deltaTime;
