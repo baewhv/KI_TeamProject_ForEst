@@ -17,9 +17,13 @@ public class ScenarioSO : ScriptableObject
      * 배경 이미지
      *
     */
-    [SerializeField] public CharacterCutsceneData PlayerData = new ();
-    [SerializeField] public CharacterCutsceneData SeedData = new ();
-    [SerializeField] public CharacterCutsceneData SeedBData = new ();
+    public CharacterCutsceneData PlayerData = new (ESelectedCharacter.Est);
+    public CharacterCutsceneData SeedData = new (ESelectedCharacter.Seed);
+    public CharacterCutsceneData SeedBData = new (ESelectedCharacter.Seed_B);
+    public CameraCutsceneData CameraData = new();
+
+    public List<Sprite> BackgroundImage;
+    public List<Sprite> ImageResource;
     
     
     [SerializeReference]
