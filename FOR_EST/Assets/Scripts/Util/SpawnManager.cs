@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -16,6 +17,7 @@ public class SpawnManager : MonoBehaviour
     private List<IRespawnable> _respawnable;
     public Transform tileMap;
     private UserInput _input;
+    private bool isRespawning = false;
 
     private void Awake()
     {
@@ -48,11 +50,22 @@ public class SpawnManager : MonoBehaviour
 
     private void Respawn()
     {
-        foreach (var gameObj in _respawnable)
+        if (!isRespawning)
         {
-             
-            gameObj?.Respawn();
+            isRespawning = true;
+            foreach (var gameObj in _respawnable)
+            {
+
+                gameObj?.Respawn();
+                StartCoroutine(RespawnRoutine());
+            }
         }
+    }
+
+    private IEnumerator RespawnRoutine()
+    {
+        yield return YieldContainer.WaitForSeconds(1f);
+        isRespawning = false;
     }
 
     private void SetSpawnData()
