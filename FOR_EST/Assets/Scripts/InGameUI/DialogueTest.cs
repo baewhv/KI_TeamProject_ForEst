@@ -17,8 +17,36 @@ public class DialogueTest : SingletonMonoBehaviour<DialogueTest>
     public int languageIndex = 5; // CSV파일에서 텍스트가 있는 열의 인덱스 5 : 한국어, 6: 영어, 7: 일본어
     public const int minLang = 5;
     public const int maxLang = 7;
-
     public bool IsPlay { get; private set; }
+
+    public void NextLanguage()
+    {
+        languageIndex++;
+
+        if (languageIndex > maxLang)
+            languageIndex = minLang;
+
+        SetLanguage();
+    }
+
+    public void PrevLanguage()
+    {
+        languageIndex--;
+        if (languageIndex < minLang)
+            languageIndex = maxLang;
+
+        SetLanguage();
+    }
+    private void SetLanguage()
+    {
+        textDict.Clear();
+        nextDict.Clear();
+        speakerDict.Clear();
+        LoadCSV();
+
+        if (IsPlay)
+            ShowDialogue();
+    }
     public int CurrentID
     {
         set => _currentID = value;

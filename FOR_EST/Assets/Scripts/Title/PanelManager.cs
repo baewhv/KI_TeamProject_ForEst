@@ -59,6 +59,15 @@ public class PanelManager : MonoBehaviour
     public void CloseEscPanel()
     {
         escPanel.SetActive(false);
+
+        if (Time.timeScale == 0) //멈춰있으면
+        {
+            Time.timeScale = 1f; //시작
+        }
+        else //움직이면
+        {
+            Time.timeScale = 0; //멈추기
+        }
     }
 
     public void OpenMusicPanel()
