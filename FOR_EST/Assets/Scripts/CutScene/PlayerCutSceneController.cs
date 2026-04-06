@@ -17,14 +17,13 @@ public class PlayerCutSceneController : MonoBehaviour, ICutsceneObject
 
     [SerializeField] private LayerMask grabLayer;
     [SerializeField] private LayerMask groundLayer;
-
+    
     public void Init(PlayerStatus status)
     {
         transform.position = new Vector2(0, 0.5f);
-        _status = new PlayerStatus();
+//        _status = new PlayerStatus();
         if(status != null)
             _status.CopyStatus(status);
-        _status.MoveSpeed = 50.0f;
         _movement = GetComponent<PlayerMovement>();
         _movement.Init(_status);
         _movement._rigidbody.gravityScale = _status.GravityScale;
@@ -54,6 +53,15 @@ public class PlayerCutSceneController : MonoBehaviour, ICutsceneObject
     public void SetAnimation(string anim, bool tnf) //연출 세팅 필요
     {
         _anim.SetBool(anim, tnf);
+    }
+
+    public void ResetAnimation()
+    {
+        for (int i = 0; i < _anim.parameters.Length; i++)
+        {
+            if (_anim.parameters[i].type != AnimatorControllerParameterType.Bool) continue;
+            _anim.SetBool(_anim.parameters[i].name, false);
+        }
     }
 
     //연출 중 이동
@@ -129,6 +137,7 @@ public class PlayerCutSceneController : MonoBehaviour, ICutsceneObject
         _status.GrabbedObject = null;
         _status.IsGrab = false;
     }
+    
 
     private float _currentTime;
     private float _fadeTime;

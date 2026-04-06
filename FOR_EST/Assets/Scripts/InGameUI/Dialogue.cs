@@ -11,7 +11,7 @@ public class Dialogue : SingletonMonoBehaviour<Dialogue>
     Dictionary<int, string> textDict = new Dictionary<int, string>();
     Dictionary<int, int> nextDict = new Dictionary<int, int>();
     Dictionary<int, string> speakerDict = new Dictionary<int, string>();
-    public Vector3 offset;
+    private Vector3 _offset;
     Transform currentTarget;
     private int _currentID;
     public int languageIndex = 5; // CSV파일에서 텍스트가 있는 열의 인덱스 5 : 한국어, 6: 영어, 7: 일본어
@@ -31,6 +31,7 @@ public class Dialogue : SingletonMonoBehaviour<Dialogue>
         base.Awake();
         _input = new UserInput();
         LoadCSV();
+        _offset = new Vector3(0f, 2f, 0f);
     }
 
     private void OnEnable()
@@ -47,11 +48,11 @@ public class Dialogue : SingletonMonoBehaviour<Dialogue>
 
     public void CreateTextBox()
     {
-        _textBox = Resources.Load<GameObject>("DialogueBox2");
+        _textBox = Resources.Load<GameObject>("DialogueBox");
         _textBox = Instantiate(_textBox);
-
-        dialogueBox = _textBox.GetComponentInChildren<RectTransform>();
-        dialogueText = dialogueBox.GetComponentInChildren<TMP_Text>();
+        Transform child = _textBox.transform.Find("Image");
+        dialogueBox = child.GetComponent<RectTransform>();
+        dialogueText = child.GetComponentInChildren<TMP_Text>();
     }
 
     public void StartDialog(int id)
@@ -162,9 +163,7 @@ public class Dialogue : SingletonMonoBehaviour<Dialogue>
     {
         if (target == null) return;
 
-        // Vector3 screenPos = Camera.main.WorldToScreenPoint(target.position + offset);
-        Vector3 screenPos = target.position + offset;
-        Debug.Log(screenPos);
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(target.position + _offset);
         dialogueBox.position = screenPos;
     }
 }
