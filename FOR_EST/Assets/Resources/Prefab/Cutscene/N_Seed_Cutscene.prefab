@@ -273,7 +273,7 @@ MonoBehaviour:
       _data: {x: 0, y: 0}
     MoveSpeed: 200
     JumpPower: 0
-    GravityScale: 0
+    GravityScale: 3
   _grabPoint: {fileID: 0}
   DoAction: 0
   _anim: {fileID: 5946537648684585482}

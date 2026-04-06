@@ -23,8 +23,9 @@ public class EditorHelper : MonoBehaviour
             },
             alignment = TextAnchor.UpperLeft
         };
-
-        Handles.Label(transform.position+ size, $"x : {transform.position.x}\ny : {transform.position.y}", style);
+#if UNITY_EDITOR
+        Handles.Label(transform.position + size, $"x : {transform.position.x}\ny : {transform.position.y}", style);
+#endif
     }
 
     public void StartDestroy()
