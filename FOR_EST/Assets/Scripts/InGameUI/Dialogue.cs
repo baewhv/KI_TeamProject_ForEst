@@ -47,7 +47,7 @@ public class Dialogue : SingletonMonoBehaviour<Dialogue>
 
     public void CreateTextBox()
     {
-        _textBox = Resources.Load<GameObject>("DialogueBox");
+        _textBox = Resources.Load<GameObject>("DialogueBox2");
         _textBox = Instantiate(_textBox);
 
         dialogueBox = _textBox.GetComponentInChildren<RectTransform>();
