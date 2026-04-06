@@ -11,11 +11,15 @@ namespace CutScene
             _actionType = EActions.PlayDialog;
         }
         public int dialogNumber;
-        public string dialogTarget;
+        public bool isEmptyPositionDialog;
         public Vector2 dialogPosition;
 
         public override IEnumerator PlayActionRoutine()
         {
+            if (isEmptyPositionDialog)
+            {
+                CutSceneManager.Instance.EmptyObject.transform.position = dialogPosition;
+            }
             DialogueTest.Instance.StartDialog(dialogNumber);
             while (DialogueTest.Instance.IsPlay)
             {
