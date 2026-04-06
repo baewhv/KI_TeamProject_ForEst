@@ -50,13 +50,19 @@ namespace Obstacle
         {
             if (_isPulling && _playerHand != null)
             {
+                if (!_isReversing && !IsGrounded())
+                {
+                    Debug.Log(_rb.linearVelocity.y);
+                    bool isFalling = _rb.gravityScale > 0 ? _rb.linearVelocity.y < -0.1f : _rb.linearVelocity.y > 0.1f;
+                    if(isFalling) base.OnStopPull();
+                    return;
+                }
+                
                 float direction = (_playerHand.position.x > transform.position.x) ? -1f : 1f;
                 float halfW = _renderer.bounds.extents.x;
                 float followTarget = _playerHand.position.x + ((halfW + _pivot.x) * direction);
                 
                 _rb.MovePosition(new Vector2(followTarget, _rb.position.y));
-                
-                if (!_isReversing && !IsGrounded()) base.OnStopPull();
             }
         }
         
@@ -184,28 +190,40 @@ namespace Obstacle
         {
             base.CheckGroundState(out Vector2 origin, out Vector2 checkBoxSize, out float direction);
             
-            RaycastHit2D hit = Physics2D.BoxCast
-                                 (
-                                     origin,
-                                     checkBoxSize,
-                                     0f,
-                                     Vector2.down * Mathf.Sign(_rb.gravityScale),
-                                     _groundDistance, 
-                                     _groundLayer
-                                 );
+            Debug.DrawRay(origin, Vector2.down * direction * _groundDistance, Color.cyan);
+            RaycastHit2D[] hits = new RaycastHit2D[6];
             
-            return hit.collider != null;
+            int count = Physics2D.BoxCastNonAlloc
+            (
+                origin,
+                checkBoxSize,
+                0f,
+                Vector2.down * direction,
+                hits,
+                _groundDistance,
+                _groundLayer
+            );
+            
+            for (int i = 0; i < count; i++)
+            {
+                if (hits[i].collider != null && 
+                    hits[i].collider.gameObject != this.gameObject && 
+                    !hits[i].collider.isTrigger) 
+                    return true;
+            }
+            return false;
+            
         }
 
-        private void OnDrawGizmos()
-        {
-            if(_collider == null) return;
-            base.CheckGroundState(out Vector2 origin, out Vector2 checkBoxSize,out float direction);
-            Vector2 endPos = origin + (Vector2.down * direction * _groundDistance);
-            
-            Gizmos.color = IsGrounded() ? Color.green : Color.red;
-            Gizmos.DrawWireCube(endPos, checkBoxSize);
-            Gizmos.DrawLine(origin, endPos);
-        }
+        // private void OnDrawGizmos()
+        // {
+        //     if(_collider == null) return;
+        //     base.CheckGroundState(out Vector2 origin, out Vector2 checkBoxSize,out float direction);
+        //     Vector2 endPos = origin + (Vector2.down * direction * _groundDistance);
+        //     
+        //     Gizmos.color = IsGrounded() ? Color.green : Color.red;
+        //     Gizmos.DrawWireCube(endPos, checkBoxSize);
+        //     Gizmos.DrawLine(origin, endPos);
+        // }
     }
 }

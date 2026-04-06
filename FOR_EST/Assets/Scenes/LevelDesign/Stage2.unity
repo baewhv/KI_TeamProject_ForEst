@@ -10668,7 +10668,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &968607476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11388,8 +11388,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61a6d444f25fa084aa37002bd9134ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VolumeButton
-  musicSlider: {fileID: 0}
-  buttonSource: {fileID: 0}
 --- !u!114 &1022322596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30356,8 +30354,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61a6d444f25fa084aa37002bd9134ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VolumeButton
-  musicSlider: {fileID: 0}
-  buttonSource: {fileID: 0}
 --- !u!114 &1631333737
 MonoBehaviour:
   m_ObjectHideFlags: 0
