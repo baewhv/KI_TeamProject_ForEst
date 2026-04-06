@@ -20,8 +20,8 @@ namespace CutScene
             {
                 CutSceneManager.Instance.EmptyObject.transform.position = dialogPosition;
             }
-            DialogueTest.Instance.StartDialog(dialogNumber);
-            while (DialogueTest.Instance.IsPlay)
+            Dialogue.Instance.StartDialog(dialogNumber);
+            while (Dialogue.Instance.IsPlay)
             {
                 yield return null;
             }
