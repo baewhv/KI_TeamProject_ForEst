@@ -1,0 +1,191 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: DialogueTable_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 5271e9c0603b13f40a0afc135a68783b, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 35854135316480
+    m_Localized: FOR EST
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316481
+    m_Localized: New
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316482
+    m_Localized: Load
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316483
+    m_Localized: Setting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316484
+    m_Localized: Production
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316485
+    m_Localized: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316486
+    m_Localized: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316487
+    m_Localized: Sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316488
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316489
+    m_Localized: Data Reset
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316490
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316491
+    m_Localized: Apply
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316492
+    m_Localized: Designer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316493
+    m_Localized: Kim SeoHyeon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316494
+    m_Localized: Kim TaeHwan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316495
+    m_Localized: Park Gieun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316496
+    m_Localized: Oh DongGun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316497
+    m_Localized: Yu HaeChan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316498
+    m_Localized: Lee WonHong
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316499
+    m_Localized: Jang YoonWoo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316500
+    m_Localized: Development
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316501
+    m_Localized: Kim YouHoon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316502
+    m_Localized: Bae JeongMin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316503
+    m_Localized: Son Jiwon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316504
+    m_Localized: Kim DuckHwan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316505
+    m_Localized: Sin HaYong
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316506
+    m_Localized: Movement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316507
+    m_Localized: Reverse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316508
+    m_Localized: Reverse View
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316509
+    m_Localized: Grab
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316510
+    m_Localized: Restart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316511
+    m_Localized: Jump
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316512
+    m_Localized: Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316513
+    m_Localized: Return
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316514
+    m_Localized: Save & Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316515
+    m_Localized: "\uD55C\uAD6D\uC5B4"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316516
+    m_Localized: "\u65E5\u672C\u8A9E"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35854135316517
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40413310210048
+    m_Localized: Sound Effect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40796808007680
+    m_Localized: Background Music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40995135672320
+    m_Localized: Master Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1012592239693824
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
