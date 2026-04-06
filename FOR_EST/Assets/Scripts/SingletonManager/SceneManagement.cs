@@ -16,6 +16,7 @@ public class SceneManagement : SingletonMonoBehaviour<SceneManagement>
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         CurrentSceneName = scene.name;
+        DialogueTest.Instance.CreateTextBox();
         GameManager.Instance.OnSceneLoadedCheck();
     }
 
