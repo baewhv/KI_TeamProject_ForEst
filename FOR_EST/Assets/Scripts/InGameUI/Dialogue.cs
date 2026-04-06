@@ -3,20 +3,22 @@ using TMPro;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 
-public class DialogueTest : SingletonMonoBehaviour<DialogueTest>
+public class Dialogue : SingletonMonoBehaviour<Dialogue>
 {
+    public RectTransform dialogueBox;
     public TMP_Text dialogueText;
-
+    private GameObject _textBox;
     Dictionary<int, string> textDict = new Dictionary<int, string>();
     Dictionary<int, int> nextDict = new Dictionary<int, int>();
     Dictionary<int, string> speakerDict = new Dictionary<int, string>();
-    public RectTransform dialogueBox;
-    public Vector3 offset;
+    private Vector3 _offset;
     Transform currentTarget;
     private int _currentID;
     public int languageIndex = 5; // CSV파일에서 텍스트가 있는 열의 인덱스 5 : 한국어, 6: 영어, 7: 일본어
     public const int minLang = 5;
     public const int maxLang = 7;
+    
+    private UserInput _input;
 
     public bool IsPlay { get; private set; }
     public int CurrentID
@@ -27,7 +29,30 @@ public class DialogueTest : SingletonMonoBehaviour<DialogueTest>
     protected override void Awake()
     {
         base.Awake();
+        _input = new UserInput();
         LoadCSV();
+        _offset = new Vector3(0f, 2f, 0f);
+    }
+
+    private void OnEnable()
+    {
+        _input.asset.Enable();
+        _input.UI.NextDialogue.performed += PressKey;
+    }
+
+    private void OnDisable()
+    {
+        _input.UI.NextDialogue.performed -= PressKey;
+        _input.asset.Disable();
+    }
+
+    public void CreateTextBox()
+    {
+        _textBox = Resources.Load<GameObject>("DialogueBox");
+        _textBox = Instantiate(_textBox);
+        Transform child = _textBox.transform.Find("Image");
+        dialogueBox = child.GetComponent<RectTransform>();
+        dialogueText = child.GetComponentInChildren<TMP_Text>();
     }
 
     public void StartDialog(int id)
@@ -48,7 +73,7 @@ public class DialogueTest : SingletonMonoBehaviour<DialogueTest>
         UpdatePosition(currentTarget);
     }
 
-    public void PressG(InputAction.CallbackContext context)
+    public void PressKey(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
@@ -58,7 +83,7 @@ public class DialogueTest : SingletonMonoBehaviour<DialogueTest>
 
     void LoadCSV()
     {
-        TextAsset csv = Resources.Load<TextAsset>("Tutorial 1"); //가져올 CSV 파일의 이름을 입력해주세요. 
+        TextAsset csv = Resources.Load<TextAsset>("Scenario_All"); //가져올 CSV 파일의 이름을 입력해주세요. 
         string[] lines = csv.text.Split('\n');
 
         for (int i = 1; i < lines.Length; i++)
@@ -124,22 +149,11 @@ public class DialogueTest : SingletonMonoBehaviour<DialogueTest>
 
         if (speaker == "에스트")
         {
-            GameObject go = GameObject.FindGameObjectWithTag("Player");
-            //CutSceneManager.Instance.GetActior(TMP_SpriteCharacter.seed)  -> 추후 제작될 컷씬용 캐릭터 호출 방법
-
-            if (go == null)
-                Debug.Log("Player 태그 못 찾음");
-
-            return go != null ? go.transform : null;
+            return CutSceneManager.Instance.Player.transform;
         }
         else if (speaker == "시드")
         {
-            GameObject go = GameObject.FindGameObjectWithTag("Seed");
-
-            if (go == null)
-                Debug.Log("seed 태그 못 찾음");
-
-            return go != null ? go.transform : null;
+            return CutSceneManager.Instance.Seed.transform;
         }
 
         return null;
@@ -149,7 +163,7 @@ public class DialogueTest : SingletonMonoBehaviour<DialogueTest>
     {
         if (target == null) return;
 
-        Vector3 screenPos = Camera.main.WorldToScreenPoint(target.position + offset);
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(target.position + _offset);
         dialogueBox.position = screenPos;
     }
 }

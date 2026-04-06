@@ -6,6 +6,7 @@ public class PanelManager : MonoBehaviour
     public GameObject settingsPanel; //SettingsPanel의 GameObject를 넣어주세요.
     public GameObject creditsPanel; //CreditsPanel의 GameObject를 넣어주세요.
     public GameObject soundPanel; //SoundPanel의 GameObject를 넣어주세요.
+    public GameObject LanguagePanel; //LanguagePanel의 GameObject를 넣어주세요.
     public GameObject escPanel; //escPanel의 GameObject를 넣어주세요.
     public GameObject masterPanel; //masterPanel의 GameObject를 넣어주세요.
     public GameObject musicPanel; //musicPanel의 GameObject를 넣어주세요.
@@ -31,6 +32,7 @@ public class PanelManager : MonoBehaviour
         settingsPanel.SetActive(false);
         creditsPanel.SetActive(false);
         soundPanel.SetActive(false);
+        LanguagePanel.SetActive(false);
     }
     public void OpneSettingPanel()
     {
@@ -38,6 +40,7 @@ public class PanelManager : MonoBehaviour
         settingsPanel.SetActive(true);
         creditsPanel.SetActive(false);
         soundPanel.SetActive(false);
+        LanguagePanel.SetActive(false);
     }
 
     public void OpenCreditPanel()
@@ -46,6 +49,7 @@ public class PanelManager : MonoBehaviour
         settingsPanel.SetActive(false);
         creditsPanel.SetActive(true);
         soundPanel.SetActive(false);
+        LanguagePanel.SetActive(false);
     }
 
     public void OpenSoundPanel()
@@ -53,12 +57,29 @@ public class PanelManager : MonoBehaviour
         titlePanel.SetActive(false);
         settingsPanel.SetActive(false);
         creditsPanel.SetActive(false);
+        LanguagePanel.SetActive(false);
         soundPanel.SetActive(true);
     }
-
+    public void OpenLanguagePanel()
+    {
+        titlePanel.SetActive(false);
+        settingsPanel.SetActive(false);
+        creditsPanel.SetActive(false);
+        soundPanel.SetActive(false);
+        LanguagePanel.SetActive(true);
+    }
     public void CloseEscPanel()
     {
         escPanel.SetActive(false);
+
+        if (Time.timeScale == 0) //멈춰있으면
+        {
+            Time.timeScale = 1f; //시작
+        }
+        else //움직이면
+        {
+            Time.timeScale = 0; //멈추기
+        }
     }
 
     public void OpenMusicPanel()

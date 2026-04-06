@@ -11,26 +11,21 @@ namespace CutScene
             _actionType = EActions.PlayDialog;
         }
         public int dialogNumber;
-        public string dialogTarget;
+        public bool isEmptyPositionDialog;
         public Vector2 dialogPosition;
-        public override void InitAction()
-        {
-        }
-        
-        public override void Update()
-        {
-            
-        }
 
         public override IEnumerator PlayActionRoutine()
         {
-            DialogueTest.Instance.StartDialog(dialogNumber);
-            while (DialogueTest.Instance.IsPlay)
+            if (isEmptyPositionDialog)
+            {
+                CutSceneManager.Instance.EmptyObject.transform.position = dialogPosition;
+            }
+            Dialogue.Instance.StartDialog(dialogNumber);
+            while (Dialogue.Instance.IsPlay)
             {
                 yield return null;
             }
-            Debug.Log($"{GetType()} : 종료");
-            CutSceneManager.Instance.EndAction();
+            CutSceneManager.Instance.EndAction(ActionNum);
             yield return null;
         }
     }

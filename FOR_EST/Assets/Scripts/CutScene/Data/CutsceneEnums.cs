@@ -19,6 +19,7 @@ namespace CutScene
         [InspectorName("카메라 이동")]CameraMove,
         [InspectorName("카메라 줌")]CameraZoom,
         [InspectorName("딜레이")]Delay,
+        [InspectorName("비디오 재생")]VideoPlay,
         Max
     }
 

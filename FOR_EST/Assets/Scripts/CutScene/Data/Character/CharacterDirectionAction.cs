@@ -16,19 +16,11 @@ namespace CutScene
             _actionType = EActions.CharacterDirection;
         }
 
-        public override void InitAction()
-        {
-            Debug.Log($"{GetType()} : 시작");
-        }
-
-        public override void Update()
-        {
-        }
-
         public override IEnumerator PlayActionRoutine()
         {
+            CutSceneManager.Instance.GetCharacter(character).gameObject.SetActive(true);
             CutSceneManager.Instance.GetCharacter(character).SetDirection(isRight);
-            CutSceneManager.Instance.EndAction();
+            CutSceneManager.Instance.EndAction(ActionNum);
             yield return null;
         }
     }

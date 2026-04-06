@@ -1,0 +1,22 @@
+ID,Textbox_type,Text_KR,Text_EN,Text_JP,Stage
+4000,0,space를 누르면 점프를 할 수 있어콩,"Press Space to jump, beanie.",スペースを押すとジャンプできるまめ！,Tutorial
+4001,0,c를 누르면 열매나 장애물을 움직일 수 있어콩!,"Press C to move fruits or obstacles, beanie!",Cを押すと、実や障害物を動かせるまめ！,Tutorial
+4002,0,슬픔 열매는 경계에 떨어뜨리면 된다콩!,"Just drop the Sorrow Fruits at the boundary, beanie!",悲しみの実は、境界線に落とせばいいまめ！,Tutorial
+4003,0,x를 누르면 반전하게 될 곳을 미리 알 수 있어콩,"Press X to see where you’ll flip in advance, beanie.",Xを押すと、反転する場所をあらかじめ確認できるまめ。,Tutorial
+4004,0,z를 누르면 반전을 하게 된다콩!,"Press Z to flip, beanie!",Zを押すと反전(反転)するまめ！,Tutorial
+4005,0,장애물을 잡고 반전을 할 수 있어콩,"You can flip even while holding an obstacle, beanie.",障害物を掴んだまま反転することもできるまめ。,Tutorial
+4006,0,반전 할 수 있을 때와 없을 때의 표시가 다르다콩,"The indicator changes when you can or cannot flip, beanie.",反転できる時とできない時で、表示が違うまめよ！,Tutorial
+4007,0,행복 열매는 저기 있는 우리에게 건네주면 된다콩!,"Just hand the Happiness Fruits to us over there, beanie!",幸せの実は、あそこにいるボクらに届けてほしいまめ！,Tutorial
+4008,0,우린 언제나 널 지켜보고 있다콩,"We’re always watching over you, beanie.",ボクたちはいつでもキミを見守っているまめ。,all
+4009,0,열심히 일해줘서 고맙다콩,"Thanks for working so hard, beanie.",一生懸命働いてくれて、ありがとまめ！,all
+4010,0,힘내라콩,"Keep it up, beanie!",頑張るまめ！,all
+4011,0,화이콩,"Go, go, beanie!",ファイトまめ！,all
+4012,0,장애물이라 부르는 건 감정의 부스러기야콩.,"What we call obstacles are just Fragments of Emotion, beanie.",「障害物」と呼んでいるのは、感情の欠片（かけら）なんだまめ。,all
+4013,0,넌 할 수 있어콩,"You can do it, beanie!",キミならできるまめ！,all
+4014,0,실수 좀 할 수 있지콩,"It’s okay to make a mistake, beanie.",少しくらい失敗しても大丈夫まめ。,all
+4015,0,열매 나르는 일은 힘든 일이다콩,"Carrying fruits is hard work, beanie.",実を運ぶのは大変な仕事だまめ…！,all
+4016,0,콩! 콩!,Bean! Bean!,マメ！マメ！,all
+4017,0,재빠르게 콩!,"Move fast, beanie!",すばやくマメ！,all
+4018,0,왠지 여기서 자주 보는 것 같다콩,"For some reason, I feel like I see you here often, beanie.",なんだか、ここでよく会う気がするまめね。,all
+4019,0,우리는 모두 하나다콩,"We are all one, beanie.",ボクたちはみんな一つだまめ。,all
+4020,0,잘하고 있다콩,"You’re doing great, beanie!",よくやってるまめ！,all

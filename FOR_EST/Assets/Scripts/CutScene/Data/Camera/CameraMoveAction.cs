@@ -13,15 +13,6 @@ namespace CutScene
         }
         public Vector2 position;
         public float time;
-        public override void InitAction()
-        {
-            Debug.Log($"{GetType()} : 시작");
-        }
-
-        public override void Update()
-        {
-
-        }
 
         public override IEnumerator PlayActionRoutine()
         {
@@ -46,8 +37,7 @@ namespace CutScene
             }
 
             cam.transform.position = endPos;
-            Debug.Log($"{GetType()} : 종료");
-            CutSceneManager.Instance.EndAction();
+            CutSceneManager.Instance.EndAction(ActionNum);
         }
     }
 }

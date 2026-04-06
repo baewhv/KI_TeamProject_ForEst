@@ -14,19 +14,12 @@ namespace CutScene
         {
             _actionType = EActions.CharacterMove;
         }
-        public override void InitAction()
-        {
-        }
-        
-        public override void Update()
-        {
-            
-        }
 
         public override IEnumerator PlayActionRoutine()
         {
+            CutSceneManager.Instance.GetCharacter(character).gameObject.SetActive(true);
             yield return CutSceneManager.Instance.GetCharacter(character).SetMoveTarget(position, isForceMove);
-            CutSceneManager.Instance.EndAction();
+            CutSceneManager.Instance.EndAction(ActionNum);
         }
     }
 }

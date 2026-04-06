@@ -1,43 +1,49 @@
+using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SeedBean1 : BaseSeedBean
 {
-    private GameObject textBox;
-    private Canvas textBoxCanvas;
 
     private void Awake()
     {
         Init();
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public override void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("플레이어 감지");
-            textBox.SetActive(true);
-        }
-    }
+        base.OnTriggerEnter2D(other);
+        
+        if (!other.CompareTag("Player")) return;
+        
+        string sceneName = SceneManager.GetActiveScene().name;
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
+        switch (sceneName)
         {
-            textBox.SetActive(false);
+            case "StageT":
+                if (transform.position.y > 10f) 
+                    targetData = _seedBeanDataList.Find(x => x.id == 4003);
+                else if (transform.position.y > 5f)
+                    targetData = _seedBeanDataList.Find(x => x.id == 4001);
+                else 
+                    targetData = _seedBeanDataList.Find(x => x.id == 4000);
+                break;
+            case "Stage1":
+                if (transform.position.y > 10f)
+                    targetData = _seedBeanDataList.Find(x => x.id == 4005);
+                break;
+            default:
+                var textList = _seedBeanDataList.Where(x => x.stage == "all").ToList();
+                if (textList.Count > 0) targetData = textList[UnityEngine.Random.Range(0, textList.Count)];
+                break;
         }
+        
+        _text.text = GetTextLanguage(targetData);
     }
 
     private void Init()
     {
         base.Init();
-        
-        // _anim.SetBool("Sit", true);
-        
-        textBoxCanvas = GetComponentInChildren<Canvas>();
-        if (textBoxCanvas != null)
-        {
-            textBox = textBoxCanvas.gameObject;
-            textBox.SetActive(false);
-        }
+        _anim.SetBool("Sit", RandomSetBool());
     }
 }

@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 7287946622711366299}
   - component: {fileID: 5432237888679207120}
   - component: {fileID: 7472574962284522473}
+  - component: {fileID: -2750291817958771591}
+  - component: {fileID: -6712526462394359932}
   m_Layer: 22
   m_Name: SadFruit
   m_TagString: Obstacle
@@ -207,3 +209,54 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-2750291817958771591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52560932767612020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4f2e8c1a7d35fe690b2c4d6a8e0f2c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FruitShineEffect
+  isSadFruit: 1
+  ellipseRatio: 0.88
+  textureResolution: 128
+  effectScale: 2
+  rotationSpeed: 35
+  sortingOrder: -2
+  sortingLayerName: Default
+--- !u!114 &-6712526462394359932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52560932767612020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc5b9b794439d284987a873e363ce545, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SadFruitDissolveFX
+  _fadeDuration: 0.5
+  _particleCount: 80
+  _colors:
+  - {r: 0.45, g: 0.43, b: 0.41, a: 1}
+  - {r: 0.3, g: 0.29, b: 0.28, a: 1}
+  - {r: 0.55, g: 0.54, b: 0.52, a: 1}
+  - {r: 0.2, g: 0.19, b: 0.19, a: 1}
+  - {r: 0.38, g: 0.36, b: 0.35, a: 1}
+  - {r: 0.6, g: 0.58, b: 0.56, a: 1}
+  - {r: 0.25, g: 0.24, b: 0.23, a: 1}
+  _minSize: 0.05
+  _maxSize: 0.22
+  _particleLifetime: 0.9
+  _minUpSpeed: 1.2
+  _maxUpSpeed: 3.5
+  _maxHorizontalSpeed: 1.8
+  _gravity: -1.5
+  _spawnRadius: 0.3
+  _sortingLayerName: Default
+  _sortingOrder: -2

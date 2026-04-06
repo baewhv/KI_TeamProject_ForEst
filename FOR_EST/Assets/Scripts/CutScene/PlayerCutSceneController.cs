@@ -17,14 +17,13 @@ public class PlayerCutSceneController : MonoBehaviour, ICutsceneObject
 
     [SerializeField] private LayerMask grabLayer;
     [SerializeField] private LayerMask groundLayer;
-
+    
     public void Init(PlayerStatus status)
     {
         transform.position = new Vector2(0, 0.5f);
-        _status = new PlayerStatus();
+//        _status = new PlayerStatus();
         if(status != null)
             _status.CopyStatus(status);
-        _status.MoveSpeed = 50.0f;
         _movement = GetComponent<PlayerMovement>();
         _movement.Init(_status);
         _movement._rigidbody.gravityScale = _status.GravityScale;
@@ -56,6 +55,15 @@ public class PlayerCutSceneController : MonoBehaviour, ICutsceneObject
         _anim.SetBool(anim, tnf);
     }
 
+    public void ResetAnimation()
+    {
+        for (int i = 0; i < _anim.parameters.Length; i++)
+        {
+            if (_anim.parameters[i].type != AnimatorControllerParameterType.Bool) continue;
+            _anim.SetBool(_anim.parameters[i].name, false);
+        }
+    }
+
     //연출 중 이동
     public IEnumerator SetMoveTarget(Vector2 obj, bool isForceMove)
     {
@@ -74,8 +82,9 @@ public class PlayerCutSceneController : MonoBehaviour, ICutsceneObject
         float dist = Vector2.Distance(transform.position, Target);
         while (dist > CheckDistanceToTarget)
         {
-            Debug.Log($"거리 : {dist}   / pos {transform.position} / target {Target}");
+            
             float dir = transform.position.x < Target.x ? 1 : -1;
+            _renderer.flipX = dir < 0;
             _status.InputAxis.Value = new Vector2(dir, 0);
             yield return null;
             dist = Vector2.Distance(transform.position, Target);
@@ -128,6 +137,7 @@ public class PlayerCutSceneController : MonoBehaviour, ICutsceneObject
         _status.GrabbedObject = null;
         _status.IsGrab = false;
     }
+    
 
     private float _currentTime;
     private float _fadeTime;

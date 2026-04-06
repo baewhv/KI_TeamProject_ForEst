@@ -13,56 +13,141 @@ MonoBehaviour:
   m_Name: Stage2-1
   m_EditorClassIdentifier: Assembly-CSharp::ScenarioSO
   PlayerData:
-    ShowCharacter: 0
-    GetInGamePosition: 0
+    character: 0
+    ShowCharacter: 1
+    GetInGamePosition: 1
     position: {x: 0, y: 0}
-    isRight: 0
+    isRight: 1
   SeedData:
+    character: 1
     ShowCharacter: 0
     GetInGamePosition: 0
     position: {x: 0, y: 0}
     isRight: 0
   SeedBData:
-    ShowCharacter: 0
+    character: 2
+    ShowCharacter: 1
     GetInGamePosition: 0
+    position: {x: 19, y: 15}
+    isRight: 1
+  CameraData:
+    followTarget: 0
+    target: 0
     position: {x: 0, y: 0}
-    isRight: 0
+    zoom: 11.5
+  BackgroundImage: []
+  ImageResource: []
   ActionList:
-  - rid: 7021410910219010222
-  - rid: 7021410910219010224
-  - rid: 7021410910219010226
-  - rid: 3650131893831598258
-  - rid: 7021410910219010228
+  - rid: 4832695620617109584
+  - rid: 4832695620617109638
+  - rid: 4832695620617109586
+  - rid: 4832695620617109592
+  - rid: 4832695620617109593
+  - rid: 4832695620617109595
+  - rid: 4832695620617109596
+  - rid: 4832695620617109597
+  - rid: 4832695620617109598
+  - rid: 4832695620617109600
+  - rid: 4832695620617109601
+  - rid: 4832695620617109602
+  - rid: 4832695620617109603
   references:
     version: 2
     RefIds:
-    - rid: 3650131893831598258
-      type: {class: FadeOutAction, ns: CutScene, asm: Assembly-CSharp}
+    - rid: 4832695620617109584
+      type: {class: CharacterMoveAction, ns: CutScene, asm: Assembly-CSharp}
       data:
-        _actionType: 8
+        _actionType: 1
         NextType: 1
-        time: 0.5
-    - rid: 7021410910219010222
-      type: {class: FadeInAction, ns: CutScene, asm: Assembly-CSharp}
+        character: 0
+        position: {x: 24.62, y: 15.265}
+        isForceMove: 0
+    - rid: 4832695620617109586
+      type: {class: CameraMoveAction, ns: CutScene, asm: Assembly-CSharp}
       data:
-        _actionType: 7
+        _actionType: 11
         NextType: 1
-        time: 0.5
-    - rid: 7021410910219010224
-      type: {class: FadeOutAction, ns: CutScene, asm: Assembly-CSharp}
+        position: {x: 25.5, y: 0}
+        time: 2
+    - rid: 4832695620617109592
+      type: {class: DelayAction, ns: CutScene, asm: Assembly-CSharp}
       data:
-        _actionType: 8
+        _actionType: 13
         NextType: 1
-        time: 0.5
-    - rid: 7021410910219010226
-      type: {class: FadeInAction, ns: CutScene, asm: Assembly-CSharp}
+        delayTime: 1
+    - rid: 4832695620617109593
+      type: {class: PlayDialogAction, ns: CutScene, asm: Assembly-CSharp}
       data:
-        _actionType: 7
+        _actionType: 6
         NextType: 1
-        time: 0.5
-    - rid: 7021410910219010228
-      type: {class: FadeInAction, ns: CutScene, asm: Assembly-CSharp}
+        dialogNumber: 100158
+        dialogTarget: 
+        dialogPosition: {x: 0, y: 0}
+    - rid: 4832695620617109595
+      type: {class: CameraTargetAction, ns: CutScene, asm: Assembly-CSharp}
       data:
-        _actionType: 7
+        _actionType: 10
         NextType: 1
-        time: 0.5
+        character: 0
+    - rid: 4832695620617109596
+      type: {class: PlayDialogAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 6
+        NextType: 1
+        dialogNumber: 100159
+        dialogTarget: 
+        dialogPosition: {x: 0, y: 0}
+    - rid: 4832695620617109597
+      type: {class: CharacterFaderAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 5
+        NextType: 1
+        character: 2
+        isFadeIn: 1
+        time: 0
+    - rid: 4832695620617109598
+      type: {class: PlayDialogAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 6
+        NextType: 1
+        dialogNumber: 100160
+        dialogTarget: 
+        dialogPosition: {x: 0, y: 0}
+    - rid: 4832695620617109600
+      type: {class: CharacterDirectionAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 2
+        NextType: 1
+        character: 0
+        isRight: 0
+    - rid: 4832695620617109601
+      type: {class: PlayDialogAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 6
+        NextType: 2
+        dialogNumber: 100162
+        dialogTarget: 
+        dialogPosition: {x: 0, y: 0}
+    - rid: 4832695620617109602
+      type: {class: CharacterMoveAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 1
+        NextType: 1
+        character: 0
+        position: {x: 21.62, y: 15.265}
+        isForceMove: 0
+    - rid: 4832695620617109603
+      type: {class: PlayDialogAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 6
+        NextType: 2
+        dialogNumber: 100165
+        dialogTarget: 
+        dialogPosition: {x: 0, y: 0}
+    - rid: 4832695620617109638
+      type: {class: CameraMoveAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 11
+        NextType: 1
+        position: {x: 25.5, y: 15}
+        time: 1

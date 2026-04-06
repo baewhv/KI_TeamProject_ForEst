@@ -22,7 +22,6 @@ public class ReverseView : MonoBehaviour
         if (_reverseIcon != null) CreateReverseIcon();
         if (_reverseIcon != null) _anim = _reverseIcon.GetComponent<Animator>();
         _playerController = _player.GetComponent<PlayerController>();
-        if(_playerController != null) Debug.Log("얘도 찾았다");
     }
     
     public void ChangeReverseView()
@@ -31,7 +30,6 @@ public class ReverseView : MonoBehaviour
         {
             _reverseObject = GameObject.FindGameObjectWithTag("Reverse");
             _playerReverseObject = _reverseObject.GetComponent<PlayerReverseObject>();
-            if (_playerReverseObject != null) Debug.Log("찾았다");
         }
         if (_reverseIcon == null || _reverseObject == null) return;
         
