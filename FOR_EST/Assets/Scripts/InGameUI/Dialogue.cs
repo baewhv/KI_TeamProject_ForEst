@@ -17,6 +17,8 @@ public class DialogueTest : SingletonMonoBehaviour<DialogueTest>
     public int languageIndex = 5; // CSV파일에서 텍스트가 있는 열의 인덱스 5 : 한국어, 6: 영어, 7: 일본어
     public const int minLang = 5;
     public const int maxLang = 7;
+    
+    private UserInput _input;
 
     public bool IsPlay { get; private set; }
     public int CurrentID
@@ -27,7 +29,20 @@ public class DialogueTest : SingletonMonoBehaviour<DialogueTest>
     protected override void Awake()
     {
         base.Awake();
+        _input = new UserInput();
         LoadCSV();
+    }
+
+    private void OnEnable()
+    {
+        _input.asset.Enable();
+        _input.UI.NextDialogue.performed += PressKey;
+    }
+
+    private void OnDisable()
+    {
+        _input.UI.NextDialogue.performed -= PressKey;
+        _input.asset.Disable();
     }
 
     public void CreateTextBox()
@@ -57,7 +72,7 @@ public class DialogueTest : SingletonMonoBehaviour<DialogueTest>
         UpdatePosition(currentTarget);
     }
 
-    public void PressG(InputAction.CallbackContext context)
+    public void PressKey(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
