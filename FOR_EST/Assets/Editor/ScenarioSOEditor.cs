@@ -84,7 +84,9 @@ public class ScenarioSOEditor : Editor
 
     public void OnDisable()
     {
-        DestroyImmediate(go);
+        if(go)
+            go.GetComponent<EditorHelper>().StartDestroy();
+        go = null;
     }
 
     public override void OnInspectorGUI()
@@ -109,11 +111,14 @@ public class ScenarioSOEditor : Editor
 
     public void CreateDummy(Vector2 pos)
     {
-        go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        if(go) DestroyImmediate(go);
+        go = new GameObject();
         go.transform.position = pos;
         go.name = "[TEMP] Cutscene Helper";
         go.hideFlags = HideFlags.DontSave | HideFlags.DontSaveInEditor;
+        go.AddComponent<EditorHelper>();
         
+
     }
 
     private BaseAction CreateActionInstance(EActions type)
