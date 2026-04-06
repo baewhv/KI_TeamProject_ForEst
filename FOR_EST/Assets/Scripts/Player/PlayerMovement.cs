@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
 
     [field: SerializeField] public ObserveValue<EJumpState> JumpState { get; set; }
 
+    private LayerMask _jumpFallingLayer;
+
     public void Init(PlayerStatus status)
     {
         _status = status;
@@ -39,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
         _jumpStateMachine.ChangeState(JumpStandby);
         Anim = GetComponentInChildren<Animator>();
+        _jumpFallingLayer = LayerMask.GetMask("Ground", "Obstacle", "Happy", "Sad");
     }
 
     void Update()
@@ -95,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
             , 0.4f
             , (_status.IsReverse ? Vector2.up : Vector2.down)
             , 3f
-            , LayerMask.GetMask("Ground"));
+            , _jumpFallingLayer);
 
         if (hit) return true;
         return false;
