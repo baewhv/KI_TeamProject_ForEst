@@ -247,7 +247,7 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
         else
         {
             CutsceneCamera.Follow = null;
-            CutsceneCamera.transform.position = data.position;
+            CutsceneCamera.transform.position =new Vector3( data.position.x, data.position.y, -10.0f);
         }
             
         CutsceneCamera.Lens.OrthographicSize = data.zoom < 1 ? 1 : data.zoom;

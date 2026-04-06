@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class SeedBean1 : BaseSeedBean
 {
-    private GameObject textBox;
-    private Canvas textBoxCanvas;
 
     private void Awake()
     {
@@ -30,14 +28,16 @@ public class SeedBean1 : BaseSeedBean
     private void Init()
     {
         base.Init();
+        _anim.SetBool("Sit", true);
         
-        // _anim.SetBool("Sit", true);
-        
-        textBoxCanvas = GetComponentInChildren<Canvas>();
-        if (textBoxCanvas != null)
+        if (transform.position.y > 5f)
         {
-            textBox = textBoxCanvas.gameObject;
-            textBox.SetActive(false);
+            _text.text = "높다";
         }
+        else if (transform.position.y < -5f)
+        {
+            _text.text = "낮다";
+        }
+        else _text.text = "평범하다";
     }
 }
