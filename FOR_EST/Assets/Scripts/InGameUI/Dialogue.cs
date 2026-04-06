@@ -53,6 +53,7 @@ public class Dialogue : SingletonMonoBehaviour<Dialogue>
         Transform child = _textBox.transform.Find("Image");
         dialogueBox = child.GetComponent<RectTransform>();
         dialogueText = child.GetComponentInChildren<TMP_Text>();
+        // dialogueBox.gameObject.SetActive(false);
     }
 
     public void StartDialog(int id)
