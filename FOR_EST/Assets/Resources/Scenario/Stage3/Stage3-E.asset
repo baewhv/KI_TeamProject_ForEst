@@ -13,28 +13,38 @@ MonoBehaviour:
   m_Name: Stage3-E
   m_EditorClassIdentifier: Assembly-CSharp::ScenarioSO
   PlayerData:
+    character: 0
     ShowCharacter: 1
     GetInGamePosition: 0
     position: {x: 10, y: 5}
     isRight: 0
   SeedData:
+    character: 1
     ShowCharacter: 0
     GetInGamePosition: 0
     position: {x: 0, y: 0}
     isRight: 0
   SeedBData:
+    character: 2
     ShowCharacter: 0
     GetInGamePosition: 0
     position: {x: 0, y: 0}
     isRight: 0
+  CameraData:
+    followTarget: 0
+    target: 0
+    position: {x: 0, y: 0}
+    zoom: 0
+  BackgroundImage: []
+  ImageResource: []
   ActionList:
-  - rid: 7021410910219010349
+  - rid: 2307714453732851712
   references:
     version: 2
     RefIds:
-    - rid: 7021410910219010349
-      type: {class: FadeOutAction, ns: CutScene, asm: Assembly-CSharp}
+    - rid: 2307714453732851712
+      type: {class: FadeInAction, ns: CutScene, asm: Assembly-CSharp}
       data:
-        _actionType: 8
+        _actionType: 7
         NextType: 1
-        time: 2
+        time: 0
