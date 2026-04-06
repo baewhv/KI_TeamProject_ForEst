@@ -14,17 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: Localization-Assets-Shared
   m_GUID: 9c83e286603619549a7f022a53a65702
-  m_SerializeEntries:
-  - m_GUID: 5271e9c0603b13f40a0afc135a68783b
-    m_Address: Assets/Imports/Fonts/Localization/DialogueTable Shared Data.asset
-    m_ReadOnly: 1
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 55f72944ce183bf45acbacb0690ce154
-    m_Address: Assets/Imports/Fonts/Localization/ImageTable Shared Data.asset
-    m_ReadOnly: 1
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: c672f192acdf4454484eafaf7571502c, type: 2}
   m_SchemaSet:
