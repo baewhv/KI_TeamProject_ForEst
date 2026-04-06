@@ -1,4 +1,6 @@
+using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SeedBean3 : BaseSeedBean
 {
@@ -7,36 +9,40 @@ public class SeedBean3 : BaseSeedBean
         Init();
     }
     
-    private void OnTriggerEnter2D(Collider2D other)
+    public override void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        base.OnTriggerEnter2D(other);
+        
+        if (!other.CompareTag("Player")) return;
+        
+        string sceneName = SceneManager.GetActiveScene().name;
+        
+        switch (sceneName)
         {
-            Debug.Log("플레이어 감지");
-            textBox.SetActive(true);
+            case "StageT":
+                if (transform.position.y > 5f)
+                    targetData = _seedBeanDataList.Find(x => x.id == 4016);
+                else if (transform.position.y < -5f)
+                    targetData = _seedBeanDataList.Find(x => x.id == 4007);
+                else 
+                    targetData = _seedBeanDataList.Find(x => x.id == 4005);
+                break;
+            case "Stage1":
+                if (transform.position.y < -5f)
+                    targetData = _seedBeanDataList.Find(x => x.id == 4010);
+                break;
+            default:
+                var textList = _seedBeanDataList.Where(x => x.stage == "all").ToList();
+                if (textList.Count > 0) targetData = textList[UnityEngine.Random.Range(0, textList.Count)];
+                break;
         }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            textBox.SetActive(false);
-        }
+        
+        _text.text = GetTextLanguage(targetData);
     }
 
     private void Init()
     {
         base.Init();
         _anim.SetBool("Sit", RandomSetBool());
-        
-        if (transform.position.y > 5f)
-        {
-            _text.text = "높다";
-        }
-        else if (transform.position.y < -5f)
-        {
-            _text.text = "낮다";
-        }
-        else _text.text = "평범하다";
     }
 }
