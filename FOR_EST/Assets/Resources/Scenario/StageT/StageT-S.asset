@@ -41,7 +41,11 @@ MonoBehaviour:
   - rid: 2897498049571717250
   - rid: 2897497981599088764
   - rid: 2897497981599088765
+  - rid: 2897498049571717273
   - rid: 2897497981599088766
+  - rid: 2897498049571717268
+  - rid: 2897498049571717274
+  - rid: 2897498049571717267
   - rid: 2897497981599088768
   - rid: 2897497981599088769
   - rid: 2897497981599088770
@@ -113,7 +117,7 @@ MonoBehaviour:
         _actionType: 6
         NextType: 1
         dialogNumber: 100001
-        dialogTarget: 
+        isEmptyPositionDialog: 0
         dialogPosition: {x: 0, y: 0}
     - rid: 2897497981599088769
       type: {class: BackgroundImageAction, ns: CutScene, asm: Assembly-CSharp}
@@ -128,7 +132,7 @@ MonoBehaviour:
         _actionType: 6
         NextType: 1
         dialogNumber: 100003
-        dialogTarget: 
+        isEmptyPositionDialog: 0
         dialogPosition: {x: 0, y: 0}
     - rid: 2897497981599088771
       type: {class: FadeInAction, ns: CutScene, asm: Assembly-CSharp}
@@ -158,7 +162,7 @@ MonoBehaviour:
         _actionType: 6
         NextType: 1
         dialogNumber: 100006
-        dialogTarget: 
+        isEmptyPositionDialog: 0
         dialogPosition: {x: 0, y: 0}
     - rid: 2897497981599088776
       type: {class: CameraZoomAction, ns: CutScene, asm: Assembly-CSharp}
@@ -173,7 +177,7 @@ MonoBehaviour:
         _actionType: 6
         NextType: 1
         dialogNumber: 100016
-        dialogTarget: 
+        isEmptyPositionDialog: 0
         dialogPosition: {x: 0, y: 0}
     - rid: 2897497981599088778
       type: {class: CameraZoomAction, ns: CutScene, asm: Assembly-CSharp}
@@ -195,7 +199,7 @@ MonoBehaviour:
         _actionType: 6
         NextType: 1
         dialogNumber: 100022
-        dialogTarget: 
+        isEmptyPositionDialog: 0
         dialogPosition: {x: 0, y: 0}
     - rid: 2897497981599088781
       type: {class: CharacterReverseAction, ns: CutScene, asm: Assembly-CSharp}
@@ -223,7 +227,7 @@ MonoBehaviour:
         _actionType: 6
         NextType: 1
         dialogNumber: 100024
-        dialogTarget: 
+        isEmptyPositionDialog: 0
         dialogPosition: {x: 0, y: 0}
     - rid: 2897497981599088785
       type: {class: CharacterPlayAnimationAction, ns: CutScene, asm: Assembly-CSharp}
@@ -258,7 +262,7 @@ MonoBehaviour:
         _actionType: 6
         NextType: 1
         dialogNumber: 100027
-        dialogTarget: 
+        isEmptyPositionDialog: 0
         dialogPosition: {x: 0, y: 0}
     - rid: 2897497981599088790
       type: {class: CharacterPlayAnimationAction, ns: CutScene, asm: Assembly-CSharp}
@@ -274,7 +278,7 @@ MonoBehaviour:
         _actionType: 6
         NextType: 1
         dialogNumber: 100033
-        dialogTarget: 
+        isEmptyPositionDialog: 0
         dialogPosition: {x: 0, y: 0}
     - rid: 2897497981599088792
       type: {class: CharacterPlayAnimationAction, ns: CutScene, asm: Assembly-CSharp}
@@ -290,7 +294,7 @@ MonoBehaviour:
         _actionType: 6
         NextType: 1
         dialogNumber: 100036
-        dialogTarget: 
+        isEmptyPositionDialog: 0
         dialogPosition: {x: 0, y: 0}
     - rid: 2897497981599088794
       type: {class: CameraZoomAction, ns: CutScene, asm: Assembly-CSharp}
@@ -305,7 +309,7 @@ MonoBehaviour:
         _actionType: 6
         NextType: 1
         dialogNumber: 100037
-        dialogTarget: 
+        isEmptyPositionDialog: 0
         dialogPosition: {x: 0, y: 0}
     - rid: 2897497981599088799
       type: {class: CharacterDirectionAction, ns: CutScene, asm: Assembly-CSharp}
@@ -391,7 +395,7 @@ MonoBehaviour:
         _actionType: 6
         NextType: 1
         dialogNumber: 100023
-        dialogTarget: 
+        isEmptyPositionDialog: 0
         dialogPosition: {x: 0, y: 0}
     - rid: 2897498049571717219
       type: {class: CameraZoomAction, ns: CutScene, asm: Assembly-CSharp}
@@ -406,7 +410,7 @@ MonoBehaviour:
         _actionType: 6
         NextType: 1
         dialogNumber: 100042
-        dialogTarget: 
+        isEmptyPositionDialog: 0
         dialogPosition: {x: 0, y: 0}
     - rid: 2897498049571717230
       type: {class: CharacterFaderAction, ns: CutScene, asm: Assembly-CSharp}
@@ -436,3 +440,27 @@ MonoBehaviour:
         character: 0
         animation: WakeUp
         TrueAndFalse: 1
+    - rid: 2897498049571717267
+      type: {class: FadeInAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 7
+        NextType: 1
+        time: 0.5
+    - rid: 2897498049571717268
+      type: {class: FadeOutAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 8
+        NextType: 1
+        time: 0.5
+    - rid: 2897498049571717273
+      type: {class: DelayAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 13
+        NextType: 1
+        delayTime: 0.5
+    - rid: 2897498049571717274
+      type: {class: DelayAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 13
+        NextType: 1
+        delayTime: 0.5

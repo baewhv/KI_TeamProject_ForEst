@@ -3,7 +3,7 @@ using TMPro;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 
-public class DialogueTest : SingletonMonoBehaviour<DialogueTest>
+public class Dialogue : SingletonMonoBehaviour<Dialogue>
 {
     public RectTransform dialogueBox;
     public TMP_Text dialogueText;
@@ -148,12 +148,10 @@ public class DialogueTest : SingletonMonoBehaviour<DialogueTest>
 
         if (speaker == "에스트")
         {
-            Debug.Log(CutSceneManager.Instance.Player.transform.position);
             return CutSceneManager.Instance.Player.transform;
         }
         else if (speaker == "시드")
         {
-            Debug.Log(CutSceneManager.Instance.Seed.transform.position);
             return CutSceneManager.Instance.Seed.transform;
         }
 
@@ -164,7 +162,8 @@ public class DialogueTest : SingletonMonoBehaviour<DialogueTest>
     {
         if (target == null) return;
 
-        Vector3 screenPos = Camera.main.WorldToScreenPoint(target.position + offset);
+        // Vector3 screenPos = Camera.main.WorldToScreenPoint(target.position + offset);
+        Vector3 screenPos = target.position + offset;
         Debug.Log(screenPos);
         dialogueBox.position = screenPos;
     }
