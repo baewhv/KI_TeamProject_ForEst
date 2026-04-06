@@ -638,6 +638,7 @@ MonoBehaviour:
   settingsPanel: {fileID: 0}
   creditsPanel: {fileID: 0}
   soundPanel: {fileID: 0}
+  LanguagePanel: {fileID: 0}
   escPanel: {fileID: 0}
   masterPanel: {fileID: 0}
   musicPanel: {fileID: 0}
@@ -3657,6 +3658,7 @@ MonoBehaviour:
   settingsPanel: {fileID: 0}
   creditsPanel: {fileID: 0}
   soundPanel: {fileID: 0}
+  LanguagePanel: {fileID: 0}
   escPanel: {fileID: 1236401875}
   masterPanel: {fileID: 0}
   musicPanel: {fileID: 0}
@@ -4283,6 +4285,7 @@ MonoBehaviour:
   settingsPanel: {fileID: 0}
   creditsPanel: {fileID: 0}
   soundPanel: {fileID: 0}
+  LanguagePanel: {fileID: 0}
   escPanel: {fileID: 0}
   masterPanel: {fileID: 0}
   musicPanel: {fileID: 0}
@@ -4525,7 +4528,7 @@ SpriteRenderer:
   m_Size: {x: 0.69, y: 1.21}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!4 &338682385
 Transform:
@@ -4581,9 +4584,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33433a2a5fbf5224c96d9bfe8ae91678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CutSceneManager
-  _cinemaCameraPrefab: {fileID: 2114269767991998283, guid: a9ea8118d81348041a54a0e7b46dbf2a, type: 3}
-  _cinemaCanvasPrefab: {fileID: 3301469715781307342, guid: 5d96b75cef4922c4ebf79b19bcf96494, type: 3}
   testSO: {fileID: 11400000, guid: ea82509a1a6020941bdf3d31d08bfa55, type: 2}
+  IsPlayCutscene:
+    _data: 0
 --- !u!4 &345611066
 Transform:
   m_ObjectHideFlags: 0
@@ -6187,6 +6190,7 @@ MonoBehaviour:
   settingsPanel: {fileID: 0}
   creditsPanel: {fileID: 0}
   soundPanel: {fileID: 0}
+  LanguagePanel: {fileID: 0}
   escPanel: {fileID: 0}
   masterPanel: {fileID: 0}
   musicPanel: {fileID: 0}
@@ -16760,6 +16764,7 @@ MonoBehaviour:
   settingsPanel: {fileID: 0}
   creditsPanel: {fileID: 0}
   soundPanel: {fileID: 0}
+  LanguagePanel: {fileID: 0}
   escPanel: {fileID: 0}
   masterPanel: {fileID: 1756030570}
   musicPanel: {fileID: 2084453336}
@@ -18518,6 +18523,7 @@ MonoBehaviour:
   settingsPanel: {fileID: 0}
   creditsPanel: {fileID: 0}
   soundPanel: {fileID: 0}
+  LanguagePanel: {fileID: 0}
   escPanel: {fileID: 0}
   masterPanel: {fileID: 1756030570}
   musicPanel: {fileID: 2084453336}
@@ -18912,6 +18918,7 @@ MonoBehaviour:
   settingsPanel: {fileID: 0}
   creditsPanel: {fileID: 0}
   soundPanel: {fileID: 0}
+  LanguagePanel: {fileID: 0}
   escPanel: {fileID: 0}
   masterPanel: {fileID: 0}
   musicPanel: {fileID: 0}
@@ -20467,6 +20474,7 @@ MonoBehaviour:
   settingsPanel: {fileID: 0}
   creditsPanel: {fileID: 0}
   soundPanel: {fileID: 0}
+  LanguagePanel: {fileID: 0}
   escPanel: {fileID: 0}
   masterPanel: {fileID: 1756030570}
   musicPanel: {fileID: 2084453336}
@@ -21121,6 +21129,7 @@ MonoBehaviour:
   settingsPanel: {fileID: 0}
   creditsPanel: {fileID: 0}
   soundPanel: {fileID: 0}
+  LanguagePanel: {fileID: 0}
   escPanel: {fileID: 0}
   masterPanel: {fileID: 0}
   musicPanel: {fileID: 0}
@@ -22689,6 +22698,7 @@ MonoBehaviour:
   settingsPanel: {fileID: 0}
   creditsPanel: {fileID: 0}
   soundPanel: {fileID: 0}
+  LanguagePanel: {fileID: 0}
   escPanel: {fileID: 0}
   masterPanel: {fileID: 0}
   musicPanel: {fileID: 0}
@@ -23602,6 +23612,7 @@ MonoBehaviour:
   settingsPanel: {fileID: 0}
   creditsPanel: {fileID: 0}
   soundPanel: {fileID: 0}
+  LanguagePanel: {fileID: 0}
   escPanel: {fileID: 0}
   masterPanel: {fileID: 1756030570}
   musicPanel: {fileID: 2084453336}
@@ -24169,6 +24180,7 @@ MonoBehaviour:
   settingsPanel: {fileID: 0}
   creditsPanel: {fileID: 0}
   soundPanel: {fileID: 0}
+  LanguagePanel: {fileID: 0}
   escPanel: {fileID: 0}
   masterPanel: {fileID: 1756030570}
   musicPanel: {fileID: 2084453336}
@@ -24467,6 +24479,7 @@ MonoBehaviour:
   settingsPanel: {fileID: 0}
   creditsPanel: {fileID: 0}
   soundPanel: {fileID: 0}
+  LanguagePanel: {fileID: 0}
   escPanel: {fileID: 0}
   masterPanel: {fileID: 1756030570}
   musicPanel: {fileID: 2084453336}
@@ -25685,6 +25698,7 @@ MonoBehaviour:
   settingsPanel: {fileID: 0}
   creditsPanel: {fileID: 0}
   soundPanel: {fileID: 0}
+  LanguagePanel: {fileID: 0}
   escPanel: {fileID: 0}
   masterPanel: {fileID: 0}
   musicPanel: {fileID: 0}
@@ -28734,8 +28748,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uB0B4\uAC00 \uB9D0\uD48D\uC120\uC785\uB2C8da."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 34196699a08dcc744a0fb7826815ce76, type: 2}
-  m_sharedMaterial: {fileID: -7585249650060191515, guid: 34196699a08dcc744a0fb7826815ce76, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f662d9d7c9063ac4dab341a5fb6fc27d, type: 2}
+  m_sharedMaterial: {fileID: 2395666849903256784, guid: f662d9d7c9063ac4dab341a5fb6fc27d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
