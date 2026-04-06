@@ -271,7 +271,7 @@ MonoBehaviour:
   _status:
     InputAxis:
       _data: {x: 0, y: 0}
-    MoveSpeed: 0
+    MoveSpeed: 200
     JumpPower: 0
     GravityScale: 0
   _grabPoint: {fileID: 0}

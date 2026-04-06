@@ -21,10 +21,9 @@ public class PlayerCutSceneController : MonoBehaviour, ICutsceneObject
     public void Init(PlayerStatus status)
     {
         transform.position = new Vector2(0, 0.5f);
-        _status = new PlayerStatus();
+//        _status = new PlayerStatus();
         if(status != null)
             _status.CopyStatus(status);
-        _status.MoveSpeed = 50.0f;
         _movement = GetComponent<PlayerMovement>();
         _movement.Init(_status);
         _movement._rigidbody.gravityScale = _status.GravityScale;
@@ -129,6 +128,7 @@ public class PlayerCutSceneController : MonoBehaviour, ICutsceneObject
         _status.GrabbedObject = null;
         _status.IsGrab = false;
     }
+    
 
     private float _currentTime;
     private float _fadeTime;
