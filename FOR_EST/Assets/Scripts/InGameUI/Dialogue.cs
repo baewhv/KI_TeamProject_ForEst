@@ -3,7 +3,7 @@ using TMPro;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 
-public class DialogueTest : SingletonMonoBehaviour<DialogueTest>
+public class Dialogue : SingletonMonoBehaviour<Dialogue>
 {
     public RectTransform dialogueBox;
     public TMP_Text dialogueText;
@@ -148,22 +148,11 @@ public class DialogueTest : SingletonMonoBehaviour<DialogueTest>
 
         if (speaker == "에스트")
         {
-            GameObject go = GameObject.FindGameObjectWithTag("Player");
-            //CutSceneManager.Instance.GetActior(TMP_SpriteCharacter.seed)  -> 추후 제작될 컷씬용 캐릭터 호출 방법
-
-            if (go == null)
-                Debug.Log("Player 태그 못 찾음");
-
-            return go != null ? go.transform : null;
+            return CutSceneManager.Instance.Player.transform;
         }
         else if (speaker == "시드")
         {
-            GameObject go = GameObject.FindGameObjectWithTag("Seed");
-
-            if (go == null)
-                Debug.Log("seed 태그 못 찾음");
-
-            return go != null ? go.transform : null;
+            return CutSceneManager.Instance.Seed.transform;
         }
 
         return null;
@@ -173,7 +162,9 @@ public class DialogueTest : SingletonMonoBehaviour<DialogueTest>
     {
         if (target == null) return;
 
-        Vector3 screenPos = Camera.main.WorldToScreenPoint(target.position + offset);
+        // Vector3 screenPos = Camera.main.WorldToScreenPoint(target.position + offset);
+        Vector3 screenPos = target.position + offset;
+        Debug.Log(screenPos);
         dialogueBox.position = screenPos;
     }
 }
