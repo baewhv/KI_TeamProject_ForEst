@@ -1,6 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
 using CutScene;
 using Unity.Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine.Video;
 using UnityEngine;
 
@@ -46,6 +48,9 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
     private PlayerController pc;
 
 
+    private HashSet<int> cutsceneHash = new ();
+    
+
     protected override void Awake()
     {
         base.Awake();
@@ -58,6 +63,7 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
         {
             Scenarios["test"] = testSO;
             PlayCutscene("test");
+            Dialogue.Instance.CreateTextBox();
         }
     }
 
@@ -202,9 +208,12 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
         while (true)
         {
             BaseAction curAction = CurrentScenario.ActionList[CurrentActionsIndex];
+            curAction.ActionNum = CurrentActionsIndex;
             CurrentActions.Add(curAction); //현재 액션 추가
+            cutsceneHash.Add(CurrentActionsIndex);
             CurrentActionsIndex++; //인덱스 추가
             _currentActionsCount++;
+            
             if (CurrentActionsIndex >= CurrentScenario.ActionList.Count ||
                 curAction.NextType != ENextActionType.Together)
                 break;
@@ -221,11 +230,19 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
         }
     }
 
-    public void EndAction()
+    public void EndAction(int num)
     {
-        _currentActionsCount--;
-        if (_currentActionsCount <= 0)
-            SetNextCut();
+        if (cutsceneHash.Contains(num))
+        {
+            _currentActionsCount--;
+            if (_currentActionsCount <= 0)
+                SetNextCut();
+            cutsceneHash.Remove(num);
+        }
+        else
+        {
+            Debug.Log($"재생중이지 않은 액션의 종료 호출 {num}");
+        }
     }
 
     public void SetCharacter(PlayerCutSceneController cutSceneObj, GameObject inGameObj, CharacterCutsceneData data)
@@ -263,8 +280,8 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
             CutsceneCamera.Follow = null;
             CutsceneCamera.transform.position =new Vector3( data.position.x, data.position.y, -10.0f);
         }
-            
         CutsceneCamera.Lens.OrthographicSize = data.zoom < 1 ? 1 : data.zoom;
+        StartCoroutine(ResetCameraBlend());
     }
 
     public PlayerCutSceneController GetCharacter(ESelectedCharacter character)
@@ -281,5 +298,12 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
                 return null;
         }
         
+    }
+
+    private IEnumerator ResetCameraBlend()
+    {
+        yield return new WaitForNextFrameUnit();
+        CinemachineBrain brain = mainCamera.GetComponent<CinemachineBrain>();
+        brain.DefaultBlend.Time = 2;
     }
 }

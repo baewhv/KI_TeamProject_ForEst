@@ -20,7 +20,7 @@ namespace CutScene
                 CutSceneManager.Instance.CutsceneCamera.Follow = targetObject.transform;
             }
             yield return null;
-            CutSceneManager.Instance.EndAction();
+            CutSceneManager.Instance.EndAction(ActionNum);
         }
     }
 }

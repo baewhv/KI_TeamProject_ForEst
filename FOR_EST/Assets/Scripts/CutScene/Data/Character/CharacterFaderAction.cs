@@ -21,11 +21,9 @@ namespace CutScene
 
         public override IEnumerator PlayActionRoutine()
         {
-            Debug.Log("캐릭터 페이드 시작");
-
+            CutSceneManager.Instance.GetCharacter(character).gameObject.SetActive(true);
             yield return CutSceneManager.Instance.GetCharacter(character).Fader(isFadeIn, time);
-            Debug.Log("캐릭터 페이드 종료");
-            CutSceneManager.Instance.EndAction();
+            CutSceneManager.Instance.EndAction(ActionNum);
         }
     }
 }

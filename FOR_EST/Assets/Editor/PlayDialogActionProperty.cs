@@ -13,7 +13,7 @@ public class PlayDialogActionProperty : PropertyDrawer
 
         if (!property.isExpanded)
             return lineHeight;
-        int lines = 3;
+        int lines = 4;
 
         if (property.FindPropertyRelative("isEmptyPositionDialog").boolValue)
             lines += 1;
@@ -31,6 +31,9 @@ public class PlayDialogActionProperty : PropertyDrawer
         if (property.isExpanded)
         {
             EditorGUI.indentLevel++;
+            fieldRect.y += lineHeight + 2f;
+            EditorGUI.PropertyField(fieldRect, property.FindPropertyRelative("_actionType"), new GUIContent("연출 종류", "출력할 액션 종류"));
+            
             fieldRect.y += lineHeight + 2f;
             EditorGUI.PropertyField(fieldRect, property.FindPropertyRelative("dialogNumber"),
                 new GUIContent("시작 대사 번호", "출력할 대사의 테이블 번호입니다. NextID를 통해 다음 대사를 출력합니다. NextID가 0이면 해당 대사 이후 종료합니다."));

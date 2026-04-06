@@ -15,8 +15,7 @@ namespace CutScene
         public override IEnumerator PlayActionRoutine()
         {
             yield return YieldContainer.WaitForSeconds(delayTime);
-            Debug.Log($"{GetType()} : 종료");
-            CutSceneManager.Instance.EndAction();
+            CutSceneManager.Instance.EndAction(ActionNum);
         }
     }
 }

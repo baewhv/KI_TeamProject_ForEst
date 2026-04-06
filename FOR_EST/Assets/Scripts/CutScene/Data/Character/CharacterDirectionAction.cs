@@ -18,8 +18,9 @@ namespace CutScene
 
         public override IEnumerator PlayActionRoutine()
         {
+            CutSceneManager.Instance.GetCharacter(character).gameObject.SetActive(true);
             CutSceneManager.Instance.GetCharacter(character).SetDirection(isRight);
-            CutSceneManager.Instance.EndAction();
+            CutSceneManager.Instance.EndAction(ActionNum);
             yield return null;
         }
     }

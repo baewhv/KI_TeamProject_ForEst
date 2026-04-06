@@ -28,7 +28,7 @@ namespace CutScene
                 yield return null;
             }
             _fader.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
-            CutSceneManager.Instance.EndAction();
+            CutSceneManager.Instance.EndAction(ActionNum);
         }
     }
 }

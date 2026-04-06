@@ -26,7 +26,7 @@ namespace CutScene
                 CutSceneManager.Instance.CinemaUI.BackgroundImage.sprite = backgroundImage;
             }
 
-            CutSceneManager.Instance.EndAction();
+            CutSceneManager.Instance.EndAction(ActionNum);
             yield return null;
         }
     }

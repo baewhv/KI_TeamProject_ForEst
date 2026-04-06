@@ -37,8 +37,7 @@ namespace CutScene
             }
 
             cam.transform.position = endPos;
-            Debug.Log($"{GetType()} : 종료");
-            CutSceneManager.Instance.EndAction();
+            CutSceneManager.Instance.EndAction(ActionNum);
         }
     }
 }

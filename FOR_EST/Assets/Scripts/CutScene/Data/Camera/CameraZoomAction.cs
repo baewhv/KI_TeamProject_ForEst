@@ -41,8 +41,7 @@ namespace CutScene
             finalLens.OrthographicSize = endSize;
             cam.Lens = finalLens;
 
-            Debug.Log($"{GetType()} : 종료");
-            CutSceneManager.Instance.EndAction();
+            CutSceneManager.Instance.EndAction(ActionNum);
         }
     }
 }
