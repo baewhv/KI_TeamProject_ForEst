@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class SadFruit : BaseInteractionObject
+public class SadFruit : BaseFruitTextData
 {
     // [SerializeField] private Vector2 _spawnPos;
     // [Header("상호작용 및 리스폰 설정")]
@@ -133,9 +133,8 @@ public class SadFruit : BaseInteractionObject
         if (target.gameObject.CompareTag("Boundary"))
         {
             _dissolveFX?.PlayEffect();
-            gameObject.SetActive(false);
-            GameManager.Instance.FruitCount--;
-            GameManager.Instance.CheckClear();
+            if (_textRoutine != null) StopCoroutine(_textRoutine);
+            _textRoutine = StartCoroutine(TextVisibleRoutine());
         }
         else if (target.gameObject.CompareTag("Seed"))
         {

@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class HappyFruit : BaseInteractionObject
+public class HappyFruit : BaseFruitTextData
 {
     // [SerializeField] private Vector2 _spawnPos;
     // [Header("상호작용 및 리스폰 설정")]
@@ -143,9 +143,8 @@ public class HappyFruit : BaseInteractionObject
         {
             // 부딪힌 대상이 Seed라면 열매를 화면에서 사라지게 함
             OnStopPull();
-            gameObject.SetActive(false);
-            GameManager.Instance.FruitCount--;
-            GameManager.Instance.CheckClear();
+            if (_textRoutine != null) StopCoroutine(_textRoutine);
+            _textRoutine = StartCoroutine(TextVisibleRoutine());
         }
     }
     

@@ -7,7 +7,7 @@ using UnityEngine;
 
 public abstract class BaseSeedBean : MonoBehaviour
 {
-    public static Language currentLanguage = Language.KR;
+    
     protected TextAsset _seedbeanTextFile;
     protected List<SeedBeanDialogueData> _seedBeanDataList;
     private string regex = new string(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
@@ -17,14 +17,14 @@ public abstract class BaseSeedBean : MonoBehaviour
     protected GameObject textBox;
     protected Canvas textBoxCanvas;
     protected TextMeshProUGUI _text;
-    protected SeedBeanDialogueData targetData;
+    protected SeedBeanDialogueData _targetData;
 
     
     public virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            if (targetData == null || targetData.id == 0)
+            if (_targetData == null || _targetData.id == 0)
             {
                 var textList = _seedBeanDataList.Where(x => x.stage == "all").ToList();
                 if (textList.Count > 0)
@@ -35,7 +35,7 @@ public abstract class BaseSeedBean : MonoBehaviour
             }
             else
             {
-                _text.text = GetTextLanguage(targetData);
+                _text.text = GetTextLanguage(_targetData);
             }
             
             textBox.SetActive(true);
@@ -59,7 +59,7 @@ public abstract class BaseSeedBean : MonoBehaviour
         _collider = GetComponent<Collider2D>();
         textBoxCanvas = GetComponentInChildren<Canvas>();
         _text = GetComponentInChildren<TextMeshProUGUI>();
-        _text.text = GetTextLanguage(targetData);
+        _text.text = GetTextLanguage(_targetData);
         
         LoadCSV();
         
@@ -109,7 +109,7 @@ public abstract class BaseSeedBean : MonoBehaviour
     {
         if (data == null) return "";
 
-        switch (currentLanguage)
+        switch (LanguageSetting.currentLanguage)
         {
             case Language.KR: return data.textKR;
             case Language.EN: return data.textEN;
@@ -129,8 +129,8 @@ public abstract class BaseSeedBean : MonoBehaviour
     {
         if (_seedBeanDataList == null) LoadCSV();
         
-        targetData = _seedBeanDataList.Find(x => x.id == id);
-        if  (targetData != null) _text.text = GetTextLanguage(targetData);
+        _targetData = _seedBeanDataList.Find(x => x.id == id);
+        if  (_targetData != null) _text.text = GetTextLanguage(_targetData);
     }
 }
 

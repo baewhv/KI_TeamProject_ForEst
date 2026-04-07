@@ -1,5 +1,8 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using TMPro;
 using UnityEngine;
 
 public abstract class BaseInteractionObject : MonoBehaviour, IPullable, IRespawnable
@@ -21,9 +24,10 @@ public abstract class BaseInteractionObject : MonoBehaviour, IPullable, IRespawn
     public Rigidbody2D _rb;
     protected SpriteRenderer _renderer;
     protected Collider2D _collider;
+    protected Coroutine _textRoutine;
     protected bool _isPulling = false;
     protected bool _isRespawning = false;
-
+    
     public virtual void Update()
     {
         if (_isPulling && _playerHand != null)
@@ -69,14 +73,17 @@ public abstract class BaseInteractionObject : MonoBehaviour, IPullable, IRespawn
 
     public virtual void Respawn()
     {
-        gameObject.SetActive(true);
         if (_isRespawning) return;
+        
+        _collider.enabled = true;
+        _renderer.enabled = true;
         OnStopPull();
         _isRespawning = true;
         transform.position = _spawnPos;
         _rb.linearVelocity = Vector2.zero;
         PullingState(false);
         _isRespawning = false;
+        gameObject.SetActive(true);
     }
     
     public virtual void CheckGroundState(out Vector2 origin, out Vector2 checkBoxSize, out float direction)
@@ -100,9 +107,12 @@ public abstract class BaseInteractionObject : MonoBehaviour, IPullable, IRespawn
         _renderer.enabled = isEnabled;
         _collider.enabled = isEnabled;
     }
+}
 
-    public void SetDataWithID(int id)
-    {
-        
-    }
+[System.Serializable] public class FruitDialogueData
+{
+    public int id;
+    public string textKR;
+    public string textEN;
+    public string textJP;
 }

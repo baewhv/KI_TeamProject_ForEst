@@ -101,7 +101,7 @@ public class SpawnManager : MonoBehaviour
                 SpawnTileHelper fruitTileHelper = dummy.GetComponent<SpawnTileHelper>();
                 if (fruitTileHelper != null)
                 {
-                    var fruitObj = spawnObj.GetComponent<BaseInteractionObject>();
+                    var fruitObj = spawnObj.GetComponent<BaseFruitTextData>();
                     if (fruitObj != null) fruitObj.SetDataWithID(fruitTileHelper.checkID);
                 }
                 
