@@ -10,7 +10,7 @@ public class Dialogue : SingletonMonoBehaviour<Dialogue>
     private GameObject _textBox;
     Dictionary<int, string> textDict = new Dictionary<int, string>();
     Dictionary<int, int> nextDict = new Dictionary<int, int>();
-    Dictionary<int, string> speakerDict = new Dictionary<int, string>();
+    Dictionary<int, int> speakerDict = new Dictionary<int, int>();
     private Vector3 _offset;
     Transform currentTarget;
     private int _currentID;
@@ -53,7 +53,7 @@ public class Dialogue : SingletonMonoBehaviour<Dialogue>
         Transform child = _textBox.transform.Find("Image");
         dialogueBox = child.GetComponent<RectTransform>();
         dialogueText = child.GetComponentInChildren<TMP_Text>();
-        // dialogueBox.gameObject.SetActive(false);
+        dialogueBox.gameObject.SetActive(false);
     }
 
     public void StartDialog(int id)
@@ -98,11 +98,12 @@ public class Dialogue : SingletonMonoBehaviour<Dialogue>
 
             string idStr = row[0];
             string nextStr = row[1];
-            string speaker = row[2];
+            string speakerStr = row[3];
 
 
             if (!int.TryParse(idStr, out int id)) continue;
             if (!int.TryParse(nextStr, out int nextId)) continue;
+            if (!int.TryParse(speakerStr, out int speaker)) continue;
 
             string text = row[languageIndex];
 
@@ -121,7 +122,7 @@ public class Dialogue : SingletonMonoBehaviour<Dialogue>
 
         if (!speakerDict.ContainsKey(_currentID)) return;
 
-        string speaker = speakerDict[_currentID];
+        int speaker = speakerDict[_currentID];
 
         currentTarget = GetTargetBySpeaker(speaker);
     }
@@ -144,20 +145,21 @@ public class Dialogue : SingletonMonoBehaviour<Dialogue>
         ShowDialogue();
     }
 
-    Transform GetTargetBySpeaker(string speaker)
+    Transform GetTargetBySpeaker(int speaker)
     {
-        //Debug.Log("speaker: [" + speaker + "]");
+        Debug.Log("speaker: [" + speaker + "]");
 
-        if (speaker == "에스트")
+        switch (speaker)
         {
-            return CutSceneManager.Instance.Player.transform;
+            case 10101: //에스트
+                return CutSceneManager.Instance.Player.transform;
+            case 10201: //시드
+                return CutSceneManager.Instance.Seed.transform;
+            case 10301: //시드콩
+                return CutSceneManager.Instance.Seed_B.transform;
+            default:    //허공 대사
+                return CutSceneManager.Instance.EmptyObject.transform;
         }
-        else if (speaker == "시드")
-        {
-            return CutSceneManager.Instance.Seed.transform;
-        }
-
-        return null;
     }
 
     void UpdatePosition(Transform target)
