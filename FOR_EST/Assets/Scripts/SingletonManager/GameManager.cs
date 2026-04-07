@@ -58,7 +58,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     private void CheckFruitCount()
     {
-        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, new Vector2(90, 57), 0f, _fruitMask);
+        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, new Vector2(90, 80), 0f, _fruitMask);
 
         foreach (Collider2D hit in hits)
         {
@@ -93,6 +93,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(new Vector2(0, 0), new Vector2(90, 57));
+        Gizmos.DrawWireCube(new Vector2(0, 0), new Vector2(90, 80));
     }
 }
