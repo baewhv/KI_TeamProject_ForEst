@@ -156,7 +156,6 @@ public class HappyFruit : BaseInteractionObject
         if (!gameObject.activeSelf)
         {
             GameManager.Instance.FruitCount++;
-            Debug.Log(GameManager.Instance.FruitCount);
         }
         base.Respawn();
     }

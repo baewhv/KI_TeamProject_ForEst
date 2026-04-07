@@ -102,7 +102,7 @@ public class SpawnManager : MonoBehaviour
                 if (fruitTileHelper != null)
                 {
                     var fruitObj = spawnObj.GetComponent<BaseInteractionObject>();
-                    // if (fruitObj != null) fruitObj.SetDataWithID(fruitTileHelper.checkID);
+                    if (fruitObj != null) fruitObj.SetDataWithID(fruitTileHelper.checkID);
                 }
                 
                 IRespawnable respawnable = spawnObj.GetComponent<IRespawnable>();

@@ -100,4 +100,9 @@ public abstract class BaseInteractionObject : MonoBehaviour, IPullable, IRespawn
         _renderer.enabled = isEnabled;
         _collider.enabled = isEnabled;
     }
+
+    public void SetDataWithID(int id)
+    {
+        
+    }
 }

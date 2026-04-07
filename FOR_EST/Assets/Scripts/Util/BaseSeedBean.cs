@@ -125,7 +125,7 @@ public abstract class BaseSeedBean : MonoBehaviour
         return false;
     }
 
-    public virtual void SetDataWithID(int id)
+    public void SetDataWithID(int id)
     {
         if (_seedBeanDataList == null) LoadCSV();
         
