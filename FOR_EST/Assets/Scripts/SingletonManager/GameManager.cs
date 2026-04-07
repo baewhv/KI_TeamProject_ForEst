@@ -50,7 +50,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         if (_playerController == null) _playerController = _player.GetComponent<PlayerController>();
         
         CutSceneManager.Instance.LoadScenario(SceneManagement.Instance.CurrentSceneName);
-        CutSceneManager.Instance.PlayCutscene("Start");
+        CutSceneManager.Instance.EnqueueCutscene("Start");
         
         CheckFruitCount();
         
@@ -76,7 +76,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     private void PlayEndCutscene()
     {
-        CutSceneManager.Instance.PlayCutscene("End");
+        CutSceneManager.Instance.EnqueueCutscene("End");
         CutSceneManager.Instance.IsPlayCutscene.AddListener(EndCutsceneHandler);
     }
 
