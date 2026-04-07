@@ -16,13 +16,13 @@ MonoBehaviour:
     character: 0
     ShowCharacter: 1
     GetInGamePosition: 0
-    position: {x: 20, y: 1}
+    position: {x: 6, y: 0.1}
     isRight: 0
   SeedData:
     character: 1
     ShowCharacter: 1
     GetInGamePosition: 0
-    position: {x: 15, y: 1}
+    position: {x: 3, y: 0.1}
     isRight: 1
   SeedBData:
     character: 2
@@ -42,7 +42,9 @@ MonoBehaviour:
   - rid: 7021411028578336881
   - rid: 7021411028578336880
   - rid: 7021411028578336882
+  - rid: 2897498071960912014
   - rid: 7021411028578336883
+  - rid: 2897498071960912015
   - rid: 7021411028578336884
   - rid: 7021411028578336885
   - rid: 7021411028578336886
@@ -54,17 +56,38 @@ MonoBehaviour:
   - rid: 7021411028578336892
   - rid: 7021411028578336893
   - rid: 7021411028578336894
-  - rid: 7021411028578336896
   - rid: 7021411028578336895
   - rid: 7021411028578336897
   - rid: 7021411028578336898
   - rid: 7021411028578336899
   - rid: 7021411028578336900
+  - rid: 2897498071960912016
   - rid: 7021411028578336901
   - rid: 7021411028578336902
   references:
     version: 2
     RefIds:
+    - rid: 2897498071960912014
+      type: {class: CharacterDirectionAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 2
+        NextType: 1
+        character: 1
+        isRight: 0
+    - rid: 2897498071960912015
+      type: {class: DelayAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 13
+        NextType: 1
+        delayTime: 1
+    - rid: 2897498071960912016
+      type: {class: CharacterPlayAnimationAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 4
+        NextType: 2
+        character: 0
+        animation: Smile
+        TrueAndFalse: 1
     - rid: 7021411028578336879
       type: {class: FadeInAction, ns: CutScene, asm: Assembly-CSharp}
       data:
@@ -97,7 +120,7 @@ MonoBehaviour:
         _actionType: 1
         NextType: 1
         character: 1
-        position: {x: 12, y: 1}
+        position: {x: 0, y: 0.1}
         isForceMove: 0
     - rid: 7021411028578336884
       type: {class: CharacterReverseAction, ns: CutScene, asm: Assembly-CSharp}
@@ -191,14 +214,6 @@ MonoBehaviour:
         dialogNumber: 100139
         isEmptyPositionDialog: 0
         dialogPosition: {x: 0, y: 0}
-    - rid: 7021411028578336896
-      type: {class: CharacterPlayAnimationAction, ns: CutScene, asm: Assembly-CSharp}
-      data:
-        _actionType: 4
-        NextType: 1
-        character: 1
-        animation: 
-        TrueAndFalse: 0
     - rid: 7021411028578336897
       type: {class: CharacterDirectionAction, ns: CutScene, asm: Assembly-CSharp}
       data:
@@ -213,7 +228,7 @@ MonoBehaviour:
         NextType: 1
         character: 1
         animation: Smile
-        TrueAndFalse: 0
+        TrueAndFalse: 1
     - rid: 7021411028578336899
       type: {class: PlayDialogAction, ns: CutScene, asm: Assembly-CSharp}
       data:
@@ -227,7 +242,7 @@ MonoBehaviour:
       data:
         _actionType: 4
         NextType: 1
-        character: 0
+        character: 1
         animation: Smile
         TrueAndFalse: 0
     - rid: 7021411028578336901
