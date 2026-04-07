@@ -1,9 +1,9 @@
 ID	nextID	name	speaker	Textbox_type	Text_KR	Text_EN	Text_JP	Stage
-100001	100002	에스트		0	…	...	...	Tutorial_cg1
-100002	0	에스트		0	낯선 천장…	A strange ceiling...	見慣れない天井…	Tutorial_cg1
-100003	0	시드		0	안녕.	Hi there.	こんにちは。	Tutorial_cg1
-100004	100005	에스트		0	"아니, 얼굴이네."	"Wait, it's a face."	いや、顔か。	Tutorial_cg1
-100005	0	에스트		0	…우와.	...Wow.	…うわぁ…。	Tutorial_cg1
+100001	100002	에스트	0	0	…	...	...	Tutorial_cg1
+100002	0	에스트	0	0	낯선 천장…	A strange ceiling...	見慣れない天井…	Tutorial_cg1
+100003	0	시드	0	0	안녕.	Hi there.	こんにちは。	Tutorial_cg1
+100004	100005	에스트	0	0	"아니, 얼굴이네."	"Wait, it's a face."	いや、顔か。	Tutorial_cg1
+100005	0	에스트	0	0	…우와.	...Wow.	…うわぁ…。	Tutorial_cg1
 100006	100007	시드	10201	0	…	...	...	Tutorial_cg1
 100007	100008	에스트	10101	0	안… 녕?	He...llo?	…こんにちは？	Tutorial_cg1
 100008	100009	시드	10201	0	별로 놀라지 않네?	You're not that surprised?	あんまり驚かないんだね？	Tutorial_cg1
@@ -59,7 +59,7 @@ ID	nextID	name	speaker	Textbox_type	Text_KR	Text_EN	Text_JP	Stage
 100058	100059	시드	10201	0	…비슷해.	…Something like that.	…似たようなものさ。	Tutorial_cg2
 100059	0	시드	10201	0	아무튼 간단히 설명할게.	"Anyway, I’ll explain briefly."	とにかく、簡単に説明するね。	Tutorial_cg2
 100060	0	시드	10201	0	위에 있는 나무의 열매는 밀어서 떨어뜨리고,	Push the fruits from the tree above so they fall down.	上の木の実は押して落として、	Tutorial_cg2
-100061	0	시드		0	아래에 있는 나무의 열매는 가운데로 모아주면 돼.	And for the fruits in the reflection below, gather them to the center.	下の木の実は真ん中に集めてくれればいいんだ。	Tutorial_cg2
+100061	0	시드	0	0	아래에 있는 나무의 열매는 가운데로 모아주면 돼.	And for the fruits in the reflection below, gather them to the center.	下の木の実は真ん中に集めてくれればいいんだ。	Tutorial_cg2
 100062	100063	에스트	10101	0	그게 전부야? 간단하네!	That’s it? Sounds easy!	それだけ？ 簡単だね！	Tutorial_cg2
 100063	100064	시드	10201	0	맞아. 곳곳에 시드콩이 있을 테니까, 도움받을 수 있을 꺼야.	Right. You’ll find Mini Beans everywhere, so you can get their help.	そうだよ。あちこちにシードマメがいるはずだから、助けてもらえるよ。	Tutorial_cg2
 100064	100065	시드	10201	0	한번 시작해 볼까?	Shall we start?	一度始めてみようか？	Tutorial_cg2
@@ -75,7 +75,7 @@ ID	nextID	name	speaker	Textbox_type	Text_KR	Text_EN	Text_JP	Stage
 100074	100075	에스트	10101	0	근데 왜 위 나무의 열매는 떨어뜨리고 아래 나무의 열매는 안쪽에 모으는 거야?	But why do we drop the fruits from the tree above and gather the ones from the tree below?	ところで、どうして上の木の実を落として、下の木の実は内側に集めるの？	Tutorial_cg3
 100075	0	시드	10201	0	…	...	...	Tutorial_cg3
 100076	0	시드	10201	0	위 나무의 이름은 슬픔 나무야. 슬픔 나무에는 슬픔이 담긴 열매가 열려.	…The tree above is called the Tree of Sorrow. It bears fruits filled with sadness.	…上の木の名前は「悲しみの木」。悲しみの木には、悲しみが詰まった実がなるんだ。	Tutorial_cg3
-100077	0	시드		0	아래 나무의 이름은 행복 나무야. 행복 나무에는 행복이 담긴 열매가 열려.	The tree below is called the Tree of Happiness. It bears fruits filled with joy.	下の木の名前は「幸せの木」。幸せの木には、幸せが詰まった実がなるんだよ。	Tutorial_cg3
+100077	0	시드	0	0	아래 나무의 이름은 행복 나무야. 행복 나무에는 행복이 담긴 열매가 열려.	The tree below is called the Tree of Happiness. It bears fruits filled with joy.	下の木の名前は「幸せの木」。幸せの木には、幸せが詰まった実がなるんだよ。	Tutorial_cg3
 100078	100079	에스트	10101	0	아! 그래서 슬픔은 떨어뜨리고 행복은 모으는 거구나!	Ah! So that’s why we drop the sadness and gather the happiness!	あ！ だから悲しみは落として、幸せは集めるんだね！	Tutorial_cg3
 100079	100080	시드	10201	0	맞아.	Exactly.	そうだよ。	Tutorial_cg3
 100080	100081	에스트	10101	0	그런데 누구의 슬픔과 행복이야?	But whose sadness and happiness are they?	でも、誰の悲しみと幸せなの？	Tutorial_cg3
@@ -156,7 +156,7 @@ ID	nextID	name	speaker	Textbox_type	Text_KR	Text_EN	Text_JP	Stage
 100155	100156	시드	10201	0	그게 오래되다 보면, 점점 메말라 가는 거지.	If that goes on too long, it gradually starts to wither away.	それが長引くと、だんだん枯れていってしまうんだよ。	Stage_2
 100156	100157	에스트	10101	0	정말 심오한 세상이네.	This is a seriously profound world.	本当に奥が深い世界だね。	Stage_2
 100157	0	에스트	10101	0	정말 어려워…	It’s really tough…	すごく難しいや…	Stage_2
-100158	0			0	「이번 가을이 내가 겪은 최악의 가을이었어.」	「This fall was the worst fall I’ve ever experienced.」	「今年の秋が、僕の人生で最悪の秋だった。」	Stage_2
+100158	0		0	0	「이번 가을이 내가 겪은 최악의 가을이었어.」	「This fall was the worst fall I’ve ever experienced.」	「今年の秋が、僕の人生で最悪の秋だった。」	Stage_2
 100159	0	에스트	10101	0	!	!	!	Stage_2
 100160	100161	시드콩	10301	0	에스트?	Est?	エスト？	Stage_2
 100161	0	시드콩	10301	0	왜 그래콩?	What’s wrong, beanie?	どうしたまめ？	Stage_2
@@ -214,10 +214,10 @@ ID	nextID	name	speaker	Textbox_type	Text_KR	Text_EN	Text_JP	Stage
 100213	100214	시드	10201	0	울어도 괜찮아.	It’s okay to cry.	泣いてもいいんだよ。	Stage_2
 100214	100215	시드	10201	0	오늘은 이만 잠에 들자.	Let’s get some sleep for today.	今日はもう眠りにつこう。	Stage_2
 100215	0	시드	10201	0	우리가 네 곁에 있을게.	We’ll be right here by your side.	僕たちが君のそばにいるから。	Stage_2
-100216	0	시드콩1		0	—---- —-	—---- —-	—---- —-	Stage_3
-100217	0	시드콩2		0	– —- —--콩!	– —- —-- ..eanie!	– —- —-- ..ーめ！	Stage_3
-100218	0	시드콩1		0	큰일이야콩!	It’s an emergency, beanie!	大変だまめ！	Stage_3
-100219	0	시드콩2		0	어서 움직여콩!	Move it, move it, beanie! The rain is coming!	早く動くまめ！	Stage_3
+100216	0	시드콩1	0	0	—---- —-	—---- —-	—---- —-	Stage_3
+100217	0	시드콩2	0	0	– —- —--콩!	– —- —-- ..eanie!	– —- —-- ..ーめ！	Stage_3
+100218	0	시드콩1	0	0	큰일이야콩!	It’s an emergency, beanie!	大変だまめ！	Stage_3
+100219	0	시드콩2	0	0	어서 움직여콩!	Move it, move it, beanie! The rain is coming!	早く動くまめ！	Stage_3
 100220	100221	에스트	10101	0	…	…	…	Stage_3
 100221	100222	시드	10201	0	잘 잤어?	Did you sleep well?	よく眠れたかい？	Stage_3
 100222	100223	에스트	10101	0	…응	..Yes.	…うん。	Stage_3
@@ -320,18 +320,18 @@ ID	nextID	name	speaker	Textbox_type	Text_KR	Text_EN	Text_JP	Stage
 100319	0	에스트	10101	0	고마웠어, 시드.	Thank you for everything, Seed.	ありがとう、シード。	Ending
 100320	0	시드	10201	0	안녕.	Take care.	さようなら。	Ending
 100321	0	에스트	10101	0	잘 있어.	Goodbye.	元気でね。	Ending
-100322	100323	에스트		0	…	...	...	Ending
-100323	0	에스트		0	낯선 천장…	A strange ceiling...	見慣れない天井…。	Ending
-100324	100325	에스트		0	…	...	...	Ending
-100325	100326	에스트		0	얼굴은 없네.	But, it's no face	いや、顔がない。	Ending
-100326	100327	에스트		0	…	...	...	Ending
-100327	100328	에스트		0	목소리가 안 나와.	I can't make a sound.	声が出ない。	Ending
-100328	100329	에스트		0	…	...	...	Ending
-100329	100330	에스트		0	꿈이었을까?	Was it all just a dream?	夢だったのかな…？	Ending
-100330	100331	에스트		0	그렇다면 난…	If so, then I...	それなら僕は…	Ending
-100331	100332	에스트		0	…!	...!	…！	Ending
-100332	100333	에스트		0	하하…	Haha...	ハハ…	Ending
-100333	100334	에스트		0	시드, 정말 많은 도움이 됐어.	Seed, you helped me so much.	シード、本当にありがとう。	Ending
-100334	100335	에스트		0	꼭 숲이 될게.	I will become a forest.	必ずフォレストになってみせるよ。	Ending
-100335	0	에스트		0	에스트를 위해.	FOR EST.	エストのために (For Est)。	Ending
-100336	0				세상의 모든 에스트를 위해. team.Seed.	For every EST in this world. team.Seed	世界のすべてのエストのために。team.Seed.	Ending
+100322	100323	에스트	0	0	…	...	...	Ending
+100323	0	에스트	0	0	낯선 천장…	A strange ceiling...	見慣れない天井…。	Ending
+100324	100325	에스트	0	0	…	...	...	Ending
+100325	100326	에스트	0	0	얼굴은 없네.	But, it's no face	いや、顔がない。	Ending
+100326	100327	에스트	0	0	…	...	...	Ending
+100327	100328	에스트	0	0	목소리가 안 나와.	I can't make a sound.	声が出ない。	Ending
+100328	100329	에스트	0	0	…	...	...	Ending
+100329	100330	에스트	0	0	꿈이었을까?	Was it all just a dream?	夢だったのかな…？	Ending
+100330	100331	에스트	0	0	그렇다면 난…	If so, then I...	それなら僕は…	Ending
+100331	100332	에스트	0	0	…!	...!	…！	Ending
+100332	100333	에스트	0	0	하하…	Haha...	ハハ…	Ending
+100333	100334	에스트	0	0	시드, 정말 많은 도움이 됐어.	Seed, you helped me so much.	シード、本当にありがとう。	Ending
+100334	100335	에스트	0	0	꼭 숲이 될게.	I will become a forest.	必ずフォレストになってみせるよ。	Ending
+100335	0	에스트	0	0	에스트를 위해.	FOR EST.	エストのために (For Est)。	Ending
+100336	0		0		세상의 모든 에스트를 위해. team.Seed.	For every EST in this world. team.Seed	世界のすべてのエストのために。team.Seed.	Ending
