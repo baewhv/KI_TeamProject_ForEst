@@ -1260,7 +1260,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 2045360071470288949}
         m_TargetAssemblyTypeName: LocalizationTest, Assembly-CSharp
-        m_MethodName: ChangeLanguagetoKorean
+        m_MethodName: NextLanguage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3107,7 +3107,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 2045360071470288949}
         m_TargetAssemblyTypeName: LocalizationTest, Assembly-CSharp
-        m_MethodName: ChangeLanguagetoEnglish
+        m_MethodName: NextLanguage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7836,7 +7836,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 2045360071470288949}
         m_TargetAssemblyTypeName: LocalizationTest, Assembly-CSharp
-        m_MethodName: ChangeLanguagetoJapanese
+        m_MethodName: NextLanguage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10882,7 +10882,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 2045360071470288949}
         m_TargetAssemblyTypeName: LocalizationTest, Assembly-CSharp
-        m_MethodName: ChangeLanguagetoKorean
+        m_MethodName: PrevLanguage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11178,7 +11178,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 2045360071470288949}
         m_TargetAssemblyTypeName: LocalizationTest, Assembly-CSharp
-        m_MethodName: ChangeLanguagetoEnglish
+        m_MethodName: PrevLanguage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12642,7 +12642,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 2045360071470288949}
         m_TargetAssemblyTypeName: LocalizationTest, Assembly-CSharp
-        m_MethodName: ChangeLanguagetoJapanese
+        m_MethodName: PrevLanguage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
