@@ -28,7 +28,7 @@ MonoBehaviour:
     character: 2
     ShowCharacter: 1
     GetInGamePosition: 0
-    position: {x: 20, y: 0}
+    position: {x: 40, y: 0.1}
     isRight: 1
   CameraData:
     followTarget: 0
@@ -46,13 +46,34 @@ MonoBehaviour:
   - rid: 2897498032376119301
   - rid: 2897498032376119303
   - rid: 2897498032376119304
+  - rid: 2307714538049634389
   - rid: 2897498032376119305
   - rid: 2897498032376119306
+  - rid: 2307714538049634388
   - rid: 2897498032376119307
   - rid: 2897498032376119308
+  - rid: 2307714538049634390
   references:
     version: 2
     RefIds:
+    - rid: 2307714538049634388
+      type: {class: DelayAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 13
+        NextType: 1
+        delayTime: 1
+    - rid: 2307714538049634389
+      type: {class: DelayAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 13
+        NextType: 1
+        delayTime: 1
+    - rid: 2307714538049634390
+      type: {class: DelayAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 13
+        NextType: 1
+        delayTime: 1
     - rid: 2897498032376119296
       type: {class: CharacterMoveAction, ns: CutScene, asm: Assembly-CSharp}
       data:
@@ -67,7 +88,7 @@ MonoBehaviour:
         _actionType: 6
         NextType: 1
         dialogNumber: 100046
-        dialogTarget: 
+        isEmptyPositionDialog: 0
         dialogPosition: {x: 0, y: 0}
     - rid: 2897498032376119299
       type: {class: CharacterMoveAction, ns: CutScene, asm: Assembly-CSharp}
@@ -91,7 +112,7 @@ MonoBehaviour:
         _actionType: 6
         NextType: 1
         dialogNumber: 100053
-        dialogTarget: 
+        isEmptyPositionDialog: 0
         dialogPosition: {x: 0, y: 0}
     - rid: 2897498032376119303
       type: {class: CameraMoveAction, ns: CutScene, asm: Assembly-CSharp}
@@ -106,7 +127,7 @@ MonoBehaviour:
         _actionType: 6
         NextType: 1
         dialogNumber: 100060
-        dialogTarget: 
+        isEmptyPositionDialog: 0
         dialogPosition: {x: 0, y: 0}
     - rid: 2897498032376119305
       type: {class: CameraMoveAction, ns: CutScene, asm: Assembly-CSharp}
@@ -121,8 +142,8 @@ MonoBehaviour:
         _actionType: 6
         NextType: 1
         dialogNumber: 100061
-        dialogTarget: 
-        dialogPosition: {x: 0, y: 0}
+        isEmptyPositionDialog: 1
+        dialogPosition: {x: 7, y: -5}
     - rid: 2897498032376119307
       type: {class: CameraMoveAction, ns: CutScene, asm: Assembly-CSharp}
       data:
@@ -136,7 +157,7 @@ MonoBehaviour:
         _actionType: 6
         NextType: 1
         dialogNumber: 100062
-        dialogTarget: 
+        isEmptyPositionDialog: 0
         dialogPosition: {x: 0, y: 0}
     - rid: 7021410910219010222
       type: {class: FadeInAction, ns: CutScene, asm: Assembly-CSharp}
