@@ -167,4 +167,20 @@ public class Dialogue : SingletonMonoBehaviour<Dialogue>
         Vector3 screenPos = Camera.main.WorldToScreenPoint(target.position + _offset);
         dialogueBox.position = screenPos;
     }
+
+    public void SetLanguageIndex(int localeIndex)
+    { 
+        languageIndex = minLang + localeIndex; // CSV파일에서 텍스트가 있는 열의 인덱스 5 : 한국어, 6: 영어, 7: 일본어
+
+        textDict.Clear();
+        nextDict.Clear();
+        speakerDict.Clear();
+
+        LoadCSV(); // 바뀐 언어로 출력되어야 하기 때문에 CSV파일을 다시 불러옵니다.
+
+        /*if (IsPlay)
+        {
+            ShowDialogue(); // 현재 대화가 진행 중이라면 언어 변경 후에도 대화가 계속 출력되어야 하기 때문에 ShowDialogue() 함수를 호출합니다.
+        }*/
+    }
 }
