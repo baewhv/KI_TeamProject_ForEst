@@ -124,7 +124,7 @@ public class PlayerCutSceneController : MonoBehaviour, ICutsceneObject
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * (_status.IsRight ? 1 : -1), 0.5f,
             grabLayer);
-        if (hit.collider && hit.collider.CompareTag("Obstacle"))
+        if (hit.collider && (hit.collider.CompareTag("Obstacle") || hit.collider.CompareTag("Fruit")))
         {
             _status.GrabbedObject = hit.collider.GetComponent<IPullable>();
             _status.GrabbedObject.OnPull(_grabPoint);

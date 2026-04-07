@@ -23,7 +23,7 @@ public class ScenarioSO : ScriptableObject
     public CameraCutsceneData CameraData = new();
 
     public List<CutsceneTriggerData> Triggers;
-    public List<Sprite> ImageResource;
+    public List<GameObject> CutsceneObject;
     
     
     [SerializeReference]
