@@ -84,7 +84,7 @@ public class Dialogue : SingletonMonoBehaviour<Dialogue>
 
     void LoadCSV()
     {
-        TextAsset csv = Resources.Load<TextAsset>("TableSheetCSV"); //가져올 CSV 파일의 이름을 입력해주세요. 
+        TextAsset csv = Resources.Load<TextAsset>("TableSheet"); //가져올 CSV 파일의 이름을 입력해주세요. 
         string[] lines = csv.text.Split('\n');
 
         for (int i = 1; i < lines.Length; i++)
