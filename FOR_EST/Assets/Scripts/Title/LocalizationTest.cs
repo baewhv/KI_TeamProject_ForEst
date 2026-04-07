@@ -4,14 +4,14 @@ using UnityEngine.Localization.Settings;
 public class LocalizationTest : MonoBehaviour
 {
     int currentIndex = 0; //현재 언어를 0번으로 초기화
-    int maxIndex = 2; //언어가 3개 있으므로 최대 인덱스는 2, 0:한국어, 1:영어, 2:일본어
+    int maxIndex = 2; //언어가 3개 있으므로 최대 인덱스는 2, 0:영어, 1:한국어, 2:일본어
 
     public void NextLanguage()
     {
         currentIndex++; //다음 언어로 변경
         if (currentIndex > maxIndex) //인덱스가 최대값을 초과하면
 
-            currentIndex = 0; //인덱스를 초기화하여 다시 한국어로 돌아감
+            currentIndex = 0; //인덱스를 초기화하여 다시 영어로 돌아감
 
         ApplyLanguage();
     }
@@ -26,12 +26,12 @@ public class LocalizationTest : MonoBehaviour
         ApplyLanguage();
     }
 
-    /*public void ChangeLanguagetoKorean() //한국어로 변경
+    /*public void ChangeLanguagetoKorean() //영어로 변경
     {
         UpdateLocales(0);
     }
 
-    public void ChangeLanguagetoEnglish() //영어로 변경
+    public void ChangeLanguagetoEnglish() //한국어로 변경
     {
         UpdateLocales(1);
     }
