@@ -8,5 +8,6 @@ namespace CutScene
     {
         public Vector2 position; //위치
         public string triggerSOName;
+        public string triggerTargetTag;
     }
 }

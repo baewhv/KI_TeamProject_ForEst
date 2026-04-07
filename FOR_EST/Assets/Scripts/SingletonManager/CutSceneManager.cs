@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using CutScene;
 using Unity.Cinemachine;
 using Unity.VisualScripting;
@@ -12,7 +13,7 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
     private Dictionary<string, ScenarioSO> Scenarios = new();
     [SerializeField] private ScenarioSO testSO;
 
-    public ScenarioSO CurrentScenario { get; private set; }
+    public Queue<ScenarioSO> ScenarioQueue { get; private set; } = new();
 
     // 컷씬용 오브젝트
     private GameObject CutSceneObjects;
@@ -71,7 +72,7 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
                 LoadScenario(SceneManager.GetActiveScene().name);
             else
                 Scenarios["Start"] = testSO;
-            PlayCutscene("Start");
+            EnqueueCutscene("Start");
             Dialogue.Instance.CreateTextBox();
         }
     }
@@ -132,9 +133,8 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
             
             CreateTrigger(d.Triggers);
         }
-
+        pc = FindAnyObjectByType<PlayerController>();
         Camera.main.cullingMask = beforeMask; //hardcoding
-        
     }
 
     private void CreateTrigger(List<CutsceneTriggerData> data)
@@ -164,11 +164,10 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
         {
             mainCamera.cullingMask = cutsceneMask;
         }
-
-        SetCharacter(Player, pc.gameObject, CurrentScenario.PlayerData);
-        SetCharacter(Seed, null, CurrentScenario.SeedData);
-        SetCharacter(Seed_B, null, CurrentScenario.SeedBData);
-        SetCamera(CurrentScenario.CameraData);
+        SetCharacter(Player, pc.gameObject, ScenarioQueue.Peek().PlayerData);
+        SetCharacter(Seed, null, ScenarioQueue.Peek().SeedData);
+        SetCharacter(Seed_B, null, ScenarioQueue.Peek().SeedBData);
+        SetCamera(ScenarioQueue.Peek().CameraData);
     }
 
     private void DisableCutsceneMode()
@@ -177,7 +176,6 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
         {
             mainCamera.cullingMask = beforeMask;
         }
-
         CutsceneCamera.Priority = 9;
         //연출 종료 설정
         //if(CurrentScenario.Player.SetInGamePosition)
@@ -185,58 +183,63 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
         pc.gameObject.SetActive(true);
     }
 
-    public void PlayCutscene(string cutSceneName)
+    public void EnqueueCutscene(string cutSceneName)
     {
-        if (CurrentScenario != null) return; //현재 실행중 시나리오가 있는지
+        if (Scenarios.ContainsKey(cutSceneName))
+        {
+            ScenarioQueue.Enqueue(Scenarios[cutSceneName]);
+            if(!IsPlayCutscene.Value)
+                PlayScenarioQueue();
+        }
+
+        
+        CurrentActionsIndex = 0;
+    }
+
+    private void PlayScenarioQueue()
+    {
+        if (ScenarioQueue.Count == 0) return; 
         if (!mainCamera)
             mainCamera = Camera.main;
         if (!pc)
-            pc = FindAnyObjectByType<PlayerController>(); //Todo : PlayerCharacter 게임매니저에서 받아오기
-        //if (!seed)                                        //Todo : Seed 게임 매니저에서 받아오기
-        //seed = 
-
-        //컷씬 so 세팅.
-        CurrentActionsIndex = 0;
-        if (Scenarios.ContainsKey(cutSceneName))
-        {
-            CurrentScenario = Scenarios[cutSceneName];
-            EnableCutsceneMode();
-            IsPlayCutscene.Value = true;
-            SetNextCut();
-        }
-        else
-        {
-            Debug.Log("실행할 시나리오 없음.");
-        }
+            pc = FindAnyObjectByType<PlayerController>();
+        EnableCutsceneMode();
+        IsPlayCutscene.Value = true;
+        SetNextCut();
     }
 
     public void EndCutscene()
     {
-        IsPlayCutscene.Value = false;
-        CurrentScenario = null;
-        DisableCutsceneMode();
+        if (ScenarioQueue.Count == 0)
+        {
+            IsPlayCutscene.Value = false;
+            DisableCutsceneMode();
+            return;
+        }
+        PlayScenarioQueue();
     }
 
 
     private void SetNextCut()
     {
         CurrentActions.Clear();
-        if (!CurrentScenario || CurrentActionsIndex >= CurrentScenario.ActionList.Count)
+        if (ScenarioQueue.Count == 0 || CurrentActionsIndex >= ScenarioQueue.Peek().ActionList.Count)
         {
+            ScenarioQueue.Dequeue();
             EndCutscene();
             return;
         }
 
         while (true)
         {
-            BaseAction curAction = CurrentScenario.ActionList[CurrentActionsIndex];
+            BaseAction curAction = ScenarioQueue.Peek().ActionList[CurrentActionsIndex];
             curAction.ActionNum = CurrentActionsIndex;
             CurrentActions.Add(curAction); //현재 액션 추가
             cutsceneHash.Add(CurrentActionsIndex);
             CurrentActionsIndex++; //인덱스 추가
             _currentActionsCount++;
 
-            if (CurrentActionsIndex >= CurrentScenario.ActionList.Count ||
+            if (CurrentActionsIndex >= ScenarioQueue.Peek().ActionList.Count ||
                 curAction.NextType != ENextActionType.Together)
                 break;
         }
@@ -254,12 +257,14 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
 
     public void EndAction(int num)
     {
+        Debug.Log($"종료 호출 {num}");
         if (cutsceneHash.Contains(num))
         {
-            _currentActionsCount--;
-            if (_currentActionsCount <= 0)
-                SetNextCut();
+            //_currentActionsCount--;
+            //if (_currentActionsCount <= 0)
             cutsceneHash.Remove(num);
+            if(cutsceneHash.Count <= 0)
+                SetNextCut();
         }
         else
         {
@@ -269,10 +274,15 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
 
     public void SetCharacter(PlayerCutSceneController cutSceneObj, GameObject inGameObj, CharacterCutsceneData data)
     {
-        if (!inGameObj && data.GetInGamePosition)
+        if (inGameObj && data.GetInGamePosition)
+        {
             cutSceneObj.SetPosition(inGameObj.transform.position);
+        }
         else
+        {
             cutSceneObj.SetPosition(data.position);
+        }
+
         cutSceneObj.SetDirection(data.isRight);
         StartCoroutine(cutSceneObj.Fader(true, 0));
         cutSceneObj.gameObject.SetActive(data.ShowCharacter);

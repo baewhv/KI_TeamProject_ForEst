@@ -4,24 +4,20 @@ using UnityEngine;
 
 public class CutsceneTrigger : MonoBehaviour
 {
-    [SerializeField] private string _cutsceneName;
+    private string _cutsceneName;
+    private string _triggerTargetTag;
 
     public void Init(CutsceneTriggerData data)
     {
         _cutsceneName = data.triggerSOName;
         transform.position = data.position;
+        _triggerTargetTag = data.triggerTargetTag;
     }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag(_triggerTargetTag))
         {
-            CutSceneManager.Instance.PlayCutscene(_cutsceneName);
+            CutSceneManager.Instance.EnqueueCutscene(_cutsceneName);
             Destroy(gameObject);
         }
     }
