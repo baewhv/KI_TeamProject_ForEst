@@ -16,46 +16,42 @@ MonoBehaviour:
     character: 0
     ShowCharacter: 1
     GetInGamePosition: 0
-    position: {x: 9, y: 0.1}
+    position: {x: 7, y: 0.1}
     isRight: 0
   SeedData:
     character: 1
     ShowCharacter: 1
     GetInGamePosition: 0
-    position: {x: 7, y: 0.1}
+    position: {x: 5, y: 0.1}
     isRight: 1
   SeedBData:
     character: 2
     ShowCharacter: 1
     GetInGamePosition: 0
-    position: {x: 8, y: 0.1}
+    position: {x: 6, y: 0.1}
     isRight: 1
   CameraData:
-    followTarget: 0
-    target: 0
+    followTarget: 1
+    target: 1
     position: {x: 0, y: 0}
-    zoom: 11.5
-  BackgroundImage: []
+    zoom: 6.5
+  Triggers: []
   ImageResource: []
   ActionList:
-  - rid: 4832695620617109605
-  - rid: 4832695620617109606
+  - rid: 2897498080415842554
   - rid: 4832695620617109607
-  - rid: 4832695620617109608
   - rid: 4832695620617109609
-  - rid: 4832695620617109610
+  - rid: 4832695620617109608
   - rid: 4832695620617109611
+  - rid: 4832695620617109610
   - rid: 4832695620617109612
   - rid: 4832695620617109614
   - rid: 4832695620617109615
-  - rid: 4832695620617109616
   - rid: 4832695620617109617
   - rid: 4832695620617109619
   - rid: 4832695620617109620
   - rid: 4832695620617109621
   - rid: 4832695620617109622
-  - rid: 4832695620617109623
-  - rid: 4832695620617109639
   - rid: 2897498071960912027
   - rid: 4832695620617109624
   - rid: 4832695620617109625
@@ -77,7 +73,7 @@ MonoBehaviour:
       data:
         _actionType: 12
         NextType: 1
-        value: 8
+        value: 7
         time: 0
     - rid: 2897498071960912028
       type: {class: FadeOutAction, ns: CutScene, asm: Assembly-CSharp}
@@ -85,22 +81,12 @@ MonoBehaviour:
         _actionType: 8
         NextType: 1
         time: 3
-    - rid: 4832695620617109605
-      type: {class: CharacterFaderAction, ns: CutScene, asm: Assembly-CSharp}
+    - rid: 2897498080415842554
+      type: {class: DelayAction, ns: CutScene, asm: Assembly-CSharp}
       data:
-        _actionType: 5
+        _actionType: 13
         NextType: 1
-        character: 0
-        isFadeIn: 1
-        time: 0
-    - rid: 4832695620617109606
-      type: {class: CharacterFaderAction, ns: CutScene, asm: Assembly-CSharp}
-      data:
-        _actionType: 5
-        NextType: 2
-        character: 1
-        isFadeIn: 1
-        time: 0
+        delayTime: 1
     - rid: 4832695620617109607
       type: {class: PlayDialogAction, ns: CutScene, asm: Assembly-CSharp}
       data:
@@ -163,14 +149,6 @@ MonoBehaviour:
         dialogNumber: 100174
         isEmptyPositionDialog: 0
         dialogPosition: {x: 0, y: 0}
-    - rid: 4832695620617109616
-      type: {class: PlayDialogAction, ns: CutScene, asm: Assembly-CSharp}
-      data:
-        _actionType: 6
-        NextType: 1
-        dialogNumber: 100175
-        isEmptyPositionDialog: 0
-        dialogPosition: {x: 0, y: 0}
     - rid: 4832695620617109617
       type: {class: PlayDialogAction, ns: CutScene, asm: Assembly-CSharp}
       data:
@@ -208,13 +186,6 @@ MonoBehaviour:
         _actionType: 10
         NextType: 1
         character: 0
-    - rid: 4832695620617109623
-      type: {class: CameraZoomAction, ns: CutScene, asm: Assembly-CSharp}
-      data:
-        _actionType: 12
-        NextType: 2
-        value: 10
-        time: 0
     - rid: 4832695620617109624
       type: {class: PlayDialogAction, ns: CutScene, asm: Assembly-CSharp}
       data:
@@ -250,7 +221,7 @@ MonoBehaviour:
         _actionType: 1
         NextType: 1
         character: 1
-        position: {x: 8, y: 1}
+        position: {x: 7, y: 1}
         isForceMove: 0
     - rid: 4832695620617109629
       type: {class: CharacterMoveAction, ns: CutScene, asm: Assembly-CSharp}
@@ -258,7 +229,7 @@ MonoBehaviour:
         _actionType: 1
         NextType: 1
         character: 2
-        position: {x: 10, y: 1}
+        position: {x: 9, y: 1}
         isForceMove: 0
     - rid: 4832695620617109630
       type: {class: CharacterDirectionAction, ns: CutScene, asm: Assembly-CSharp}
@@ -291,13 +262,6 @@ MonoBehaviour:
         character: 2
         animation: Sit
         TrueAndFalse: 1
-    - rid: 4832695620617109639
-      type: {class: CameraZoomAction, ns: CutScene, asm: Assembly-CSharp}
-      data:
-        _actionType: 12
-        NextType: 1
-        value: 9
-        time: 0
     - rid: 4832695620617109640
       type: {class: CharacterPlayAnimationAction, ns: CutScene, asm: Assembly-CSharp}
       data:

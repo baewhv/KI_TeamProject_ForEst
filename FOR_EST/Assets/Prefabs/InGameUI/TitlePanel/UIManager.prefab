@@ -2989,7 +2989,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7717680858963374831
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3005,9 +3005,9 @@ RectTransform:
   - {fileID: 1816479889960282709}
   - {fileID: 4390974242834428968}
   - {fileID: 1701383379782741196}
-  - {fileID: 6321095846796598531}
-  - {fileID: 2411374451218133519}
-  - {fileID: 5495930098351012166}
+  - {fileID: 2211087511690304439}
+  - {fileID: 7091803379998062460}
+  - {fileID: 4906951806907797943}
   m_Father: {fileID: 1129208380315505274}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3096,19 +3096,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8369615704608050626}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5742405398928338285}
-        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &1944088979227383075
 GameObject:
   m_ObjectHideFlags: 0
@@ -3134,12 +3122,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1944088979227383075}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8739186202547344478}
+  m_Father: {fileID: 7717680858963374831}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6585,8 +6573,8 @@ RectTransform:
   m_Children:
   - {fileID: 4415975896961019199}
   - {fileID: 3894700579314301329}
-  - {fileID: 8739186202547344478}
   - {fileID: 7717680858963374831}
+  - {fileID: 8739186202547344478}
   - {fileID: 7988611575178118021}
   m_Father: {fileID: 748849981937748439}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7978,12 +7966,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4796364411250502276}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7717680858963374831}
+  m_Father: {fileID: 8739186202547344478}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8090,12 +8078,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4870350483247806240}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8739186202547344478}
+  m_Father: {fileID: 7717680858963374831}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8425,7 +8413,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 168762595130649861}
         m_TargetAssemblyTypeName: PanelManager, Assembly-CSharp
-        m_MethodName: OpenJPPanel
+        m_MethodName: OpenKoreaPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8460,12 +8448,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5105745282466560262}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8739186202547344478}
+  m_Father: {fileID: 7717680858963374831}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10297,7 +10285,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 168762595130649861}
         m_TargetAssemblyTypeName: PanelManager, Assembly-CSharp
-        m_MethodName: OpenKoreaPanel
+        m_MethodName: OpenJPPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10332,12 +10320,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5749585858051229206}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7717680858963374831}
+  m_Father: {fileID: 8739186202547344478}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11668,7 +11656,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 168762595130649861}
         m_TargetAssemblyTypeName: PanelManager, Assembly-CSharp
-        m_MethodName: OpenEngPanel
+        m_MethodName: OpenJPPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12293,7 +12281,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 168762595130649861}
         m_TargetAssemblyTypeName: PanelManager, Assembly-CSharp
-        m_MethodName: OpenJPPanel
+        m_MethodName: OpenEngPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12885,7 +12873,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 168762595130649861}
         m_TargetAssemblyTypeName: PanelManager, Assembly-CSharp
-        m_MethodName: OpenEngPanel
+        m_MethodName: OpenKoreaPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14272,7 +14260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8739186202547344478
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14288,9 +14276,9 @@ RectTransform:
   - {fileID: 1822013698238871992}
   - {fileID: 8253542799281039566}
   - {fileID: 5872465869165555965}
-  - {fileID: 2211087511690304439}
-  - {fileID: 7091803379998062460}
-  - {fileID: 4906951806907797943}
+  - {fileID: 6321095846796598531}
+  - {fileID: 2411374451218133519}
+  - {fileID: 5495930098351012166}
   m_Father: {fileID: 1129208380315505274}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -15270,7 +15258,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 168762595130649861}
         m_TargetAssemblyTypeName: PanelManager, Assembly-CSharp
-        m_MethodName: OpenKoreaPanel
+        m_MethodName: OpenEngPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16691,12 +16679,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9132399634938271885}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7717680858963374831}
+  m_Father: {fileID: 8739186202547344478}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
