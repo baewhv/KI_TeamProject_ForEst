@@ -84,7 +84,7 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
         GameObject go = Resources.Load<GameObject>("Prefab/Cutscene/P_Est_Cutscene");
         pc = FindAnyObjectByType<PlayerController>();
         Player = Instantiate(go, transform).GetComponent<PlayerCutSceneController>();
-        Player.Init(pc.GetStatus);
+            Player.Init(pc ? pc.GetStatus : null);
         go = Resources.Load<GameObject>("Prefab/Cutscene/CinemachineCamera");
         CutsceneCamera = Instantiate(go, transform).GetComponent<CinemachineCamera>();
         go = Resources.Load<GameObject>("Prefab/Cutscene/CutSceneCanvas");

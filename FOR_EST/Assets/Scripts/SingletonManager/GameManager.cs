@@ -16,7 +16,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     private PlayerStartPoint _startPoint;
     
     public int FruitCount { get; set; }
-    public bool IsClear { get; private set; }
     
     private LayerMask _fruitMask;
     private LayerMask _playerMask;
@@ -40,7 +39,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     public void OnSceneLoadedCheck()
     {
         if (SceneManagement.Instance.CurrentSceneName == "TitleScene_SHY") return;
-        IsClear = false;
         StartCoroutine(DelayCheck());
     }
 
@@ -73,10 +71,10 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         if (FruitCount != 0) return;
 
         Debug.Log("클리어!");
-        IsClear = true;
+        PlayEndCutscene();
     }
 
-    public void PlayEndCutscene()
+    private void PlayEndCutscene()
     {
         CutSceneManager.Instance.PlayCutscene("End");
         CutSceneManager.Instance.IsPlayCutscene.AddListener(EndCutsceneHandler);
