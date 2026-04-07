@@ -84,16 +84,16 @@ public class Dialogue : SingletonMonoBehaviour<Dialogue>
 
     void LoadCSV()
     {
-        TextAsset csv = Resources.Load<TextAsset>("Scenario_All"); //가져올 CSV 파일의 이름을 입력해주세요. 
+        TextAsset csv = Resources.Load<TextAsset>("TableSheet"); //가져올 CSV 파일의 이름을 입력해주세요. 
         string[] lines = csv.text.Split('\n');
 
         for (int i = 1; i < lines.Length; i++)
         {
             if (string.IsNullOrWhiteSpace(lines[i])) continue;
 
-            string[] row = lines[i].Split(',');
+            string[] row = lines[i].Split('\t');
 
-            if (row.Length < 6) continue;
+            if (row.Length <= languageIndex) continue;
 
 
             string idStr = row[0];
