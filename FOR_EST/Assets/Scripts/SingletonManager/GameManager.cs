@@ -53,7 +53,12 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         CutSceneManager.Instance.EnqueueCutscene("Start");
         
         CheckFruitCount();
-        
+    }
+
+    private IEnumerator ClearDelayRoutine()
+    {
+        yield return YieldContainer.WaitForSeconds(2f);
+        PlayEndCutscene();
     }
 
     private void CheckFruitCount()
@@ -71,7 +76,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         if (FruitCount != 0) return;
 
         Debug.Log("클리어!");
-        PlayEndCutscene();
+        StartCoroutine(ClearDelayRoutine());
     }
 
     private void PlayEndCutscene()
