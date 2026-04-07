@@ -35,8 +35,11 @@ MonoBehaviour:
     target: 0
     position: {x: -3, y: 0}
     zoom: 8
-  BackgroundImage: []
-  ImageResource: []
+  Triggers:
+  - position: {x: 14, y: 8.6}
+    triggerSOName: StageT-1
+    triggerTargetTag: Player
+  CutsceneObject: []
   ActionList:
   - rid: 2307714538049634384
   - rid: 2897498049571717250
