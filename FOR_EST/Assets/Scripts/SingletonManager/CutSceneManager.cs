@@ -137,11 +137,12 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
 
     private void CreateTrigger(List<CutsceneTriggerData> data)
     {
-        foreach (var d in data)
+        for (int i = 0; i < data.Count; i++)
         {
+            if(!CutSceneObjects)
+                CutSceneObjects = new GameObject("CutsceneObject");
             CutsceneTrigger trigger = Instantiate(_cutSceneTriggerPrefab, CutSceneObjects.transform).GetComponent<CutsceneTrigger>();
-            trigger.Init(d);
-            
+            trigger.Init(data[i]);
         }
     }
 
