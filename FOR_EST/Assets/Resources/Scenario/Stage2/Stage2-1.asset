@@ -35,7 +35,7 @@ MonoBehaviour:
     target: 0
     position: {x: 0, y: 0}
     zoom: 11.5
-  BackgroundImage: []
+  Triggers: []
   ImageResource: []
   ActionList:
   - rid: 4832695620617109584
@@ -81,7 +81,7 @@ MonoBehaviour:
         _actionType: 6
         NextType: 1
         dialogNumber: 100158
-        dialogTarget: 
+        isEmptyPositionDialog: 0
         dialogPosition: {x: 0, y: 0}
     - rid: 4832695620617109595
       type: {class: CameraTargetAction, ns: CutScene, asm: Assembly-CSharp}
@@ -95,7 +95,7 @@ MonoBehaviour:
         _actionType: 6
         NextType: 1
         dialogNumber: 100159
-        dialogTarget: 
+        isEmptyPositionDialog: 0
         dialogPosition: {x: 0, y: 0}
     - rid: 4832695620617109597
       type: {class: CharacterFaderAction, ns: CutScene, asm: Assembly-CSharp}
@@ -111,7 +111,7 @@ MonoBehaviour:
         _actionType: 6
         NextType: 1
         dialogNumber: 100160
-        dialogTarget: 
+        isEmptyPositionDialog: 0
         dialogPosition: {x: 0, y: 0}
     - rid: 4832695620617109600
       type: {class: CharacterDirectionAction, ns: CutScene, asm: Assembly-CSharp}
@@ -126,7 +126,7 @@ MonoBehaviour:
         _actionType: 6
         NextType: 2
         dialogNumber: 100162
-        dialogTarget: 
+        isEmptyPositionDialog: 0
         dialogPosition: {x: 0, y: 0}
     - rid: 4832695620617109602
       type: {class: CharacterMoveAction, ns: CutScene, asm: Assembly-CSharp}
@@ -142,7 +142,7 @@ MonoBehaviour:
         _actionType: 6
         NextType: 2
         dialogNumber: 100165
-        dialogTarget: 
+        isEmptyPositionDialog: 0
         dialogPosition: {x: 0, y: 0}
     - rid: 4832695620617109638
       type: {class: CameraMoveAction, ns: CutScene, asm: Assembly-CSharp}
