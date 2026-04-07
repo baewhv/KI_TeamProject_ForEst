@@ -48,8 +48,6 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
     //SO에서 현재 실행중인 액션.
     private List<BaseAction> CurrentActions = new();
 
-    //SO에서 현재 재생중인 액션 개수.
-    private int _currentActionsCount;
     private int CurrentActionsIndex;
 
     private PlayerController pc;
@@ -196,6 +194,7 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
 
     private void PlayScenarioQueue()
     {
+        CurrentActionsIndex = 0;
         if (ScenarioQueue.Count == 0) return; 
         if (!mainCamera)
             mainCamera = Camera.main;
@@ -235,7 +234,6 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
             CurrentActions.Add(curAction); //현재 액션 추가
             cutsceneHash.Add(CurrentActionsIndex);
             CurrentActionsIndex++; //인덱스 추가
-            _currentActionsCount++;
 
             if (CurrentActionsIndex >= ScenarioQueue.Peek().ActionList.Count ||
                 curAction.NextType != ENextActionType.Together)
@@ -258,8 +256,6 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
         Debug.Log($"종료 호출 {num}");
         if (cutsceneHash.Contains(num))
         {
-            //_currentActionsCount--;
-            //if (_currentActionsCount <= 0)
             cutsceneHash.Remove(num);
             if(cutsceneHash.Count <= 0)
                 SetNextCut();
