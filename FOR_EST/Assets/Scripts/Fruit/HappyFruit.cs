@@ -144,8 +144,6 @@ public class HappyFruit : BaseInteractionObject
             // 부딪힌 대상이 Seed라면 열매를 화면에서 사라지게 함
             OnStopPull();
             gameObject.SetActive(false);
-            target.TryGetComponent<SeedBean>(out SeedBean seedBean);
-            seedBean.BeHandedFruit();
             GameManager.Instance.FruitCount--;
             GameManager.Instance.CheckClear();
         }
