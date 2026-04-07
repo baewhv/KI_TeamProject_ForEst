@@ -35,8 +35,11 @@ MonoBehaviour:
     target: 0
     position: {x: 7, y: 0}
     zoom: 6.5
-  Triggers: []
-  ImageResource: []
+  Triggers:
+  - position: {x: 26, y: 12}
+    triggerSOName: Stage2-1
+    triggerTargetTag: Fruit
+  CutsceneObject: []
   ActionList:
   - rid: 2897498080415842542
   - rid: 4832695620617109576
