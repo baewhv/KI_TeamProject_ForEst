@@ -2,5 +2,5 @@ using UnityEngine;
 
 public class LanguageSetting
 {
-    public static Language currentLanguage = Language.KR;
+    public static Language currentLanguage = Language.EN;
 }

@@ -114,7 +114,7 @@ public abstract class BaseSeedBean : MonoBehaviour
             case Language.KR: return data.textKR;
             case Language.EN: return data.textEN;
             case Language.JP: return data.textJP;
-            default: return data.textKR;
+            default: return data.textEN;
         }
     }
     
@@ -146,7 +146,7 @@ public abstract class BaseSeedBean : MonoBehaviour
 
 public enum Language
 {
-    KR,
-    EN,
-    JP
+    EN = 0,
+    KR = 1,
+    JP = 2
 }

@@ -44,6 +44,8 @@ public class LocalizationTest : MonoBehaviour
     {
         //LocalizationSettings.SelectedLocale : 현재 언어를 설정하거나 불러오는 프로퍼티
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[currentIndex];
+        
+        LanguageSetting.currentLanguage = (Language)currentIndex;
 
         Dialogue.Instance.SetLanguageIndex(currentIndex);
     }

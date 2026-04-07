@@ -5,6 +5,7 @@ using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine.Video;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
 {
@@ -40,6 +41,7 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
     public GameObject EmptyObject { get; private set; }
 
     public ObserveValue<bool> IsPlayCutscene = new();
+    [SerializeField] private bool UseTestSO = false;
 
 
     //SO에서 현재 실행중인 액션.
@@ -65,8 +67,10 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
     {
         if (Scenarios.Count == 0)
         {
-            LoadScenario("StageT");
-            //Scenarios["test"] = testSO;
+            if(!UseTestSO)
+                LoadScenario(SceneManager.GetActiveScene().name);
+            else
+                Scenarios["Start"] = testSO;
             PlayCutscene("Start");
             Dialogue.Instance.CreateTextBox();
         }
