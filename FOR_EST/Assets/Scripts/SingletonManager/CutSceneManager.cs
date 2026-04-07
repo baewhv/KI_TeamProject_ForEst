@@ -15,6 +15,8 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
 
     // 컷씬용 오브젝트
     private GameObject CutSceneObjects;
+    
+    private GameObject _cutSceneTriggerPrefab;
 
     private Camera mainCamera;
     public CinemachineCamera CutsceneCamera { get; private set; }
@@ -63,8 +65,9 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
     {
         if (Scenarios.Count == 0)
         {
-            Scenarios["test"] = testSO;
-            PlayCutscene("test");
+            LoadScenario("StageT");
+            //Scenarios["test"] = testSO;
+            PlayCutscene("Start");
             Dialogue.Instance.CreateTextBox();
         }
     }
@@ -74,6 +77,7 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
         CutSceneObjects = new GameObject("CutsceneObject");
         beforeMask = Resources.Load<LayerMaskSO>("Util/DefaultCameraMask").layerMask;
         cutsceneMask = Resources.Load<LayerMaskSO>("Util/CutsceneMask").layerMask;
+        _cutSceneTriggerPrefab = Resources.Load<GameObject>("Prefab/Cutscene/CutsceneTrigger");
 
         GameObject videoGo = new GameObject("CutsceneVideoPlayer");
         videoGo.transform.SetParent(transform);
@@ -115,14 +119,28 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
                     name = "End";
                     break;
                 default:
-                    name = d.name.Remove(stageName.Length);
+                    name = d.name;
+                    Debug.Log(name);
                     break;
             }
-
+            
             Scenarios[name] = d;
+            
+            CreateTrigger(d.Triggers);
         }
 
         Camera.main.cullingMask = beforeMask; //hardcoding
+        
+    }
+
+    private void CreateTrigger(List<CutsceneTriggerData> data)
+    {
+        foreach (var d in data)
+        {
+            CutsceneTrigger trigger = Instantiate(_cutSceneTriggerPrefab, CutSceneObjects.transform).GetComponent<CutsceneTrigger>();
+            trigger.Init(d);
+            
+        }
     }
 
     public void UnLoadScenario()
