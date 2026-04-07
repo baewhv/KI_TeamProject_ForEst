@@ -22,7 +22,7 @@ public class ScenarioSO : ScriptableObject
     public CharacterCutsceneData SeedBData = new (ESelectedCharacter.Seed_B);
     public CameraCutsceneData CameraData = new();
 
-    public List<Sprite> BackgroundImage;
+    public List<CutsceneTriggerData> Triggers;
     public List<Sprite> ImageResource;
     
     

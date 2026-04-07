@@ -83,14 +83,26 @@ public class SpawnManager : MonoBehaviour
                 Transform spawnTransform = dummy.transform.Find("point");
                 if (spawnTransform != null)
                 {
-                    Debug.Log(dummy.transform.Find("point"));
                     Vector2 spawnPos = spawnTransform.position;
-                    Debug.Log(spawnPos);
                     spawnObj = Instantiate(prefab.prefab, spawnPos, Quaternion.identity);
                 }
                 else
                 {
                     spawnObj = Instantiate(prefab.prefab, dummy.transform.position, Quaternion.identity);
+                }
+                
+                SpawnTileHelper beanTileHelper = dummy.GetComponent<SpawnTileHelper>();
+                if (beanTileHelper != null)
+                {
+                    var seedBeanObj = spawnObj.GetComponent<BaseSeedBean>();
+                    if (seedBeanObj != null) seedBeanObj.SetDataWithID(beanTileHelper.checkID);
+                }
+                
+                SpawnTileHelper fruitTileHelper = dummy.GetComponent<SpawnTileHelper>();
+                if (fruitTileHelper != null)
+                {
+                    var fruitObj = spawnObj.GetComponent<BaseFruitTextData>();
+                    if (fruitObj != null) fruitObj.SetDataWithID(fruitTileHelper.checkID);
                 }
                 
                 IRespawnable respawnable = spawnObj.GetComponent<IRespawnable>();

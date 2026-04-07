@@ -16,7 +16,7 @@ MonoBehaviour:
     character: 0
     ShowCharacter: 1
     GetInGamePosition: 0
-    position: {x: -1.2, y: 1}
+    position: {x: -1.2, y: 0.1}
     isRight: 0
   SeedData:
     character: 1
@@ -28,7 +28,7 @@ MonoBehaviour:
     character: 2
     ShowCharacter: 1
     GetInGamePosition: 0
-    position: {x: -5.2, y: 1}
+    position: {x: -5.2, y: 0.1}
     isRight: 1
   CameraData:
     followTarget: 1
@@ -45,8 +45,8 @@ MonoBehaviour:
   - rid: 7021410954987438250
   - rid: 7021410954987438251
   - rid: 7021410954987438252
-  - rid: 7021410954987438253
   - rid: 7021410954987438254
+  - rid: 7021410954987438253
   - rid: 7021410954987438255
   - rid: 7021410954987438256
   - rid: 7021410954987438257
@@ -57,9 +57,11 @@ MonoBehaviour:
   - rid: 7021410954987438264
   - rid: 7021411023064662154
   - rid: 7021411023064662135
-  - rid: 7021411023064662166
   - rid: 7021411023064662129
+  - rid: 2897498071960911985
   - rid: 7021411023064662134
+  - rid: 2897498071960911986
+  - rid: 2897498071960911987
   - rid: 7021411023064662128
   - rid: 7021411023064662140
   - rid: 7021411023064662150
@@ -72,9 +74,39 @@ MonoBehaviour:
   - rid: 7021411023064662156
   - rid: 7021411023064662157
   - rid: 7021411023064662158
+  - rid: 2897498071960912022
   references:
     version: 2
     RefIds:
+    - rid: 2897498071960911985
+      type: {class: CharacterMoveAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 1
+        NextType: 1
+        character: 2
+        position: {x: -9.5, y: 10.5}
+        isForceMove: 1
+    - rid: 2897498071960911986
+      type: {class: CharacterMoveAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 1
+        NextType: 1
+        character: 2
+        position: {x: -7, y: 10.5}
+        isForceMove: 0
+    - rid: 2897498071960911987
+      type: {class: CharacterDirectionAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 2
+        NextType: 1
+        character: 2
+        isRight: 0
+    - rid: 2897498071960912022
+      type: {class: FadeOutAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 8
+        NextType: 1
+        time: 2
     - rid: 7021410910219010348
       type: {class: FadeInAction, ns: CutScene, asm: Assembly-CSharp}
       data:
@@ -103,7 +135,7 @@ MonoBehaviour:
         _actionType: 1
         NextType: 1
         character: 2
-        position: {x: -2, y: 1}
+        position: {x: -1.5, y: 0.1}
         isForceMove: 0
     - rid: 7021410954987438250
       type: {class: CharacterPlayAnimationAction, ns: CutScene, asm: Assembly-CSharp}
@@ -141,7 +173,7 @@ MonoBehaviour:
       type: {class: CharacterPlayAnimationAction, ns: CutScene, asm: Assembly-CSharp}
       data:
         _actionType: 4
-        NextType: 1
+        NextType: 2
         character: 2
         animation: Head
         TrueAndFalse: 0
@@ -159,7 +191,7 @@ MonoBehaviour:
         _actionType: 4
         NextType: 2
         character: 0
-        animation: smile
+        animation: Smile
         TrueAndFalse: 1
     - rid: 7021410954987438257
       type: {class: PlayDialogAction, ns: CutScene, asm: Assembly-CSharp}
@@ -187,9 +219,9 @@ MonoBehaviour:
       type: {class: CharacterPlayAnimationAction, ns: CutScene, asm: Assembly-CSharp}
       data:
         _actionType: 4
-        NextType: 1
+        NextType: 2
         character: 0
-        animation: smile
+        animation: Smile
         TrueAndFalse: 0
     - rid: 7021410954987438263
       type: {class: PlayDialogAction, ns: CutScene, asm: Assembly-CSharp}
@@ -215,9 +247,9 @@ MonoBehaviour:
       type: {class: CharacterMoveAction, ns: CutScene, asm: Assembly-CSharp}
       data:
         _actionType: 1
-        NextType: 1
+        NextType: 2
         character: 0
-        position: {x: -10.5, y: 10.5}
+        position: {x: -11, y: 10.5}
         isForceMove: 1
     - rid: 7021411023064662134
       type: {class: CharacterMoveAction, ns: CutScene, asm: Assembly-CSharp}
@@ -225,7 +257,7 @@ MonoBehaviour:
         _actionType: 1
         NextType: 2
         character: 0
-        position: {x: -7, y: 10.5}
+        position: {x: -8.5, y: 10.5}
         isForceMove: 0
     - rid: 7021411023064662135
       type: {class: CharacterFaderAction, ns: CutScene, asm: Assembly-CSharp}
@@ -316,14 +348,6 @@ MonoBehaviour:
         character: 0
         animation: Surprise
         TrueAndFalse: 0
-    - rid: 7021411023064662166
-      type: {class: CharacterFaderAction, ns: CutScene, asm: Assembly-CSharp}
-      data:
-        _actionType: 5
-        NextType: 1
-        character: 2
-        isFadeIn: 0
-        time: 0
     - rid: 7021411023064662175
       type: {class: CameraMoveAction, ns: CutScene, asm: Assembly-CSharp}
       data:

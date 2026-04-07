@@ -23,7 +23,8 @@ public class PanelManager : MonoBehaviour
 
     public void LoadGame()
     {
-        Debug.Log("LoadGame버튼은 아직 미구현입니다!");
+        string saveSceneName = PlayerPrefs.GetString("SaveScene");
+        SceneManagement.Instance.LoadScene(saveSceneName);
     }
 
     public void OpenTitlePanel()
@@ -126,6 +127,8 @@ public class PanelManager : MonoBehaviour
 
     public void Quit()
     {
+        string saveSceneName = SceneManager.GetActiveScene().name;
+        PlayerPrefs.SetString("SaveScene", saveSceneName);
 #if UNITY_EDITOR
 
         UnityEditor.EditorApplication.isPlaying = false; //유니티 에디터에서 Play만 비활성화 시키는 함수

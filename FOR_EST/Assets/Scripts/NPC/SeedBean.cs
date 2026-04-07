@@ -3,15 +3,17 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SeedBean : MonoBehaviour
+public class SeedBean : MonoBehaviour, IRespawnable
 {
     private Animator _anim;
     private SpriteRenderer _renderer;
+    private BoxCollider2D _collider;
 
     private void Awake()
     {
         _anim = GetComponentInChildren<Animator>();
         _renderer = GetComponentInChildren<SpriteRenderer>();
+        _collider = GetComponent<BoxCollider2D>();
         
         if (transform.position.y < -1)
         {
@@ -24,33 +26,37 @@ public class SeedBean : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (SceneManager.GetActiveScene().name == "StageT") return;
-        
         if (other.gameObject.layer == LayerMask.NameToLayer("Happy"))
         {
-            Vector2 direction = (other.transform.position - transform.position).normalized;
-            float dot = Vector2.Dot(transform.right, direction);
+            if (SceneManager.GetActiveScene().name != "StageT")
+            {
+                Vector2 direction = (other.transform.position - transform.position).normalized;
+                float dot = Vector2.Dot(transform.right, direction);
 
-            _renderer.flipX = dot > 0 ? true : false;
-        }
-    }
-
-    private void Update()
-    {
-        if (GameManager.Instance.IsClear)
-        {
+                _renderer.flipX = dot > 0 ? true : false;
+            }
+            
+            BeHandedFruit();
             StartCoroutine(delayCoroutine());
         }
+        
     }
 
-    public void BeHandedFruit()
+    private void BeHandedFruit()
     {
         _anim.SetTrigger("Put");
     }
 
     private IEnumerator delayCoroutine()
     {
-        yield return YieldContainer.WaitForSeconds(0.7f);
+        yield return YieldContainer.WaitForSeconds(1f);
+        _collider.enabled = false;
         _anim.SetBool("Clear", true);
+    }
+
+    public void Respawn()
+    {
+        _collider.enabled = true;
+        _anim.SetBool("Clear", false);
     }
 }

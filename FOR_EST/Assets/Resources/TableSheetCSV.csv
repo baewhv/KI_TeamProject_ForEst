@@ -1,0 +1,337 @@
+ID	nextID	name	speaker	Textbox_type	Text_KR	Text_EN	Text_JP	Stage
+100001	100002	에스트		0	…	...	...	Tutorial_cg1
+100002	0	에스트		0	낯선 천장…	A strange ceiling...	見慣れない天井…	Tutorial_cg1
+100003	0	시드		0	안녕.	Hi there.	こんにちは。	Tutorial_cg1
+100004	100005	에스트		0	"아니, 얼굴이네."	"Wait, it's a face."	いや、顔か。	Tutorial_cg1
+100005	0	에스트		0	…우와.	...Wow.	…うわぁ…。	Tutorial_cg1
+100006	100007	시드	10201	0	…	...	...	Tutorial_cg1
+100007	100008	에스트	10101	0	안… 녕?	He...llo?	…こんにちは？	Tutorial_cg1
+100008	100009	시드	10201	0	별로 놀라지 않네?	You're not that surprised?	あんまり驚かないんだね？	Tutorial_cg1
+100009	100010	에스트	10101	0	뭔가 외계인이 있지 않을까라고 생각을 하며 살긴 했었거든.	I’ve always assumed aliens were out there.	なんか、宇宙人とかいるんじゃないかなって思って生きてきたんだよね。	Tutorial_cg1
+100010	100011	시드	10201	0	난 외계인이 아니야.	I'm not an alien.	僕は宇宙人じゃない。	Tutorial_cg1
+100011	100012	에스트	10101	0	어…음…그렇구나. 귀여우니까 이해해 볼게! 	"Uh... okay. You're cute, so I'll let it slide."	あ…うーん…そうなんだ。可愛いから、納得してあげる！	Tutorial_cg1
+100012	100013	에스트	10101	0	넌 이름이 뭐야?	What's your name?	君の名前は？	Tutorial_cg1
+100013	100014	시드	10201	0	난 시드야.	I'm Seed.	僕はシード。	Tutorial_cg1
+100014	100015	시드	10201	0	정원의 관리자를 맡고 있어.	I'm the guardian of the garden.	庭園の管理を任されているんだ。	Tutorial_cg1
+100015	0	에스트	10101	0	정원? 이 큰 나무 말이야?	Garden? You mean this giant tree?	庭園？ この大きな木のこと？	Tutorial_cg1
+100016	100017	시드	10201	0	맞아. 이제 넌 우리의 정원 관리를 도와야 해.	"Exactly. And now, you're going to help us manage it."	そうだよ。これからは君が僕たちの庭園管理を手伝ってくれる番だね。	Tutorial_cg1
+100017	100018	에스트	10101	0	엥? 내가? 왜?	Huh? Me? Why?	え？ 僕が？ どうして？	Tutorial_cg1
+100018	100019	시드	10201	0	행복나무가 널 데려왔으니까.	Because the Tree of Happiness brought you here.	「幸せの木」が君を連れてきたからだよ。	Tutorial_cg1
+100019	100020	에스트	10101	0	이 큰 나무 이름이 행복나무야?	So this huge tree is the Tree of Happiness?	この大きな木の名前が「幸せの木」なの？	Tutorial_cg1
+100020	100021	시드	10201	0	아니.	No.	ううん。	Tutorial_cg1
+100021	0	시드	10201	0	이 아래의 나무가 행복나무야.	The one right under there is the Tree of Happiness.	この下の木が「幸せの木」だよ。	Tutorial_cg1
+100022	0	에스트	10101	0	바닥에 비친 이 큰 나무가…진짜였다고?	So... the huge tree reflected on the ground was the real one?	床に映ったこの大きな木が…本物だったなんて？	Tutorial_cg1
+100023	0	시드	10201	0	맞아. 여긴 이런 곳이야.	That’s right. That’s how this place is.	そうだよ。ここはそういう場所なんだ。	Tutorial_cg1
+100024	100025	에스트	10101	0	으악!	Whoa!	うわっ！	Tutorial_cg1
+100025	100026	에스트	10101	0	내 몸이 변했어!	My body... it's changing!	体が変わっちゃった！	Tutorial_cg1
+100026	0	시드	10201	0	행복나무의 공간으로 온 거야.	You’ve entered the space of the Happiness Tree.	「幸せの木」の空間に来たんだよ。	Tutorial_cg1
+100027	100028	시드	10201	0	너도 금방 익숙해질 거야	You’ll get used to it soon.	君もすぐに慣れるはずさ。	Tutorial_cg1
+100028	100029	시드	10201	0	몸은 좀 어때?	How does your body feel?	体の調子はどうだい？	Tutorial_cg1
+100029	100030	에스트	10101	0	좀 당황스럽네.	I’m a bit lost here.	ちょっと戸惑ってるよ。	Tutorial_cg1
+100030	100031	에스트	10101	0	음… 사실 무슨 일이 있었는지 전혀 기억이 안 나!	"Um... actually, I don’t remember anything that happened at all!"	うーん…実は何があったのか、全然思い出せなくて！	Tutorial_cg1
+100031	100032	에스트	10101	0	이게 말로만 듣던 기억상실증이란 걸까?	Is this that "amnesia" people talk about?	これが噂に聞く記憶喪失ってやつかな？	Tutorial_cg1
+100032	0	에스트	10101	0	그 외에는 방금 일어나서 그런지 좀 나른한데 괜찮아!	"Other than that, I feel a bit drowsy since I just woke up, but I'm fine!"	それ以外は、さっき起きたばかりだからか、ちょっと体がだるいけど大丈夫だよ！	Tutorial_cg1
+100033	100034	시드	10201	0	…	...	...	Tutorial_cg1
+100034	100035	시드	10201	0	그렇다면 다행이야.	"Well, that's a relief."	…それならよかった。	Tutorial_cg1
+100035	0	시드	10201	0	"그럼, 이제 일을 시작해 보자."	"Then, let’s get to work."	じゃあ、そろそろ仕事を始めようか。	Tutorial_cg1
+100036	0	에스트	10101	0	잠깐! 아직 이해가 안 된 게 있어!	Wait a minute! I still don't get it. 	ちょっと待って！ まだ納得できてないことがあるよ！	Tutorial_cg1
+100037	100038	에스트	10101	0	행복나무가 날 데려온 게 왜 내가 일을 해야 할 이유야?	Why does the Tree of Happiness bringing me here mean I have to do this?	「幸せの木」が僕を連れてきたことが、どうして仕事をすべき理由になるの？	Tutorial_cg1
+100038	100039	시드	10201	0	…네가 행복을 바라서 행복 나무가 널 데려온 거야.	"Because you wished for happiness, and the Tree of Happiness brought you here."	…君が幸せを願ったから、「幸せの木」が君を連れてきたんだ。	Tutorial_cg1
+100039	100040	에스트	10101	0	…혹시 내가 꿈꾸는 거야?	Am I dreaming?	…もしかして夢でも見てるの？	Tutorial_cg1
+100040	100041	시드	10201	0	그럴 리가. 잠시 우리를 도와주러 네가 오게 된 거지.	Not at all. You’ve just come here to help us for a while.	そんなわけないだろ。しばらく僕たちを手伝うために、君がここに来たんだよ。	Tutorial_cg1
+100041	0	시드	10201	0	정 이유가 필요하다면…	If you really need a reason... 	どうしても理由が必要なら…	Tutorial_cg1
+100042	100043	시드	10201	0	"우리의 일을 도와주다 보면, 이곳에서 나가게 도와줄게."	"help us with our work, and we’ll help you find a way out of here."	僕たちの仕事を手伝ってくれたら、ここから出られるようにしてあげるよ。	Tutorial_cg1
+100043	100044	시드	10201	0	이유가 됐을까?	Is that reason enough?	これじゃ理由になるかな？	Tutorial_cg1
+100044	100045	에스트	10101	0	…어…그래. 알았어.	...Uh... yeah. Okay.	…あ…うん、わかったよ。	Tutorial_cg1
+100045	0	시드	10201	0	좋아. 따라와..	Good. Follow me.	よし。ついてきて。	Tutorial_cg1
+100046	100047	시드	10201	0	제법 몸놀림이 좋네.	You're pretty nimble.	なかなか身のこなしがいいね。	Tutorial_cg2
+100047	100048	에스트	10101	0	당연하지! 이래 보여도 운동을 좀 했었거든!	"Of course! I’ve done some sports, you know!"	当たり前だよ！ こう見えても、少しは運動してたんだから！	Tutorial_cg2
+100048	100049	에스트	10101	0	근데 뭔가 엄청 높이 뛸 수 있게 된 것 같아.	But I feel like I can jump really high now.	でも、なんかすごく高く跳べるようになったみたい。	Tutorial_cg2
+100049	100050	시드	10201	0	이 세계의 존재는 다 그래. 좋은 거야.	Everything in this world is like that. It's a good thing.	この世界の存在はみんなそうだよ。いいことだね。	Tutorial_cg2
+100050	100051	시드	10201	0	"아무것도 모를 테니까, 최대한 간단하게 설명할게."	"Since you probably don't know anything, I'll keep it simple."	何も知らないだろうから、できるだけ簡単に説明するね。	Tutorial_cg2
+100051	100052	에스트	10101	0	응!	Okay!	うん！	Tutorial_cg2
+100052	0	시드	10201	0	시드콩?	Mini Bean?	シードマメ？	Tutorial_cg2
+100053	100054	시드콩	10301	0	콩!	Beanie!	マメ！	Tutorial_cg2
+100054	100055	에스트	10101	0	!	!	!	Tutorial_cg2
+100055	100056	에스트	10101	0	시드가…둘? 그런데 크기가 좀 작네?	There’s... two of you? But you’re so small.	シードが…二人？ でも、サイズがちょっと小さいね？	Tutorial_cg2
+100056	100057	시드	10201	0	둘보다 많아. 하지만 우리는 모두 하나야.	More than two. But we are all one.	二人より多いよ。だけど、僕たちはみんな一つなんだ。	Tutorial_cg2
+100057	100058	에스트	10101	0	분신술 같은 건가?	Is it like a shadow clone jutsu?	分身術みたいなもの？	Tutorial_cg2
+100058	100059	시드	10201	0	…비슷해.	…Something like that.	…似たようなものさ。	Tutorial_cg2
+100059	0	시드	10201	0	아무튼 간단히 설명할게.	"Anyway, I’ll explain briefly."	とにかく、簡単に説明するね。	Tutorial_cg2
+100060	0	시드	10201	0	위에 있는 나무의 열매는 밀어서 떨어뜨리고,	Push the fruits from the tree above so they fall down.	上の木の実は押して落として、	Tutorial_cg2
+100061	0	시드		0	아래에 있는 나무의 열매는 가운데로 모아주면 돼.	And for the fruits in the reflection below, gather them to the center.	下の木の実は真ん中に集めてくれればいいんだ。	Tutorial_cg2
+100062	100063	에스트	10101	0	그게 전부야? 간단하네!	That’s it? Sounds easy!	それだけ？ 簡単だね！	Tutorial_cg2
+100063	100064	시드	10201	0	맞아. 곳곳에 시드콩이 있을 테니까, 도움받을 수 있을 꺼야.	Right. You’ll find Mini Beans everywhere, so you can get their help.	そうだよ。あちこちにシードマメがいるはずだから、助けてもらえるよ。	Tutorial_cg2
+100064	100065	시드	10201	0	한번 시작해 볼까?	Shall we start?	一度始めてみようか？	Tutorial_cg2
+100065	0	에스트	10101	0	응!	Yeah!	うん！	Tutorial_cg2
+100066	100067	시드	10201	0	무사히 성공했네. 고생했어.	You did it. Good job.	無事に成功したね。お疲れ様。	Tutorial_cg3
+100067	100068	에스트	10101	0	그럼, 후, 당연하지, 후.	Of course, (huff)... I did, (huff).	もち、ろん、ふぅ、当たり前だよ、ふぅ。	Tutorial_cg3
+100068	100069	시드	10201	0	일단 숨 좀 돌리고 말해줘.	Take a breath before you speak.	まずは息を整えてから話して。	Tutorial_cg3
+100069	0	에스트	10101	0	앗, 들켰다.	Oops, caught me.	あ、バレちゃった。 	Tutorial_cg3
+100070	100071	에스트	10101	0	후…	Phew...	ふぅ…	Tutorial_cg3
+100071	100072	에스트	10101	0	좋아! 이제 괜찮아졌어!	Okay! I’m good now!	よし！ もう大丈夫だよ！	Tutorial_cg3
+100072	100073	시드	10201	0	다행이네.	That’s a relief.	よかった。	Tutorial_cg3
+100073	100074	에스트	10101	0	나무가 커서 그런지 열매가 나보다 큰 것 같아.	Since the tree is so huge, the fruits feel bigger than me.	木が大きいからかな、実が僕より大きい気がするよ。	Tutorial_cg3
+100074	100075	에스트	10101	0	근데 왜 위 나무의 열매는 떨어뜨리고 아래 나무의 열매는 안쪽에 모으는 거야?	But why do we drop the fruits from the tree above and gather the ones from the tree below?	ところで、どうして上の木の実を落として、下の木の実は内側に集めるの？	Tutorial_cg3
+100075	0	시드	10201	0	…	...	...	Tutorial_cg3
+100076	0	시드	10201	0	위 나무의 이름은 슬픔 나무야. 슬픔 나무에는 슬픔이 담긴 열매가 열려.	…The tree above is called the Tree of Sorrow. It bears fruits filled with sadness.	…上の木の名前は「悲しみの木」。悲しみの木には、悲しみが詰まった実がなるんだ。	Tutorial_cg3
+100077	0	시드		0	아래 나무의 이름은 행복 나무야. 행복 나무에는 행복이 담긴 열매가 열려.	The tree below is called the Tree of Happiness. It bears fruits filled with joy.	下の木の名前は「幸せの木」。幸せの木には、幸せが詰まった実がなるんだよ。	Tutorial_cg3
+100078	100079	에스트	10101	0	아! 그래서 슬픔은 떨어뜨리고 행복은 모으는 거구나!	Ah! So that’s why we drop the sadness and gather the happiness!	あ！ だから悲しみは落として、幸せは集めるんだね！	Tutorial_cg3
+100079	100080	시드	10201	0	맞아.	Exactly.	そうだよ。	Tutorial_cg3
+100080	100081	에스트	10101	0	그런데 누구의 슬픔과 행복이야?	But whose sadness and happiness are they?	でも、誰の悲しみと幸せなの？	Tutorial_cg3
+100081	100082	시드	10201	0	…	...	...	Tutorial_cg3
+100082	100083	시드	10201	0	우리의 세상에서 보이는 전부.	Everything visible in our world.	…僕たちの世界から見える、すべて。	Tutorial_cg3
+100083	0	에스트	10101	0	응? 그런 게 보여?	Oh? You can actually see that?	えっ？ そんなのが見えるの？	Tutorial_cg3
+100084	100085	시드	10201	0	응, 우리는 늘 보고 있어.	Yes. We are always watching.	うん、僕たちはいつも見ているよ。	Tutorial_cg3
+100085	100086	에스트	10101	0	헤… 엄청 많나 보구나.	Heh... I guess there’s a whole lot of it.	へぇ…相当たくさんあるんだね。	Tutorial_cg3
+100086	0	에스트	10101	0	그럼, 이 나무 한 그루가 이 세상의 전부의 감정을 담고 있는 거야?	So this single tree holds all the emotions of the world?	それじゃ、この木一本が、この世界のすべての感情を抱えてるってこと？	Tutorial_cg3
+100087	100088	시드	10201	0	예전엔 나무가 아주 많았어. 숲이었지.	There used to be many trees. It was once a forest.	昔は木がたくさんあったんだ。森だったんだよ。	Tutorial_cg3
+100088	100089	시드	10201	0	하지만 지금은 모두 시들어서 깊은 잠에 빠졌어.	But now, they’ve all withered and fallen into a deep sleep.	でも、今はみんな枯れて、深い眠りに落ちてしまった。	Tutorial_cg3
+100089	0	시드	10201	0	그래서 이 남은 한그루를 지켜내서 다른 나무들을 깨워야 해.	We must protect this last remaining tree to wake the others.	だから、この残された一本を守り抜いて、他の木たちを目覚めさせなきゃいけないんだ。	Tutorial_cg3
+100090	100091	에스트	10101	0	그렇구나. 좋은 일이네! 열심히 힘내볼게!	I see. That’s a good thing! I’ll do my best!	そっか。素敵なことだね！ 精一杯頑張ってみるよ！	Tutorial_cg3
+100091	100092	시드	10201	0	고마워.	Thank you.	ありがとう。	Tutorial_cg3
+100092	0	시드	10201	0	널 믿고 있어. 에스트	I’m counting on you, Est.	君を信じているよ。エスト。	Tutorial_cg3
+100093	100094	에스트	10101	0	Zzzzz…	Zzzzz…	Zzzzz…	Stage_1
+100094	100095	시드콩	10301	0	일어나콩.	Wake up, Beanie!	起きるまめ	Stage_1
+100095	100096	에스트	10101	0	음냐…아야.	Mmh… Ouch.	うにゃ…痛っ。	Stage_1
+100096	0	에스트	10101	0	5분만 더…	Just five more minutes…	あと5分だけ…	Stage_1
+100097	100098	시드콩	10301	0	콩, 콩.	Beanie, beanie.	マメ、マメ。	Stage_1
+100098	0	에스트	10101	0	…	...	...	Stage_1
+100099	100100	에스트	10101	0	으아악! 알았어!!	Argh! Fine!!	…うわぁ！わかったよ！！	Stage_1
+100100	0	에스트	10101	0	일어날게, 시드!	I’m getting up, Seed!	起きるよ、シード！	Stage_1
+100101	100102	시드콩	10301	0	난 시드 콩이야콩.	I’m a Mini Bean, beanie.	ボクはシードマメだまめ。	Stage_1
+100102	100103	시드콩	10301	0	다시 일할 시간이야콩.	Time to get back to work, beanie.	また仕事の時間だまめ。	Stage_1
+100103	0	에스트	10101	0	아, 맞네. 어쩐지 작더라!	Oh, right. No wonder you were so small!	あ、そうだった。どうりで小さいわけだ！	Stage_1
+100104	0	에스트	10101	0	귀여워~	So cute~	可愛い～	Stage_1
+100105	100106	시드콩	10301	0	콩…	Be-bean...	マメ…	Stage_1
+100106	0	시드콩	10301	0	그렇다고 일이 사라지지 않아콩.	That doesn't make the work go away, bean.	だからって、仕事がなくなるわけじゃないまめ。	Stage_1
+100107	0	에스트	10101	0	쳇, 알았어.	Tsk, fine. I get it.	ちぇっ、わかったよ。	Stage_1
+100108	0	에스트	10101	0	우와, 하룻밤 사이에 나무가 더 커졌어…!	Wow, the tree got even bigger overnight…!	うわぁ、一晩で木がもっと大きくなってる…！	Stage_1
+100109	100110	시드콩	10301	0	네가 일을 잘해준 덕분이야콩	It’s all thanks to your hard work, bean.	君がよく働いてくれたおかげだまめ。	Stage_1
+100110	100111	시드	10201	0	오늘도 열심히 일해줘.	Keep it up today.	今日も頑張ってくれよ。	Stage_1
+100111	100112	에스트	10101	0	시드는 말끝에 콩을 안 붙이네?	Seed, how come you don't say "bean" at the end?	シードは語尾に『まめ』をつけないんだね？	Stage_1
+100112	100113	시드	10201	0	…난 대장이니까.	…Because I’m the leader.	…ボクは隊長だからね。	Stage_1
+100113	100114	에스트	10101	0	모두 같은 시드인데 대장이 있어?	You’re all Seeds, but there’s a leader?	みんな同じシードなのに、隊長がいるの？	Stage_1
+100114	100115	시드	10201	0	내가 제일 먼저 태어났으니까, 대장이지.	I was the first to be born. That makes me the leader.	ボクが一番最初に生まれたから、隊長なんだ。	Stage_1
+100115	100116	에스트	10101	0	시드는 그런 걸 챙기는 스타일이었구나~	Heh, I didn't know you cared about that kind of stuff, Seed~	シードってそういうの気にするタイプだったんだね～	Stage_1
+100116	0	시드	10201	0	아무튼, 오늘도 잘 부탁해.	Anyway, I’m counting on you today, too.	とにかく、今日もよろしくね。	Stage_1
+100117	0	에스트	10101	0	응!	Okay!	うん！	Stage_1
+100118	100119	시드	10201	0	오늘도 고생했어, 에스트. 고마워.	You did a great job today, Est. Thank you.	今日も一日お疲れ様、エスト。ありがとう。	Stage_1
+100119	100120	에스트	10101	0	도움이 되었다니 다행이야!	I’m just glad I could help!	役に立てたならよかった！	Stage_1
+100120	100121	에스트	10101	0	그런데 시드, 물어볼 게 있어.	But Seed, I have a question.	ところでシード、聞きたいことがあるんだ。	Stage_1
+100121	100122	시드	10201	0	응.	Yes.	うん。	Stage_1
+100122	100123	에스트	10101	0	행복 열매를 흡수하거나, 슬픔 열매가 사라질 때 나오는 말들은 뭐야?	What are those words that pop up when the Happiness fruits are absorbed or the Sorrow fruits disappear?	「幸せの実」を吸収したり、「悲しみの実」が消えるときに出てくる言葉は何？	Stage_1
+100123	100124	시드	10201	0	열매는 각 나무의 감정을 먹고 자라나.	The fruits grow by feeding on the emotions of each tree.	実はそれぞれの木の感情を食べて育つんだ。	Stage_1
+100124	100125	시드	10201	0	네가 본 글자들은 그 감정이 가진 기억이 표현된 거지.	The words you saw are the memories of those emotions taking form.	君が見た文字는, その感情が持つ記憶が表現されたものだよ。	Stage_1
+100125	100126	에스트	10101	0	…그렇구나.	…I see.	…そっか。	Stage_1
+100126	100127	에스트	10101	0	그런데 왜 행복 나무야? 슬픔의 반대는 기쁨 아니야?	But why is it the "Tree of Happiness"? Isn't the opposite of Sorrow "Joy"?	でも、どうして「幸せの木」なの？ 悲しみの反対は「喜び」じゃないの？	Stage_1
+100127	0	시드	10201	0	…	...	...	Stage_1
+100128	100129	시드	10201	0	기쁨은 행복의 종류 중 하나일 뿐이야.	Joy is just one type of happiness.	喜びは幸せの一種に過ぎないんだ。	Stage_1
+100129	100130	시드	10201	0	누군가는 평안함을 행복으로 느껴.	Some people find happiness in peace.	誰かにとっては、安らぎが幸せだったりする。	Stage_1
+100130	100131	시드	10201	0	연애를 하는 사람들은 설렘으로 밤을 지새워.	Those in love stay up all night with excitement.	恋をしている人たちは、ときめきで夜を明かしたりもする。	Stage_1
+100131	100132	시드	10201	0	사람들은 “설레서 기쁘다”라고 말하기보단,	People don't usually say, "I'm joyful because I'm excited."	人は「ときめいて嬉しい」と言うよりは、	Stage_1
+100132	0	시드	10201	0	“설레서 행복해.”라고 말해.	They say, "I'm happy because I'm excited."	「ときめいて幸せ」って言うんだ。	Stage_1
+100133	0	시드	10201	0	그 감정들의 종착지는 행복인 거야.	The destination of all those emotions is happiness.	その感情たちの行き着く先は、「幸せ」なんだよ。	Stage_1
+100134	0	시드	10201	0	반면에 슬픔의 종착지는, 슬픔이야.	On the other hand, the destination of sorrow... is just sorrow.	反対に、悲しみの行き着く先は、「悲しみ」だ。	Stage_1
+100135	100136	시드	10201	0	슬픔은 회전목마처럼 빙글빙글 돌지.	Sorrow spins round and round, just like a merry-go-round.	悲しみはメリーゴーランドみたいに、ぐるぐると回るんだ。	Stage_1
+100136	0	시드	10201	0	열매를 덜어내고, 덜어내도, 슬픔 나무는 계속 자라나.	No matter how many fruits we shake off, the Tree of Sorrow keeps growing.	実を減らして、減らしても、悲しみの木は育ち続ける。	Stage_1
+100137	100138	시드	10201	0	반면에 행복은 열심히 챙겨줘야 해.	But happiness? You have to take care of it with all your heart.	それに対して、幸せは一生懸命にお世話をしてあげなきゃいけない。	Stage_1
+100138	0	시드	10201	0	열매도 많이 주고, 애정도 열심히 주어야 하지.	You have to give it plenty of fruits, and plenty of love.	実もたくさん作って、愛情もたっぷり注がなきゃ。	Stage_1
+100139	100140	에스트	10101	0	…	...	...	Stage_1
+100140	0	에스트	10101	0	정말 어렵네. 행복해지는 일은.	It’s so hard, isn't it? The act of becoming happy.	本当に難しいね。幸せになるっていうのは。	Stage_1
+100141	100142	시드	10201	0	그렇게 생각할 수 있지.	You could think of it that way.	そう思うかもしれない。	Stage_1
+100142	100143	시드	10201	0	하지만, 그 과정도 결국 행복해지게 될 거야.	But even that process will eventually become a part of your happiness.	でも、その過程も結局は幸せに繋がっていくはずさ。	Stage_1
+100143	100144	시드	10201	0	그러니 우리 같이 노력하자.	So, let's work on it together.	だから、一緒に頑張ろう。	Stage_1
+100144	100145	시드	10201	0	네가 있어서 다행이야.	I’m glad you're here.	君がいてくれてよかった。	Stage_1
+100145	0	에스트	10101	0	!	!	!	Stage_1
+100146	100147	에스트	10101	0	정말 좋은 말이야! 시드!	That’s such a beautiful thing to say, Seed!	すごくいい言葉だね！ シード！	Stage_1
+100147	0	에스트	10101	0	나도 노력할게!	I’ll do my best, too!	僕も頑張るよ！	Stage_1
+100148	0	에스트	10101	0	우와, 오늘은 행복나무가 좀 더 크고 풍성한 것 같은데?	Whoa, the Happiness Tree looks even bigger and fuller today!	うわぁ、今日は「幸せの木」がもっと大きくて、ふさふさしてる気がするよ。	Stage_2
+100149	100150	시드	10201	0	맞아, 행복한 감정을 잘 먹고 있나 봐.	Right. It must be eating up all those happy emotions well.	そうだね、幸せな感情をしっかり食べているみたいだ。	Stage_2
+100150	100151	에스트	10101	0	나무가 작아지는 일은 없어? 감정을 못 먹는다던가 하는 이유로.	Does the tree never get smaller? Maybe from not eating enough emotions or something.	木が小さくなることはないの？ 感情を食べられないとか、そういう理由で。	Stage_2
+100151	100152	시드	10201	0	응, 없어.	No, it doesn't.	うん、ないよ。	Stage_2
+100152	100153	에스트	10101	0	왜?	Why?	どうして？	Stage_2
+100153	100154	시드	10201	0	한 번 커진 마음의 크기는 쉽게 줄어들지 않거든.	Once the heart expands, its size doesn't shrink so easily.	一度大きくなった心の大きさは, そう簡単には縮まないからね。	Stage_2
+100154	100155	시드	10201	0	줄어들었다고 느꼈다면, 오래돼서 무뎌졌거나, 외면하고 있는 거야.	If you felt it had shrunk, it's either grown dull over time, or you're ignoring it.	小さくなったと感じるなら, それは時間が経って鈍くなったか, 目を背けているだけなんだ。	Stage_2
+100155	100156	시드	10201	0	그게 오래되다 보면, 점점 메말라 가는 거지.	If that goes on too long, it gradually starts to wither away.	それが長引くと、だんだん枯れていってしまうんだよ。	Stage_2
+100156	100157	에스트	10101	0	정말 심오한 세상이네.	This is a seriously profound world.	本当に奥が深い世界だね。	Stage_2
+100157	0	에스트	10101	0	정말 어려워…	It’s really tough…	すごく難しいや…	Stage_2
+100158	0			0	「이번 가을이 내가 겪은 최악의 가을이었어.」	「This fall was the worst fall I’ve ever experienced.」	「今年の秋が、僕の人生で最悪の秋だった。」	Stage_2
+100159	0	에스트	10101	0	!	!	!	Stage_2
+100160	100161	시드콩	10301	0	에스트?	Est?	エスト？	Stage_2
+100161	0	시드콩	10301	0	왜 그래콩?	What’s wrong, beanie?	どうしたまめ？	Stage_2
+100162	100163	에스트	10101	0	…아무 일도 아냐. 잘못 본 것 같아.	…It's nothing. I must have misread it.	…なんでもないよ。見間違いだと思う。	Stage_2
+100163	100164	시드콩	10301	0	?	?	?	Stage_2
+100164	0	에스트	10101	0	얼른 가자! 아직 해야 할 일이 많아!	Let's hurry! There's still so much work to do!	早く行こう！ まだやらなきゃいけないことがたくさんあるよ！	Stage_2
+100165	100166	에스트	10101	1	방금 슬픔 열매에서 나온 말…	The words that just came from the Fruit of Sorrow...	さっき、悲しみの実から出た言葉…	Stage_2
+100166	100167	에스트	10101	1	분명 내가 알고 있는 말이야.	I'm sure I've heard those words before	間違いなく、私が知っている言葉だ。	Stage_2
+100167	0	에스트	10101	1	기분 탓인 걸까?	Is it just my imagination?	気のせいだろうか？	Stage_2
+100168	100169	시드	10201	0	오늘도 해냈구나. 고생했어.	You did it again today. Rest now.	今日もやり遂げたね。お疲れ様。	Stage_2
+100169	100170	에스트	10101	0	응, 고마워.	Yeah, thanks.	うん, ありがとう。	Stage_2
+100170	100171	에스트	10101	0	내가 도움이 되고 있어?	Am I really helping?	僕, 役に立ってるかな？	Stage_2
+100171	100172	시드	10201	0	물론이지.	Of course.	もちろんだよ。	Stage_2
+100172	100173	시드	10201	0	이제 쉬어도 좋아. 난 다른 일을 더 하고 있을게.	You can rest now. I’ll stay and finish some other things.	もう休んでいいよ。僕は他の仕事をもう少し片付けてくる。	Stage_2
+100173	0	시드콩	10301	0	콩! 콩!	Beanie! Beanie!	マメ！マメ！	Stage_2
+100174	100175	에스트	10101	0	후~	Whew~	ふぅ～	Stage_2
+100175	100176	에스트	10101	0	시드, 근데 왜 슬픔 나무의 세상이 온통 하얀 거야?	Seed, why is the world of the Tree of Sorrow so bright and white?	シード、ところでどうして「悲しみの木」の世界は一面真っ白なの？	Stage_2
+100176	100177	에스트	10101	0	보통 행복 나무의 세상이 밝다고 생각하지 않아?	Don't people usually think the world of happiness is the bright one?	普通, 「幸せの木」の世界の方が明るいって思わない？	Stage_2
+100177	100178	시드	10201	0	행복은 어둠 속에서도 빛나고, 슬픔은 빛나는 곳에서도 어둡게 보여.	Happiness shines even in the dark, and sorrow looks dark even in the light.	幸せは暗闇の中でも輝き、悲しみは輝く場所でも暗く見えるんだ。	Stage_2
+100178	100179	시드	10201	0	서로가 잘 보이는 곳에서 자란 거야.	They both grew where they could be seen most clearly.	お互いが一番よく見える場所で育ったんだよ。	Stage_2
+100179	100180	에스트	10101	0	그렇구나. 철학적이네.	I see. That’s deep.	そっか。哲学的だね。	Stage_2
+100180	100181	에스트	10101	0	그럼 행복 나무가 아래 세상인 이유는?	Then, why is the Happiness Tree in the world below?	じゃあ、「幸せの木」が下の世界にある理由は？	Stage_2
+100181	100182	에스트	10101	0	사실 반전을 해도 색을 빼면 우리 눈엔 똑같이 보이긴 하지만,	I mean, if you took the colors away, they’d look the same anyway.	実は反転させても、色を抜けば僕たちの目には同じように見えるんだけど、	Stage_2
+100182	100183	에스트	10101	0	시드 넌 처음에 말할 때부터 자연스럽게 행복 나무를 아래 나무로 말했잖아.	But ever since we met, you’ve always naturally called the Happiness Tree the one "below."	シードは最初から、自然に「幸せの木」を下の木だって言ってたじゃない。	Stage_2
+100183	0	시드	10201	0	…	...	...	Stage_2
+100184	100185	시드	10201	0	행복 나무가 아래쪽에 있어야,	…The Happiness Tree has to be at the bottom.	…「幸せの木」が下にあれば、	Stage_2
+100185	100186	시드	10201	0	혹시나 저 너머로 떨어지려 할 때 행복한 감정들이 붙잡아 줄 수 있거든.	So that if anyone were to fall toward the abyss, the happy emotions could catch them.	もしもあっち側へ落ちそうになったとき、幸せな感情たちが掴まえてくれるからね。	Stage_2
+100186	100187	에스트	10101	0	…그렇구나.	...I see.	…そうなんだね。	Stage_2
+100187	100188	시드	10201	0	…	...	...	Stage_2
+100188	0	에스트	10101	0	…	...	...	Stage_2
+100189	100190	에스트	10101	0	시드.	Seed.	シード。	Stage_2
+100190	100191	시드	10201	0	응.	Yes.	うん。	Stage_2
+100191	100192	에스트	10101	0	처음에 내가 눈을 떴을 때, 행복 나무가 나를 데려왔다고 말했잖아.	When I first woke up, you said the Happiness Tree brought me here.	最初に僕が目を覚ましたとき、「幸せの木」が僕を連れてきたって言ったよね。	Stage_2
+100192	100193	시드	10201	0	…응.	…Yes.	…うん。	Stage_2
+100193	100194	에스트	10101	0	그것도 방금 말한 것과 같은 이유야?	Was it for the same reason you just mentioned?	それも、さっき言ったのと同じ理由なの？	Stage_2
+100194	0	시드	10201	0	…	...	…	Stage_2
+100195	100196	에스트	10101	0	시드, 말해줘.	Seed, tell me.	シード、教えて。	Stage_2
+100196	100197	에스트	10101	0	나, 사실 조금씩 기억이 돌아오고 있어.	My memories are slowly coming back.	僕、実は少しずつ記憶が戻ってきているんだ。	Stage_2
+100197	100198	에스트	10101	0	아까 슬픔 열매를 떨어뜨렸을 때, 나온 문장을 봤어.	I saw that sentence earlier when I dropped the Sorrow fruit.	さっき「悲しみの実」を落としたとき、出てきた文章を見たんだ。	Stage_2
+100198	100199	에스트	10101	0	「이번 가을이 내가 겪은 최악의 가을이었어.」	「This fall was the worst fall I’ve ever experienced」	「今年の秋が、僕の人生で最悪の秋だった。」	Stage_2
+100199	100200	에스트	10101	0	그건 분명 내가 들었던 말이었어.	I know those words. I’ve heard them before.	それは間違いなく, 僕が言われた言葉だった。	Stage_2
+100200	100201	에스트	10101	0	내가 맡아서 기획한 동아리 공연이 끝나고 선배가 내게 한 말이었거든.	It’s what a senior told me after the club performance I planned and led.	僕が企画を担当したサークルの公演が終わって、先輩が僕に言った言葉なんだ。	Stage_2
+100201	100202	에스트	10101	0	정말 해내고 싶어서 노력했는데…	I worked so hard because I really wanted to succeed…	本当にやり遂げたくて頑張ったのに… 	Stage_2
+100202	100203	에스트	10101	0	말 한마디가 사람을 무너지게 하는 건 한순간이더라.	But I realized it only takes a second for a single sentence to crush a person.	言葉一つで人が崩れ落ちるのは一瞬だった。	Stage_2
+100203	100204	에스트	10101	0	그 뒤로 자신감을 점점 잃어서, 사람을 만나는 게 두려웠어.	After that, I lost my confidence. I became afraid of meeting people.	それから自信をどんどん失くして、人に会うのが怖くなった。	Stage_2
+100204	100205	에스트	10101	0	또 그런 일이 생길까 봐…	Afraid it would happen again…	またあんなことが起きるんじゃないかって…。	Stage_2
+100205	100206	에스트	10101	0	최선의 노력이 최고의 결과가 되지는 않더라구.	I learned that the best effort doesn't always lead to the best result.	最善の努力が最高の最高の結果になるわけじゃないんだよね。	Stage_2
+100206	0	에스트	10101	0	맞아, 그랬어…	Right… that’s how it was…	そう、そうだった…。	Stage_2
+100207	100208	시드	10201	0	…맞아.	…You’re right.	言葉一つで人が崩れ落ちるのは一瞬だった。	Stage_2
+100208	100209	시드	10201	0	네가 어느 날 조금 깊은 잠에 빠졌고,	One day, you fell into a deep sleep.	君はある日、少し深い眠りに落ちて、	Stage_2
+100209	100210	시드	10201	0	떨어지고 있는 널, 행복 나무가 구했어.	And while you were falling, the Happiness Tree saved you.	落ちていく君を「幸せの木」が救ったんだ。	Stage_2
+100210	100211	시드	10201	0	경계가 아니라, 저 아래의 끝없는 어둠으로 떨어지고 있었거든.	You weren't just falling toward the boundary—you were falling into the endless darkness far below.	境界じゃなくて、あの下の終わりのない暗闇へと落ちていっていたから。	Stage_2
+100211	0	시드콩	10301	0	콩…	Beanie…	マメ…	Stage_2
+100212	100213	시드	10201	0	많이 힘들었겠지.	It must have been so hard for you.	辛かったよね。	Stage_2
+100213	100214	시드	10201	0	울어도 괜찮아.	It’s okay to cry.	泣いてもいいんだよ。	Stage_2
+100214	100215	시드	10201	0	오늘은 이만 잠에 들자.	Let’s get some sleep for today.	今日はもう眠りにつこう。	Stage_2
+100215	0	시드	10201	0	우리가 네 곁에 있을게.	We’ll be right here by your side.	僕たちが君のそばにいるから。	Stage_2
+100216	0	시드콩1		0	—---- —-	—---- —-	—---- —-	Stage_3
+100217	0	시드콩2		0	– —- —--콩!	– —- —-- ..eanie!	– —- —-- ..ーめ！	Stage_3
+100218	0	시드콩1		0	큰일이야콩!	It’s an emergency, beanie!	大変だまめ！	Stage_3
+100219	0	시드콩2		0	어서 움직여콩!	Move it, move it, beanie! The rain is coming!	早く動くまめ！	Stage_3
+100220	100221	에스트	10101	0	…	…	…	Stage_3
+100221	100222	시드	10201	0	잘 잤어?	Did you sleep well?	よく眠れたかい？	Stage_3
+100222	100223	에스트	10101	0	…응	..Yes.	…うん。	Stage_3
+100223	100224	시드	10201	0	그렇다면 다행이야.	That’s a relief.	それならよかった。	Stage_3
+100224	100225	에스트	10101	0	무슨 일이 생긴 거야?	But what’s happening?	何かあったの？	Stage_3
+100225	100226	시드	10201	0	…보고 있는 것처럼 비가 내리고 있어.	…As you can see, it’s raining.	…見ての通り、雨が降っているんだ。	Stage_3
+100226	0	에스트	10101	0	비?	Rain?	雨？	Stage_3
+100227	100228	시드	10201	0	응. 슬픔의 비야.	Yes. The Rain of Sorrow.	うん。「悲しみの雨」だ。	Stage_3
+100228	100229	시드	10201	0	비가 내리면, 행복 나무가 시들어가.	When it rains, the Happiness Tree withers.	雨が降ると、「幸せの木」が枯れていってしまう。	Stage_3
+100229	100230	시드	10201	0	슬픔은 행복에 스며드니까.	Because sorrow seeps into happiness.	悲しみは幸せに染み込むから。	Stage_3
+100230	0	시드	10201	0	슬픔 열매도 더 많이 열리지.	And the Sorrow fruits... they will grow in even greater numbers.	「悲しみの実」も、もっとたくさん実ってしまうんだ。	Stage_3
+100231	100232	에스트	10101	0	혹시 심각한 상황이야?	Is it a serious situation?	もしかして、深刻な状況なの？	Stage_3
+100232	100233	시드	10201	0	…	...	...	Stage_3
+100233	100234	시드	10201	0	솔직히 말하면, 맞아.	To be honest, yes.	…正直に言うと、そうだね.	Stage_3
+100234	100235	시드	10201	0	지금 우리의 힘으론 힘들어.	With our strength alone, it’s too much to handle.	今の僕たちの力だけでは、厳しいんだ。	Stage_3
+100235	100236	에스트	10101	0	그럼, 나라도…!	Then, I’ll…!	それじゃ、僕だけでも…！	Stage_3
+100236	0	에스트	10101	0	…	...	...	Stage_3
+100237	0	에스트	10101	1	내가 도움이 될까...?	(Will I be of any help...?)	（僕に、助けになれるのかな…？）	Stage_3
+100238	0	시드	10201	0	에스트.	Est.	エスト。	Stage_3
+100239	100240	시드	10201	0	무슨 생각하는지 알아.	I know what you’re thinking.	何を考えているか、わかっているよ。	Stage_3
+100240	100241	시드	10201	0	너여야만 해.	It has to be you.	君じゃなきゃダメなんだ。	Stage_3
+100241	100242	시드	10201	0	나는 너를 믿어.	I believe in you.	僕は君を信じている。	Stage_3
+100242	100243	시드	10201	0	우리를 위해 도와주겠어?	Will you help us?	僕たちのために、助けてくれるかい？	Stage_3
+100243	100244	에스트	10101	0	…	...	...	Stage_3
+100244	100245	에스트	10101	0	그렇게 말해줘서 고마워.	Thank you for saying that.	そう言ってくれてありがとう。	Stage_3
+100245	0	에스트	10101	0	최선을 다할게.	I’ll do my best.	精一杯頑張るよ.	Stage_3
+100246	0	시드	10201	0	그거면 충분해.	That is more than enough.	それで十分だよ。	Stage_3
+100247	100248	에스트	10101	0	하아,하아.	Huff, huff.	はぁ、はぁ。	Stage_3
+100248	0	에스트	10101	0	더 남아 있는 열매는…?	Are there... any fruits left?	まだ残っている実は…？	Stage_3
+100249	100250	시드	10201	0	고생했어. 에스트.	You did a great job, Est.	お疲れ様、エスト。	Stage_3
+100250	0	에스트	10101	0	응…?	Huh…?	ん…？	Stage_3
+100251	0	시드	10201	0	비가 그쳤어.	The rain has stopped.	雨が上がったよ。	Stage_3
+100252	100253	에스트	10101	0	…그렇구나.	…I see.	…そっか。	Stage_3
+100253	100254	에스트	10101	0	비가 오는 날 움직이는 건, 더 힘드네.	Moving on a rainy day... is much harder than I thought.	雨の日に動くのは、もっと大変だね。	Stage_3
+100254	0	시드	10201	0	슬픔을 적시고 움직이는 건 힘든 일이니까..	Moving while soaked in sorrow is always a difficult task.	悲しみに濡れて動くのは、辛いことだから。	Stage_3
+100255	100256	에스트	10101	0	시드.	Seed.	…シード。	Stage_3
+100256	100257	시드	10201	0	응.	Yes.	うん。	Stage_3
+100257	100258	에스트	10101	0	이 곳은 내 세계지?	This is my world, isn't it?	ここは僕の世界だよね？	Stage_3
+100258	100259	에스트	10101	0	열매가 보여주는 글자들은 모두 내 기억이었어.	The words the fruits showed me... they were all my memories.	実が見せてくれる文字は、全部僕の記憶だった。	Stage_3
+100259	100260	에스트	10101	0	정말 상처가 됐던 말들이었어.	They were words that truly... deeply hurt me.	本当に傷ついた言葉たちだったよ。	Stage_3
+100260	100261	에스트	10101	0	그렇게 슬픔에 빠져서,	I was so lost in that sadness...	そうやって悲しみに暮れて、	Stage_3
+100261	100262	에스트	10101	0	그래서 행복한 기억이 없다고 생각했었는데..	That I thought... I thought I didn't have any happy memories left... But.	だから幸せな記憶なんてないって思ってたけど…。	Stage_3
+100262	100263	에스트	10101	0	행복한 기억이 있었어.	I did. I had them.	幸せな記憶、あったんだ。	Stage_3
+100263	100264	에스트	10101	0	내가 울 때마다, 돌아가신 엄마가 밥에 강낭콩을 섞어 줬던 것처럼.	Like how my late mother used to mix kidney beans into my rice, Whenever I cried.	僕が泣くたびに、亡くなった母さんがご飯にインゲン豆を混ぜてくれたみたいに。	Stage_3
+100264	100265	에스트	10101	0	엄마가 일하느라 자주 놀지 못했으니까, 그런 관심이라도 좋았거든.	She was always so busy working, so we couldn't play much... But even that small bit of attention... it made me so happy.	母さんは仕事で忙しくてあまり遊べなかったから、そんな関心だけでも嬉しかったんだ。	Stage_3
+100265	0	에스트	10101	0	그렇지?	Right?	そうだよね？	Stage_3
+100266	100267	시드	10201	0	맞아.	You’re right.	その通りだ。	Stage_3
+100267	100268	시드	10201	0	이곳의 이름은 에스트.	The name of this place is "EST".	ここの名前はエスト。	Stage_3
+100268	100269	시드	10201	0	너의 세계야.	It is... your world.	君の世界だよ。	Stage_3
+100269	100270	에스트	10101	0	난 죽은 거야?	Am I... dead?	僕は、死んだの？	Stage_3
+100270	100271	시드	10201	0	아직, 죽지 않았어.	No. You’re still alive.	まだ、死んでいないよ.	Stage_3
+100271	100272	에스트	10101	0	…그렇구나.	…I see.	…そっか。	Stage_3
+100272	100273	에스트	10101	0	여기서 항상 나를 지켜보고 있었어?	Have you... always been watching over me here?	ここでずっと僕を見守ってくれていたの？	Stage_3
+100273	100274	시드	10201	0	응	Yes.	うん。	Stage_3
+100274	100275	시드	10201	0	넌 우리의 전부니까.	Because you are our everything.	君は僕たちのすべてだから。	Stage_3
+100275	0	에스트	10101	0	고마워.	Thank you.	ありがとう.	Stage_3
+100276	0	에스트	10101	0	난 혼자가 아니었구나.	I wasn't alone after all. 	僕は一人じゃなかったんだね。	Stage_3
+100277	0	시드	10201	0	봄의 시간이 왔어.	The time of Spring has come.	春の時間が来たよ。	Stage_3
+100278	100279	에스트	10101	0	시드, 머리 위에 꽃이 피었어!	Seed, a flower has bloomed on your head!	シード、頭の上に花が咲いたよ！	Ending
+100279	0	시드	10201	0	맞아, 정말 소중한 꽃이지.	That’s right. It’s a very precious flower.	そうだね、本当に大切な花だよ。	Ending
+100280	0	에스트	10101	0	정말 예뻐.	It’s so beautiful.	すごく綺麗だ。	Ending
+100281	100282	시드	10201	0	여기가 나아가는 길이야.	This is the way forward.	ここが、進むべき道なんだね。	Ending
+100282	100283	에스트	10101	0	이렇게 가까이 있었구나.	It was this close.	こんなに近くにあったんだね。	Ending
+100283	100284	에스트	10101	0	뿌리로 향하는 길이 있었다니…	To think there was a path leading to the roots...	根へと続く道があったなんて…。	Ending
+100284	100285	시드	10201	0	응, 너는 우리의 진짜 뿌리니까.	Yes. Because you are our true root.	だって、君は僕たちの本当の根っこだからね。	Ending
+100285	100286	에스트	10101	0	…그렇구나.	…I see.	…そうなんだね。	Ending
+100286	0	에스트	10101	0	…	...	…	Ending
+100287	100288	에스트	10101	0	헤어지기 싫어, 시드	I don’t want to say goodbye, Seed.	別れたくないよ、シード。	Ending
+100288	100289	시드	10201	0	가야 해, 에스트.	You have to go, Est.	行かなくちゃ、エスト。	Ending
+100289	100290	에스트	10101	0	왜?	Why? 	どうして？ 	Ending
+100290	100291	에스트	10101	0	나 아직 나아갈 자신이 없어.	I’m still not sure if I can move forward.	僕、まだ進む自信がないんだ。	Ending
+100291	100292	시드	10201	0	네가 나아가야 우리가 존재할 수 있어.	We exist only because you move forward.	君が進んでこそ、僕たちは存在できるんだ。	Ending
+100292	100293	에스트	10101	0	너희를 잃는 건 싫어…	I don’t want to lose you all… 	君たちを失うのは嫌だよ…。	Ending
+100293	100294	에스트	10101	0	내가 나아갈 수 있을까?	Will I really... be able to go on ?	僕、進んでいけるのかな？	Ending
+100294	100295	시드	10201	0	그럼, 당연하지.	Of course you can.	もちろんだよ。	Ending
+100295	100296	시드	10201	0	넌 늘 나아가고 있었어.	You’ve always been moving forward.	君はいつも前に進んでいた。	Ending
+100296	0	에스트	10101	0	…	...	...	Ending
+100297	100298	에스트	10101	0	알았어.	I’m ready.	…わかった。	Ending
+100298	100299	시드	10201	0	좋아.	Good.	いいよ。	Ending
+100299	0	시드	10201	0	그리고… 이 씨앗을 선물로 줄게	And... I’ll give you this seed as a gift. 	それと… この種をプレゼントするよ。	Ending
+100300	0	시드	10201	0	네게 도움이 될 거야.	It will help you.	君の力になるはずだ。	Ending
+100301	100302	에스트	10101	0	이건… 너에게 소중한 거잖아.	This is… something so precious to you.	これは… 君にとって大切なものじゃないか。	Ending
+100302	100303	시드	10201	0	소중한 사람에게 건네는 소중한 선물이지.	It’s a precious gift for someone precious.	大切な人に渡す、大切な贈り物なんだ。	Ending
+100303	100304	에스트	10101	0	…응.	…Yes.	…うん。	Ending
+100304	0	에스트	10101	0	고마워. 소중히 할게.	Thank you. I’ll treasure it.	ありがとう。大切にするよ。	Ending
+100305	100306	시드	10201	0	에스트.	Est.	エスト。	Ending
+100306	100307	시드	10201	0	우린 여기서 이 나무를 지키기 위해 최선을 다할 거야.	We will do our best to protect this tree from here.	僕たちはここで、この木を守るために全力を尽くすよ。	Ending
+100307	100308	시드	10201	0	하지만 나무 혼자선 숲이 될 수 없어.	But a tree alone cannot become a forest.	でも、木だけじゃ森にはなれない。	Ending
+100308	100309	시드	10201	0	그러니 네가 우리의 숲이 되어줘.	So, please… become our forest.	だから君が、僕たちのフォレストになってくれ。	Ending
+100309	100310	시드	10201	0	너를 위해 응원할게.	I will always be rooting for you. 	君を応援しているよ。	Ending
+100310	0	시드	10201	0	에스트를 위해.	For, Est.	エストのために。	Ending
+100311	100312	에스트	10101	0	…	…	...	Ending
+100312	100313	에스트	10101	0	응, 노력해 볼게.	I’ll try my best.	…うん、頑張ってみるよ。	Ending
+100313	100314	에스트	10101	0	우리가 또 볼 수 있을까?	Will we ever see each other again?	また会えるかな？	Ending
+100314	100315	시드	10201	0	글쎄.	Who knows? 	さあね。	Ending
+100315	100316	시드	10201	0	하지만 우린 늘 널 보고 있을 거야.	But we will always be watching over you.	でも、僕たちはいつも君を見守っているよ。	Ending
+100316	100317	에스트	10101	0	그거면 충분해.	That’s more than enough.	それだけで十分だ。	Ending
+100317	0	에스트	10101	0	너희를 위해, 나를 위해 나아갈게.	For you, and for myself… I will move forward.	君たちのため、そして自分のために進んでいくよ。	Ending
+100318	0	시드	10201	0	좋아.	Good. 	いいよ。	Ending
+100319	0	에스트	10101	0	고마웠어, 시드.	Thank you for everything, Seed.	ありがとう、シード。	Ending
+100320	0	시드	10201	0	안녕.	Take care.	さようなら。	Ending
+100321	0	에스트	10101	0	잘 있어.	Goodbye.	元気でね。	Ending
+100322	100323	에스트		0	…	...	...	Ending
+100323	0	에스트		0	낯선 천장…	A strange ceiling...	見慣れない天井…。	Ending
+100324	100325	에스트		0	…	...	...	Ending
+100325	100326	에스트		0	얼굴은 없네.	But, it's no face	いや、顔がない。	Ending
+100326	100327	에스트		0	…	...	...	Ending
+100327	100328	에스트		0	목소리가 안 나와.	I can't make a sound.	声が出ない。	Ending
+100328	100329	에스트		0	…	...	...	Ending
+100329	100330	에스트		0	꿈이었을까?	Was it all just a dream?	夢だったのかな…？	Ending
+100330	100331	에스트		0	그렇다면 난…	If so, then I...	それなら僕は…	Ending
+100331	100332	에스트		0	…!	...!	…！	Ending
+100332	100333	에스트		0	하하…	Haha...	ハハ…	Ending
+100333	100334	에스트		0	시드, 정말 많은 도움이 됐어.	Seed, you helped me so much.	シード、本当にありがとう。	Ending
+100334	100335	에스트		0	꼭 숲이 될게.	I will become a forest.	必ずフォレストになってみせるよ。	Ending
+100335	0	에스트		0	에스트를 위해.	FOR EST.	エストのために (For Est)。	Ending
+100336	0				세상의 모든 에스트를 위해. team.Seed.	For every EST in this world. team.Seed	世界のすべてのエストのために。team.Seed.	Ending

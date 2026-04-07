@@ -39,6 +39,7 @@ MonoBehaviour:
   ImageResource: []
   ActionList:
   - rid: 2897498032376119311
+  - rid: 2307714538049634391
   - rid: 2897498032376119312
   - rid: 2897498032376119313
   - rid: 2897498032376119314
@@ -51,20 +52,93 @@ MonoBehaviour:
   - rid: 2897498032376119320
   - rid: 2897498032376119321
   - rid: 2897498032376119322
+  - rid: 2307714538049634392
   - rid: 2897498032376119324
-  - rid: 2897498032376119326
+  - rid: 2307714538049634395
   - rid: 2897498032376119325
+  - rid: 2307714538049634396
+  - rid: 2307714538049634393
+  - rid: 2307714538049634397
+  - rid: 2307714538049634394
   - rid: 2897498032376119327
   - rid: 2897498032376119328
   - rid: 2897498032376119329
+  - rid: 2307714538049634398
+  - rid: 2307714538049634399
   - rid: 2897498032376119331
   - rid: 2897498032376119332
+  - rid: 2307714538049634400
   - rid: 2897498032376119333
   - rid: 2897498032376119334
   - rid: 2897498032376119335
   references:
     version: 2
     RefIds:
+    - rid: 2307714538049634391
+      type: {class: CameraZoomAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 12
+        NextType: 1
+        value: 9.5
+        time: 0
+    - rid: 2307714538049634392
+      type: {class: DelayAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 13
+        NextType: 1
+        delayTime: 1.5
+    - rid: 2307714538049634393
+      type: {class: CharacterDirectionAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 2
+        NextType: 1
+        character: 0
+        isRight: 0
+    - rid: 2307714538049634394
+      type: {class: CharacterDirectionAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 2
+        NextType: 1
+        character: 0
+        isRight: 1
+    - rid: 2307714538049634395
+      type: {class: DelayAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 13
+        NextType: 1
+        delayTime: 0.5
+    - rid: 2307714538049634396
+      type: {class: DelayAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 13
+        NextType: 1
+        delayTime: 0.5
+    - rid: 2307714538049634397
+      type: {class: DelayAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 13
+        NextType: 1
+        delayTime: 0.5
+    - rid: 2307714538049634398
+      type: {class: CameraZoomAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 12
+        NextType: 1
+        value: 15
+        time: 2
+    - rid: 2307714538049634399
+      type: {class: DelayAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 13
+        NextType: 1
+        delayTime: 0.5
+    - rid: 2307714538049634400
+      type: {class: CameraZoomAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 12
+        NextType: 1
+        value: 8.5
+        time: 2
     - rid: 2897498032376119311
       type: {class: FadeInAction, ns: CutScene, asm: Assembly-CSharp}
       data:
@@ -131,8 +205,8 @@ MonoBehaviour:
         _actionType: 6
         NextType: 1
         dialogNumber: 100077
-        isEmptyPositionDialog: 0
-        dialogPosition: {x: 0, y: 0}
+        isEmptyPositionDialog: 1
+        dialogPosition: {x: 11, y: -5}
     - rid: 2897498032376119320
       type: {class: CameraMoveAction, ns: CutScene, asm: Assembly-CSharp}
       data:
@@ -169,12 +243,6 @@ MonoBehaviour:
         NextType: 1
         character: 0
         isRight: 1
-    - rid: 2897498032376119326
-      type: {class: DelayAction, ns: CutScene, asm: Assembly-CSharp}
-      data:
-        _actionType: 13
-        NextType: 1
-        delayTime: 1
     - rid: 2897498032376119327
       type: {class: DelayAction, ns: CutScene, asm: Assembly-CSharp}
       data:

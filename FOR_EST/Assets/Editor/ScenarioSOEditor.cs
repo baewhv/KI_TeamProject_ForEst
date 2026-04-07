@@ -15,9 +15,9 @@ public class ScenarioSOEditor : Editor
     private SerializedProperty _seedBProperty;
     private SerializedProperty _cameraProperty;
     private SerializedProperty _imgListProperty;
+    private SerializedProperty _triggerListProperty;
     
     private ReorderableList _actionList;
-    private List<Vector2> points = new();
     private static GameObject go;
 
     private void OnEnable()
@@ -29,6 +29,8 @@ public class ScenarioSOEditor : Editor
         _cameraProperty = serializedObject.FindProperty("CameraData");
         
         _imgListProperty = serializedObject.FindProperty("ImageResource");
+        _triggerListProperty = serializedObject.FindProperty("Triggers");
+        
         
         _actionList = new ReorderableList(serializedObject, _actionsProperty, true, true, true, true);
         _actionList.elementHeightCallback = (index) =>
@@ -98,7 +100,10 @@ public class ScenarioSOEditor : Editor
         EditorGUILayout.PropertyField(_seedBProperty, new GUIContent("시드콩 설정"), true);
         EditorGUILayout.PropertyField(_cameraProperty, new GUIContent("카메라 설정"), true);
         
-        EditorGUILayout.PropertyField(_imgListProperty, new GUIContent("이미지 설정(준비중)"), true);
+        //EditorGUILayout.PropertyField(_imgListProperty, new GUIContent("이미지 설정(준비중)"), true);
+        EditorGUILayout.PropertyField(_triggerListProperty, new GUIContent("트리거 리스트"), true);
+        
+        
             
         _actionList.DoLayoutList();
         if (GUILayout.Button("위치 확인용(테스트중)"))
