@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour, IRespawnable
         _status.IsReverse = transform.position.y < 0;
         _movement._rigidbody.gravityScale = _status.GravityScale * (_status.IsReverse ? -1 : 1);
         transform.localScale *= new Vector2(1f, _status.IsReverse ? -1 : 1);
-        _anim.SetBool("Reverse", _status.IsReverse);
+        // _anim.SetBool("Reverse", _status.IsReverse);
     }
 
     private void OnEnable()
@@ -65,6 +65,8 @@ public class PlayerController : MonoBehaviour, IRespawnable
         _input.Player.ShowReverse.performed += OnShowReverse;
         _input.Player.Restart.performed += _ => { };
         _input.Player.Grab.performed += OnInteract;
+        
+        _anim.SetBool("Reverse", _status.IsReverse);
     }
 
     private void OnDisable()
