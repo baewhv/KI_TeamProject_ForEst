@@ -7,11 +7,13 @@ public class SeedBean : MonoBehaviour
 {
     private Animator _anim;
     private SpriteRenderer _renderer;
+    private BoxCollider2D _collider;
 
     private void Awake()
     {
         _anim = GetComponentInChildren<Animator>();
         _renderer = GetComponentInChildren<SpriteRenderer>();
+        _collider = GetComponent<BoxCollider2D>();
         
         if (transform.position.y < -1)
         {
@@ -32,25 +34,21 @@ public class SeedBean : MonoBehaviour
             float dot = Vector2.Dot(transform.right, direction);
 
             _renderer.flipX = dot > 0 ? true : false;
-        }
-    }
-
-    private void Update()
-    {
-        if (GameManager.Instance.IsClear)
-        {
+            
+            BeHandedFruit();
             StartCoroutine(delayCoroutine());
+            _collider.enabled = false;
         }
     }
 
-    public void BeHandedFruit()
+    private void BeHandedFruit()
     {
         _anim.SetTrigger("Put");
     }
 
     private IEnumerator delayCoroutine()
     {
-        yield return YieldContainer.WaitForSeconds(0.7f);
+        yield return YieldContainer.WaitForSeconds(1f);
         _anim.SetBool("Clear", true);
     }
 }
