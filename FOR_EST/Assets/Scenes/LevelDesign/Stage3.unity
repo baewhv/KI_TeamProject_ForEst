@@ -210,9 +210,21 @@ PrefabInstance:
       value: InGamePanelManager
       objectReference: {fileID: 0}
     - target: {fileID: 5307896291697179856, guid: defe42e2958a7014c9af705752a5381f, type: 3}
+      propertyPath: jpPanel
+      value: 
+      objectReference: {fileID: 689011633}
+    - target: {fileID: 5307896291697179856, guid: defe42e2958a7014c9af705752a5381f, type: 3}
+      propertyPath: engPanel
+      value: 
+      objectReference: {fileID: 689011634}
+    - target: {fileID: 5307896291697179856, guid: defe42e2958a7014c9af705752a5381f, type: 3}
       propertyPath: escPanel
       value: 
       objectReference: {fileID: 689011632}
+    - target: {fileID: 5307896291697179856, guid: defe42e2958a7014c9af705752a5381f, type: 3}
+      propertyPath: korPanel
+      value: 
+      objectReference: {fileID: 689011635}
     - target: {fileID: 6313164479809871268, guid: defe42e2958a7014c9af705752a5381f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 393.3252
@@ -725,6 +737,21 @@ RectTransform:
 --- !u!1 &689011632 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4861887098132174327, guid: 27437be2b15643744b701ea561538711, type: 3}
+  m_PrefabInstance: {fileID: 689011630}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &689011633 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1923411096543708059, guid: 27437be2b15643744b701ea561538711, type: 3}
+  m_PrefabInstance: {fileID: 689011630}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &689011634 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6117366543734779580, guid: 27437be2b15643744b701ea561538711, type: 3}
+  m_PrefabInstance: {fileID: 689011630}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &689011635 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7302006688179596535, guid: 27437be2b15643744b701ea561538711, type: 3}
   m_PrefabInstance: {fileID: 689011630}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &723417147
