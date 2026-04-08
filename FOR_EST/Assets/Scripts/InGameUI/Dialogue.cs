@@ -116,15 +116,17 @@ public class Dialogue : SingletonMonoBehaviour<Dialogue>
     void ShowDialogue()
     {
         dialogueBox.gameObject.SetActive(true);
-        if (!textDict.ContainsKey(_currentID)) return;
-
-        dialogueText.text = textDict[_currentID];
-
+        
         if (!speakerDict.ContainsKey(_currentID)) return;
 
         int speaker = speakerDict[_currentID];
+        
+        UpdatePosition(GetTargetBySpeaker(speaker));
+        
+        if (!textDict.ContainsKey(_currentID)) return;
 
-        currentTarget = GetTargetBySpeaker(speaker);
+        dialogueText.text = textDict[_currentID];
+        
     }
 
     void NextDialogue()
