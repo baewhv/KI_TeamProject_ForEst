@@ -77,7 +77,7 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
 
     private void InitPrefabs()
     {
-        _cutSceneObjects = new GameObject("CutsceneObject");
+        
         beforeMask = Resources.Load<LayerMaskSO>("Util/DefaultCameraMask").layerMask;
         cutsceneMask = Resources.Load<LayerMaskSO>("Util/CutsceneMask").layerMask;
         cutsceneObjectMask = Resources.Load<LayerMaskSO>("Util/CutsceneObjectMask").layerMask; 
@@ -134,6 +134,7 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
         }
         pc = FindAnyObjectByType<PlayerController>();
         Camera.main.cullingMask = beforeMask; //hardcoding
+        _cutSceneObjects = new GameObject("CutsceneObject");
     }
 
     public void UnLoadScenario()
@@ -347,6 +348,8 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
     {
         if (!CutsceneObject.ContainsKey(objectNumber))
         {
+            if(!_cutSceneObjects)
+                _cutSceneObjects = new GameObject("CutsceneObject");
             CutsceneObject[objectNumber] =
                 Instantiate(ScenarioQueue.Peek().CutsceneObject[objectNumber], _cutSceneObjects.transform);
             CutsceneObject[objectNumber].transform.position = position;
