@@ -12,6 +12,7 @@ public class CutsceneTrigger : MonoBehaviour
         _cutsceneName = data.triggerSOName;
         transform.position = data.position;
         _triggerTargetTag = data.triggerTargetTag;
+        GetComponent<BoxCollider2D>().size = data.triggerSize;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
