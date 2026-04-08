@@ -163,9 +163,9 @@ ID	nextID	name	speaker	Textbox_type	Text_EN	Text_KR	Text_JP	Stage
 100162	100163	에스트	10101	0	…It's nothing. I must have misread it.	…아무 일도 아냐. 잘못 본 것 같아.	…なんでもないよ。見間違いだと思う。	Stage_2
 100163	100164	시드콩	10301	0	?	?	?	Stage_2
 100164	0	에스트	10101	0	Let's hurry! There's still so much work to do!	얼른 가자! 아직 해야 할 일이 많아!	早く行こう！ まだやらなきゃいけないことがたくさんあるよ！	Stage_2
-100165	100166	에스트	10101	1	The words that just came from the Fruit of Sorrow...	방금 슬픔 열매에서 나온 말…	さっき、悲しみの実から出た言葉…	Stage_2
-100166	100167	에스트	10101	1	I'm sure I've heard those words before	분명 내가 알고 있는 말이야.	間違いなく、私が知っている言葉だ。	Stage_2
-100167	0	에스트	10101	1	Is it just my imagination?	기분 탓인 걸까?	気のせいだろうか？	Stage_2
+100165	100166	에스트	10101	1	(The words that just came from the Fruit of Sorrow...)	(방금 슬픔 열매에서 나온 말…)	(さっき、悲しみの実から出た言葉…)	Stage_2
+100166	100167	에스트	10101	1	(I'm sure I've heard those words before.)	(분명 내가 알고 있는 말이야.)	(間違いなく、私が知っている言葉だ。)	Stage_2
+100167	0	에스트	10101	1	(Is it just my imagination?)	(기분 탓인 걸까?)	(気のせいだろうか？)	Stage_2
 100168	100169	시드	10201	0	You did it again today. Rest now.	오늘도 해냈구나. 고생했어.	今日もやり遂げたね。お疲れ様。	Stage_2
 100169	100170	에스트	10101	0	Yeah, thanks.	응, 고마워.	うん, ありがとう。	Stage_2
 100170	100171	에스트	10101	0	Am I really helping?	내가 도움이 되고 있어?	僕, 役に立ってるかな？	Stage_2
@@ -235,7 +235,7 @@ ID	nextID	name	speaker	Textbox_type	Text_EN	Text_KR	Text_JP	Stage
 100234	100235	시드	10201	0	With our strength alone, it’s too much to handle.	지금 우리의 힘으론 힘들어.	今の僕たちの力だけでは、厳しいんだ。	Stage_3
 100235	100236	에스트	10101	0	Then, I’ll…!	그럼, 나라도…!	それじゃ、僕だけでも…！	Stage_3
 100236	0	에스트	10101	0	...	…	...	Stage_3
-100237	0	에스트	10101	1	Will I be of any help...?	내가 도움이 될까...?	（僕に、助けになれるのかな…？）	Stage_3
+100237	0	에스트	10101	1	(Will I be of any help...?)	(내가 도움이 될까...?)	（僕に、助けになれるのかな…？）	Stage_3
 100238	0	시드	10201	0	Est.	에스트.	エスト。	Stage_3
 100239	100240	시드	10201	0	I know what you’re thinking.	무슨 생각하는지 알아.	何を考えているか、わかっているよ。	Stage_3
 100240	100241	시드	10201	0	It has to be you.	너여야만 해.	君じゃなきゃダメなんだ。	Stage_3

@@ -35,8 +35,9 @@ MonoBehaviour:
     target: 0
     position: {x: 0, y: 0}
     zoom: 6.5
+    showInGameObject: 0
   Triggers: []
-  ImageResource: []
+  CutsceneObject: []
   ActionList:
   - rid: 7021410910219010222
   - rid: 2307714452121190502
@@ -57,6 +58,7 @@ MonoBehaviour:
   - rid: 2307714452121190521
   - rid: 2307714452121190522
   - rid: 2307714452121190523
+  - rid: 2307714566109528142
   - rid: 2307714452121190526
   - rid: 2307714452121190524
   - rid: 2307714538049634428
@@ -282,7 +284,7 @@ MonoBehaviour:
       data:
         _actionType: 12
         NextType: 2
-        value: 30
+        value: 35
         time: 3
     - rid: 2307714538049634431
       type: {class: CameraZoomAction, ns: CutScene, asm: Assembly-CSharp}
@@ -358,6 +360,13 @@ MonoBehaviour:
         _actionType: 13
         NextType: 1
         delayTime: 3
+    - rid: 2307714566109528142
+      type: {class: CameraZoomAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 12
+        NextType: 1
+        value: 8
+        time: 0
     - rid: 7021410910219010222
       type: {class: FadeInAction, ns: CutScene, asm: Assembly-CSharp}
       data:
