@@ -152,6 +152,10 @@ namespace Obstacle
             
             transform.position = startPos;
             _renderer.sprite = _isThisObjBelongsToTheReverseWorld ? _reverseSprite  : _normalSprite;
+            
+            if (_renderer.sprite == _reverseSprite) _isReverse = true;
+            else                                    _isReverse = false;
+            
             transform.localScale = new Vector2(targetScale.x, 0);
             _rb.linearVelocity = Vector2.zero;
 

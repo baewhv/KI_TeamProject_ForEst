@@ -125,10 +125,16 @@ public class PanelManager : MonoBehaviour
         jpPanel.SetActive(true);
     }
 
-    public void Quit()
+    public void BackTitleWithSave()
     {
         string saveSceneName = SceneManager.GetActiveScene().name;
         PlayerPrefs.SetString("SaveScene", saveSceneName);
+        SceneManagement.Instance.LoadScene("TitleScene");
+    }
+
+    public void Quit()
+    {
+        
 #if UNITY_EDITOR
 
         UnityEditor.EditorApplication.isPlaying = false; //유니티 에디터에서 Play만 비활성화 시키는 함수

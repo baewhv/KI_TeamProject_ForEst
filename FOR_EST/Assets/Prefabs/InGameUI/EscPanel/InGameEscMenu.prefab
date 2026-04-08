@@ -6947,7 +6947,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4861887098132174327}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
@@ -6968,7 +6968,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 393.3252, y: 922.5146}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!223 &2553699793075482458
@@ -12022,7 +12022,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 4509229587864157087}
         m_TargetAssemblyTypeName: PanelManager, Assembly-CSharp
-        m_MethodName: Quit
+        m_MethodName: BackTitleWithSave
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
