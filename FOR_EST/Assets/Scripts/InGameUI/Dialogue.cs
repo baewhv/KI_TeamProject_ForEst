@@ -12,7 +12,6 @@ public class Dialogue : SingletonMonoBehaviour<Dialogue>
     Dictionary<int, int> nextDict = new Dictionary<int, int>();
     Dictionary<int, int> speakerDict = new Dictionary<int, int>();
     private Vector3 _offset;
-    Transform currentTarget;
     private int _currentID;
     public int languageIndex = 5; // CSV파일에서 텍스트가 있는 열의 인덱스 5 : 한국어, 6: 영어, 7: 일본어
     public const int minLang = 5;
@@ -61,17 +60,6 @@ public class Dialogue : SingletonMonoBehaviour<Dialogue>
         _currentID = id; // CSV파일의 시작할 텍스트 ID를 입력해주세요.
         IsPlay = true;
         ShowDialogue();
-    }
-
-    void Update()
-    {
-        if (currentTarget == null)
-        {
-            //Debug.Log("타겟 없음");
-            return;
-        }
-
-        UpdatePosition(currentTarget);
     }
 
     public void PressKey(InputAction.CallbackContext context)
