@@ -2765,6 +2765,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stage1_Grid
       objectReference: {fileID: 0}
+    - target: {fileID: 1688704136548172240, guid: 92d0fe81bbd53a64a8424807a165f489, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 4950646946258835749, guid: 92d0fe81bbd53a64a8424807a165f489, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -15.33
+      objectReference: {fileID: 0}
     - target: {fileID: 8350626579362198224, guid: 92d0fe81bbd53a64a8424807a165f489, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -20,7 +20,9 @@ public class SeedBean : MonoBehaviour, IRespawnable
             _anim.SetBool("Reverse", true);
             _renderer.flipY = true;
             transform.position = new Vector2(transform.position.x, transform.position.y + 1f);
-
+            Vector2 colliderPosY = _collider.offset;
+            colliderPosY.y = _collider.offset.y - 1f;
+            _collider.offset = colliderPosY;
         }
     }
 
