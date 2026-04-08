@@ -129,7 +129,7 @@ public class PanelManager : MonoBehaviour
     {
         string saveSceneName = SceneManager.GetActiveScene().name;
         PlayerPrefs.SetString("SaveScene", saveSceneName);
-        CloseEscPanel();
+        Time.timeScale = 1f;
         SceneManagement.Instance.LoadScene("TitleScene");
     }
 
