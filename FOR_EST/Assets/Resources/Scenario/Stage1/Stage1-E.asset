@@ -16,13 +16,13 @@ MonoBehaviour:
     character: 0
     ShowCharacter: 1
     GetInGamePosition: 0
-    position: {x: 6, y: 0.1}
+    position: {x: 6, y: -1}
     isRight: 0
   SeedData:
     character: 1
     ShowCharacter: 1
     GetInGamePosition: 0
-    position: {x: 3, y: 0.1}
+    position: {x: 3, y: -1}
     isRight: 1
   SeedBData:
     character: 2
@@ -34,10 +34,11 @@ MonoBehaviour:
     followTarget: 1
     target: 0
     position: {x: 0, y: 0}
-    zoom: 11.5
-  BackgroundImage: []
-  ImageResource: []
+    zoom: 6.5
+  Triggers: []
+  CutsceneObject: []
   ActionList:
+  - rid: 2307714559875743825
   - rid: 7021411028578336879
   - rid: 7021411028578336881
   - rid: 7021411028578336880
@@ -45,14 +46,13 @@ MonoBehaviour:
   - rid: 2897498071960912014
   - rid: 7021411028578336883
   - rid: 2897498071960912015
-  - rid: 7021411028578336884
-  - rid: 7021411028578336885
   - rid: 7021411028578336886
   - rid: 7021411028578336887
   - rid: 7021411028578336888
   - rid: 7021411028578336889
   - rid: 7021411028578336891
   - rid: 7021411028578336890
+  - rid: 2307714559875743826
   - rid: 7021411028578336892
   - rid: 7021411028578336893
   - rid: 7021411028578336894
@@ -67,6 +67,18 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 2307714559875743825
+      type: {class: DelayAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 13
+        NextType: 1
+        delayTime: 1
+    - rid: 2307714559875743826
+      type: {class: DelayAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 13
+        NextType: 1
+        delayTime: 1
     - rid: 2897498071960912014
       type: {class: CharacterDirectionAction, ns: CutScene, asm: Assembly-CSharp}
       data:
@@ -120,20 +132,8 @@ MonoBehaviour:
         _actionType: 1
         NextType: 1
         character: 1
-        position: {x: 0, y: 0.1}
+        position: {x: 0, y: -1}
         isForceMove: 0
-    - rid: 7021411028578336884
-      type: {class: CharacterReverseAction, ns: CutScene, asm: Assembly-CSharp}
-      data:
-        _actionType: 3
-        NextType: 1
-        character: 0
-    - rid: 7021411028578336885
-      type: {class: CharacterReverseAction, ns: CutScene, asm: Assembly-CSharp}
-      data:
-        _actionType: 3
-        NextType: 1
-        character: 1
     - rid: 7021411028578336886
       type: {class: PlayDialogAction, ns: CutScene, asm: Assembly-CSharp}
       data:
@@ -170,7 +170,7 @@ MonoBehaviour:
       type: {class: CharacterPlayAnimationAction, ns: CutScene, asm: Assembly-CSharp}
       data:
         _actionType: 4
-        NextType: 1
+        NextType: 2
         character: 1
         animation: Turn
         TrueAndFalse: 1

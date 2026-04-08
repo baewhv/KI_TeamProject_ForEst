@@ -34,9 +34,9 @@ MonoBehaviour:
     followTarget: 0
     target: 0
     position: {x: 9, y: 8.6}
-    zoom: 11.5
-  BackgroundImage: []
-  ImageResource: []
+    zoom: 6.5
+  Triggers: []
+  CutsceneObject: []
   ActionList:
   - rid: 2897498032376119311
   - rid: 2307714538049634391
@@ -79,7 +79,7 @@ MonoBehaviour:
       data:
         _actionType: 12
         NextType: 1
-        value: 9.5
+        value: 6.5
         time: 0
     - rid: 2307714538049634392
       type: {class: DelayAction, ns: CutScene, asm: Assembly-CSharp}
@@ -137,7 +137,7 @@ MonoBehaviour:
       data:
         _actionType: 12
         NextType: 1
-        value: 8.5
+        value: 6.5
         time: 2
     - rid: 2897498032376119311
       type: {class: FadeInAction, ns: CutScene, asm: Assembly-CSharp}
@@ -219,7 +219,7 @@ MonoBehaviour:
       data:
         _actionType: 12
         NextType: 1
-        value: 11.5
+        value: 6.5
         time: 2
     - rid: 2897498032376119322
       type: {class: PlayDialogAction, ns: CutScene, asm: Assembly-CSharp}

@@ -4,7 +4,9 @@ using UnityEngine.SceneManagement;
 public class InGameUI : MonoBehaviour
 {
     public GameObject escPanel;
-
+    public GameObject engPanel;
+    public GameObject korPanel;
+    public GameObject jpPanel;
     public Dialogue dialogue;
 
 
@@ -13,6 +15,23 @@ public class InGameUI : MonoBehaviour
         if (context.performed)
         {
             escPanel.SetActive(!escPanel.activeSelf);
+            engPanel.SetActive(false);
+            korPanel.SetActive(false);
+            jpPanel.SetActive(false);
+            switch (LanguageSetting.currentLanguage)
+            {
+                case Language.EN:
+                    engPanel.SetActive(true);
+                    break;
+
+                case Language.KR:
+                    korPanel.SetActive(true);
+                    break;
+
+                case Language.JP:
+                    jpPanel.SetActive(true);
+                    break;
+            }
         }
 
         if (Time.timeScale == 0) //멈춰있으면

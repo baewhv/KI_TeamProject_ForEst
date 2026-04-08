@@ -34,7 +34,7 @@ MonoBehaviour:
     followTarget: 0
     target: 0
     position: {x: -3, y: 0}
-    zoom: 8
+    zoom: 6.5
   Triggers:
   - position: {x: 14, y: 8.6}
     triggerSOName: StageT-1
@@ -51,8 +51,10 @@ MonoBehaviour:
   - rid: 2897498049571717274
   - rid: 2897498049571717267
   - rid: 2897497981599088768
+  - rid: 2307714559875743744
   - rid: 2307714538049634385
   - rid: 2897497981599088769
+  - rid: 2307714559875743745
   - rid: 2897497981599088770
   - rid: 2307714538049634383
   - rid: 2897498049571717206
@@ -107,7 +109,7 @@ MonoBehaviour:
         NextType: 1
         dialogNumber: 100004
         isEmptyPositionDialog: 1
-        dialogPosition: {x: 7, y: -3.5}
+        dialogPosition: {x: 4, y: -3.5}
     - rid: 2307714538049634384
       type: {class: BackgroundImageAction, ns: CutScene, asm: Assembly-CSharp}
       data:
@@ -123,6 +125,18 @@ MonoBehaviour:
         hideBackground: 1
         backgroundImage: {fileID: 8166514501362778280, guid: c9914882614a88342854c95e7f8eff43, type: 3}
     - rid: 2307714538049634386
+      type: {class: DelayAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 13
+        NextType: 1
+        delayTime: 2
+    - rid: 2307714559875743744
+      type: {class: FadeInAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 7
+        NextType: 2
+        time: 2
+    - rid: 2307714559875743745
       type: {class: DelayAction, ns: CutScene, asm: Assembly-CSharp}
       data:
         _actionType: 13
@@ -153,7 +167,7 @@ MonoBehaviour:
         NextType: 1
         dialogNumber: 100001
         isEmptyPositionDialog: 1
-        dialogPosition: {x: 7, y: -3.5}
+        dialogPosition: {x: 4, y: -3.5}
     - rid: 2897497981599088769
       type: {class: BackgroundImageAction, ns: CutScene, asm: Assembly-CSharp}
       data:
@@ -168,7 +182,7 @@ MonoBehaviour:
         NextType: 1
         dialogNumber: 100003
         isEmptyPositionDialog: 1
-        dialogPosition: {x: 7, y: 1}
+        dialogPosition: {x: 4, y: 1}
     - rid: 2897497981599088771
       type: {class: FadeInAction, ns: CutScene, asm: Assembly-CSharp}
       data:
@@ -226,7 +240,7 @@ MonoBehaviour:
       data:
         _actionType: 12
         NextType: 1
-        value: 8
+        value: 6.5
         time: 2
     - rid: 2897497981599088780
       type: {class: PlayDialogAction, ns: CutScene, asm: Assembly-CSharp}
@@ -336,7 +350,7 @@ MonoBehaviour:
       data:
         _actionType: 12
         NextType: 1
-        value: 7.2
+        value: 5.5
         time: 0.5
     - rid: 2897497981599088795
       type: {class: PlayDialogAction, ns: CutScene, asm: Assembly-CSharp}
@@ -437,7 +451,7 @@ MonoBehaviour:
       data:
         _actionType: 12
         NextType: 2
-        value: 8
+        value: 6.5
         time: 2
     - rid: 2897498049571717220
       type: {class: PlayDialogAction, ns: CutScene, asm: Assembly-CSharp}

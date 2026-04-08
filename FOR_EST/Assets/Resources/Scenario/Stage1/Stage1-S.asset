@@ -34,9 +34,9 @@ MonoBehaviour:
     followTarget: 1
     target: 0
     position: {x: 0, y: 0}
-    zoom: 11.5
+    zoom: 6.5
   Triggers: []
-  ImageResource: []
+  CutsceneObject: []
   ActionList:
   - rid: 7021410954987438246
   - rid: 7021410910219010348
@@ -295,7 +295,7 @@ MonoBehaviour:
       data:
         _actionType: 12
         NextType: 1
-        value: 11.5
+        value: 6.5
         time: 3
     - rid: 7021411023064662153
       type: {class: DelayAction, ns: CutScene, asm: Assembly-CSharp}

@@ -67,7 +67,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 35854135316492
-    m_Localized: "\u30C7\u30B6\u30A4\u30CA\u30FC"
+    m_Localized: "\u4F01\u753B"
     m_Metadata:
       m_Items: []
   - m_Id: 35854135316493
@@ -79,11 +79,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 35854135316495
-    m_Localized: Park Gieun
+    m_Localized: Park   Gieun
     m_Metadata:
       m_Items: []
   - m_Id: 35854135316496
-    m_Localized: Oh DongGun
+    m_Localized: Oh  DongGun
     m_Metadata:
       m_Items: []
   - m_Id: 35854135316497
@@ -99,7 +99,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 35854135316500
-    m_Localized: Development
+    m_Localized: "\u30D7\u30ED\u30B0\u30E9\u30DE\u30FC"
     m_Metadata:
       m_Items: []
   - m_Id: 35854135316501
@@ -111,7 +111,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 35854135316503
-    m_Localized: Son Jiwon
+    m_Localized: Son    Jiwon
     m_Metadata:
       m_Items: []
   - m_Id: 35854135316504
@@ -119,7 +119,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 35854135316505
-    m_Localized: Sin HaYong
+    m_Localized: Sin  HaYong
     m_Metadata:
       m_Items: []
   - m_Id: 35854135316506

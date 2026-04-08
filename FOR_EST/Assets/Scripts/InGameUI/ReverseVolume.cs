@@ -11,7 +11,7 @@ public class ReverseVolume : MonoBehaviour
         float cameraY = Camera.main.transform.position.y;
 
 
-        if (cameraY >= 0.05)
+        if (cameraY >=-0.5f)
         {
             AudioSource.mute = false;
             ReverseAudioSource.mute = true;

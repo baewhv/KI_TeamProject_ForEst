@@ -1863,9 +1863,21 @@ PrefabInstance:
       value: InGamePanelManager
       objectReference: {fileID: 0}
     - target: {fileID: 5307896291697179856, guid: defe42e2958a7014c9af705752a5381f, type: 3}
+      propertyPath: jpPanel
+      value: 
+      objectReference: {fileID: 8707444801657823518}
+    - target: {fileID: 5307896291697179856, guid: defe42e2958a7014c9af705752a5381f, type: 3}
+      propertyPath: engPanel
+      value: 
+      objectReference: {fileID: 8707444801657823520}
+    - target: {fileID: 5307896291697179856, guid: defe42e2958a7014c9af705752a5381f, type: 3}
       propertyPath: escPanel
       value: 
       objectReference: {fileID: 1859791265357036223}
+    - target: {fileID: 5307896291697179856, guid: defe42e2958a7014c9af705752a5381f, type: 3}
+      propertyPath: korPanel
+      value: 
+      objectReference: {fileID: 8707444801657823519}
     - target: {fileID: 6313164479809871268, guid: defe42e2958a7014c9af705752a5381f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 393.3252
@@ -2136,6 +2148,14 @@ PrefabInstance:
     - target: {fileID: 4987499577850889507, guid: f3d07eb4fff41ac4ea4dc87821ace3e2, type: 3}
       propertyPath: m_Name
       value: StageT_Grid
+      objectReference: {fileID: 0}
+    - target: {fileID: 8120747677677333530, guid: f3d07eb4fff41ac4ea4dc87821ace3e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8120747677677333530, guid: f3d07eb4fff41ac4ea4dc87821ace3e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.8
       objectReference: {fileID: 0}
     - target: {fileID: 8140324666548606083, guid: f3d07eb4fff41ac4ea4dc87821ace3e2, type: 3}
       propertyPath: m_ColliderPaths.Array.size
@@ -8343,6 +8363,21 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27437be2b15643744b701ea561538711, type: 3}
+--- !u!1 &8707444801657823518 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1923411096543708059, guid: 27437be2b15643744b701ea561538711, type: 3}
+  m_PrefabInstance: {fileID: 8707444801657823517}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8707444801657823519 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7302006688179596535, guid: 27437be2b15643744b701ea561538711, type: 3}
+  m_PrefabInstance: {fileID: 8707444801657823517}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8707444801657823520 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6117366543734779580, guid: 27437be2b15643744b701ea561538711, type: 3}
+  m_PrefabInstance: {fileID: 8707444801657823517}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
