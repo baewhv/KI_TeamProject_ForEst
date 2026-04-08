@@ -22,14 +22,17 @@ public class InGameUI : MonoBehaviour
             {
                 case Language.EN:
                     engPanel.SetActive(true);
+                    LanguageSetting.currentLanguage = (Language)0;
                     break;
 
                 case Language.KR:
                     korPanel.SetActive(true);
+                    LanguageSetting.currentLanguage = (Language)1;
                     break;
 
                 case Language.JP:
                     jpPanel.SetActive(true);
+                    LanguageSetting.currentLanguage = (Language)2;
                     break;
             }
         }
