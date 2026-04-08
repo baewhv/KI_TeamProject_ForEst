@@ -27,6 +27,7 @@ public class SceneManagement : SingletonMonoBehaviour<SceneManagement>
     
     public void LoadNextScene()
     {
+        CutSceneManager.Instance.UnLoadScenario();
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
         if (currentIndex == 4) currentIndex = -1;
         SceneManager.LoadScene(currentIndex + 1);
