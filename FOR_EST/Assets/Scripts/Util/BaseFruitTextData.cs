@@ -34,6 +34,11 @@ public class BaseFruitTextData : BaseInteractionObject
             _textBox.SetActive(false);
         }
     }
+
+    private void Update()
+    {
+        _text.text = GetTextLanguage(_targetData);
+    }
     
     public void LoadCSV()
     {
@@ -67,7 +72,7 @@ public class BaseFruitTextData : BaseInteractionObject
             case Language.KR: return data.textKR;
             case Language.EN: return data.textEN;
             case Language.JP: return data.textJP;
-            default: return data.textKR;
+            default: return data.textEN;
         }
     }
     
