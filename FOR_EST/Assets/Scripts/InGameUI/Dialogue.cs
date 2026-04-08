@@ -14,9 +14,9 @@ public class Dialogue : SingletonMonoBehaviour<Dialogue>
     private Vector3 _offset;
     Transform currentTarget;
     private int _currentID;
-    public int languageIndex = 6; // CSV파일에서 텍스트가 있는 열의 인덱스 5 : 한국어, 6: 영어, 7: 일본어
-    public const int minLang = 6;
-    public const int maxLang = 8;
+    public int languageIndex = 5; // CSV파일에서 텍스트가 있는 열의 인덱스 5 : 한국어, 6: 영어, 7: 일본어
+    public const int minLang = 5;
+    public const int maxLang = 7;
     
     private UserInput _input;
 
