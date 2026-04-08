@@ -56,7 +56,7 @@ public class HappyFruit : BaseFruitTextData
                 return;
             }
 
-            var playerMovement = _playerHand.GetComponentInParent<PlayerMovement>();
+            var playerMovement = _playerHand.GetComponentInParent<CharacterMovement>();
             if (playerMovement != null)
             {
                 float playerVX = playerMovement._rigidbody.linearVelocityX;

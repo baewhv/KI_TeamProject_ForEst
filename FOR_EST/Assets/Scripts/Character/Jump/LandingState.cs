@@ -7,10 +7,10 @@
 
 public class LandingState : IState
 {
-    private PlayerStatus _status;
-    private PlayerMovement _movement;
+    private CharacterStatus _status;
+    private CharacterMovement _movement;
 
-    public LandingState(PlayerStatus status, PlayerMovement movement)
+    public LandingState(CharacterStatus status, CharacterMovement movement)
     {
         _status = status;
         _movement = movement;

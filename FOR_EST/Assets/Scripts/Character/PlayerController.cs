@@ -6,13 +6,13 @@ using UnityEngine.InputSystem;
 /// <summary>
 /// 플레이어 조작 부분
 /// </summary>
-public class PlayerController : MonoBehaviour, IRespawnable
+public class PlayerController : MonoBehaviour, IRespawnable, IGrabInteractor
 {
-    [SerializeField] private PlayerStatus _status = new PlayerStatus();
-    public PlayerStatus GetStatus => _status;
+    [SerializeField] private CharacterStatus _status = new CharacterStatus();
+    public CharacterStatus GetStatus => _status;
     [SerializeField] private Transform _grabPoint;
-    private PlayerMovement _movement;
-    private PlayerReverse _reverse;
+    private CharacterMovement _movement;
+    private CharacterReverse _reverse;
     private ReverseView _reverseView;
 
     private UserInput _input;
@@ -35,9 +35,9 @@ public class PlayerController : MonoBehaviour, IRespawnable
     private void Awake()
     {
         _input = new UserInput();
-        _movement = GetComponent<PlayerMovement>();
+        _movement = GetComponent<CharacterMovement>();
         _movement.Init(_status);
-        _reverse = GetComponent<PlayerReverse>();
+        _reverse = GetComponent<CharacterReverse>();
         _reverseView = GetComponentInChildren<ReverseView>();
         _status.InputAxis.AddListener(SetDirection);
         _movement._rigidbody.gravityScale = _status.GravityScale;
@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour, IRespawnable
         _anim = GetComponentInChildren<Animator>();
         _renderer = GetComponentInChildren<SpriteRenderer>();
         _spawnPos = transform.position;
-
+        
         _status.IsReverse = transform.position.y < 0;
         _movement._rigidbody.gravityScale = _status.GravityScale * (_status.IsReverse ? -1 : 1);
         transform.localScale *= new Vector2(1f, _status.IsReverse ? -1 : 1);

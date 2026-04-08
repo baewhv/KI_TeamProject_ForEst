@@ -16,7 +16,7 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
     public Queue<ScenarioSO> ScenarioQueue { get; private set; } = new();
 
     // 컷씬용 오브젝트
-    private GameObject CutSceneObjects;
+    private GameObject _cutSceneObjects;
     
     private GameObject _cutSceneTriggerPrefab;
 
@@ -31,13 +31,13 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
     public VideoPlayer VideoPlayer { get; private set; }
 
     // 연출 플레이어
-    public PlayerCutSceneController Player { get; private set; }
+    public CharacterCutsceneController Player { get; private set; }
 
     // 연출 NPC 시드
-    public PlayerCutSceneController Seed { get; private set; }
+    public CharacterCutsceneController Seed { get; private set; }
 
     // 연출 NPC 시드콩
-    public PlayerCutSceneController Seed_B { get; private set; }
+    public CharacterCutsceneController Seed_B { get; private set; }
 
     public GameObject EmptyObject { get; private set; }
 
@@ -52,9 +52,9 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
 
     private PlayerController pc;
 
-
     private HashSet<int> cutsceneHash = new();
 
+    private Dictionary<int, GameObject> CutsceneObject = new ();
 
     protected override void Awake()
     {
@@ -77,7 +77,7 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
 
     private void InitPrefabs()
     {
-        CutSceneObjects = new GameObject("CutsceneObject");
+        _cutSceneObjects = new GameObject("CutsceneObject");
         beforeMask = Resources.Load<LayerMaskSO>("Util/DefaultCameraMask").layerMask;
         cutsceneMask = Resources.Load<LayerMaskSO>("Util/CutsceneMask").layerMask;
         _cutSceneTriggerPrefab = Resources.Load<GameObject>("Prefab/Cutscene/CutsceneTrigger");
@@ -90,17 +90,17 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
 
         GameObject go = Resources.Load<GameObject>("Prefab/Cutscene/P_Est_Cutscene");
         pc = FindAnyObjectByType<PlayerController>();
-        Player = Instantiate(go, transform).GetComponent<PlayerCutSceneController>();
+        Player = Instantiate(go, transform).GetComponent<CharacterCutsceneController>();
             Player.Init(pc ? pc.GetStatus : null);
         go = Resources.Load<GameObject>("Prefab/Cutscene/CinemachineCamera");
         CutsceneCamera = Instantiate(go, transform).GetComponent<CinemachineCamera>();
         go = Resources.Load<GameObject>("Prefab/Cutscene/CutSceneCanvas");
         CinemaUI = Instantiate(go, transform).GetComponent<CutsceneUIController>();
         go = Resources.Load<GameObject>("Prefab/Cutscene/N_Seed_Cutscene");
-        Seed = Instantiate(go, transform).GetComponent<PlayerCutSceneController>();
+        Seed = Instantiate(go, transform).GetComponent<CharacterCutsceneController>();
         Seed.Init(null);
         go = Resources.Load<GameObject>("Prefab/Cutscene/N_Seed_B_Cutscene");
-        Seed_B = Instantiate(go, transform).GetComponent<PlayerCutSceneController>();
+        Seed_B = Instantiate(go, transform).GetComponent<CharacterCutsceneController>();
         Seed_B.Init(null);
         EmptyObject = new GameObject("EmptyObject");
         EmptyObject.transform.SetParent(transform);
@@ -139,15 +139,21 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
     {
         for (int i = 0; i < data.Count; i++)
         {
-            if(!CutSceneObjects)
-                CutSceneObjects = new GameObject("CutsceneObject");
-            CutsceneTrigger trigger = Instantiate(_cutSceneTriggerPrefab, CutSceneObjects.transform).GetComponent<CutsceneTrigger>();
+            if(!_cutSceneObjects)
+                _cutSceneObjects = new GameObject("CutsceneObject");
+            CutsceneTrigger trigger = Instantiate(_cutSceneTriggerPrefab, _cutSceneObjects.transform).GetComponent<CutsceneTrigger>();
             trigger.Init(data[i]);
         }
     }
 
     public void UnLoadScenario()
     {
+        foreach (GameObject obj in CutsceneObject.Values)
+        {
+            if(obj)
+                Destroy(obj);
+        }
+        CutsceneObject.Clear();
         Scenarios.Clear();
     }
 
@@ -267,7 +273,7 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
         }
     }
 
-    public void SetCharacter(PlayerCutSceneController cutSceneObj, GameObject inGameObj, CharacterCutsceneData data)
+    public void SetCharacter(CharacterCutsceneController cutSceneObj, GameObject inGameObj, CharacterCutsceneData data)
     {
         if (inGameObj && data.GetInGamePosition)
         {
@@ -313,7 +319,7 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
         StartCoroutine(ResetCameraBlend());
     }
 
-    public PlayerCutSceneController GetCharacter(ESelectedCharacter character)
+    public CharacterCutsceneController GetCharacter(ESelectedCharacter character)
     {
         switch (character)
         {
@@ -333,5 +339,15 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
         yield return new WaitForNextFrameUnit();
         CinemachineBrain brain = mainCamera.GetComponent<CinemachineBrain>();
         brain.DefaultBlend.Time = 2;
+    }
+
+    public void CreateObject(int objectNumber, Vector2 position)
+    {
+        if (!CutsceneObject.ContainsKey(objectNumber))
+        {
+            CutsceneObject[objectNumber] =
+                Instantiate(ScenarioQueue.Peek().CutsceneObject[objectNumber], _cutSceneObjects.transform);
+            CutsceneObject[objectNumber].transform.position = position;
+        }
     }
 }

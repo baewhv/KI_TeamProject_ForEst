@@ -2,12 +2,12 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class PlayerCutSceneController : MonoBehaviour, ICutsceneObject
+public class CharacterCutsceneController : MonoBehaviour, ICutsceneObject, IGrabInteractor
 {
-    [SerializeField] private PlayerStatus _status = new PlayerStatus();
+    [SerializeField] private CharacterStatus _status = new CharacterStatus();
 
     [SerializeField] private Transform _grabPoint;
-    private PlayerMovement _movement;
+    private CharacterMovement _movement;
     public bool DoAction;
 
     [SerializeField] private Animator _anim;
@@ -21,13 +21,13 @@ public class PlayerCutSceneController : MonoBehaviour, ICutsceneObject
     [SerializeField] private LayerMask grabLayer;
     [SerializeField] private LayerMask groundLayer;
 
-    public void Init(PlayerStatus status)
+    public void Init(CharacterStatus status)
     {
         transform.position = new Vector2(0, 0.5f);
 //        _status = new PlayerStatus();
         if (status != null)
             _status.CopyStatus(status);
-        _movement = GetComponent<PlayerMovement>();
+        _movement = GetComponent<CharacterMovement>();
         _movement.Init(_status);
         _movement._rigidbody.gravityScale = _status.GravityScale;
     }
@@ -129,14 +129,18 @@ public class PlayerCutSceneController : MonoBehaviour, ICutsceneObject
             OffGrab();
             return;
         }
+        Debug.Log("GrabStart");
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * (_status.IsRight ? 1 : -1), 0.5f,
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * (_status.IsRight ? 1 : -1), 1f,
             grabLayer);
+        Debug.Log(hit.collider?.name);
         if (hit.collider && (hit.collider.CompareTag("Obstacle") || hit.collider.CompareTag("Fruit")))
         {
+            Debug.Log("Grabbed");
             _status.GrabbedObject = hit.collider.GetComponent<IPullable>();
             _status.GrabbedObject.OnPull(_grabPoint);
             _status.IsGrab = true;
+            _anim.SetBool("Grab", true);
         }
     }
 
@@ -144,6 +148,7 @@ public class PlayerCutSceneController : MonoBehaviour, ICutsceneObject
     {
         _status.GrabbedObject = null;
         _status.IsGrab = false;
+        _anim.SetBool("Grab", false);   
     }
 
 

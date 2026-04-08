@@ -3,7 +3,7 @@ using System.Runtime.InteropServices.ComTypes;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerReverse : MonoBehaviour, IReversable
+public class CharacterReverse : MonoBehaviour, IReversable
 {
     private Rigidbody2D _rb;
 

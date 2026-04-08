@@ -63,7 +63,7 @@ public abstract class BaseInteractionObject : MonoBehaviour, IPullable, IRespawn
     {
         if (_playerHand != null)
         {
-            var player = _playerHand.GetComponentInParent<PlayerController>();
+            var player = _playerHand.GetComponentInParent<IGrabInteractor>();
             if (player != null) player?.OffGrab();
         }
         _isPulling = false;

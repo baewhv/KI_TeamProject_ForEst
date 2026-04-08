@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEditorInternal;
@@ -14,7 +13,7 @@ public class ScenarioSOEditor : Editor
     private SerializedProperty _seedProperty;
     private SerializedProperty _seedBProperty;
     private SerializedProperty _cameraProperty;
-    private SerializedProperty _imgListProperty;
+    private SerializedProperty _objectProperty;
     private SerializedProperty _triggerListProperty;
     
     private ReorderableList _actionList;
@@ -28,7 +27,7 @@ public class ScenarioSOEditor : Editor
         _seedBProperty = serializedObject.FindProperty("SeedBData");
         _cameraProperty = serializedObject.FindProperty("CameraData");
         
-        _imgListProperty = serializedObject.FindProperty("ImageResource");
+        _objectProperty = serializedObject.FindProperty("CutsceneObject");
         _triggerListProperty = serializedObject.FindProperty("Triggers");
         
         
@@ -100,10 +99,8 @@ public class ScenarioSOEditor : Editor
         EditorGUILayout.PropertyField(_seedBProperty, new GUIContent("시드콩 설정"), true);
         EditorGUILayout.PropertyField(_cameraProperty, new GUIContent("카메라 설정"), true);
         
-        //EditorGUILayout.PropertyField(_imgListProperty, new GUIContent("이미지 설정(준비중)"), true);
+        EditorGUILayout.PropertyField(_objectProperty, new GUIContent("컷씬 오브젝트"), true);
         EditorGUILayout.PropertyField(_triggerListProperty, new GUIContent("트리거 리스트"), true);
-        
-        
             
         _actionList.DoLayoutList();
         if (GUILayout.Button("위치 확인용(테스트중)"))
@@ -122,8 +119,6 @@ public class ScenarioSOEditor : Editor
         go.name = "[TEMP] Cutscene Helper";
         go.hideFlags = HideFlags.DontSave | HideFlags.DontSaveInEditor;
         go.AddComponent<EditorHelper>();
-        
-
     }
 
     private BaseAction CreateActionInstance(EActions type)
@@ -156,6 +151,10 @@ public class ScenarioSOEditor : Editor
                 return new CharacterFaderAction();
             case EActions.Delay:
                 return new DelayAction();
+            case EActions.CharacterGrab:
+                return new CharacterGrabAction();
+            case EActions.CreateObject:
+                return new CreateObjectAction();
 
             default:
                 return new DelayAction();
@@ -192,6 +191,10 @@ public class ScenarioSOEditor : Editor
                 return "캐릭터 페이드";
             case EActions.Delay:
                 return "딜레이";
+            case EActions.CharacterGrab:
+                return "캐릭터 잡기";
+            case EActions.CreateObject:
+                return "오브젝트 생성";
             default:
                 return "에러";
         }

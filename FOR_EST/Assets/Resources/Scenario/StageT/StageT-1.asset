@@ -34,7 +34,7 @@ MonoBehaviour:
     followTarget: 0
     target: 0
     position: {x: 9, y: 8.6}
-    zoom: 6.5
+    zoom: 7.5
   Triggers: []
   CutsceneObject: []
   ActionList:
@@ -143,7 +143,7 @@ MonoBehaviour:
         NextType: 1
         dialogNumber: 100061
         isEmptyPositionDialog: 1
-        dialogPosition: {x: -20, y: -18}
+        dialogPosition: {x: -7, y: -15}
     - rid: 2897498032376119307
       type: {class: CameraMoveAction, ns: CutScene, asm: Assembly-CSharp}
       data:

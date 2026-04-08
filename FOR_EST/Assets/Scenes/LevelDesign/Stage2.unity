@@ -1550,6 +1550,21 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4861887098132174327, guid: 27437be2b15643744b701ea561538711, type: 3}
   m_PrefabInstance: {fileID: 702384195}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &702384198 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1923411096543708059, guid: 27437be2b15643744b701ea561538711, type: 3}
+  m_PrefabInstance: {fileID: 702384195}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &702384199 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6117366543734779580, guid: 27437be2b15643744b701ea561538711, type: 3}
+  m_PrefabInstance: {fileID: 702384195}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &702384200 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7302006688179596535, guid: 27437be2b15643744b701ea561538711, type: 3}
+  m_PrefabInstance: {fileID: 702384195}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &723417147
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2388,9 +2403,21 @@ PrefabInstance:
       value: InGamePanelManager
       objectReference: {fileID: 0}
     - target: {fileID: 5307896291697179856, guid: defe42e2958a7014c9af705752a5381f, type: 3}
+      propertyPath: jpPanel
+      value: 
+      objectReference: {fileID: 702384198}
+    - target: {fileID: 5307896291697179856, guid: defe42e2958a7014c9af705752a5381f, type: 3}
+      propertyPath: engPanel
+      value: 
+      objectReference: {fileID: 702384199}
+    - target: {fileID: 5307896291697179856, guid: defe42e2958a7014c9af705752a5381f, type: 3}
       propertyPath: escPanel
       value: 
       objectReference: {fileID: 702384197}
+    - target: {fileID: 5307896291697179856, guid: defe42e2958a7014c9af705752a5381f, type: 3}
+      propertyPath: korPanel
+      value: 
+      objectReference: {fileID: 702384200}
     - target: {fileID: 6313164479809871268, guid: defe42e2958a7014c9af705752a5381f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 393.3252
@@ -3754,6 +3781,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3387148184092201166, guid: 9b71787875b2cb24192facb584d7bb17, type: 3}
+      propertyPath: checkID
+      value: 9999
+      objectReference: {fileID: 0}
     - target: {fileID: 4773404934662776891, guid: 9b71787875b2cb24192facb584d7bb17, type: 3}
       propertyPath: m_Name
       value: Stage2_Grid

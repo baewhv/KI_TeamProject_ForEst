@@ -2,10 +2,10 @@
 
 public class JumpingState : IState
 {
-    private PlayerStatus _status;
-    private PlayerMovement _movement;
+    private CharacterStatus _status;
+    private CharacterMovement _movement;
 
-    public JumpingState(PlayerStatus status, PlayerMovement movement)
+    public JumpingState(CharacterStatus status, CharacterMovement movement)
     {
         _status = status;
         _movement = movement;

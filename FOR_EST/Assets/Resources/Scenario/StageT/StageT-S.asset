@@ -109,7 +109,7 @@ MonoBehaviour:
         NextType: 1
         dialogNumber: 100004
         isEmptyPositionDialog: 1
-        dialogPosition: {x: 7, y: -3.5}
+        dialogPosition: {x: 4, y: -3.5}
     - rid: 2307714538049634384
       type: {class: BackgroundImageAction, ns: CutScene, asm: Assembly-CSharp}
       data:
@@ -167,7 +167,7 @@ MonoBehaviour:
         NextType: 1
         dialogNumber: 100001
         isEmptyPositionDialog: 1
-        dialogPosition: {x: 7, y: -3.5}
+        dialogPosition: {x: 4, y: -3.5}
     - rid: 2897497981599088769
       type: {class: BackgroundImageAction, ns: CutScene, asm: Assembly-CSharp}
       data:
@@ -182,7 +182,7 @@ MonoBehaviour:
         NextType: 1
         dialogNumber: 100003
         isEmptyPositionDialog: 1
-        dialogPosition: {x: 7, y: 1}
+        dialogPosition: {x: 4, y: 1}
     - rid: 2897497981599088771
       type: {class: FadeInAction, ns: CutScene, asm: Assembly-CSharp}
       data:

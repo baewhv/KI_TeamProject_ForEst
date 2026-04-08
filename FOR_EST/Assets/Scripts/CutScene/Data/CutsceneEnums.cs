@@ -20,6 +20,8 @@ namespace CutScene
         [InspectorName("카메라 줌")]CameraZoom,
         [InspectorName("딜레이")]Delay,
         [InspectorName("비디오 재생")]VideoPlay,
+        [InspectorName("캐릭터 잡기")]CharacterGrab,
+        [InspectorName("오브젝트 생성")]CreateObject,
         Max
     }
 

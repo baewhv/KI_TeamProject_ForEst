@@ -306,7 +306,7 @@ MonoBehaviour:
     MoveSpeed: 200
     JumpPower: 3.5
     GravityScale: 3
-  _grabPoint: {fileID: 0}
+  _grabPoint: {fileID: 7449944866376114759}
   DoAction: 0
   _anim: {fileID: 1636722918157354923}
   _renderer: {fileID: 3128296105000866846}
@@ -314,7 +314,7 @@ MonoBehaviour:
   Target: {x: 0, y: 0}
   grabLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   groundLayer:
     serializedVersion: 2
     m_Bits: 0

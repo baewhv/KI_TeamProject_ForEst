@@ -6,7 +6,7 @@ using UnityEngine;
 /// 속도, 점프력 등 이동관련으로 설정.
 /// </summary>
 [System.Serializable]
-public class PlayerStatus
+public class CharacterStatus
 {
     public ObserveValue<Vector2> InputAxis = new ObserveValue<Vector2>();
     public float MoveSpeed;
@@ -22,7 +22,7 @@ public class PlayerStatus
     public ObserveValue<bool> OIsReverse { get; private set; } = new();
     public Vector2 BeforePosition { get; set; }
 
-    public void CopyStatus(PlayerStatus other)
+    public void CopyStatus(CharacterStatus other)
     {
         MoveSpeed = other.MoveSpeed;
         JumpPower = other.JumpPower;

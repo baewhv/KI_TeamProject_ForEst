@@ -16,13 +16,13 @@ MonoBehaviour:
     character: 0
     ShowCharacter: 1
     GetInGamePosition: 0
-    position: {x: 6, y: 1}
+    position: {x: 6, y: -1}
     isRight: 0
   SeedData:
     character: 1
     ShowCharacter: 1
     GetInGamePosition: 0
-    position: {x: 3, y: 1}
+    position: {x: 3, y: -1}
     isRight: 1
   SeedBData:
     character: 2
@@ -39,8 +39,6 @@ MonoBehaviour:
   CutsceneObject: []
   ActionList:
   - rid: 2307714559875743825
-  - rid: 7021411028578336884
-  - rid: 7021411028578336885
   - rid: 7021411028578336879
   - rid: 7021411028578336881
   - rid: 7021411028578336880
@@ -136,18 +134,6 @@ MonoBehaviour:
         character: 1
         position: {x: 0, y: -1}
         isForceMove: 0
-    - rid: 7021411028578336884
-      type: {class: CharacterReverseAction, ns: CutScene, asm: Assembly-CSharp}
-      data:
-        _actionType: 3
-        NextType: 1
-        character: 0
-    - rid: 7021411028578336885
-      type: {class: CharacterReverseAction, ns: CutScene, asm: Assembly-CSharp}
-      data:
-        _actionType: 3
-        NextType: 1
-        character: 1
     - rid: 7021411028578336886
       type: {class: PlayDialogAction, ns: CutScene, asm: Assembly-CSharp}
       data:
