@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7737830176731575187}
   - component: {fileID: 8736091725085864376}
   - component: {fileID: 4014900764526169465}
-  m_Layer: 25
+  m_Layer: 26
   m_Name: N_SeedBean2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 3499161519533304155}
   - component: {fileID: 1400036452191124999}
   - component: {fileID: 114553792196361737}
-  m_Layer: 5
+  m_Layer: 26
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 2401246783704310169}
   - component: {fileID: 6964685576439364220}
   - component: {fileID: 3249790343325310282}
-  m_Layer: 25
+  m_Layer: 26
   m_Name: Body
   m_TagString: Seed
   m_Icon: {fileID: 0}
@@ -337,7 +337,7 @@ GameObject:
   - component: {fileID: 9065651697014370996}
   - component: {fileID: 2837157784401697829}
   - component: {fileID: 1612589964936848045}
-  m_Layer: 5
+  m_Layer: 26
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,7 +438,7 @@ GameObject:
   - component: {fileID: 3842165461069173876}
   - component: {fileID: 3023079914158806187}
   - component: {fileID: 2167214378284397692}
-  m_Layer: 5
+  m_Layer: 26
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
