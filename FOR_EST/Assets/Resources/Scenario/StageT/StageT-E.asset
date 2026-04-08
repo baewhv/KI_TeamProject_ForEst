@@ -126,7 +126,7 @@ MonoBehaviour:
       data:
         _actionType: 12
         NextType: 1
-        value: 15
+        value: 18
         time: 2
     - rid: 2307714538049634399
       type: {class: DelayAction, ns: CutScene, asm: Assembly-CSharp}
@@ -184,7 +184,7 @@ MonoBehaviour:
       data:
         _actionType: 12
         NextType: 1
-        value: 15
+        value: 18
         time: 2
     - rid: 2897498032376119317
       type: {class: PlayDialogAction, ns: CutScene, asm: Assembly-CSharp}
