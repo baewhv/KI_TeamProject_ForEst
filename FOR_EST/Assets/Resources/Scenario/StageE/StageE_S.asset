@@ -36,7 +36,8 @@ MonoBehaviour:
     position: {x: -4, y: 1}
     zoom: 6.5
   Triggers: []
-  CutsceneObject: []
+  CutsceneObject:
+  - {fileID: 148642716552802811, guid: c7a47e3f0e293874292af10b866c02ee, type: 3}
   ActionList:
   - rid: 2307714538049634457
   - rid: 2307714538049634445
@@ -54,6 +55,7 @@ MonoBehaviour:
   - rid: 2307714538049634463
   - rid: 2307714538049634461
   - rid: 2307714538049634464
+  - rid: 7021411068530393282
   - rid: 2307714538049634465
   - rid: 2307714538049634462
   - rid: 2307714538049634492
@@ -356,7 +358,7 @@ MonoBehaviour:
         _actionType: 9
         NextType: 1
         hideBackground: 0
-        backgroundImage: {fileID: -4409703693036799930, guid: ec24451bae7f25d4c82c9e21829d8ff0, type: 3}
+        backgroundImage: {fileID: 21300000, guid: ec24451bae7f25d4c82c9e21829d8ff0, type: 3}
     - rid: 2307714538049634480
       type: {class: CharacterPlayAnimationAction, ns: CutScene, asm: Assembly-CSharp}
       data:
@@ -784,3 +786,10 @@ MonoBehaviour:
         _actionType: 8
         NextType: 1
         time: 3
+    - rid: 7021411068530393282
+      type: {class: CreateObjectAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 16
+        NextType: 1
+        objectNumber: 0
+        position: {x: -2.7, y: 0}

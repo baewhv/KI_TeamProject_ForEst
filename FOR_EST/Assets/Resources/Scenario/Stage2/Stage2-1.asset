@@ -50,6 +50,7 @@ MonoBehaviour:
   - rid: 4832695620617109586
   - rid: 4832695620617109592
   - rid: 7021411068530393279
+  - rid: 7021411068530393296
   - rid: 4832695620617109596
   - rid: 4832695620617109597
   - rid: 4832695620617109598
@@ -188,3 +189,9 @@ MonoBehaviour:
         NextType: 1
         position: {x: 25, y: 15}
         time: 1
+    - rid: 7021411068530393296
+      type: {class: CameraTargetAction, ns: CutScene, asm: Assembly-CSharp}
+      data:
+        _actionType: 10
+        NextType: 1
+        character: 0
