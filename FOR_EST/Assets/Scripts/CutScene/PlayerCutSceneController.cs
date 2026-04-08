@@ -12,17 +12,20 @@ public class PlayerCutSceneController : MonoBehaviour, ICutsceneObject
 
     [SerializeField] private Animator _anim;
     [SerializeField] private SpriteRenderer _renderer;
-    [InspectorName("타겟도착 거리")] [SerializeField] private float CheckDistanceToTarget;
+
+    [InspectorName("타겟도착 거리")] [SerializeField]
+    private float CheckDistanceToTarget;
+
     [SerializeField] private Vector2 Target;
 
     [SerializeField] private LayerMask grabLayer;
     [SerializeField] private LayerMask groundLayer;
-    
+
     public void Init(PlayerStatus status)
     {
         transform.position = new Vector2(0, 0.5f);
 //        _status = new PlayerStatus();
-        if(status != null)
+        if (status != null)
             _status.CopyStatus(status);
         _movement = GetComponent<PlayerMovement>();
         _movement.Init(_status);
@@ -32,6 +35,11 @@ public class PlayerCutSceneController : MonoBehaviour, ICutsceneObject
     //연출 중 위치 강제 할당.
     public void SetPosition(Vector2 pos)
     {
+        if (Mathf.Abs(pos.y) < 0.5f)
+        {
+            pos.y = pos.y < 0 ? -0.5f : 0.5f;
+        }
+
         if (pos.y * transform.position.y < 0)
         {
             Debug.Log("reverse Position");
@@ -40,8 +48,8 @@ public class PlayerCutSceneController : MonoBehaviour, ICutsceneObject
             transform.localScale *= new Vector2(1f, -1f);
             _movement._rigidbody.gravityScale *= -1f;
         }
+
         transform.position = pos;
-        
     }
 
     public void SetDirection(bool isRight)
@@ -73,16 +81,16 @@ public class PlayerCutSceneController : MonoBehaviour, ICutsceneObject
             SetPosition(obj);
             yield break;
         }
+
         if (obj.y * transform.position.y < 0)
         {
             Debug.LogError("연출 이동 위치가 반전위치에 있습니다. 이동을 취소합니다.");
             yield break; //서로 반대되는 지역에 있을 경우
         }
-        
+
         float dist = Vector2.Distance(transform.position, Target);
         while (dist > CheckDistanceToTarget)
         {
-            
             float dir = transform.position.x < Target.x ? 1 : -1;
             _renderer.flipX = dir < 0;
             _status.InputAxis.Value = new Vector2(dir, 0);
@@ -137,7 +145,7 @@ public class PlayerCutSceneController : MonoBehaviour, ICutsceneObject
         _status.GrabbedObject = null;
         _status.IsGrab = false;
     }
-    
+
 
     private float _currentTime;
     private float _fadeTime;
