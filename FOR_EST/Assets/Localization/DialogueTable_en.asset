@@ -79,11 +79,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 35854135316495
-    m_Localized: Park Gieun
+    m_Localized: Park   Gieun
     m_Metadata:
       m_Items: []
   - m_Id: 35854135316496
-    m_Localized: Oh DongGun
+    m_Localized: Oh  DongGun
     m_Metadata:
       m_Items: []
   - m_Id: 35854135316497
@@ -111,7 +111,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 35854135316503
-    m_Localized: Son Jiwon
+    m_Localized: Son    Jiwon
     m_Metadata:
       m_Items: []
   - m_Id: 35854135316504
@@ -119,7 +119,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 35854135316505
-    m_Localized: Sin HaYong
+    m_Localized: Sin  HaYong
     m_Metadata:
       m_Items: []
   - m_Id: 35854135316506
