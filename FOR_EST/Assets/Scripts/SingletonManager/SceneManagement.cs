@@ -16,6 +16,7 @@ public class SceneManagement : SingletonMonoBehaviour<SceneManagement>
     {
         CurrentSceneName = scene.name;
         Dialogue.Instance.CreateTextBox();
+        GameManager.Instance.IsClear = false;
         GameManager.Instance.OnSceneLoadedCheck();
     }
 
