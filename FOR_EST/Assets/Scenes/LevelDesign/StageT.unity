@@ -2137,6 +2137,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageT_Grid
       objectReference: {fileID: 0}
+    - target: {fileID: 8120747677677333530, guid: f3d07eb4fff41ac4ea4dc87821ace3e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8120747677677333530, guid: f3d07eb4fff41ac4ea4dc87821ace3e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.8
+      objectReference: {fileID: 0}
     - target: {fileID: 8140324666548606083, guid: f3d07eb4fff41ac4ea4dc87821ace3e2, type: 3}
       propertyPath: m_ColliderPaths.Array.size
       value: 267
