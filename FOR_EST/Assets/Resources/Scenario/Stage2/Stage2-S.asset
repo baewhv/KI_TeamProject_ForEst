@@ -80,7 +80,7 @@ MonoBehaviour:
       type: {class: CharacterReverseAction, ns: CutScene, asm: Assembly-CSharp}
       data:
         _actionType: 3
-        NextType: 2
+        NextType: 1
         character: 1
     - rid: 4832695620617109577
       type: {class: CharacterReverseAction, ns: CutScene, asm: Assembly-CSharp}
