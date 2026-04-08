@@ -366,7 +366,7 @@ MonoBehaviour:
         _actionType: 12
         NextType: 1
         value: 8
-        time: 2
+        time: 0
     - rid: 7021410910219010222
       type: {class: FadeInAction, ns: CutScene, asm: Assembly-CSharp}
       data:
