@@ -262,6 +262,7 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
 
     public void SetCharacter(CharacterCutsceneController cutSceneObj, GameObject inGameObj, CharacterCutsceneData data)
     {
+        cutSceneObj.ResetAnimation();
         if (inGameObj && data.GetInGamePosition)
         {
             cutSceneObj.SetPosition(inGameObj.transform.position);
@@ -274,7 +275,6 @@ public class CutSceneManager : SingletonMonoBehaviour<CutSceneManager>
         cutSceneObj.SetDirection(data.isRight);
         StartCoroutine(cutSceneObj.Fader(true, 0));
         cutSceneObj.gameObject.SetActive(data.ShowCharacter);
-        cutSceneObj.ResetAnimation();
     }
 
     public void SetCamera(CameraCutsceneData data)

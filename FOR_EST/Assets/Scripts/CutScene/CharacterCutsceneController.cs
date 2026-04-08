@@ -44,11 +44,10 @@ public class CharacterCutsceneController : MonoBehaviour, ICutsceneObject, IGrab
         {
             Debug.Log("reverse Position");
             _status.IsReverse = !_status.IsReverse;
-            _anim.SetBool("Reverse", !_status.IsReverse);
+            _anim.SetBool("Reverse", _status.IsReverse);
             transform.localScale *= new Vector2(1f, -1f);
             _movement._rigidbody.gravityScale *= -1f;
         }
-
         transform.position = pos;
     }
 
@@ -68,6 +67,7 @@ public class CharacterCutsceneController : MonoBehaviour, ICutsceneObject, IGrab
         for (int i = 0; i < _anim.parameters.Length; i++)
         {
             if (_anim.parameters[i].type != AnimatorControllerParameterType.Bool) continue;
+            if (_anim.parameters[i].name == "Reverse") continue;
             _anim.SetBool(_anim.parameters[i].name, false);
         }
     }
