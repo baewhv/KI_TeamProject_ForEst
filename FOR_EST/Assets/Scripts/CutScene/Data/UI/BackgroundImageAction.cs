@@ -17,12 +17,11 @@ namespace CutScene
         {
             if(hideBackground || !backgroundImage)
             {
-                CutSceneManager.Instance.CinemaUI.BackgroundImage.color = new Color(1, 1, 1, 0);
-                CutSceneManager.Instance.CinemaUI.BackgroundImage.sprite = null;
+                CutSceneManager.Instance.CinemaUI.OffBackground();
             }
             else
             {
-                CutSceneManager.Instance.CinemaUI.BackgroundImage.color = new Color(1, 1, 1, 1);
+                CutSceneManager.Instance.CinemaUI.OnBackground();
                 CutSceneManager.Instance.CinemaUI.BackgroundImage.sprite = backgroundImage;
             }
 
