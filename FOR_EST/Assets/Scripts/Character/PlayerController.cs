@@ -102,8 +102,10 @@ public class PlayerController : MonoBehaviour, IRespawnable, IGrabInteractor
 
     private void OnJump(InputAction.CallbackContext ctx)
     {
-        if (_status.IsJumping || _status.IsFalling || !_reverseView.IsPlayerView) return;
-
+        if (_status.IsJumping || _status.IsFalling || !_reverseView.IsPlayerView || _inputKeyCheck) return;
+        if(_status.IsGrab)
+            _status.GrabbedObject.OnStopPull();
+        InputKeyCheck();
         _anim.SetBool("Jump", true);
         _movement.ChangeJumpState(_movement.Jumping);
     }
