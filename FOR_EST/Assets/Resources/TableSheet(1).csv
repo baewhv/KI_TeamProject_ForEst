@@ -2,7 +2,7 @@ ID	nextID	name	speaker	Textbox_type	Text_EN	Text_KR	Text_JP	Stage
 100001	100002	에스트	0	2	...	…	...	Tutorial_cg1
 100002	0	에스트	0	2	A strange ceiling...	낯선 천장…	見慣れない天井…	Tutorial_cg1
 100003	0	시드	0	2	Hi there.	안녕.	こんにちは。	Tutorial_cg1
-100004	100005	에스트	0	2	Wait, it's a face.	아니, 얼굴이네.	いや、顔か。	Tutorial_cg1
+100004	100005	에스트	0	2	Wait, it's a face.	"아니, 얼굴이네."	いや、顔か。	Tutorial_cg1
 100005	0	에스트	0	2	...Wow.	…우와.	…うわぁ…。	Tutorial_cg1
 100006	100007	시드	10201	0	...	…	...	Tutorial_cg1
 100007	100008	에스트	10101	0	He...llo?	안… 녕?	…こんにちは？	Tutorial_cg1

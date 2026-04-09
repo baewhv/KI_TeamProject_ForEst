@@ -131,6 +131,7 @@ public class PanelManager : MonoBehaviour
         PlayerPrefs.SetString("SaveScene", saveSceneName);
         Time.timeScale = 1f;
         SceneManagement.Instance.LoadScene("TitleScene");
+        GameManager.Instance.FruitCount = 0;
     }
 
     public void Quit()

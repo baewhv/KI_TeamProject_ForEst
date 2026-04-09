@@ -6,6 +6,11 @@ public class LocalizationTest : MonoBehaviour
     int currentIndex = 0; //현재 언어를 0번으로 초기화
     int maxIndex = 2; //언어가 3개 있으므로 최대 인덱스는 2, 0:영어, 1:한국어, 2:일본어
 
+    private void Start()
+    {
+        currentIndex = (int)LanguageSetting.currentLanguage;
+        ApplyLanguage();
+    }
     public void NextLanguage()
     {
         currentIndex++; //다음 언어로 변경

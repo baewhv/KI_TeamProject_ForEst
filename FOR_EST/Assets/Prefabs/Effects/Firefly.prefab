@@ -55,5 +55,5 @@ MonoBehaviour:
   _maxAlpha: 0.9
   _blinkSpeed: 1.5
   _colors:
-  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 0.99607843}
   _spawnMargin: 1.05
