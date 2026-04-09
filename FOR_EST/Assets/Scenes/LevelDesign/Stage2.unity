@@ -2598,6 +2598,18 @@ PrefabInstance:
       propertyPath: _fireflyPrefab
       value: 
       objectReference: {fileID: 8820830537277840866, guid: 29d7476f69725f84e97a535ea960a629, type: 3}
+    - target: {fileID: 1457645877805855835, guid: 29d7476f69725f84e97a535ea960a629, type: 3}
+      propertyPath: _colors.Array.data[0].b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457645877805855835, guid: 29d7476f69725f84e97a535ea960a629, type: 3}
+      propertyPath: _colors.Array.data[0].g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457645877805855835, guid: 29d7476f69725f84e97a535ea960a629, type: 3}
+      propertyPath: _colors.Array.data[0].r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8820830537277840866, guid: 29d7476f69725f84e97a535ea960a629, type: 3}
       propertyPath: m_Name
       value: Firefly
