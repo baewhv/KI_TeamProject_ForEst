@@ -1,3 +1,4 @@
+using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class PanelManager : MonoBehaviour
@@ -68,6 +69,28 @@ public class PanelManager : MonoBehaviour
         creditsPanel.SetActive(false);
         soundPanel.SetActive(false);
         LanguagePanel.SetActive(true);
+        {
+            engPanel.SetActive(false);
+            koreaPanel.SetActive(false);
+            jpPanel.SetActive(false);
+            switch (LanguageSetting.currentLanguage)
+            {
+                case Language.EN:
+                    engPanel.SetActive(true);
+                    LanguageSetting.currentLanguage = Language.EN;
+                    break;
+
+                case Language.KR:
+                    koreaPanel.SetActive(true);
+                    LanguageSetting.currentLanguage = Language.KR;
+                    break;
+
+                case Language.JP:
+                    jpPanel.SetActive(true);
+                    LanguageSetting.currentLanguage = Language.JP;
+                    break;
+            }
+        }
     }
     public void CloseEscPanel()
     {
