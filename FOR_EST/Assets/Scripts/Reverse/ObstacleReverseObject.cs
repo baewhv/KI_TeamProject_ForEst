@@ -74,7 +74,7 @@ public class ObstacleReverseObject : MonoBehaviour
         
         Vector2 origin = new Vector2(_collider.bounds.center.x, checkY);
         Vector2 direction = (Mathf.Sign(gravity) * -1 > 0) ? Vector2.down : Vector2.up;
-        Vector2 checkBoxSize = new Vector2(transform.localScale.x / 1.5f, 0.5f);
+        Vector2 checkBoxSize = new Vector2(transform.localScale.x / 2f, 0.2f);
 
         RaycastHit2D hit = Physics2D.BoxCast
         (
@@ -105,7 +105,7 @@ public class ObstacleReverseObject : MonoBehaviour
         
         Vector2 origin = new Vector2(_collider.bounds.center.x, checkY);
         Vector2 direction = (Mathf.Sign(gravity) * -1 > 0) ? Vector2.down : Vector2.up;
-        Vector2 checkBoxSize = new Vector2(transform.localScale.x / 1.5f , 0.5f);
+        Vector2 checkBoxSize = new Vector2(transform.localScale.x / 2f , 0.2f);
         Vector2 targetPosition = origin + direction * 0.1f;
 
         Gizmos.color = Color.cyan;
