@@ -7,20 +7,25 @@
 - 개발기간 : 3주
 - 배포 URL : https://devel-rocket.itch.io/for-est
 - Github Repository URL : https://github.com/Kyungil-smart/08-firstcollabproject-kamyou1130
-- 팀 정보 : 
-    - PM : 김태환
-    - 기획 팀장 : 김서현
-    - 시스템, 레벨 : 오동건
-    - 레벨, 로컬라이징 : 이원홍
-    - 아트 : 박기은 
-    - 시나리오, 연출 : 장윤우
-    - UI, UX : 유해찬
-    - 개발 팀장 : 김유훈
-    - 맵 : 김덕환
-    - 연출 : 배정민
-    - 카메라 : 손지원
-    - UI : 신하용
 - 스크린샷 / 시연영상 : https://www.youtube.com/watch?v=vv52sr5TxfY
+<details>
+<summary>팀 정보 : 기획 7명, 개발 5명</summary>
+<div markdown = "1">
+    
+- 기획 팀장 : 김서현 <br>
+- PM : 김태환 <br>
+- 시스템, 레벨 : 오동건 <br>
+- 레벨, 로컬라이징 : 이원홍 <br>
+- 아트 : 박기은 <br>
+- 시나리오, 연출 : 장윤우 <br>
+- UI, UX : 유해찬 <br>
+- 개발 팀장 : 김유훈 <br>
+- 맵 : 김덕환 <br>
+- 연출 : 배정민 <br>
+- 카메라 : 손지원 <br>
+- UI : 신하용 <br>
+</div>
+</details>
 
 ## 담당 기능
 - 연출 담당
